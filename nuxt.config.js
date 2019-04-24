@@ -2,94 +2,95 @@ import proxy from 'http-proxy-middleware'
 import pkg from './package'
 
 export default {
-  mode: 'spa',
+	mode: 'spa',
 
-  /*
-   ** Headers of the page
-   */
-  head: {
-    title: pkg.name,
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-  },
+	/*
+	 ** Headers of the page
+	 */
+	head: {
+		title: pkg.name,
+		meta: [
+			{charset: 'utf-8'},
+			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
+			{hid: 'description', name: 'description', content: pkg.description},
+		],
+		link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}],
+	},
 
-  /*
-   ** Customize the progress-bar color
-   */
-  loading: { color: '#fff' },
+	/*
+	 ** Customize the progress-bar color
+	 */
+	loading: {color: '#fff'},
 
-  /*
-   ** Global CSS
-   */
-  css: [],
+	/*
+	 ** Global CSS
+	 */
+	css: [],
 
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [],
+	/*
+	 ** Plugins to load before mounting the App
+	 */
+	plugins: [],
 
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma'
-  ],
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
+	/*
+	 ** Nuxt.js modules
+	 */
+	modules: [
+		// Doc: https://axios.nuxtjs.org/usage
+		'@nuxtjs/axios',
+		// Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
+		'@nuxtjs/bulma',
+	],
 
-  /*
-   ** Build configuration
-   */
-  build: {
-    postcss: {
-      preset: {
-        features: {
-          customProperties: false
-        }
-      }
-    },
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  },
+	/*
+	 ** Axios module configuration
+	 */
+	axios: {
+		// See https://github.com/nuxt-community/axios-module#options
+	},
 
-  router: {
-    base:
-      process.env.NODE_ENV === 'development' ? '/' : '/themes/tsgctf/static/'
-  },
+	/*
+	 ** Build configuration
+	 */
+	build: {
+		postcss: {
+			preset: {
+				features: {
+					customProperties: false,
+				},
+			},
+		},
 
-  serverMiddleware: [
-    ...(process.env.NODE_ENV === 'development'
-      ? [
-          {
-            path: '/api',
-            handler: proxy({
-              target: 'http://localhost:8000'
-            })
-          }
-        ]
-      : [])
-  ]
+		/*
+		 ** You can extend webpack config here
+		 */
+		extend(config, ctx) {
+			// Run ESLint on save
+			if (ctx.isDev && ctx.isClient) {
+				config.module.rules.push({
+					enforce: 'pre',
+					test: /\.(js|vue)$/,
+					loader: 'eslint-loader',
+					exclude: /(node_modules)/,
+				})
+			}
+		},
+	},
+
+	router: {
+		base: process.env.NODE_ENV === 'development' ? '/' : '/themes/tsgctf/static/',
+	},
+
+	serverMiddleware: [
+		...(process.env.NODE_ENV === 'development'
+			? [
+				{
+					path: '/api',
+					handler: proxy({
+						target: 'http://localhost:8000',
+					}),
+				},
+			  ]
+			: []),
+	],
 }
