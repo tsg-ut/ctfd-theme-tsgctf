@@ -1,21 +1,15 @@
 <template>
-	<section class="container">
+	<section class="Index">
 		<div>
-			<h1 class="ctf-logo">
-				{{ctfName}}
-			</h1>
+			<h1 class="ctf-logo">{{ctfName}}</h1>
+			<p class="subtitle">Pwn, Rev, Web, Crypto, Forensics, Stego, etc...</p>
 			<div class="timer">{{timer}}</div>
-			<ul class="challenges">
-				<li v-for="challenge in challenges" :key="challenge.id">
-					{{challenge.name}}
-				</li>
-			</ul>
 		</div>
 	</section>
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex';
+import {mapGetters} from 'vuex';
 
 export default {
 	data() {
@@ -27,20 +21,13 @@ export default {
 		...mapGetters({
 			ctfName: 'ctfName',
 		}),
-		...mapState({
-			challenges: (state) => state.challenges.challenges,
-		}),
 		timer() {
 			const days = Math.floor(this.remainingTime / 1000 / 60 / 60 / 24).toString().padStart(2, '0');
 			const hours = (Math.floor(this.remainingTime / 1000 / 60 / 60) % 24).toString().padStart(2, '0');
 			const minutes = (Math.floor(this.remainingTime / 1000 / 60) % 60).toString().padStart(2, '0');
 			const seconds = (Math.floor(this.remainingTime / 1000) % 60).toString().padStart(2, '0');
-			const milliseconds = (this.remainingTime % 1000).toString().padStart(3, '0');
 			return `${days}:${hours}:${minutes}:${seconds}`;
 		},
-	},
-	async asyncData(context) {
-		await context.store.dispatch('challenges/updateChallenges', context);
 	},
 	mounted() {
 		setInterval(() => {
@@ -51,34 +38,37 @@ export default {
 </script>
 
 <style>
-.container {
+.Index {
 	margin: 0 auto;
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-}
 
-.ctf-logo {
-	font-family: 'Fredoka One', cursive;
-	font-size: 8rem;
-	font-weight: 300;
-	color: rgb(0, 150, 250);
-	-webkit-text-fill-color: transparent;
-	background: linear-gradient(90deg, rgb(234, 41, 32) 0%, rgb(128, 8, 230) 100%);
-	background-clip: text;
-	display: block;
-	letter-spacing: 1px;
-	margin-left: 1rem;
-}
+	.ctf-logo {
+		font-family: 'Fredoka One', cursive;
+		font-size: 8rem;
+		font-weight: 300;
+		color: rgb(0, 150, 250);
+		-webkit-text-fill-color: transparent;
+		background: linear-gradient(90deg, rgb(255, 24, 13) 0%, rgb(138, 0, 255) 100%);
+		background-clip: text;
+		display: block;
+		letter-spacing: 1px;
+	}
 
-.timer {
-	font-family: 'Roboto', sans-serif;
-	font-size: 4rem;
-}
+	.subtitle {
+		font-family: 'Roboto', sans-serif;
+		font-size: 1.5rem;
+		margin-top: -1rem;
+		opacity: 0.3;
+	}
 
-.challenges {
-	display: none;
+	.timer {
+		margin-top: 1rem;
+		font-family: 'Roboto', sans-serif;
+		font-size: 4rem;
+	}
 }
 </style>

@@ -17,7 +17,9 @@
 				</div>
 			</div>
 		</div>
-		<nuxt/>
+		<div class="content">
+			<nuxt/>
+		</div>
 	</div>
 </template>
 
@@ -93,5 +95,9 @@ a {
 
 .menu-item {
 	margin: 0 0.5rem;
+}
+
+.content {
+	padding-top: 4rem;
 }
 </style>

@@ -39,6 +39,7 @@
     "nodemon": "^1.18.9",
     "normalize.css": "^8.0.1",
     "nuxt-client-init-module": "^0.1.4",
+    "precss": "^4.0.0",
     "prettier": "^1.16.4",
     "prettier-eslint-cli": "^4.7.1"
   }

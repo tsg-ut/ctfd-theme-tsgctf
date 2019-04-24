@@ -55,6 +55,9 @@ export default {
 	 */
 	build: {
 		postcss: {
+			plugins: {
+				precss: {},
+			},
 			preset: {
 				features: {
 					customProperties: false,
