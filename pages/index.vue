@@ -12,13 +12,18 @@
 				<a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
 				<a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
 			</div>
+			<ul>
+				<li v-for="challenge in challenges" :key="challenge.id">
+					{{challenge.name}}
+				</li>
+			</ul>
 		</div>
 	</section>
 </template>
 
 <script>
+import {mapGetters, mapState} from 'vuex';
 import Logo from '~/components/Logo.vue';
-import {mapGetters} from 'vuex';
 
 export default {
 	components: {
@@ -28,6 +33,12 @@ export default {
 		...mapGetters({
 			ctfName: 'ctfName',
 		}),
+		...mapState({
+			challenges: (state) => state.challenges.challenges,
+		}),
+	},
+	async asyncData(context) {
+		await context.store.dispatch('challenges/updateChallenges', context);
 	},
 };
 </script>

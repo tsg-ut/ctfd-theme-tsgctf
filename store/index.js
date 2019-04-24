@@ -5,7 +5,7 @@ export const state = () => ({
 });
 
 export const getters = {
-	ctfName: ({configs}) => get(configs.find(([key]) => key === 'ctf_name'), [1], ''),
+	ctfName: ({configs}) => get(configs.find(({key}) => key === 'ctf_name'), ['value'], ''),
 };
 
 export const mutations = {
@@ -20,6 +20,6 @@ export const actions = {
 	},
 	async updateConfigs({commit}, {$axios}) {
 		const {data} = await $axios.get('/api/v1/configs');
-		commit('setConfigs', data.data.map(({key, value}) => [key, value]));
+		commit('setConfigs', data.data.map(({key, value}) => ({key, value})));
 	},
 };
