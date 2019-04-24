@@ -1,5 +1,5 @@
-import proxy from 'http-proxy-middleware'
-import pkg from './package'
+import proxy from 'http-proxy-middleware';
+import pkg from './package';
 
 export default {
 	mode: 'spa',
@@ -36,10 +36,9 @@ export default {
 	 ** Nuxt.js modules
 	 */
 	modules: [
-		// Doc: https://axios.nuxtjs.org/usage
 		'@nuxtjs/axios',
-		// Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
 		'@nuxtjs/bulma',
+		'nuxt-client-init-module',
 	],
 
 	/*
@@ -60,21 +59,6 @@ export default {
 				},
 			},
 		},
-
-		/*
-		 ** You can extend webpack config here
-		 */
-		extend(config, ctx) {
-			// Run ESLint on save
-			if (ctx.isDev && ctx.isClient) {
-				config.module.rules.push({
-					enforce: 'pre',
-					test: /\.(js|vue)$/,
-					loader: 'eslint-loader',
-					exclude: /(node_modules)/,
-				})
-			}
-		},
 	},
 
 	router: {
@@ -93,4 +77,4 @@ export default {
 			  ]
 			: []),
 	],
-}
+};

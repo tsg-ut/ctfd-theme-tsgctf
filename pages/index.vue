@@ -3,7 +3,7 @@
 		<div>
 			<logo/>
 			<h1 class="title">
-				ctfd-theme-tsgctf
+				{{ctfName}}
 			</h1>
 			<h2 class="subtitle">
 				Custom CTFd theme made for TSG CTF
@@ -17,13 +17,19 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Logo from '~/components/Logo.vue';
+import {mapGetters} from 'vuex';
 
 export default {
 	components: {
 		Logo,
 	},
-}
+	computed: {
+		...mapGetters({
+			ctfName: 'ctfName',
+		}),
+	},
+};
 </script>
 
 <style>
