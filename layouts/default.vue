@@ -1,8 +1,37 @@
 <template>
 	<div>
+		<div class="header">
+			<div class="title">
+				<nuxt-link to="/">{{ctfName}}</nuxt-link>
+			</div>
+			<div class="spacer"/>
+			<div class="menu">
+				<div class="menu-item">
+					<nuxt-link to="/notifications">Notifications</nuxt-link>
+				</div>
+				<div class="menu-item">
+					<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
+				</div>
+				<div class="menu-item">
+					<nuxt-link to="/challenges">Challenges</nuxt-link>
+				</div>
+			</div>
+		</div>
 		<nuxt/>
 	</div>
 </template>
+
+<script>
+import {mapGetters} from 'vuex';
+
+export default {
+	computed: {
+		...mapGetters({
+			ctfName: 'ctfName',
+		}),
+	},
+};
+</script>
 
 <style>
 html {
@@ -14,6 +43,13 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
+	background: #0d030e;
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 *,
@@ -23,32 +59,39 @@ html {
 	margin: 0;
 }
 
-.button--green {
-	display: inline-block;
-	border-radius: 4px;
-	border: 1px solid #3b8070;
-	color: #3b8070;
-	text-decoration: none;
-	padding: 10px 30px;
+.header {
+	width: 100%;
+	height: 4rem;
+	line-height: 4rem;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0) 100%);
+	color: rgba(255, 255, 255, 0.8);
 }
 
-.button--green:hover {
-	color: #fff;
-	background-color: #3b8070;
+.title {
+	font-family: 'Fredoka One', cursive;
+	font-size: 2rem;
+	display: block;
+	letter-spacing: 1px;
+	margin-left: 1rem;
 }
 
-.button--grey {
-	display: inline-block;
-	border-radius: 4px;
-	border: 1px solid #35495e;
-	color: #35495e;
-	text-decoration: none;
-	padding: 10px 30px;
-	margin-left: 15px;
+.spacer {
+	flex: 1 1 0;
 }
 
-.button--grey:hover {
-	color: #fff;
-	background-color: #35495e;
+.menu {
+	display: flex;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.2rem;
+	margin-right: 1rem;
+	text-transform: uppercase;
+}
+
+.menu-item {
+	margin: 0 0.5rem;
 }
 </style>

@@ -37,6 +37,7 @@
     "http-proxy-middleware": "^0.19.1",
     "lodash": "^4.17.11",
     "nodemon": "^1.18.9",
+    "normalize.css": "^8.0.1",
     "nuxt-client-init-module": "^0.1.4",
     "prettier": "^1.16.4",
     "prettier-eslint-cli": "^4.7.1"

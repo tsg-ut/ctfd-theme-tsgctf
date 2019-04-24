@@ -1,18 +1,11 @@
 <template>
 	<section class="container">
 		<div>
-			<logo/>
-			<h1 class="title">
+			<h1 class="ctf-logo">
 				{{ctfName}}
 			</h1>
-			<h2 class="subtitle">
-				Custom CTFd theme made for TSG CTF
-			</h2>
-			<div class="links">
-				<a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-				<a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
-			</div>
-			<ul>
+			<div class="timer">{{timer}}</div>
+			<ul class="challenges">
 				<li v-for="challenge in challenges" :key="challenge.id">
 					{{challenge.name}}
 				</li>
@@ -23,11 +16,12 @@
 
 <script>
 import {mapGetters, mapState} from 'vuex';
-import Logo from '~/components/Logo.vue';
 
 export default {
-	components: {
-		Logo,
+	data() {
+		return {
+			remainingTime: new Date('2019-05-04T07:00:00Z') - Date.now(),
+		};
 	},
 	computed: {
 		...mapGetters({
@@ -36,9 +30,22 @@ export default {
 		...mapState({
 			challenges: (state) => state.challenges.challenges,
 		}),
+		timer() {
+			const days = Math.floor(this.remainingTime / 1000 / 60 / 60 / 24).toString().padStart(2, '0');
+			const hours = (Math.floor(this.remainingTime / 1000 / 60 / 60) % 24).toString().padStart(2, '0');
+			const minutes = (Math.floor(this.remainingTime / 1000 / 60) % 60).toString().padStart(2, '0');
+			const seconds = (Math.floor(this.remainingTime / 1000) % 60).toString().padStart(2, '0');
+			const milliseconds = (this.remainingTime % 1000).toString().padStart(3, '0');
+			return `${days}:${hours}:${minutes}:${seconds}`;
+		},
 	},
 	async asyncData(context) {
 		await context.store.dispatch('challenges/updateChallenges', context);
+	},
+	mounted() {
+		setInterval(() => {
+			this.remainingTime = new Date('2019-05-04T07:00:00Z') - Date.now();
+		}, 1000);
 	},
 };
 </script>
@@ -53,24 +60,25 @@ export default {
 	text-align: center;
 }
 
-.title {
-	font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+.ctf-logo {
+	font-family: 'Fredoka One', cursive;
+	font-size: 8rem;
+	font-weight: 300;
+	color: rgb(0, 150, 250);
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(90deg, rgb(234, 41, 32) 0%, rgb(128, 8, 230) 100%);
+	background-clip: text;
 	display: block;
-	font-weight: 300;
-	font-size: 100px;
-	color: #35495e;
 	letter-spacing: 1px;
+	margin-left: 1rem;
 }
 
-.subtitle {
-	font-weight: 300;
-	font-size: 42px;
-	color: #526488;
-	word-spacing: 5px;
-	padding-bottom: 15px;
+.timer {
+	font-family: 'Roboto', sans-serif;
+	font-size: 4rem;
 }
 
-.links {
-	padding-top: 15px;
+.challenges {
+	display: none;
 }
 </style>
