@@ -16,7 +16,10 @@ export const mutations = {
 
 export const actions = {
 	async nuxtClientInit({dispatch}, context) {
-		await dispatch('updateConfigs', context);
+		await Promise.all([
+			dispatch('updateConfigs', context),
+			dispatch('notifications/updateNotifications', context),
+		]);
 	},
 	async updateConfigs({commit}, {$axios}) {
 		const {data} = await $axios.get('/api/v1/configs');
