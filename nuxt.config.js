@@ -72,5 +72,9 @@ export default {
         })
       }
     }
+  },
+
+  router: {
+    base: '/themes/tsgctf/static/'
   }
 }
