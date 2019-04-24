@@ -1,3 +1,4 @@
+import proxy from 'http-proxy-middleware'
 import pkg from './package'
 
 export default {
@@ -75,6 +76,20 @@ export default {
   },
 
   router: {
-    base: '/themes/tsgctf/static/'
-  }
+    base:
+      process.env.NODE_ENV === 'development' ? '/' : '/themes/tsgctf/static/'
+  },
+
+  serverMiddleware: [
+    ...(process.env.NODE_ENV === 'development'
+      ? [
+          {
+            path: '/api',
+            handler: proxy({
+              target: 'http://localhost:8000'
+            })
+          }
+        ]
+      : [])
+  ]
 }
