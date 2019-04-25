@@ -15,8 +15,11 @@ export const mutations = {
 		}
 	},
 	setChallengeDetail(s, {id, data}) {
-		const target = s.challenges.find((challenge) => challenge.id === id);
-		Vue.set(target, 'details', data);
+		const target = s.challenges.findIndex((challenge) => challenge.id === id);
+		Vue.set(s.challenges, target, {
+			...s.challenges[target],
+			details: data,
+		});
 	},
 };
 

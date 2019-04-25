@@ -61,6 +61,17 @@ a {
 	color: inherit;
 }
 
+input[type=text] {
+	border: 0;
+	outline: 0;
+}
+
+button {
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+}
+
 *,
 *:before,
 *:after {

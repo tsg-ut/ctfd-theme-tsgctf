@@ -10,15 +10,25 @@
 					{{challenge.value}}pts
 				</span>
 			</div>
-			<div v-if="isOpen && challenge.details" class="details">
-				{{challenge.details.description}}
+			<div v-if="isOpen" class="details">
+				<div v-if="challenge.details" class="description">{{challenge.details.description}}</div>
+				<div v-else class="description-loading">
+					<pulse-loader color="#4f0f6b"/>
+				</div>
+				<form class="flag-form">
+					<input type="text" class="flag-input" placeholder="TSGCTF{......}">
+					<button type="submit" class="flag-submit">Send</button>
+				</form>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+
 export default {
+	components: {PulseLoader},
 	props: {
 		challenge: {
 			required: true,
@@ -64,6 +74,10 @@ export default {
 		}
 	}
 
+	.list-content {
+		width: 100%;
+	}
+
 	&:not(:last-child) .list-marker::before {
 		content: '';
 		position: absolute;
@@ -106,7 +120,46 @@ export default {
 		margin-left: 2rem;
 		background: rgba(255, 255, 255, 0.2);
 		padding: 1rem;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.description {
 		white-space: pre-line;
+	}
+
+	.description-loading {
+		height: 6rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.flag-form {
+		display: flex;
+		margin-top: 1rem;
+	}
+
+	.flag-input {
+		flex: 1 1 0;
+		height: 2.5rem;
+		border-radius: 9999px;
+		margin-right: 0.5rem;
+		padding: 0 1rem;
+		font-family: 'Roboto', sans-serif;
+		font-size: 1.4rem;
+		background: #DDD;
+		color: #333;
+	}
+
+	.flag-submit {
+		flex: 0 0 6rem;
+		height: 2.5rem;
+		border-radius: 9999px;
+		font-size: 1.5rem;
+		font-family: 'Fredoka One', cursive;
+		font-weight: 300;
+		background: linear-gradient(90deg, #3e91a6 0%, #5e0fa9 100%);
 	}
 }
 </style>
