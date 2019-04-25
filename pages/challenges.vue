@@ -65,6 +65,7 @@ export default {
 
 	.challenges {
 		list-style: none;
+		padding: 0;
 	}
 }
 </style>

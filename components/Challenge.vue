@@ -1,12 +1,19 @@
 <template>
 	<div class="Challenge">
-		<div class="title" @click="onClickTitle">
-			{{challenge.name}}
-			<span class="points">
-				{{challenge.value}}pts
-			</span>
+		<div class="list-marker">
+			<div class="checkbox"/>
 		</div>
-		<div v-if="isOpen && challenge.details" class="description">{{challenge.details.description}}</div>
+		<div class="list-content">
+			<div class="title" @click="onClickTitle">
+				{{challenge.name}}
+				<span class="points">
+					{{challenge.value}}pts
+				</span>
+			</div>
+			<div v-if="isOpen && challenge.details" class="details">
+				{{challenge.details.description}}
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -38,8 +45,35 @@ export default {
 
 <style>
 .Challenge {
-	margin-left: 2rem;
-	margin-bottom: 1rem;
+	margin-bottom: 30px;
+	display: flex;
+
+	.list-marker {
+		flex: 0 0 48px;
+		position: relative;
+
+		.checkbox {
+			width: 42px;
+			height: 42px;
+			position: absolute;
+			top: 3px;
+			left: 0;
+			background: url('../static/checkbox_on.svg');
+			background-size: cover;
+			opacity: 0.8;
+		}
+	}
+
+	&:not(:last-child) .list-marker::before {
+		content: '';
+		position: absolute;
+		background: rgba(255, 255, 255, 0.5);
+		top: 46px;
+		left: 20px;
+		bottom: -30px;
+		width: 3px;
+		border-radius: 3px;
+	}
 
 	.title {
 		font-size: 2.5rem;
@@ -67,7 +101,7 @@ export default {
 		border-radius: 3px;
 	}
 
-	.description {
+	.details {
 		margin-top: 0.5rem;
 		margin-left: 2rem;
 		background: rgba(255, 255, 255, 0.2);

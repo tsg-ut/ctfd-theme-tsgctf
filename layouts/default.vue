@@ -78,30 +78,30 @@ a {
 	justify-content: center;
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0) 100%);
 	color: rgba(255, 255, 255, 0.8);
-}
 
-.title {
-	font-family: 'Fredoka One', cursive;
-	font-size: 2rem;
-	display: block;
-	letter-spacing: 1px;
-	margin-left: 1rem;
-}
+	.title {
+		font-family: 'Fredoka One', cursive;
+		font-size: 2rem;
+		display: block;
+		letter-spacing: 1px;
+		margin-left: 1rem;
+	}
 
-.spacer {
-	flex: 1 1 0;
-}
+	.spacer {
+		flex: 1 1 0;
+	}
 
-.menu {
-	display: flex;
-	font-family: 'Roboto', sans-serif;
-	font-size: 1.2rem;
-	margin-right: 1rem;
-	text-transform: uppercase;
-}
+	.menu {
+		display: flex;
+		font-family: 'Roboto', sans-serif;
+		font-size: 1.2rem;
+		margin-right: 1rem;
+		text-transform: uppercase;
+	}
 
-.menu-item {
-	margin: 0 0.5rem;
+	.menu-item {
+		margin: 0 0.5rem;
+	}
 }
 
 .content {
