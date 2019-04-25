@@ -1,6 +1,11 @@
 <template>
 	<div class="Challenge">
-		<div class="title" @click="onClickTitle">{{challenge.name}}</div>
+		<div class="title" @click="onClickTitle">
+			{{challenge.name}}
+			<span class="points">
+				{{challenge.value}}pts
+			</span>
+		</div>
 		<div v-if="isOpen && challenge.details" class="description">{{challenge.details.description}}</div>
 	</div>
 </template>
@@ -37,7 +42,7 @@ export default {
 	margin-bottom: 1rem;
 
 	.title {
-		font-size: 2rem;
+		font-size: 2.5rem;
 		font-family: 'Fredoka One', cursive;
 		font-weight: 300;
 		color: rgb(0, 150, 250);
@@ -47,6 +52,19 @@ export default {
 		display: inline-block;
 		letter-spacing: 1px;
 		cursor: pointer;
+	}
+
+	.points {
+		background: rgba(255, 255, 255, 0.6);
+		display: inline-block;
+		color: #0d030e;
+		-webkit-text-fill-color: #0d030e;
+		font-size: 1.2rem;
+		margin-left: 0.2rem;
+		padding: 0.1rem 0.3rem;
+		vertical-align: middle;
+		letter-spacing: 0;
+		border-radius: 3px;
 	}
 
 	.description {

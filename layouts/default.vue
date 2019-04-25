@@ -45,8 +45,15 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background: #0d030e;
+	background: radial-gradient(circle, #300e29 0%, #130414 100%);;
 	color: white;
+}
+
+body {
+	background: url('../static/background.svg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 }
 
 a {
