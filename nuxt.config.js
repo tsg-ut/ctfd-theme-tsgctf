@@ -15,7 +15,7 @@ export default {
 			{hid: 'description', name: 'description', content: pkg.description},
 		],
 		link: [
-			{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+			{rel: 'icon', type: 'image/png', href: '/favicon.png'},
 			{rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:100'},
 		],
 	},
