@@ -1,7 +1,7 @@
 <template>
 	<div class="Challenge">
 		<div class="list-marker">
-			<div class="checkbox"/>
+			<div class="checkbox" :class="{solved: challenge.solved}"/>
 		</div>
 		<div class="list-content">
 			<div class="title" @click="onClickTitle">
@@ -69,9 +69,13 @@ export default {
 			position: absolute;
 			top: 3px;
 			left: 0;
-			background: url('../static/checkbox_on.svg');
+			background: url('../static/checkbox_off.svg');
 			background-size: cover;
 			opacity: 0.8;
+
+			&.solved {
+				background: url('../static/checkbox_on.svg');
+			}
 		}
 	}
 
