@@ -4,6 +4,8 @@ export const state = () => ({
 	configs: [],
 	csrfToken: undefined,
 	isLoggedIn: true,
+	user: {},
+	team: {},
 });
 
 export const getters = {
@@ -20,15 +22,23 @@ export const mutations = {
 	setCsrfToken(s, payload) {
 		s.csrfToken = payload;
 	},
+	setUser(s, payload) {
+		s.user = {...s.user, ...payload};
+	},
+	setTeam(s, payload) {
+		s.team = {...s.team, ...payload};
+	},
 };
 
 export const actions = {
 	async nuxtClientInit({dispatch}, context) {
 		await Promise.all([
 			dispatch('updateConfigs', context),
-			dispatch('updateCsrfToken', context),
+			dispatch('updateUser', context),
+			dispatch('updateTeam', context),
 			dispatch('notifications/updateNotifications', context),
 		]);
+		await dispatch('updateCsrfToken', context);
 	},
 	async updateConfigs({commit}, {$axios}) {
 		const {data, headers} = await $axios.get('/api/v1/configs');
@@ -38,13 +48,26 @@ export const actions = {
 			commit('setIsLoggedIn', false, {root: true});
 		}
 	},
-	async updateCsrfToken({commit}, {$axios}) {
+	async updateUser({commit}, {$axios}) {
+		const {data, headers} = await $axios.get('/api/v1/users/me');
+		if (headers['content-type'] === 'application/json') {
+			commit('setUser', data.data);
+		} else {
+			commit('setIsLoggedIn', false, {root: true});
+		}
+	},
+	async updateTeam({commit}, {$axios}) {
+		const {data, headers} = await $axios.get('/api/v1/teams/me');
+		if (headers['content-type'] === 'application/json') {
+			commit('setTeam', data.data);
+		} else {
+			commit('setIsLoggedIn', false, {root: true});
+		}
+	},
+	updateCsrfToken({commit, dispatch, state: s}, {$axios}) {
 		if (process.env.NODE_ENV === 'development') {
-			const {data, headers} = await $axios.get('/api/v1/users/me');
-			if (headers['content-type'] === 'application/json') {
-				commit('setCsrfToken', data.data.nonce);
-			} else {
-				commit('setIsLoggedIn', false, {root: true});
+			if (s.user.nonce) {
+				commit('setCsrfToken', s.user.nonce);
 			}
 		} else {
 			const meta = document.querySelector('meta[name=csrf-token]');
