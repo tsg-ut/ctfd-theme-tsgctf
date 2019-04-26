@@ -1,5 +1,9 @@
-import proxy from 'http-proxy-middleware';
+import proxyMiddleware from 'http-proxy-middleware';
 import pkg from './package';
+
+const proxy = proxyMiddleware({
+	target: 'http://localhost:8000',
+});
 
 export default {
 	mode: 'spa',
@@ -68,9 +72,15 @@ export default {
 			? [
 				{
 					path: '/api',
-					handler: proxy({
-						target: 'http://localhost:8000',
-					}),
+					handler: proxy,
+				},
+				{
+					path: '/login',
+					handler: proxy,
+				},
+				{
+					path: '/logout',
+					handler: proxy,
 				},
 			  ]
 			: []),

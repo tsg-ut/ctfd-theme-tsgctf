@@ -241,12 +241,6 @@ export default {
 
 	.flag-submit {
 		flex: 0 0 6rem;
-		height: 2.5rem;
-		border-radius: 9999px;
-		font-size: 1.5rem;
-		font-family: 'Fredoka One', cursive;
-		font-weight: 300;
-		background: linear-gradient(90deg, #3e91a6 0%, #5e0fa9 100%);
 
 		&[disabled] {
 			cursor: default;

@@ -26,6 +26,7 @@ export default {
 			categories: 'challenges/getCategories',
 		}),
 		...mapState({
+			isLoggedIn: 'isLoggedIn',
 			challenges: (state) => state.challenges.challenges,
 		}),
 	},
@@ -33,9 +34,11 @@ export default {
 		await context.store.dispatch('challenges/updateChallenges', context);
 	},
 	mounted() {
-		setInterval(() => {
-			this.remainingTime = new Date('2019-05-04T07:00:00Z') - Date.now();
-		}, 1000);
+		if (!this.isLoggedIn) {
+			this.$router.push({
+				path: '/login',
+			});
+		}
 	},
 };
 </script>

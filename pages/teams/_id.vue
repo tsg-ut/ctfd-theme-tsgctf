@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex';
+import {mapGetters, mapState} from 'vuex';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 const pr = new Intl.PluralRules('en-US', {type: 'ordinal'});
@@ -57,6 +57,7 @@ export default {
 			return this.$store.getters['scoreboard/getScore'](parseInt(this.$route.params.id)) || {};
 		},
 		...mapState({
+			isLoggedIn: 'isLoggedIn',
 			teams: (state) => state.teams.teams,
 		}),
 		...mapGetters({
@@ -73,6 +74,12 @@ export default {
 		}
 	},
 	mounted() {
+		if (!this.isLoggedIn) {
+			this.$router.push({
+				path: '/login',
+			});
+		}
+
 		const solvers = Array.from(new Set(this.team.solves.map(({user}) => user)));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
@@ -86,6 +93,7 @@ export default {
 		text-transform: none;
 		position: relative;
 		margin-bottom: 0;
+		z-index: -1;
 
 		&::before {
 			content: 'Team';

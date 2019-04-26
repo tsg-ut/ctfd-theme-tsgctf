@@ -22,7 +22,7 @@
 					<div v-if="isDropping" class="dropdown-menu">
 						<nuxt-link :to="`/teams/${team && team.id}`" class="dropdown-menu-item">Team</nuxt-link>
 						<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
-						<nuxt-link to="/logout" class="dropdown-menu-item">Logout</nuxt-link>
+						<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
 					</div>
 				</div>
 			</div>
@@ -55,26 +55,13 @@ export default {
 	computed: {
 		...mapState(['isLoggedIn', 'team', 'user']),
 	},
-	watch: {
-		isLoggedIn(newValue) {
-			if (newValue === false) {
-				this.goLogin();
-			}
-		},
-	},
-	mounted() {
-		if (!this.isLoggedIn) {
-			this.goLogin();
-		}
-	},
 	methods: {
-		goLogin() {
-			this.$router.push({
-				path: '/login',
-			});
-		},
 		onClickaway() {
 			this.isDropping = false;
+		},
+		logout(event) {
+			event.preventDefault();
+			location.href = '/logout';
 		},
 	},
 };
@@ -107,15 +94,29 @@ a {
 	color: inherit;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
 	border: 0;
 	outline: 0;
+	border-radius: 9999px;
+	padding: 0 1rem;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.4rem;
 }
 
 button {
 	border: 0;
 	color: inherit;
 	cursor: pointer;
+}
+
+button[type=submit] {
+	width: 6rem;
+	height: 2.5rem;
+	border-radius: 9999px;
+	font-size: 1.5rem;
+	font-family: 'Fredoka One', cursive;
+	font-weight: 300;
+	background: linear-gradient(90deg, #3e91a6 0%, #5e0fa9 100%);
 }
 
 table {
@@ -211,6 +212,7 @@ tbody tr {
 	}
 
 	.dropdown-menu {
+		z-index: 1;
 		position: absolute;
 		top: calc(100% - 0.5rem);
 		right: 0;

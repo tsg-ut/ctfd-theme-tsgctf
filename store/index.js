@@ -35,9 +35,9 @@ export const actions = {
 		await Promise.all([
 			dispatch('updateUser', context),
 			dispatch('updateTeam', context),
+			dispatch('updateCsrfToken', context),
 			dispatch('notifications/updateNotifications', context),
 		]);
-		await dispatch('updateCsrfToken', context);
 	},
 	async updateConfigs({commit}, {$axios}) {
 		const {data, headers} = await $axios.get('/api/v1/configs');
@@ -63,10 +63,11 @@ export const actions = {
 			commit('setIsLoggedIn', false, {root: true});
 		}
 	},
-	updateCsrfToken({commit, dispatch, state: s}, {$axios}) {
+	async updateCsrfToken({commit, dispatch, state: s}, {$axios}) {
 		if (process.env.NODE_ENV === 'development') {
-			if (s.user.nonce) {
-				commit('setCsrfToken', s.user.nonce);
+			const {data} = await $axios.get('/api/v1/users');
+			if (data.nonce) {
+				commit('setCsrfToken', data.nonce);
 			}
 		} else {
 			const meta = document.querySelector('meta[name=csrf-token]');
