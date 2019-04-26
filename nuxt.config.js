@@ -37,6 +37,8 @@ export default {
 
 	modules: [
 		'@nuxtjs/axios',
+		'@nuxtjs/onesignal',
+		'@nuxtjs/pwa',
 		'nuxt-client-init-module',
 	],
 
@@ -45,6 +47,13 @@ export default {
 	 */
 	axios: {
 		// See https://github.com/nuxt-community/axios-module#options
+	},
+
+	oneSignal: {
+		init: {
+			appId: '6acee8f3-7842-4a55-91f6-b63ac21a667d',
+			allowLocalhostAsSecureOrigin: true,
+		},
 	},
 
 	/*

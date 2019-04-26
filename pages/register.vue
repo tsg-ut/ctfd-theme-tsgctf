@@ -71,6 +71,13 @@ export default {
 		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
+		if (this.isLoggedIn) {
+			this.$router.push({
+				path: '/',
+			});
+			return;
+		}
+
 		if (document.referrer) {
 			const referrer = new URL(document.referrer);
 			if (referrer.pathname === '/register') {

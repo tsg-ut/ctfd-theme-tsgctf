@@ -1,7 +1,10 @@
 <template>
 	<section class="Settings">
 		<h2 class="title"><span>Settings</span></h2>
-		<div class="subtitle">User: {{user.name}}</div>
+		<div class="subtitle">
+			User: {{user.name}}<br>
+			Team: <nuxt-link :to="`/teams/${team.id}`">{{team.name}}</nuxt-link>
+		</div>
 		<form
 			id="user-settings-form"
 			method="post"
@@ -94,7 +97,7 @@
 				>
 					<option value=""/>
 					<option
-						v-for="[code, country] in countries"
+						v-for="[code] in countries"
 						:key="code"
 						:value="code"
 					>
@@ -151,7 +154,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['csrfToken', 'user', 'countries']),
+		...mapState(['csrfToken', 'user', 'team', 'countries']),
 	},
 	watch: {
 		user(newValue) {
@@ -166,6 +169,13 @@ export default {
 		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
+		if (!this.isLoggedIn) {
+			this.$router.push({
+				path: '/login',
+			});
+			return;
+		}
+
 		this.name = this.user.name;
 		this.email = this.user.email;
 		this.affiliation = this.user.affiliation;
