@@ -94,7 +94,7 @@ a {
 	color: inherit;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email], input[type=url], select {
 	border: 0;
 	outline: 0;
 	border-radius: 9999px;
