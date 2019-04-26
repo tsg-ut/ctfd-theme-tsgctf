@@ -1,7 +1,7 @@
 <template>
-	<section class="JoinTeam">
-		<h2 class="title"><span>Join Team</span></h2>
-		<div class="subtitle">Please enter team name and password provided by your team leader.</div>
+	<section class="NewTeam">
+		<h2 class="title"><span>Create Team</span></h2>
+		<div class="subtitle">After creating your team, share the team name and password with your teammates so they can join your team.</div>
 		<form
 			class="login-form"
 			method="post"
@@ -36,7 +36,7 @@
 					type="submit"
 					tabindex="5"
 				>
-					Join
+					Create
 				</button>
 			</div>
 			<input type="hidden" name="nonce" :value="csrfToken">
@@ -62,7 +62,7 @@ export default {
 	mounted() {
 		if (document.referrer) {
 			const referrer = new URL(document.referrer);
-			if (referrer.pathname === '/teams/join') {
+			if (referrer.pathname === '/teams/new') {
 				this.isError = true;
 			}
 		}
@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style>
-.JoinTeam {
+.NewTeam {
 	text-align: center;
 
 	.title {

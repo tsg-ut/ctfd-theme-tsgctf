@@ -42,6 +42,9 @@ const suffixes = new Map([
 	['other', 'th'],
 ]);
 const formatOrdinals = (n) => {
+	if (n === Infinity) {
+		return '---';
+	}
 	const rule = pr.select(n);
 	const suffix = suffixes.get(rule);
 	return `${n}${suffix}`;
@@ -91,16 +94,19 @@ export default {
 .Team {
 	.title {
 		text-transform: none;
-		position: relative;
 		margin-bottom: 0;
 		z-index: -1;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
 
 		&::before {
 			content: 'Team';
-			position: absolute;
 			font-family: initial;
 			color: rgba(255, 255, 255, 0.6);
 			font-size: 1rem;
+			line-height: 0.2rem;
 			text-align: center;
 			left: 0;
 			right: 0;
