@@ -28,6 +28,9 @@
 			</div>
 			<div v-else class="menu">
 				<div class="menu-item">
+					<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
+				</div>
+				<div class="menu-item">
 					<nuxt-link to="/login">Login</nuxt-link>
 				</div>
 				<div class="menu-item">
@@ -78,6 +81,8 @@ export default {
 </script>
 
 <style>
+@import 'https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:100';
+
 html {
 	font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 	font-size: 16px;

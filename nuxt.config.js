@@ -12,7 +12,7 @@ export default {
 	 ** Headers of the page
 	 */
 	head: {
-		title: pkg.name,
+		title: 'TSG CTF',
 		meta: [
 			{charset: 'utf-8'},
 			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
@@ -20,7 +20,6 @@ export default {
 		],
 		link: [
 			{rel: 'icon', type: 'image/png', href: '/favicon.png'},
-			{rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:100'},
 		],
 	},
 
@@ -56,13 +55,11 @@ export default {
 		},
 	},
 
-	/*
-	 ** Build configuration
-	 */
 	build: {
 		postcss: {
 			plugins: {
 				precss: {},
+				'postcss-import-url': {},
 			},
 			preset: {
 				features: {
