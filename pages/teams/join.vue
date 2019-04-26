@@ -1,7 +1,7 @@
 <template>
-	<section class="Register">
-		<h2 class="title"><span>Register</span></h2>
-		<div class="subtitle">or <nuxt-link to="/login">Login</nuxt-link></div>
+	<section class="Login">
+		<h2 class="title"><span>Join Team</span></h2>
+		<div class="subtitle">Please enter team name and password provided by your team leader.</div>
 		<form
 			class="login-form"
 			method="post"
@@ -10,7 +10,7 @@
 		>
 			<div class="form-group">
 				<label for="name-input">
-					User Name
+					Team Name
 				</label>
 				<input
 					id="name-input"
@@ -20,19 +20,8 @@
 				>
 			</div>
 			<div class="form-group">
-				<label for="email-input">
-					Email
-				</label>
-				<input
-					id="email-input"
-					class="form-control"
-					type="email"
-					name="email"
-				>
-			</div>
-			<div class="form-group">
 				<label for="password-input">
-					Password
+					Team Password
 				</label>
 				<input
 					id="password-input"
@@ -47,7 +36,7 @@
 					type="submit"
 					tabindex="5"
 				>
-					Submit
+					Join
 				</button>
 			</div>
 			<input type="hidden" name="nonce" :value="csrfToken">
@@ -73,7 +62,7 @@ export default {
 	mounted() {
 		if (document.referrer) {
 			const referrer = new URL(document.referrer);
-			if (referrer.pathname === '/register') {
+			if (referrer.pathname === '/teams/join') {
 				this.isError = true;
 			}
 		}
@@ -82,7 +71,7 @@ export default {
 </script>
 
 <style>
-.Register {
+.Login {
 	text-align: center;
 
 	.title {

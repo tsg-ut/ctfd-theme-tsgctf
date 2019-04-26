@@ -27,6 +27,7 @@ export default {
 		}),
 		...mapState({
 			isLoggedIn: 'isLoggedIn',
+			isInTeam: 'isInTeam',
 			challenges: (state) => state.challenges.challenges,
 		}),
 	},
@@ -38,6 +39,7 @@ export default {
 			this.$router.push({
 				path: '/login',
 			});
+			return;
 		}
 
 		if (!this.isInTeam) {

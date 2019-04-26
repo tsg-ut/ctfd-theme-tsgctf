@@ -72,7 +72,7 @@ export const actions = {
 		await dispatch('updateSolved', {$axios});
 	},
 	async updateSolved({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/users/me/solves');
+		const {data, headers} = await $axios.get('/api/v1/teams/me/solves');
 		if (headers['content-type'] === 'application/json') {
 			commit('setSolves', data.data);
 		} else {

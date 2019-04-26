@@ -86,6 +86,14 @@ export default {
 					path: '/register',
 					handler: proxy,
 				},
+				{
+					path: '/teams/join',
+					handler: proxy,
+				},
+				{
+					path: '/teams/new',
+					handler: proxy,
+				},
 			  ]
 			: []),
 	],
