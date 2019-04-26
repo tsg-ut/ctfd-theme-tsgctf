@@ -154,7 +154,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['csrfToken', 'user', 'team', 'countries']),
+		...mapState(['isLoggedIn', 'csrfToken', 'user', 'team', 'countries']),
 	},
 	watch: {
 		user(newValue) {

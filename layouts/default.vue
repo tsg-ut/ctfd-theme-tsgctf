@@ -35,8 +35,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="content">
+		<div class="root-content">
 			<nuxt/>
+		</div>
+		<div class="footer">
+			<p class="flatt-line">Sponsored by <a href="https://flatt.tv/" target="_blank" rel="noopener"><img class="flatt" src="../static/flatt.svg" alt="flatt Security"></a></p>
+			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, a student team from The University of Tokyo</p>
+			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener">CTFd</a></p>
 		</div>
 	</div>
 </template>
@@ -235,8 +240,9 @@ tbody tr {
 	}
 }
 
-.content {
+.root-content {
 	padding-top: 4rem;
+	min-height: calc(100vh - 14rem);
 }
 
 section > h2.title {
@@ -254,6 +260,36 @@ section > h2.title {
 		-webkit-text-fill-color: transparent;
 		background: linear-gradient(90deg, rgb(255, 24, 13) 0%, rgb(138, 0, 255) 100%);
 		background-clip: text;
+	}
+}
+
+.footer {
+	text-align: center;
+	margin-top: 5rem;
+	padding-bottom: 2rem;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.2rem;
+
+	&::before {
+		content: '';
+		display: inline-block;
+		width: 8rem;
+		height: 1px;
+		background: white;
+		margin-bottom: 1.2rem;
+	}
+
+	a {
+		color: #90cbff;
+	}
+
+	.flatt-line {
+		line-height: 2rem;
+	}
+
+	.flatt {
+		vertical-align: middle;
+		width: 15rem;
 	}
 }
 </style>

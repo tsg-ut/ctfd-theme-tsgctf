@@ -4,11 +4,17 @@
 			<h1 class="ctf-logo">TSG CTF</h1>
 			<p class="subtitle">Pwn, Rev, Web, Crypto, Forensics, Stego, etc...</p>
 			<div class="timer">{{timer}}</div>
+			<div v-if="!isLoggedIn" class="buttons">
+				<nuxt-link to="/login" class="button login">Login</nuxt-link>
+				<nuxt-link to="/register" class="button register">Register</nuxt-link>
+			</div>
 		</div>
 	</section>
 </template>
 
 <script>
+import {mapState} from 'vuex';
+
 export default {
 	data() {
 		return {
@@ -23,11 +29,17 @@ export default {
 			const seconds = (Math.floor(this.remainingTime / 1000) % 60).toString().padStart(2, '0');
 			return `${days}:${hours}:${minutes}:${seconds}`;
 		},
+		...mapState(['isLoggedIn']),
 	},
 	mounted() {
 		setInterval(() => {
 			this.remainingTime = new Date('2019-05-04T07:00:00Z') - Date.now();
 		}, 1000);
+	},
+	head() {
+		return {
+			title: 'TSG CTF',
+		};
 	},
 };
 </script>
@@ -58,6 +70,32 @@ export default {
 		font-size: 1.5rem;
 		margin-top: -1rem;
 		opacity: 0.3;
+	}
+
+	.buttons {
+		display: flex;
+		margin-top: 1rem;
+		justify-content: center;
+	}
+
+	.button {
+		display: block;
+		margin: 0 0.5rem;
+		width: 10rem;
+		height: 2.6rem;
+		line-height: 2.6rem;
+		border-radius: 9999px;
+		font-size: 1.5rem;
+		font-family: 'Fredoka One', cursive;
+		font-weight: 300;
+
+		&.login {
+			background: linear-gradient(90deg, #6299a7 0%, #21207d 100%);
+		}
+
+		&.register {
+			background: linear-gradient(90deg, #FFC107 0%, #F44336 100%);
+		}
 	}
 
 	.timer {

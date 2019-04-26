@@ -59,7 +59,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['csrfToken']),
+		...mapState(['isLoggedIn', 'csrfToken']),
 	},
 	async asyncData(context) {
 		await context.store.dispatch('updateCsrfToken', context);
