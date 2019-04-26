@@ -33,7 +33,6 @@ export const mutations = {
 export const actions = {
 	async nuxtClientInit({dispatch}, context) {
 		await Promise.all([
-			dispatch('updateConfigs', context),
 			dispatch('updateUser', context),
 			dispatch('updateTeam', context),
 			dispatch('notifications/updateNotifications', context),

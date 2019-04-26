@@ -5,7 +5,7 @@
 				<nuxt-link to="/">TSG CTF</nuxt-link>
 			</div>
 			<div class="spacer"/>
-			<div class="menu">
+			<div v-if="isLoggedIn" class="menu">
 				<div class="menu-item">
 					<nuxt-link to="/notifications">Notifications</nuxt-link>
 				</div>
@@ -14,6 +14,24 @@
 				</div>
 				<div class="menu-item">
 					<nuxt-link to="/challenges">Challenges</nuxt-link>
+				</div>
+				<div v-on-clickaway="onClickaway" class="menu-item dropdown">
+					<div class="dropdown-trigger" @click="isDropping = !isDropping">
+						{{team && team.name}}
+					</div>
+					<div v-if="isDropping" class="dropdown-menu">
+						<nuxt-link to="/team" class="dropdown-menu-item">Team</nuxt-link>
+						<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
+						<nuxt-link to="/logout" class="dropdown-menu-item">Logout</nuxt-link>
+					</div>
+				</div>
+			</div>
+			<div v-else class="menu">
+				<div class="menu-item">
+					<nuxt-link to="/login">Login</nuxt-link>
+				</div>
+				<div class="menu-item">
+					<nuxt-link to="/register">Register</nuxt-link>
 				</div>
 			</div>
 		</div>
@@ -25,10 +43,17 @@
 
 <script>
 import {mapState} from 'vuex';
+import {directive as onClickaway} from 'vue-clickaway';
 
 export default {
+	directives: {onClickaway},
+	data() {
+		return {
+			isDropping: false,
+		};
+	},
 	computed: {
-		...mapState(['isLoggedIn']),
+		...mapState(['isLoggedIn', 'team', 'user']),
 	},
 	watch: {
 		isLoggedIn(newValue) {
@@ -47,6 +72,9 @@ export default {
 			this.$router.push({
 				path: '/login',
 			});
+		},
+		onClickaway() {
+			this.isDropping = false;
 		},
 	},
 };
@@ -109,6 +137,7 @@ button {
 
 	.title {
 		font-family: 'Fredoka One', cursive;
+		font-weight: 300;
 		font-size: 2rem;
 		display: block;
 		letter-spacing: 1px;
@@ -129,6 +158,53 @@ button {
 
 	.menu-item {
 		margin: 0 0.5rem;
+	}
+
+	.dropdown {
+		position: relative;
+	}
+
+	.dropdown-trigger {
+		text-transform: none;
+		cursor: pointer;
+
+		&::after {
+			content: '';
+			display: inline-block;
+			width: 0;
+			height: 0;
+			border-top: white 6px solid;
+			border-left: transparent 6px solid;
+			border-right: transparent 6px solid;
+			vertical-align: middle;
+		}
+	}
+
+	.team-score {
+		font-family: 'Fredoka One', cursive;
+		font-weight: 300;
+	}
+
+	.dropdown-menu {
+		position: absolute;
+		top: calc(100% - 0.5rem);
+		right: 0;
+
+		background: #520514;
+		line-height: 3rem;
+		display: flex;
+		flex-direction: column;
+
+		box-shadow: 0 0 5px black;
+	}
+
+	.dropdown-menu-item {
+		height: 3rem;
+		padding: 0 1rem;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.2);
+		}
 	}
 }
 
