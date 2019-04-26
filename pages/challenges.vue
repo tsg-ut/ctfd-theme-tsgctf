@@ -39,6 +39,12 @@ export default {
 				path: '/login',
 			});
 		}
+
+		if (!this.isInTeam) {
+			this.$router.push({
+				path: '/team',
+			});
+		}
 	},
 };
 </script>

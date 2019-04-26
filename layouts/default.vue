@@ -20,7 +20,7 @@
 						{{team && team.name}}
 					</div>
 					<div v-if="isDropping" class="dropdown-menu">
-						<nuxt-link :to="`/teams/${team && team.id}`" class="dropdown-menu-item">Team</nuxt-link>
+						<nuxt-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
 						<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
 						<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
 					</div>
@@ -53,7 +53,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['isLoggedIn', 'team', 'user']),
+		...mapState(['isLoggedIn', 'isInTeam', 'team', 'user']),
 	},
 	methods: {
 		onClickaway() {
@@ -94,7 +94,7 @@ a {
 	color: inherit;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
 	border: 0;
 	outline: 0;
 	border-radius: 9999px;

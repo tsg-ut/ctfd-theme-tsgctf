@@ -57,12 +57,18 @@ export const mutations = {
 
 export const actions = {
 	async updateChallenges({commit, dispatch}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/challenges');
-		if (headers['content-type'] === 'application/json') {
-			commit('setChallenges', data.data);
-		} else {
-			commit('setIsLoggedIn', false, {root: true});
+		try {
+			const {data, headers} = await $axios.get('/api/v1/challenges');
+			if (headers['content-type'] === 'application/json') {
+				commit('setChallenges', data.data);
+			} else {
+				commit('setIsLoggedIn', false, {root: true});
+			}
+		} catch (error) {
+			commit('setIsInTeam', false, {root: true});
+			return;
 		}
+
 		await dispatch('updateSolved', {$axios});
 	},
 	async updateSolved({commit}, {$axios}) {

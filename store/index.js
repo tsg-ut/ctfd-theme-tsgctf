@@ -4,6 +4,7 @@ export const state = () => ({
 	configs: [],
 	csrfToken: undefined,
 	isLoggedIn: true,
+	isInTeam: true,
 	user: {},
 	team: {},
 });
@@ -18,6 +19,9 @@ export const mutations = {
 	},
 	setIsLoggedIn(s, payload) {
 		s.isLoggedIn = payload;
+	},
+	setIsInTeam(s, payload) {
+		s.isInTeam = payload;
 	},
 	setCsrfToken(s, payload) {
 		s.csrfToken = payload;
@@ -58,7 +62,11 @@ export const actions = {
 	async updateTeam({commit}, {$axios}) {
 		const {data, headers} = await $axios.get('/api/v1/teams/me');
 		if (headers['content-type'] === 'application/json') {
-			commit('setTeam', data.data);
+			if (Object.keys(data.data).length === 0) {
+				commit('setIsInTeam', false, {root: true});
+			} else {
+				commit('setTeam', data.data);
+			}
 		} else {
 			commit('setIsLoggedIn', false, {root: true});
 		}

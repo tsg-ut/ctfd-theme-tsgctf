@@ -82,6 +82,10 @@ export default {
 					path: '/logout',
 					handler: proxy,
 				},
+				{
+					path: '/register',
+					handler: proxy,
+				},
 			  ]
 			: []),
 	],
