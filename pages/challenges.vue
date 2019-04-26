@@ -23,7 +23,6 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			ctfName: 'ctfName',
 			categories: 'challenges/getCategories',
 		}),
 		...mapState({

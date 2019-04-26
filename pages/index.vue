@@ -1,7 +1,7 @@
 <template>
 	<section class="Index">
 		<div>
-			<h1 class="ctf-logo">{{ctfName}}</h1>
+			<h1 class="ctf-logo">TSG CTF</h1>
 			<p class="subtitle">Pwn, Rev, Web, Crypto, Forensics, Stego, etc...</p>
 			<div class="timer">{{timer}}</div>
 		</div>
@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
-
 export default {
 	data() {
 		return {
@@ -18,9 +16,6 @@ export default {
 		};
 	},
 	computed: {
-		...mapGetters({
-			ctfName: 'ctfName',
-		}),
 		timer() {
 			const days = Math.floor(this.remainingTime / 1000 / 60 / 60 / 24).toString().padStart(2, '0');
 			const hours = (Math.floor(this.remainingTime / 1000 / 60 / 60) % 24).toString().padStart(2, '0');

@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<nuxt-link to="/">{{ctfName}}</nuxt-link>
+				<nuxt-link to="/">TSG CTF</nuxt-link>
 			</div>
 			<div class="spacer"/>
 			<div class="menu">
@@ -24,13 +24,10 @@
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex';
+import {mapState} from 'vuex';
 
 export default {
 	computed: {
-		...mapGetters({
-			ctfName: 'ctfName',
-		}),
 		...mapState(['isLoggedIn']),
 	},
 	watch: {

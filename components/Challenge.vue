@@ -121,15 +121,17 @@ export default {
 	}
 
 	.details {
-		margin-top: 0.5rem;
+		margin-top: 1rem;
 		margin-left: 2rem;
 		background: rgba(255, 255, 255, 0.2);
 		padding: 1rem;
 		width: 100%;
 		box-sizing: border-box;
+		border-radius: 1rem;
 	}
 
 	.description {
+		font-size: 1.2rem;
 		white-space: pre-line;
 	}
 
