@@ -32,44 +32,15 @@ export default {
 	async asyncData(context) {
 		await context.store.dispatch('scoreboard/updateScoreboard', context);
 	},
-	mounted() {
-		setInterval(() => {
-			this.remainingTime = new Date('2019-05-04T07:00:00Z') - Date.now();
-		}, 1000);
-	},
 };
 </script>
 
 <style>
 .Scoreboard {
-	.scoreboard {
-		width: 100%;
-		max-width: 800px;
-		margin: 0 auto;
-		font-size: 1.5rem;
-		border-collapse: collapse;
-
-		.place {
-			padding-right: 1rem;
-			width: 6rem;
-			text-align: right;
-		}
-
-		a {
-			color: #90cbff;
-		}
-	}
-
-	tbody td {
-		font-family: 'Roboto';
-	}
-
-	tr {
-		height: 3rem;
-	}
-
-	tbody tr {
-		border-top: rgba(255, 255, 255, 0.7) 1px solid;
+	table .place {
+		padding-right: 1rem;
+		width: 6rem;
+		text-align: right;
 	}
 }
 </style>

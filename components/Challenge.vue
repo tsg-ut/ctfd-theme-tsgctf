@@ -159,7 +159,8 @@ export default {
 
 	.details {
 		margin-top: 1rem;
-		margin-left: 2rem;
+		margin-left: 0.5rem;
+		margin-bottom: 1.5rem;
 		background: rgba(255, 255, 255, 0.2);
 		padding: 1rem;
 		width: 100%;

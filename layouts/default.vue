@@ -20,7 +20,7 @@
 						{{team && team.name}}
 					</div>
 					<div v-if="isDropping" class="dropdown-menu">
-						<nuxt-link to="/team" class="dropdown-menu-item">Team</nuxt-link>
+						<nuxt-link :to="`/teams/${team && team.id}`" class="dropdown-menu-item">Team</nuxt-link>
 						<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
 						<nuxt-link to="/logout" class="dropdown-menu-item">Logout</nuxt-link>
 					</div>
@@ -116,6 +116,30 @@ button {
 	border: 0;
 	color: inherit;
 	cursor: pointer;
+}
+
+table {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	font-size: 1.5rem;
+	border-collapse: collapse;
+
+	a {
+		color: #90cbff;
+	}
+}
+
+tbody td {
+	font-family: 'Roboto';
+}
+
+tr {
+	height: 3rem;
+}
+
+tbody tr {
+	border-top: rgba(255, 255, 255, 0.7) 1px solid;
 }
 
 *,

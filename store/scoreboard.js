@@ -3,6 +3,9 @@ export const state = () => ({
 });
 
 export const getters = {
+	getScore: (s) => (id) => (
+		s.scoreboard.find((team) => team.account_id === id)
+	),
 };
 
 export const mutations = {
