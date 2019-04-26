@@ -46,24 +46,6 @@ export default {
 	margin: 0 auto;
 	min-height: 100vh;
 
-	& > .title {
-		font-size: 4rem;
-		font-family: 'Fredoka One', cursive;
-		font-weight: 300;
-		text-align: center;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		margin-top: 3rem;
-		margin-bottom: 1rem;
-
-		span {
-			color: rgb(0, 150, 250);
-			-webkit-text-fill-color: transparent;
-			background: linear-gradient(90deg, rgb(255, 24, 13) 0%, rgb(138, 0, 255) 100%);
-			background-clip: text;
-		}
-	}
-
 	.category {
 		margin-top: 3rem;
 		text-align: center;
@@ -73,7 +55,6 @@ export default {
 		display: inline-block;
 		text-transform: capitalize;
 		font-family: 'Roboto';
-		font-weight: 300;
 		font-size: 2rem;
 		text-align: center;
 		padding: 0.5rem 1rem;
