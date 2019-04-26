@@ -8,6 +8,7 @@
 					<td scope="col"><b>Challenge</b></td>
 					<td scope="col"><b>Category</b></td>
 					<td scope="col"><b>Value</b></td>
+					<td scope="col"><b>Solver</b></td>
 					<td scope="col"><b>Time</b></td>
 				</tr>
 			</thead>
@@ -16,6 +17,12 @@
 					<td><b>{{solve.challenge.name}}</b></td>
 					<td>{{solve.challenge.category}}</td>
 					<td>{{solve.challenge.value}}</td>
+					<td>
+						<span v-if="getUser(solve.user)">
+							{{getUser(solve.user).name}}
+						</span>
+						<pulse-loader v-else color="white" size="10px"/>
+					</td>
 					<td>{{solve.date}}</td>
 				</tr>
 			</tbody>
@@ -24,7 +31,8 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapState, mapGetters} from 'vuex';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 const pr = new Intl.PluralRules('en-US', {type: 'ordinal'});
 const suffixes = new Map([
@@ -40,6 +48,7 @@ const formatOrdinals = (n) => {
 };
 
 export default {
+	components: {PulseLoader},
 	computed: {
 		team(context) {
 			return this.teams.get(parseInt(this.$route.params.id)) || {};
@@ -50,6 +59,9 @@ export default {
 		...mapState({
 			teams: (state) => state.teams.teams,
 		}),
+		...mapGetters({
+			getUser: 'users/getUser',
+		}),
 	},
 	async asyncData(context) {
 		const [team] = await Promise.all([
@@ -59,6 +71,10 @@ export default {
 		if (team === null) {
 			context.error({statusCode: 404, message: 'Team not found'});
 		}
+	},
+	mounted() {
+		const solvers = Array.from(new Set(this.team.solves.map(({user}) => user)));
+		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
 	methods: {formatOrdinals},
 };
@@ -91,6 +107,7 @@ export default {
 	}
 
 	table {
+		max-width: 1000px;
 		margin-top: 4rem;
 	}
 

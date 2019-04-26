@@ -13,7 +13,7 @@
 			<div v-if="isOpen" class="details">
 				<div v-if="challenge.details" class="description">{{challenge.details.description}}</div>
 				<div v-else class="description-loading">
-					<pulse-loader color="#4f0f6b"/>
+					<pulse-loader color="white"/>
 				</div>
 				<form class="flag-form" @submit="onSubmitFlag">
 					<input
