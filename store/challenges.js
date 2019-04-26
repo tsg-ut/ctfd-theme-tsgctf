@@ -36,9 +36,11 @@ export const getters = {
 
 export const mutations = {
 	setChallenges(s, payload) {
+		const oldChallenges = s.challenges || [];
 		s.challenges = payload;
 		for (const challenge of s.challenges) {
-			challenge.details = null;
+			const oldChallenge = oldChallenges.find(({id}) => id === challenge.id);
+			challenge.details = oldChallenge ? oldChallenge.details : null;
 		}
 	},
 	setSolves(s, solves) {

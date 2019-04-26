@@ -15,9 +15,18 @@
 				<div v-else class="description-loading">
 					<pulse-loader color="#4f0f6b"/>
 				</div>
-				<form class="flag-form">
-					<input type="text" class="flag-input" placeholder="TSGCTF{......}">
-					<button type="submit" class="flag-submit">Send</button>
+				<form class="flag-form" @submit="onSubmitFlag">
+					<input
+						v-model="flagText"
+						type="text"
+						name="flag"
+						class="flag-input"
+						:class="{yay, boo}"
+						:readonly="yay"
+						:placeholder="challenge.solved ? 'You\'ve already solved this challenge!' : 'TSGCTF{......}'"
+						:disabled="challenge.solved"
+					>
+					<button type="submit" class="flag-submit" :disabled="yay || challenge.solved">Send</button>
 				</form>
 			</div>
 		</div>
@@ -38,6 +47,9 @@ export default {
 	data() {
 		return {
 			isOpen: false,
+			yay: false,
+			boo: false,
+			flagText: '',
 		};
 	},
 	methods: {
@@ -47,6 +59,27 @@ export default {
 			} else {
 				this.$store.dispatch('challenges/getDetail', {$axios: this.$axios, id: this.challenge.id});
 				this.isOpen = true;
+			}
+		},
+		async onSubmitFlag(event) {
+			event.preventDefault();
+			this.boo = false;
+			const form = new FormData(event.target);
+			const inputFlag = form.get('flag');
+			const {data} = await this.$axios.post('/api/v1/challenges/attempt', {
+				challenge_id: parseInt(this.challenge.id),
+				submission: inputFlag,
+			}, {
+				headers: {
+					'content-type': 'application/json',
+				},
+			});
+			if (data.data.status === 'correct') {
+				this.yay = true;
+				this.flagText = 'Brilliant!';
+				await this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
+			} else {
+				this.boo = true;
 			}
 		},
 	},
@@ -157,6 +190,48 @@ export default {
 		font-size: 1.4rem;
 		background: #DDD;
 		color: #333;
+
+		&[disabled] {
+			background: #AAA;
+			color: black;
+		}
+
+		&.yay {
+			background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB, #EE7752, #E73C7E, #23A6D5, #23D5AB, #EE7752, #E73C7E, #23A6D5, #23D5AB, #EE7752, #E73C7E, #23A6D5, #23D5AB, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+			background-size: 1000% 1000%;
+			animation: Gradient 3s ease-out 1 both;
+			color: white;
+			font-size: 2rem;
+			font-family: 'Fredoka One', cursive;
+			font-weight: 300;
+
+			@keyframes Gradient {
+				0% {
+					background-position: 0% 50%
+				}
+				100% {
+					background-position: 100% 50%
+				}
+			}
+		}
+
+		&.boo {
+			animation-name: shake;
+			animation-duration: 0.7s, 0.35s;
+			animation-iteration-count: 1, 2;
+		}
+
+		@keyframes shake {
+			0%, 20%, 40%, 60%, 80% {
+				transform: translateX(8px);
+			}
+			50% {
+				color: indianred;
+			}
+			10%, 30%, 50%, 70%, 90% {
+				transform: translateX(-8px);
+			}
+		}
 	}
 
 	.flag-submit {
@@ -167,6 +242,11 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-weight: 300;
 		background: linear-gradient(90deg, #3e91a6 0%, #5e0fa9 100%);
+
+		&[disabled] {
+			cursor: default;
+			background: #888;
+		}
 	}
 }
 </style>

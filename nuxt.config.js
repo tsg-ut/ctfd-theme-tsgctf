@@ -25,19 +25,12 @@ export default {
 	 */
 	loading: {color: '#fff'},
 
-	/*
-	 ** Global CSS
-	 */
 	css: [],
 
-	/*
-	 ** Plugins to load before mounting the App
-	 */
-	plugins: [],
+	plugins: [
+		'~/plugins/axios',
+	],
 
-	/*
-	 ** Nuxt.js modules
-	 */
 	modules: [
 		'@nuxtjs/axios',
 		'nuxt-client-init-module',
