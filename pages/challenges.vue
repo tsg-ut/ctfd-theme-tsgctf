@@ -1,9 +1,10 @@
 <template>
 	<section class="Challenges">
 		<h2 class="title"><span>Challenges</span></h2>
-		<div>
+		<div v-for="category in categories" :key="category.name" class="category">
+			<h3 class="category-name">{{category.name}}</h3>
 			<ul class="challenges">
-				<challenge v-for="challenge in challenges" :key="challenge.id" :challenge="challenge"/>
+				<challenge v-for="challenge in category.challenges" :key="challenge.id" :challenge="challenge"/>
 			</ul>
 		</div>
 	</section>
@@ -23,6 +24,7 @@ export default {
 	computed: {
 		...mapGetters({
 			ctfName: 'ctfName',
+			categories: 'challenges/getCategories',
 		}),
 		...mapState({
 			challenges: (state) => state.challenges.challenges,
@@ -46,7 +48,7 @@ export default {
 	min-height: 100vh;
 
 	& > .title {
-		font-size: 3rem;
+		font-size: 4rem;
 		font-family: 'Fredoka One', cursive;
 		font-weight: 300;
 		text-align: center;
@@ -60,6 +62,34 @@ export default {
 			-webkit-text-fill-color: transparent;
 			background: linear-gradient(90deg, rgb(255, 24, 13) 0%, rgb(138, 0, 255) 100%);
 			background-clip: text;
+		}
+	}
+
+	.category {
+		margin-top: 3rem;
+		text-align: center;
+	}
+
+	.category-name {
+		display: inline-block;
+		text-transform: capitalize;
+		font-family: 'Roboto';
+		font-weight: 300;
+		font-size: 2rem;
+		text-align: center;
+		padding: 0.5rem 1rem;
+		background: #520514;
+		position: relative;
+		margin-bottom: 1rem;
+
+		&::before {
+			content: '';
+			position: absolute;
+			border: dashed 1px white;
+			top: 0.3rem;
+			left: 0.3rem;
+			right: 0.3rem;
+			bottom: 0.3rem;
 		}
 	}
 

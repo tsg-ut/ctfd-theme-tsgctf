@@ -57,6 +57,7 @@ export default {
 .Challenge {
 	margin-bottom: 30px;
 	display: flex;
+	text-align: left;
 
 	.list-marker {
 		flex: 0 0 48px;

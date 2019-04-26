@@ -4,6 +4,9 @@
   "description": "Custom CTFd theme made for TSG CTF",
   "author": "Koki Takahashi",
   "private": true,
+  "engines": {
+    "node": "10"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt",
     "build": "nuxt build",

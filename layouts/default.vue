@@ -24,13 +24,33 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters, mapState} from 'vuex';
 
 export default {
 	computed: {
 		...mapGetters({
 			ctfName: 'ctfName',
 		}),
+		...mapState(['isLoggedIn']),
+	},
+	watch: {
+		isLoggedIn(newValue) {
+			if (newValue === false) {
+				this.goLogin();
+			}
+		},
+	},
+	mounted() {
+		if (!this.isLoggedIn) {
+			this.goLogin();
+		}
+	},
+	methods: {
+		goLogin() {
+			this.$router.push({
+				path: '/login',
+			});
+		},
 	},
 };
 </script>
