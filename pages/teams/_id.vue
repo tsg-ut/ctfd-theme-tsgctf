@@ -87,6 +87,11 @@ export default {
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
 	methods: {formatOrdinals},
+	head() {
+		return {
+			title: `Team ${this.team && this.team.name} - TSG CTF`,
+		};
+	},
 };
 </script>
 

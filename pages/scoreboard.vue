@@ -32,6 +32,11 @@ export default {
 	async asyncData(context) {
 		await context.store.dispatch('scoreboard/updateScoreboard', context);
 	},
+	head() {
+		return {
+			title: 'Scoreboard - TSG CTF',
+		};
+	},
 };
 </script>
 

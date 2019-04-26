@@ -207,6 +207,11 @@ export default {
 			}
 		},
 	},
+	head() {
+		return {
+			title: 'Settings - TSG CTF',
+		};
+	},
 };
 </script>
 

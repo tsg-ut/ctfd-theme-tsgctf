@@ -26,6 +26,11 @@ export default {
 			});
 		}
 	},
+	head() {
+		return {
+			title: 'Team - TSG CTF',
+		};
+	},
 };
 </script>
 

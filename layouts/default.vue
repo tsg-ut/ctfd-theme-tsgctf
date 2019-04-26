@@ -69,6 +69,11 @@ export default {
 			location.href = '/logout';
 		},
 	},
+	head() {
+		return {
+			title: 'TSG CTF',
+		};
+	},
 };
 </script>
 

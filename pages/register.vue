@@ -85,6 +85,11 @@ export default {
 			}
 		}
 	},
+	head() {
+		return {
+			title: 'Register - TSG CTF',
+		};
+	},
 };
 </script>
 

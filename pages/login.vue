@@ -79,6 +79,11 @@ export default {
 			}
 		}
 	},
+	head() {
+		return {
+			title: 'Login - TSG CTF',
+		};
+	},
 };
 </script>
 

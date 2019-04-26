@@ -48,6 +48,11 @@ export default {
 			});
 		}
 	},
+	head() {
+		return {
+			title: 'Challenges - TSG CTF',
+		};
+	},
 };
 </script>
 

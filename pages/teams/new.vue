@@ -67,6 +67,11 @@ export default {
 			}
 		}
 	},
+	head() {
+		return {
+			title: 'Create Team - TSG CTF',
+		};
+	},
 };
 </script>
 
