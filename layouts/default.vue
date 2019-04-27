@@ -42,7 +42,10 @@
 			<nuxt/>
 		</div>
 		<div class="footer">
-			<p class="flatt-line">Sponsored by <a href="https://flatt.tech/" target="_blank" rel="noopener"><img class="flatt" src="../static/flatt.svg" alt="flatt Security"></a></p>
+			<p class="flatt-line">
+				Sponsored by
+				<a href="https://flatt.tech/" target="_blank" rel="noopener"><img class="flatt" src="../static/flatt.svg" alt="flatt Security"></a>
+			</p>
 			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, a student team from The University of Tokyo</p>
 			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener">CTFd</a></p>
 		</div>
@@ -92,7 +95,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background: radial-gradient(circle, #300e29 0%, #130414 100%);;
+	background: radial-gradient(circle, #300e29 0%, #130414 100%);
 	color: white;
 }
 
@@ -109,7 +112,11 @@ a {
 	color: inherit;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=url], select {
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='url'],
+select {
 	border: 0;
 	outline: 0;
 	border-radius: 9999px;
@@ -124,7 +131,7 @@ button {
 	cursor: pointer;
 }
 
-button[type=submit] {
+button[type='submit'] {
 	width: 6rem;
 	height: 2.5rem;
 	border-radius: 9999px;

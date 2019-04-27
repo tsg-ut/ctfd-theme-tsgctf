@@ -3,9 +3,7 @@ export const state = () => ({
 });
 
 export const getters = {
-	getTeam: (s, id) => (
-		s.teams.get(id)
-	),
+	getTeam: (s, id) => s.teams.get(id),
 };
 
 export const mutations = {
@@ -16,10 +14,7 @@ export const mutations = {
 
 export const actions = {
 	async getTeam({commit}, {$axios, id}) {
-		const [
-			{data: team, headers},
-			{data: solves},
-		] = await Promise.all([
+		const [{data: team, headers}, {data: solves}] = await Promise.all([
 			$axios.get(`/api/v1/teams/${id}`),
 			$axios.get(`/api/v1/teams/${id}/solves`),
 		]);

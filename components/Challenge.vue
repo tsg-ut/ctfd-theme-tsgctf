@@ -6,9 +6,7 @@
 		<div class="list-content">
 			<div class="title" @click="onClickTitle">
 				{{challenge.name}}
-				<span class="points">
-					{{challenge.value}}pts
-				</span>
+				<span class="points"> {{challenge.value}}pts </span>
 			</div>
 			<div v-if="isOpen" class="details">
 				<!-- eslint-disable-next-line vue/no-v-html -->
@@ -71,14 +69,18 @@ export default {
 			this.boo = false;
 			const form = new FormData(event.target);
 			const inputFlag = form.get('flag');
-			const {data} = await this.$axios.post('/api/v1/challenges/attempt', {
-				challenge_id: parseInt(this.challenge.id),
-				submission: inputFlag,
-			}, {
-				headers: {
-					'content-type': 'application/json',
+			const {data} = await this.$axios.post(
+				'/api/v1/challenges/attempt',
+				{
+					challenge_id: parseInt(this.challenge.id),
+					submission: inputFlag,
 				},
-			});
+				{
+					headers: {
+						'content-type': 'application/json',
+					},
+				}
+			);
 			if (data.data.status === 'correct') {
 				this.yay = true;
 				this.flagText = 'Brilliant!';
@@ -194,16 +196,38 @@ export default {
 		padding: 0 1rem;
 		font-family: 'Roboto', sans-serif;
 		font-size: 1.4rem;
-		background: #DDD;
+		background: #ddd;
 		color: #333;
 
 		&[disabled] {
-			background: #AAA;
+			background: #aaa;
 			color: black;
 		}
 
 		&.yay {
-			background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB, #EE7752, #E73C7E, #23A6D5, #23D5AB, #EE7752, #E73C7E, #23A6D5, #23D5AB, #EE7752, #E73C7E, #23A6D5, #23D5AB, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+			background: linear-gradient(
+				-45deg,
+				#ee7752,
+				#e73c7e,
+				#23a6d5,
+				#23d5ab,
+				#ee7752,
+				#e73c7e,
+				#23a6d5,
+				#23d5ab,
+				#ee7752,
+				#e73c7e,
+				#23a6d5,
+				#23d5ab,
+				#ee7752,
+				#e73c7e,
+				#23a6d5,
+				#23d5ab,
+				#ee7752,
+				#e73c7e,
+				#23a6d5,
+				#23d5ab
+			);
 			background-size: 1000% 1000%;
 			animation: Gradient 3s ease-out 1 both;
 			color: white;
@@ -213,10 +237,10 @@ export default {
 
 			@keyframes Gradient {
 				0% {
-					background-position: 0% 50%
+					background-position: 0% 50%;
 				}
 				100% {
-					background-position: 100% 50%
+					background-position: 100% 50%;
 				}
 			}
 		}
@@ -228,13 +252,21 @@ export default {
 		}
 
 		@keyframes shake {
-			0%, 20%, 40%, 60%, 80% {
+			0%,
+			20%,
+			40%,
+			60%,
+			80% {
 				transform: translateX(8px);
 			}
 			50% {
 				color: indianred;
 			}
-			10%, 30%, 50%, 70%, 90% {
+			10%,
+			30%,
+			50%,
+			70%,
+			90% {
 				transform: translateX(-8px);
 			}
 		}

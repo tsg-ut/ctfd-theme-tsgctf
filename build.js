@@ -31,9 +31,8 @@ const templates = [
 	'users/public.html',
 	'users/users.html',
 ];
-
 (async () => {
-	if (!await fs.pathExists('dist')) {
+	if (!(await fs.pathExists('dist'))) {
 		// eslint-disable-next-line no-console
 		console.error('Build contents by `nuxt generate` first');
 		return;

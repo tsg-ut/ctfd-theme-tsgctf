@@ -3,12 +3,10 @@ export const state = () => ({
 });
 
 export const getters = {
-	getScore: (s) => (id) => (
-		s.scoreboard.find((team) => team.account_id === id) || {
-			score: 0,
-			pos: Infinity,
-		}
-	),
+	getScore: (s) => (id) => s.scoreboard.find((team) => team.account_id === id) || {
+		score: 0,
+		pos: Infinity,
+	},
 };
 
 export const mutations = {

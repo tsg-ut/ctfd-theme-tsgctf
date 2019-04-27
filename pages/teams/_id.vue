@@ -1,6 +1,8 @@
 <template>
 	<section class="Team">
-		<h2 class="title"><span>{{team.name}}</span></h2>
+		<h2 class="title">
+			<span>{{team.name}}</span>
+		</h2>
 		<div class="score">{{formatOrdinals(score.pos)}} {{score.score}}pts</div>
 		<table class="scoreboard">
 			<thead>
@@ -14,7 +16,9 @@
 			</thead>
 			<tbody>
 				<tr v-for="solve in team.solves" :key="solve.challenge_id">
-					<td><b>{{solve.challenge.name}}</b></td>
+					<td>
+						<b>{{solve.challenge.name}}</b>
+					</td>
 					<td>{{solve.challenge.category}}</td>
 					<td>{{solve.challenge.value}}</td>
 					<td>
@@ -35,12 +39,7 @@ import {mapGetters, mapState} from 'vuex';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 const pr = new Intl.PluralRules('en-US', {type: 'ordinal'});
-const suffixes = new Map([
-	['one', 'st'],
-	['two', 'nd'],
-	['few', 'rd'],
-	['other', 'th'],
-]);
+const suffixes = new Map([['one', 'st'], ['two', 'nd'], ['few', 'rd'], ['other', 'th']]);
 const formatOrdinals = (n) => {
 	if (n === Infinity) {
 		return '---';

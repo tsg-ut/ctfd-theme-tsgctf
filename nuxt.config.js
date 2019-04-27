@@ -15,9 +15,7 @@ export default {
 			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
 			{hid: 'description', name: 'description', content: pkg.description},
 		],
-		link: [
-			{rel: 'icon', type: 'image/png', href: process.env.NODE_ENV === 'development' ? '/favicon.png' : '/themes/tsgctf/static/favicon.png'},
-		],
+		link: [{rel: 'icon', type: 'image/png', href: process.env.NODE_ENV === 'development' ? '/favicon.png' : '/themes/tsgctf/static/favicon.png'}],
 	},
 
 	/*
@@ -27,17 +25,9 @@ export default {
 
 	css: [],
 
-	plugins: [
-		'~/plugins/axios',
-	],
+	plugins: ['~/plugins/axios'],
 
-	modules: [
-		'@nuxtjs/axios',
-		'@nuxtjs/onesignal',
-		'@nuxtjs/pwa',
-		'@nuxtjs/markdownit',
-		'nuxt-client-init-module',
-	],
+	modules: ['@nuxtjs/axios', '@nuxtjs/onesignal', '@nuxtjs/pwa', '@nuxtjs/markdownit', 'nuxt-client-init-module'],
 
 	axios: {
 		browserBaseURL: '/',
@@ -69,8 +59,7 @@ export default {
 		publicPath: process.env.NODE_ENV === 'development' ? '/_nuxt/' : '/themes/tsgctf/static/_nuxt/',
 	},
 
-	router: {
-	},
+	router: {},
 
 	serverMiddleware: [
 		...(process.env.NODE_ENV === 'development'

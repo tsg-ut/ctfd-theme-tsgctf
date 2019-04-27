@@ -31,11 +31,7 @@
 				>
 			</div>
 			<div>
-				<button
-					id="submit"
-					type="submit"
-					tabindex="5"
-				>
+				<button id="submit" type="submit" tabindex="5">
 					Join
 				</button>
 			</div>
@@ -111,7 +107,7 @@ export default {
 		width: 20rem;
 	}
 
-	button[type=submit] {
+	button[type='submit'] {
 		width: 10rem;
 		margin: 1rem 0;
 	}

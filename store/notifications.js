@@ -2,8 +2,7 @@ export const state = () => ({
 	notifications: [],
 });
 
-export const getters = {
-};
+export const getters = {};
 
 export const mutations = {
 	setNotifications(s, payload) {

@@ -12,7 +12,9 @@
 			<tbody>
 				<tr v-for="team in scoreboard" :key="team.name">
 					<th scope="row" class="place">{{team.pos}}</th>
-					<td><nuxt-link :to="`/teams/${team.account_id}`">{{team.name}}</nuxt-link></td>
+					<td>
+						<nuxt-link :to="`/teams/${team.account_id}`">{{team.name}}</nuxt-link>
+					</td>
 					<td>{{team.score}}</td>
 				</tr>
 			</tbody>

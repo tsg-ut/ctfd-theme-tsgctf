@@ -1,14 +1,7 @@
 import Vue from 'vue';
 import groupBy from 'lodash/groupBy';
 
-const categoryOrders = [
-	'warmup',
-	'pwn',
-	'rev',
-	'web',
-	'crypto',
-	'stego',
-];
+const categoryOrders = ['warmup', 'pwn', 'rev', 'web', 'crypto', 'stego'];
 
 export const state = () => ({
 	challenges: [],
@@ -16,22 +9,20 @@ export const state = () => ({
 });
 
 export const getters = {
-	getChallenges: (s) => (
-		s.challenges.map((challenge) => ({
-			...challenge,
-			solved: s.solves.has(challenge.id),
-		}))
-	),
-	getCategories: (s, g) => (
-		Object.entries(groupBy(g.getChallenges, ({category}) => category)).map(([name, challenges]) => ({
+	getChallenges: (s) => s.challenges.map((challenge) => ({
+		...challenge,
+		solved: s.solves.has(challenge.id),
+	})),
+	getCategories: (s, g) => Object.entries(groupBy(g.getChallenges, ({category}) => category))
+		.map(([name, challenges]) => ({
 			name,
 			challenges,
-		})).sort((a, b) => {
+		}))
+		.sort((a, b) => {
 			const orderA = categoryOrders.indexOf(a.name.toLowerCase());
 			const orderB = categoryOrders.indexOf(b.name.toLowerCase());
 			return (orderA === -1 ? 9999 : orderA) - (orderB === -1 ? 9999 : orderB);
-		})
-	),
+		}),
 };
 
 export const mutations = {

@@ -96,11 +96,7 @@
 					name="country"
 				>
 					<option value=""/>
-					<option
-						v-for="[code] in countries"
-						:key="code"
-						:value="code"
-					>
+					<option v-for="[code] in countries" :key="code" :value="code">
 						{{country}}
 					</option>
 				</select>
@@ -261,13 +257,13 @@ export default {
 		}
 
 		.errors {
-			color: #F44336;
+			color: #f44336;
 			padding: 0;
 			line-height: 2rem;
 		}
 	}
 
-	button[type=submit] {
+	button[type='submit'] {
 		width: 10rem;
 		margin: 1rem 0;
 	}

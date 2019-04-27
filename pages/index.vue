@@ -23,7 +23,9 @@ export default {
 	},
 	computed: {
 		timer() {
-			const days = Math.floor(this.remainingTime / 1000 / 60 / 60 / 24).toString().padStart(2, '0');
+			const days = Math.floor(this.remainingTime / 1000 / 60 / 60 / 24)
+				.toString()
+				.padStart(2, '0');
 			const hours = (Math.floor(this.remainingTime / 1000 / 60 / 60) % 24).toString().padStart(2, '0');
 			const minutes = (Math.floor(this.remainingTime / 1000 / 60) % 60).toString().padStart(2, '0');
 			const seconds = (Math.floor(this.remainingTime / 1000) % 60).toString().padStart(2, '0');
@@ -94,7 +96,7 @@ export default {
 		}
 
 		&.register {
-			background: linear-gradient(90deg, #FFC107 0%, #F44336 100%);
+			background: linear-gradient(90deg, #ffc107 0%, #f44336 100%);
 		}
 	}
 

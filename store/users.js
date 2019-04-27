@@ -3,9 +3,7 @@ export const state = () => ({
 });
 
 export const getters = {
-	getUser: (s) => (id) => (
-		s.users.find((user) => user.id === id)
-	),
+	getUser: (s) => (id) => s.users.find((user) => user.id === id),
 };
 
 export const mutations = {
@@ -15,7 +13,13 @@ export const mutations = {
 };
 
 export const actions = {
-	async getUser({commit, getters: {getUser}}, {$axios, id}) {
+	async getUser(
+		{
+			commit,
+			getters: {getUser},
+		},
+		{$axios, id}
+	) {
 		if (getUser(id)) {
 			return;
 		}

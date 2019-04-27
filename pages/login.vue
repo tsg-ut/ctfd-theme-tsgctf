@@ -31,11 +31,7 @@
 				>
 			</div>
 			<div>
-				<button
-					id="submit"
-					type="submit"
-					tabindex="5"
-				>
+				<button id="submit" type="submit" tabindex="5">
 					Submit
 				</button>
 			</div>
@@ -124,12 +120,12 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-weight: 300;
 
-		color: #F44336;
+		color: #f44336;
 		padding: 0;
 		line-height: 2rem;
 	}
 
-	button[type=submit] {
+	button[type='submit'] {
 		width: 10rem;
 		margin: 1rem 0;
 	}
