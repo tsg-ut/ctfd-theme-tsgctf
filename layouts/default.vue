@@ -10,6 +10,9 @@
 					<nuxt-link to="/notifications">Notifications</nuxt-link>
 				</div>
 				<div class="menu-item">
+					<nuxt-link to="/rules">Rules</nuxt-link>
+				</div>
+				<div class="menu-item">
 					<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
 				</div>
 				<div class="menu-item">
@@ -27,6 +30,9 @@
 				</div>
 			</div>
 			<div v-else class="menu">
+				<div class="menu-item">
+					<nuxt-link to="/rules">Rules</nuxt-link>
+				</div>
 				<div class="menu-item">
 					<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
 				</div>

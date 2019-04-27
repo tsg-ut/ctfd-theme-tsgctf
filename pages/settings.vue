@@ -96,8 +96,8 @@
 					name="country"
 				>
 					<option value=""/>
-					<option v-for="[code] in countries" :key="code" :value="code">
-						{{country}}
+					<option v-for="[code, countryName] in countries" :key="code" :value="code">
+						{{countryName}}
 					</option>
 				</select>
 			</div>
