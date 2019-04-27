@@ -1,4 +1,3 @@
-const {promisify} = require('util');
 const path = require('path');
 const {JSDOM} = require('jsdom');
 const fs = require('fs-extra');

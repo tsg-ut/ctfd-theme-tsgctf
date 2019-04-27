@@ -2,7 +2,14 @@ export const state = () => ({
 	notifications: [],
 });
 
-export const getters = {};
+export const getters = {
+	getNotifications: (s) => (
+		s.notifications.slice().sort((a, b) => b.id - a.id).map((notification) => ({
+			...notification,
+			date: new Date(notification.date),
+		}))
+	),
+};
 
 export const mutations = {
 	setNotifications(s, payload) {

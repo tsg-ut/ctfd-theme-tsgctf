@@ -18,14 +18,11 @@ export default {
 		link: [{rel: 'icon', type: 'image/png', href: process.env.NODE_ENV === 'development' ? '/favicon.png' : '/themes/tsgctf/static/favicon.png'}],
 	},
 
-	/*
-	 ** Customize the progress-bar color
-	 */
 	loading: {color: '#fff'},
 
 	css: [],
 
-	plugins: ['~/plugins/axios'],
+	plugins: ['~/plugins/axios', '~/plugins/vue-timeago'],
 
 	modules: ['@nuxtjs/axios', '@nuxtjs/onesignal', '@nuxtjs/pwa', '@nuxtjs/markdownit', 'nuxt-client-init-module'],
 
