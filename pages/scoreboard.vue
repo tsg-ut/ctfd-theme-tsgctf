@@ -10,7 +10,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="team in scoreboard" :key="team.name">
+				<tr v-for="team in scoreboard" :key="team.name" :class="{active: team.account_id === myTeam.id}">
 					<th scope="row" class="place">{{team.pos}}</th>
 					<td>
 						<nuxt-link :to="`/teams/${team.account_id}`">{{team.name}}</nuxt-link>
@@ -23,16 +23,19 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapGetters, mapState} from 'vuex';
 
 export default {
 	computed: {
+		...mapGetters({
+			scoreboard: 'scoreboard/getScoreboard',
+		}),
 		...mapState({
-			scoreboard: (state) => state.scoreboard.scoreboard,
+			myTeam: 'team',
 		}),
 	},
 	async asyncData(context) {
-		await context.store.dispatch('scoreboard/updateScoreboard', context);
+		await context.store.dispatch('scoreboard/update', context);
 	},
 	head() {
 		return {
@@ -48,6 +51,10 @@ export default {
 		padding-right: 1rem;
 		width: 6rem;
 		text-align: right;
+	}
+
+	tr.active {
+		background: rgba(255, 0, 0, 0.3);
 	}
 }
 </style>

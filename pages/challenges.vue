@@ -74,6 +74,15 @@ export default {
 			challenges: (state) => state.challenges.challenges,
 		}),
 	},
+	watch: {
+		isInTeam(newValue) {
+			if (newValue === false) {
+				this.$router.push({
+					path: '/team',
+				});
+			}
+		},
+	},
 	async asyncData(context) {
 		await context.store.dispatch('challenges/updateChallenges', context);
 	},

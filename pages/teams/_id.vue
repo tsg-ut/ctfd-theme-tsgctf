@@ -4,6 +4,13 @@
 			<span>{{team.name}}</span>
 		</h2>
 		<div class="score">{{formatOrdinals(score.pos)}} {{score.score}}pts</div>
+		<div class="members-head">Members</div>
+		<div class="members">
+			<div v-for="member in team.members" :key="member" class="member">
+				<span v-if="getUser(member)">{{getUser(member).name}}</span>
+				<pulse-loader v-else color="white" size="10px"/>
+			</div>
+		</div>
 		<table class="scoreboard">
 			<thead>
 				<tr>
@@ -82,7 +89,10 @@ export default {
 			});
 		}
 
-		const solvers = Array.from(new Set(this.team.solves.map(({user}) => user)));
+		const solvers = Array.from(new Set([
+			...this.team.solves.map(({user}) => user),
+			...this.team.members,
+		]));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
 	methods: {formatOrdinals},
@@ -122,6 +132,27 @@ export default {
 		text-align: center;
 		font-family: 'Roboto';
 		font-size: 2rem;
+	}
+
+	.members-head {
+		font-family: 'Roboto';
+		font-size: 1.2rem;
+		text-align: center;
+		margin-top: 2rem;
+	}
+
+	.members {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		max-width: 30rem;
+		margin: 0 auto 0;
+		justify-content: center;
+	}
+
+	.member {
+		font-size: 1.5rem;
+		margin: 0 0.5rem;
 	}
 
 	table {

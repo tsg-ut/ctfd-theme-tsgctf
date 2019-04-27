@@ -15,10 +15,13 @@
 <script>
 import {mapState} from 'vuex';
 
+const contestStart = new Date('2019-05-04T07:00:00Z').getTime();
+const contestEnd = new Date('2019-05-05T07:00:00Z').getTime();
+
 export default {
 	data() {
 		return {
-			remainingTime: new Date('2019-05-04T07:00:00Z') - Date.now(),
+			remainingTime: contestStart - Date.now(),
 		};
 	},
 	computed: {
@@ -34,9 +37,19 @@ export default {
 		...mapState(['isLoggedIn']),
 	},
 	mounted() {
-		setInterval(() => {
-			this.remainingTime = new Date('2019-05-04T07:00:00Z') - Date.now();
+		this.interval = setInterval(() => {
+			const now = Date.now();
+			if (now > contestEnd) {
+				this.remainingTime = 0;
+			} else if (now > contestStart) {
+				this.remainingTime = contestEnd - now;
+			} else {
+				this.remainingTime = contestStart - now;
+			}
 		}, 1000);
+	},
+	destroyed() {
+		clearInterval(this.interval);
 	},
 	head() {
 		return {
