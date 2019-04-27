@@ -8,9 +8,6 @@ const proxy = proxyMiddleware({
 export default {
 	mode: 'spa',
 
-	/*
-	 ** Headers of the page
-	 */
 	head: {
 		title: 'TSG CTF',
 		meta: [
@@ -19,7 +16,7 @@ export default {
 			{hid: 'description', name: 'description', content: pkg.description},
 		],
 		link: [
-			{rel: 'icon', type: 'image/png', href: '/favicon.png'},
+			{rel: 'icon', type: 'image/png', href: process.env.NODE_ENV === 'development' ? '/favicon.png' : '/themes/tsgctf/static/favicon.png'},
 		],
 	},
 
@@ -41,16 +38,13 @@ export default {
 		'nuxt-client-init-module',
 	],
 
-	/*
-	 ** Axios module configuration
-	 */
 	axios: {
-		// See https://github.com/nuxt-community/axios-module#options
+		browserBaseURL: '/',
 	},
 
 	oneSignal: {
 		init: {
-			appId: '6acee8f3-7842-4a55-91f6-b63ac21a667d',
+			appId: '6acee8f3-7842-4a55-91f6-b63ac21a667d', // public token
 			allowLocalhostAsSecureOrigin: true,
 		},
 	},
@@ -67,10 +61,10 @@ export default {
 				},
 			},
 		},
+		publicPath: process.env.NODE_ENV === 'development' ? '/_nuxt/' : '/themes/tsgctf/static/_nuxt/',
 	},
 
 	router: {
-		base: process.env.NODE_ENV === 'development' ? '/' : '/themes/tsgctf/static/',
 	},
 
 	serverMiddleware: [

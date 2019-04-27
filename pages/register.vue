@@ -41,6 +41,9 @@
 					name="password"
 				>
 			</div>
+			<div v-if="isError" class="error">
+				Registration errored. Maybe username already taken?
+			</div>
 			<div>
 				<button
 					id="submit"
@@ -71,13 +74,6 @@ export default {
 		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
-		if (this.isLoggedIn) {
-			this.$router.push({
-				path: '/',
-			});
-			return;
-		}
-
 		if (document.referrer) {
 			const referrer = new URL(document.referrer);
 			if (referrer.pathname === '/register') {
@@ -127,6 +123,16 @@ export default {
 	.form-control {
 		font-size: 1.2rem;
 		width: 20rem;
+	}
+
+	.error {
+		font-size: 1.5rem;
+		font-family: 'Fredoka One', cursive;
+		font-weight: 300;
+
+		color: #F44336;
+		padding: 0;
+		line-height: 2rem;
 	}
 
 	button[type=submit] {
