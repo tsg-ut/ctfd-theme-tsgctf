@@ -35,6 +35,7 @@ export default {
 		'@nuxtjs/axios',
 		'@nuxtjs/onesignal',
 		'@nuxtjs/pwa',
+		'@nuxtjs/markdownit',
 		'nuxt-client-init-module',
 	],
 
@@ -47,6 +48,10 @@ export default {
 			appId: '6acee8f3-7842-4a55-91f6-b63ac21a667d', // public token
 			allowLocalhostAsSecureOrigin: true,
 		},
+	},
+
+	markdownit: {
+		injected: true,
 	},
 
 	build: {

@@ -11,7 +11,8 @@
 				</span>
 			</div>
 			<div v-if="isOpen" class="details">
-				<div v-if="challenge.details" class="description">{{challenge.details.description}}</div>
+				<!-- eslint-disable-next-line vue/no-v-html -->
+				<div v-if="challenge.details" class="description" v-html="$md.render(challenge.details.description)"/>
 				<div v-else class="description-loading">
 					<pulse-loader color="white"/>
 				</div>

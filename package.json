@@ -24,6 +24,7 @@
   "devDependencies": {
     "@hakatashi/eslint-config": "^1.8.4",
     "@nuxtjs/eslint-config": "^0.0.1",
+    "@nuxtjs/markdownit": "^1.2.4",
     "@nuxtjs/onesignal": "^3.0.0-beta.14",
     "@nuxtjs/pwa": "^3.0.0-beta.14",
     "babel-eslint": "^10.0.1",
