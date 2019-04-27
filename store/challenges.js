@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import groupBy from 'lodash/groupBy';
+import get from 'lodash/get';
 
 const categoryOrders = ['warmup', 'pwn', 'rev', 'web', 'crypto', 'stego'];
 
@@ -51,12 +52,18 @@ export const actions = {
 		try {
 			const {data, headers} = await $axios.get('/api/v1/challenges');
 			if (headers['content-type'] === 'application/json') {
+				commit('setIsStarted', true, {root: true});
 				commit('setChallenges', data.data);
 			} else {
 				commit('setIsLoggedIn', false, {root: true});
 			}
 		} catch (error) {
-			commit('setIsInTeam', false, {root: true});
+			const message = get(error, ['response', 'data', 'message'], '');
+			if (message.includes('not started')) {
+				commit('setIsStarted', false, {root: true});
+			} else {
+				commit('setIsInTeam', false, {root: true});
+			}
 			return;
 		}
 

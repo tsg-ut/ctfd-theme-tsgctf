@@ -44,7 +44,12 @@
 		<div class="footer">
 			<p class="flatt-line">
 				Sponsored by
-				<a href="https://flatt.tech/" target="_blank" rel="noopener"><img class="flatt" src="../static/flatt.svg" alt="flatt Security"></a>
+				<a href="https://flatt.tech/" target="_blank" rel="noopener">
+					<img class="flatt" src="../static/flatt.svg" alt="flatt Security">
+				</a>
+				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
+					<img class="ojigineko" src="../static/ojigineko-white.gif" alt="ojigineko">
+				</a>
 			</p>
 			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, a student team from The University of Tokyo</p>
 			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener">CTFd</a></p>
@@ -302,11 +307,33 @@ section > h2.title {
 
 	.flatt-line {
 		line-height: 2rem;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+		}
 	}
 
 	.flatt {
 		vertical-align: middle;
 		width: 15rem;
+	}
+
+	.ojigineko {
+		background: url('../static/ojigineko-white.gif');
+		background-size: cover;
+		display: inline-block;
+		width: 1rem;
+		height: 1rem;
+		opacity: 0;
+		vertical-align: -28%;
+		transition: opacity 0.2s;
+	}
+
+	.flatt-line:hover .ojigineko {
+		opacity: 0.3;
 	}
 }
 </style>

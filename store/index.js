@@ -5,6 +5,7 @@ export const state = () => ({
 	csrfToken: undefined,
 	isLoggedIn: true,
 	isInTeam: true,
+	isStarted: true,
 	user: {},
 	team: {},
 	countries: [
@@ -278,6 +279,9 @@ export const mutations = {
 	},
 	setIsInTeam(s, payload) {
 		s.isInTeam = payload;
+	},
+	setIsStarted(s, payload) {
+		s.isStarted = payload;
 	},
 	setCsrfToken(s, payload) {
 		s.csrfToken = payload;
