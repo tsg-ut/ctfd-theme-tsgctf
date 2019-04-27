@@ -8,9 +8,23 @@
 				{{challenge.name}}
 				<span class="points"> {{challenge.value}}pts </span>
 			</div>
-			<div v-if="isOpen" class="details">
-				<!-- eslint-disable-next-line vue/no-v-html -->
-				<div v-if="challenge.details" class="description" v-html="$md.render(challenge.details.description)"/>
+			<div v-if="isOpen" class="content">
+				<div v-if="challenge.details" class="details">
+					<!-- eslint-disable-next-line vue/no-v-html -->
+					<div class="description" v-html="$md.render(challenge.details.description)"/>
+					<div class="attachments">
+						<a
+							v-for="file in challenge.details.files"
+							:key="file"
+							class="attachment"
+							:href="file"
+							target="_blank"
+							rel="noopener"
+						>
+							{{getFileName(file)}}
+						</a>
+					</div>
+				</div>
 				<div v-else class="description-loading">
 					<pulse-loader color="white"/>
 				</div>
@@ -63,6 +77,10 @@ export default {
 				this.$store.dispatch('challenges/getDetail', {$axios: this.$axios, id: this.challenge.id});
 				this.isOpen = true;
 			}
+		},
+		getFileName(path) {
+			const components = new URL(path, location.href).pathname.split('/');
+			return components[components.length - 1];
 		},
 		async onSubmitFlag(event) {
 			event.preventDefault();
@@ -160,7 +178,7 @@ export default {
 		border-radius: 3px;
 	}
 
-	.details {
+	.content {
 		margin-top: 1rem;
 		margin-left: 0.5rem;
 		margin-bottom: 1.5rem;
@@ -173,7 +191,54 @@ export default {
 
 	.description {
 		font-size: 1.2rem;
-		white-space: pre-line;
+		margin-bottom: 1rem;
+
+		strong {
+			color: #ffeb3b;
+		}
+
+		p {
+			margin: 0.5rem 0;
+		}
+
+		a {
+			color: #03a9f4;
+		}
+
+		code {
+			background: #333;
+			padding: 0.1rem 0.5rem;
+		}
+
+		pre {
+			background: #333;
+			padding: 0.5rem;
+		}
+	}
+
+	.attachments {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.attachment {
+		width: 15rem;
+		margin: 0.5rem;
+		height: 3rem;
+		line-height: 3rem;
+		background: #222;
+		border-radius: 3px;
+		text-align: center;
+
+		&::before {
+			content: '';
+			background: url("https://cdn.jsdelivr.net/gh/google/material-design-icons@2.2.0/file/2x_web/ic_attachment_white_18dp.png");
+			background-size: cover;
+			display: inline-block;
+			width: 1.4rem;
+			height: 1.4rem;
+			vertical-align: middle;
+		}
 	}
 
 	.description-loading {
@@ -185,7 +250,7 @@ export default {
 
 	.flag-form {
 		display: flex;
-		margin-top: 2rem;
+		margin-top: 1rem;
 	}
 
 	.flag-input {

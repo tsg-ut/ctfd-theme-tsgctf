@@ -56,6 +56,7 @@ export const actions = {
 				commit('setChallenges', data.data);
 			} else {
 				commit('setIsLoggedIn', false, {root: true});
+				return;
 			}
 		} catch (error) {
 			const message = get(error, ['response', 'data', 'message'], '');

@@ -34,7 +34,7 @@
 						</span>
 						<pulse-loader v-else color="white" size="10px"/>
 					</td>
-					<td>{{solve.date}}</td>
+					<td><timeago :datetime="solve.date" :auto-update="60"/></td>
 				</tr>
 			</tbody>
 		</table>

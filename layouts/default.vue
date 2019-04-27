@@ -185,7 +185,7 @@ tbody tr {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1) 70%, rgba(0, 0, 0, 0) 100%);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
 	color: rgba(255, 255, 255, 0.8);
 
 	.title {
