@@ -42,7 +42,7 @@
 			<nuxt/>
 		</div>
 		<div class="footer">
-			<p class="flatt-line">Sponsored by <a href="https://flatt.tv/" target="_blank" rel="noopener"><img class="flatt" src="../static/flatt.svg" alt="flatt Security"></a></p>
+			<p class="flatt-line">Sponsored by <a href="https://flatt.tech/" target="_blank" rel="noopener"><img class="flatt" src="../static/flatt.svg" alt="flatt Security"></a></p>
 			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, a student team from The University of Tokyo</p>
 			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener">CTFd</a></p>
 		</div>

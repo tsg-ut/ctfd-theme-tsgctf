@@ -182,7 +182,7 @@ export default {
 
 	.flag-form {
 		display: flex;
-		margin-top: 1rem;
+		margin-top: 2rem;
 	}
 
 	.flag-input {

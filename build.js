@@ -43,9 +43,13 @@ const templates = [
 	await fs.mkdirp('tsgctf/templates');
 
 	const walker = klaw('dist');
-	walker.on('data', (item) => {
+	walker.on('data', async (item) => {
 		if (!item.stats.isDirectory() && !item.path.endsWith('.html')) {
-			if (item.path.includes('_nuxt')) {
+			if (item.path.endsWith('OneSignalSDKWorker.js')) {
+				const worker = await fs.readFile(item.path);
+				const newWorker = worker.toString().replace('/sw.js', '/themes/tsgctf/static/sw.js');
+				await fs.writeFile(path.join('tsgctf/static', path.relative(path.join(__dirname, 'dist'), item.path)), newWorker);
+			} else if (item.path.includes('_nuxt')) {
 				fs.copy(item.path, path.join('tsgctf/static', path.relative(path.join(__dirname, 'dist/themes/tsgctf/static'), item.path)));
 			} else {
 				fs.copy(item.path, path.join('tsgctf/static', path.relative(path.join(__dirname, 'dist'), item.path)));

@@ -9,9 +9,8 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt",
-    "build": "nuxt build",
+    "build": "nuxt generate && node build.js",
     "start": "nuxt start",
-    "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "format": "prettier-eslint **/*.js **/*.vue --write",
     "precommit": "npm run lint"

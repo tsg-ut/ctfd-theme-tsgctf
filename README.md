@@ -4,19 +4,14 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm install
 
 # serve with hot reload at localhost:3000
+# when you use this please serve CTFd server at localhost:8000
 $ npm run dev
 
-# build for production and launch server
+# build the theme into tsgctf directory
 $ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
