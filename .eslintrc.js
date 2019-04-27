@@ -13,5 +13,6 @@ module.exports = {
 		'node/no-unsupported-features': 'off',
 		'node/no-unsupported-features/es-syntax': 'off',
 		semi: ['error', 'always'],
+		'import/order': 'off',
 	},
 }

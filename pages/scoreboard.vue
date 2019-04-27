@@ -37,6 +37,11 @@ export default {
 	async asyncData(context) {
 		await context.store.dispatch('scoreboard/update', context);
 	},
+	methods: {
+		getFlag(countryCode) {
+			return `https://cdn.jsdelivr.net/gh/behdad/region-flags@gh-pages/svg/${countryCode.toUpperCase()}.svg`;
+		},
+	},
 	head() {
 		return {
 			title: 'Scoreboard - TSG CTF',

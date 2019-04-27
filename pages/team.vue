@@ -20,9 +20,9 @@ export default {
 		...mapState(['isInTeam', 'team']),
 	},
 	mounted() {
-		if (this.isInTeam) {
+		if (this.isInTeam && this.team && this.team.id) {
 			this.$router.push({
-				path: `/teams/${this.team && this.team.id}`,
+				path: `/teams/${this.team.id}`,
 			});
 		}
 	},

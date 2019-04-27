@@ -1,5 +1,5 @@
-import proxyMiddleware from 'http-proxy-middleware';
 import pkg from './package';
+import proxyMiddleware from 'http-proxy-middleware';
 
 const proxy = proxyMiddleware({
 	target: 'http://localhost:8000',
