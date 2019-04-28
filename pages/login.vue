@@ -39,9 +39,9 @@
 				Login errored. Maybe incorrect username of password?
 			</div>
 			<div>
-				<a href="/reset_password">
+				<nuxt-link to="/reset_password">
 					Forgot your password?
-				</a>
+				</nuxt-link>
 			</div>
 			<input type="hidden" name="nonce" :value="csrfToken">
 		</form>

@@ -1,14 +1,7 @@
 <template>
-	<section class="Confirm">
-		<h2 class="title"><span>Confirmation Step</span></h2>
-		<div class="subtitle">
-			We've sent a confirmation email to you!<br>
-			Please click the link in that email to confirm your account.
-		</div>
-		<form method="POST">
-			<button id="submit" type="submit" tabindex="5">Resend</button>
-			<input type="hidden" name="nonce" :value="csrfToken">
-		</form>
+	<section class="Reset">
+		<h2 class="title"><span>Reset Password</span></h2>
+		<p>Sorry, please contact an organizer to have your password reset</p>
 	</section>
 </template>
 
@@ -30,21 +23,21 @@ export default {
 	mounted() {
 		if (document.referrer) {
 			const referrer = new URL(document.referrer);
-			if (referrer.pathname === '/confirm') {
+			if (referrer.pathname === '/reset_password') {
 				this.isError = true;
 			}
 		}
 	},
 	head() {
 		return {
-			title: 'Confirmation Step - TSG CTF',
+			title: 'Reset Password - TSG CTF',
 		};
 	},
 };
 </script>
 
 <style>
-.Confirm {
+.Reset {
 	text-align: center;
 
 	.title {
@@ -54,11 +47,6 @@ export default {
 	.subtitle {
 		margin-bottom: 1rem;
 		font-size: 1.5rem;
-	}
-
-	button[type='submit'] {
-		width: 10rem;
-		margin: 1rem 0;
 	}
 }
 </style>
