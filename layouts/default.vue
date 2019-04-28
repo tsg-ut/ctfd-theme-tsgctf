@@ -106,7 +106,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background: radial-gradient(circle, #300e29 0%, #130414 100%);
+	background: radial-gradient(circle, #300e29 0%, #130414 100%), #000000;
 	color: white;
 }
 
