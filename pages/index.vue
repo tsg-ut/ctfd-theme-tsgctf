@@ -78,7 +78,7 @@ export default {
 		background-clip: text;
 		display: block;
 		letter-spacing: 1px;
-		mix-blend-mode: overlay;
+		mix-blend-mode: screen;
 	}
 
 	.subtitle {
