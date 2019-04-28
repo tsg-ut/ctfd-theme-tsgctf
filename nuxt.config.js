@@ -1,9 +1,10 @@
-import pkg from './package';
 import proxyMiddleware from 'http-proxy-middleware';
 
 const proxy = proxyMiddleware({
 	target: 'http://localhost:8000',
 });
+
+const staticBase = process.env.NODE_ENV === 'development' ? '' : '/themes/tsgctf/static';
 
 export default {
 	mode: 'spa',
@@ -13,9 +14,22 @@ export default {
 		meta: [
 			{charset: 'utf-8'},
 			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
-			{hid: 'description', name: 'description', content: pkg.description},
+			{name: 'description', hid: 'description', content: 'TSG CTF is on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
+			{name: 'apple-mobile-web-app-title', content: 'TSG CTF'},
+			{name: 'og:title', content: 'TSG CTF'},
+			{name: 'og:site_name', content: 'TSG CTF'},
+			{name: 'og:description', content: 'TSG CTF is on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
+			{name: 'og:type', content: 'website'},
+			{name: 'og:url', content: 'https://score.ctf.tsg.ne.jp'},
+			{name: 'og:image', content: `${staticBase}/ogimage.jpg`},
+			{name: 'twitter:card', content: 'summary'},
+			{name: 'twitter:site', content: '@tsg_ut'},
+			{name: 'twitter:title', content: 'TSG CTF'},
+			{name: 'twitter:description', content: 'TSG CTF is on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
+			{name: 'twitter:image', content: `${staticBase}/ogimage.jpg`},
+			{name: 'twitter:image:alt', content: 'TSG CTF'},
 		],
-		link: [{rel: 'icon', type: 'image/png', href: process.env.NODE_ENV === 'development' ? '/favicon.png' : '/themes/tsgctf/static/favicon.png'}],
+		link: [{rel: 'icon', type: 'image/png', href: `${staticBase}/favicon.png`}],
 	},
 
 	loading: {color: '#fff'},
@@ -53,7 +67,7 @@ export default {
 				},
 			},
 		},
-		publicPath: process.env.NODE_ENV === 'development' ? '/_nuxt/' : '/themes/tsgctf/static/_nuxt/',
+		publicPath: `${staticBase}/_nuxt/`,
 	},
 
 	router: {},
