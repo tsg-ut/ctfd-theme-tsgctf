@@ -19,7 +19,7 @@
 					target="_blank"
 					rel="noopener"
 				>
-					this Iwashi melody
+					the aesthetic Iwashi melody
 				</a>
 				<a
 					v-if="melody === 1"
@@ -27,7 +27,7 @@
 					target="_blank"
 					rel="noopener"
 				>
-					this Maguro melody
+					the comfortable Maguro melody
 				</a>
 				<a
 					v-if="melody === 2"
@@ -35,7 +35,7 @@
 					target="_blank"
 					rel="noopener"
 				>
-					this Yatsume melody
+					the cozy Yatsume melody
 				</a>
 				<a
 					v-if="melody === 3"
@@ -43,7 +43,7 @@
 					target="_blank"
 					rel="noopener"
 				>
-					this Kurage melody
+					the intoxicant Kurage melody
 				</a>
 				to tune up our mind. Follow us?
 			</p>
