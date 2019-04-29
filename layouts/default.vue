@@ -411,6 +411,6 @@ section > h2.title {
 }
 
 .table-wrap {
-	overflow-y: scroll;
+	overflow-x: auto;
 }
 </style>
