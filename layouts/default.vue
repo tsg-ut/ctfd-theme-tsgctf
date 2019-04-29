@@ -26,7 +26,7 @@
 				</div>
 				<div v-else class="menu">
 					<div class="menu-item">
-						<nuxt-link to="/notifications">{{isMobile.toString()}} Notifications</nuxt-link>
+						<nuxt-link to="/notifications">Notifications</nuxt-link>
 					</div>
 					<div class="menu-item">
 						<nuxt-link to="/rules">Rules</nuxt-link>
