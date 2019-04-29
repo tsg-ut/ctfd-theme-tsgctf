@@ -107,6 +107,7 @@ export default {
 		justify-content: center;
 		line-height: 2rem;
 		padding: 0.6rem 0;
+		align-items: center;
 	}
 
 	label {

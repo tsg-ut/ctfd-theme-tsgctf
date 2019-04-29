@@ -5,42 +5,81 @@
 				<nuxt-link to="/">TSG CTF</nuxt-link>
 			</div>
 			<div class="spacer"/>
-			<div v-if="isLoggedIn" class="menu">
-				<div class="menu-item">
-					<nuxt-link to="/notifications">Notifications</nuxt-link>
-				</div>
-				<div class="menu-item">
-					<nuxt-link to="/rules">Rules</nuxt-link>
-				</div>
-				<div class="menu-item">
-					<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
-				</div>
-				<div class="menu-item">
-					<nuxt-link to="/challenges">Challenges</nuxt-link>
-				</div>
-				<div v-on-clickaway="onClickaway" class="menu-item dropdown">
-					<div class="dropdown-trigger" @click="isDropping = !isDropping">
-						{{team && team.name}}
+			<div v-if="isLoggedIn">
+				<div v-if="isMobile" class="menu">
+					<div v-on-clickaway="onClickaway" class="menu-item dropdown">
+						<div class="dropdown-trigger" @click="isDropping = !isDropping">
+							<div class="teamname">
+								{{team && team.name}}
+							</div>
+						</div>
+						<div v-if="isDropping" class="dropdown-menu">
+							<nuxt-link to="/notifications" class="dropdown-menu-item">Notifications</nuxt-link>
+							<nuxt-link to="/rules" class="dropdown-menu-item">Rules</nuxt-link>
+							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
+							<nuxt-link to="/challenges" class="dropdown-menu-item">Challenges</nuxt-link>
+							<nuxt-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
+							<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
+							<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
+						</div>
 					</div>
-					<div v-if="isDropping" class="dropdown-menu">
-						<nuxt-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
-						<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
-						<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
+				</div>
+				<div v-else class="menu">
+					<div class="menu-item">
+						<nuxt-link to="/notifications">{{isMobile.toString()}} Notifications</nuxt-link>
+					</div>
+					<div class="menu-item">
+						<nuxt-link to="/rules">Rules</nuxt-link>
+					</div>
+					<div class="menu-item">
+						<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
+					</div>
+					<div class="menu-item">
+						<nuxt-link to="/challenges">Challenges</nuxt-link>
+					</div>
+					<div v-on-clickaway="onClickaway" class="menu-item dropdown">
+						<div class="dropdown-trigger" @click="isDropping = !isDropping">
+							<div class="teamname">
+								{{team && team.name}}
+							</div>
+						</div>
+						<div v-if="isDropping" class="dropdown-menu">
+							<nuxt-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
+							<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
+							<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div v-else class="menu">
-				<div class="menu-item">
-					<nuxt-link to="/rules">Rules</nuxt-link>
+			<div v-else>
+				<div v-if="isMobile" class="menu">
+					<div v-on-clickaway="onClickaway" class="menu-item dropdown">
+						<div class="dropdown-trigger" @click="isDropping = !isDropping">
+							<div class="teamname">
+								Menu
+							</div>
+						</div>
+						<div v-if="isDropping" class="dropdown-menu">
+							<nuxt-link to="/rules" class="dropdown-menu-item">Rules</nuxt-link>
+							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
+							<nuxt-link to="/login" class="dropdown-menu-item">Login</nuxt-link>
+							<nuxt-link to="/register" class="dropdown-menu-item">Register</nuxt-link>
+						</div>
+					</div>
 				</div>
-				<div class="menu-item">
-					<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
-				</div>
-				<div class="menu-item">
-					<nuxt-link to="/login">Login</nuxt-link>
-				</div>
-				<div class="menu-item">
-					<nuxt-link to="/register">Register</nuxt-link>
+				<div v-else class="menu">
+					<div class="menu-item">
+						<nuxt-link to="/rules">Rules</nuxt-link>
+					</div>
+					<div class="menu-item">
+						<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
+					</div>
+					<div class="menu-item">
+						<nuxt-link to="/login">Login</nuxt-link>
+					</div>
+					<div class="menu-item">
+						<nuxt-link to="/register">Register</nuxt-link>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -72,10 +111,24 @@ export default {
 	data() {
 		return {
 			isDropping: false,
+			isMobile: false,
 		};
 	},
 	computed: {
 		...mapState(['isLoggedIn', 'isInTeam', 'team', 'user']),
+	},
+	mounted() {
+		if (window.innerWidth <= 900) {
+			this.isMobile = true;
+		}
+
+		window.addEventListener('resize', () => {
+			if (window.innerWidth <= 900) {
+				this.isMobile = true;
+			} else {
+				this.isMobile = false;
+			}
+		})
 	},
 	methods: {
 		onClickaway() {
@@ -134,6 +187,7 @@ select {
 	padding: 0 1rem;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.4rem;
+	height: 1.7em;
 }
 
 button {
@@ -193,6 +247,7 @@ tbody tr {
 	justify-content: center;
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
 	color: rgba(255, 255, 255, 0.8);
+	z-index: 1;
 
 	.title {
 		font-family: 'Fredoka One', cursive;
@@ -201,6 +256,7 @@ tbody tr {
 		display: block;
 		letter-spacing: 1px;
 		margin-left: 1rem;
+		white-space: nowrap;
 	}
 
 	.spacer {
@@ -224,7 +280,9 @@ tbody tr {
 	}
 
 	.dropdown-trigger {
-		text-transform: none;
+		display: flex;
+		align-items: center;
+		height: 100%;
 		cursor: pointer;
 
 		&::after {
@@ -232,11 +290,19 @@ tbody tr {
 			display: inline-block;
 			width: 0;
 			height: 0;
+			margin-left: 0.5rem;
 			border-top: white 6px solid;
 			border-left: transparent 6px solid;
 			border-right: transparent 6px solid;
 			vertical-align: middle;
 		}
+	}
+
+	.teamname {
+		text-transform: none;
+		max-width: 10rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	.team-score {
@@ -269,7 +335,7 @@ tbody tr {
 }
 
 .root-content {
-	padding-top: 4rem;
+	padding: 4rem 1rem 0;
 	min-height: calc(100vh - 14rem);
 }
 
@@ -282,6 +348,7 @@ section > h2.title {
 	letter-spacing: 1px;
 	margin-top: 3rem;
 	margin-bottom: 1rem;
+	word-break: break-word;
 
 	span {
 		color: rgb(0, 150, 250);
@@ -341,5 +408,9 @@ section > h2.title {
 	.flatt-line:hover .ojigineko {
 		opacity: 0.3;
 	}
+}
+
+.table-wrap {
+	overflow-y: scroll;
 }
 </style>

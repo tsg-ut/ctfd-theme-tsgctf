@@ -1,6 +1,6 @@
 <template>
 	<section class="Index">
-		<div>
+		<div class="index-content">
 			<h1 class="ctf-logo">TSG CTF</h1>
 			<p class="subtitle">Pwn, Rev, Web, Crypto, Forensics, Stego, etc...</p>
 			<div class="timer">{{timer}}</div>
@@ -68,6 +68,10 @@ export default {
 	align-items: center;
 	text-align: center;
 
+	.index-content {
+		max-width: 100%;
+	}
+
 	.ctf-logo {
 		font-family: 'Fredoka One', cursive;
 		font-size: 8rem;
@@ -79,6 +83,10 @@ export default {
 		display: block;
 		letter-spacing: 1px;
 		mix-blend-mode: screen;
+
+		@media (max-width: 900px) {
+			font-size: 18vw;
+		}
 	}
 
 	.subtitle {

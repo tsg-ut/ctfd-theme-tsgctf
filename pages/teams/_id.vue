@@ -11,33 +11,35 @@
 				<pulse-loader v-else color="white" size="10px"/>
 			</div>
 		</div>
-		<table class="scoreboard">
-			<thead>
-				<tr>
-					<td scope="col"><b>Challenge</b></td>
-					<td scope="col"><b>Category</b></td>
-					<td scope="col"><b>Value</b></td>
-					<td scope="col"><b>Solver</b></td>
-					<td scope="col"><b>Time</b></td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="solve in team.solves" :key="solve.challenge_id">
-					<td>
-						<b>{{solve.challenge.name}}</b>
-					</td>
-					<td>{{solve.challenge.category}}</td>
-					<td>{{solve.challenge.value}}</td>
-					<td>
-						<span v-if="getUser(solve.user)">
-							{{getUser(solve.user).name}}
-						</span>
-						<pulse-loader v-else color="white" size="10px"/>
-					</td>
-					<td><timeago :datetime="solve.date" :auto-update="60"/></td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="table-wrap">
+			<table class="scoreboard">
+				<thead>
+					<tr>
+						<td scope="col"><b>Challenge</b></td>
+						<td scope="col"><b>Category</b></td>
+						<td scope="col"><b>Value</b></td>
+						<td scope="col"><b>Solver</b></td>
+						<td scope="col"><b>Time</b></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="solve in team.solves" :key="solve.challenge_id">
+						<td>
+							<b>{{solve.challenge.name}}</b>
+						</td>
+						<td>{{solve.challenge.category}}</td>
+						<td>{{solve.challenge.value}}</td>
+						<td>
+							<span v-if="getUser(solve.user)">
+								{{getUser(solve.user).name}}
+							</span>
+							<pulse-loader v-else color="white" size="10px"/>
+						</td>
+						<td><timeago :datetime="solve.date" :auto-update="60"/></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</section>
 </template>
 
