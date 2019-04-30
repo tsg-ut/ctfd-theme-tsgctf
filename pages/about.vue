@@ -31,7 +31,7 @@
 		</a>
 		<p>Flatt SECURITY is the cyber security assessment service provided by Flatt, Inc.</p>
 		<p>And Flatt is the company for cyber security based in Hongo, Tokyo, nearby The University of Tokyo.</p>
-		<p>Flatt is hiring engineers. Please contact to support<a href="https://twitter.com/flatt" target="_blank" rel="noopener">@flatt</a>.tech or to form in official web site.</p>
+		<p>Flatt is hiring engineers. Please contact to <a href="mailto:support@flatt.tech">support@flatt.tech</a> or to form in official web site.</p>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
 			<img src="https://tsg.ne.jp/images/tsg-logo.png">
