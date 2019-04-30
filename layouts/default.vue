@@ -15,7 +15,7 @@
 						</div>
 						<div v-if="isDropping" class="dropdown-menu">
 							<nuxt-link to="/notifications" class="dropdown-menu-item">Notifications</nuxt-link>
-							<nuxt-link to="/rules" class="dropdown-menu-item">Rules</nuxt-link>
+							<nuxt-link to="/about" class="dropdown-menu-item">About</nuxt-link>
 							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
 							<nuxt-link to="/challenges" class="dropdown-menu-item">Challenges</nuxt-link>
 							<nuxt-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
@@ -29,7 +29,7 @@
 						<nuxt-link to="/notifications">Notifications</nuxt-link>
 					</div>
 					<div class="menu-item">
-						<nuxt-link to="/rules">Rules</nuxt-link>
+						<nuxt-link to="/about">About</nuxt-link>
 					</div>
 					<div class="menu-item">
 						<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
@@ -60,7 +60,7 @@
 							</div>
 						</div>
 						<div v-if="isDropping" class="dropdown-menu">
-							<nuxt-link to="/rules" class="dropdown-menu-item">Rules</nuxt-link>
+							<nuxt-link to="/about" class="dropdown-menu-item">About</nuxt-link>
 							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
 							<nuxt-link to="/login" class="dropdown-menu-item">Login</nuxt-link>
 							<nuxt-link to="/register" class="dropdown-menu-item">Register</nuxt-link>
@@ -69,7 +69,7 @@
 				</div>
 				<div v-else class="menu">
 					<div class="menu-item">
-						<nuxt-link to="/rules">Rules</nuxt-link>
+						<nuxt-link to="/about">About</nuxt-link>
 					</div>
 					<div class="menu-item">
 						<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
