@@ -18,6 +18,7 @@
 			<li>All challenges have dynamic score value, including sanity check.</li>
 			<li>The prize reward is paid in Bitcoin with conversion according to the exchange rate on May 4, 2019.</li>
 			<li>Writeups of solved problems are required to claim prizes. Plus, they will be open to the public.</li>
+            <li>If you have any questions during the contest, please contact us via <a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord server</a>. </li>
 		</ol>
 		<h3>Prizes</h3>
 		<ul>
