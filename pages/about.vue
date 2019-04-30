@@ -2,7 +2,11 @@
 	<section class="About">
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
-		<p class="period">05/04 07:00 - 05/05 07:00</p>
+		<p class="period">
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20190504T16&p1=248" target="_blank" rel="noopener">05/04 07:00</a>
+			-
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20190505T16&p1=248" target="_blank" rel="noopener">05/05 07:00</a>
+		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
 		<h3>Links</h3>
 		<ul class="links">
