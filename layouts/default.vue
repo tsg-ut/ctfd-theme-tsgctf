@@ -159,16 +159,15 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background: radial-gradient(circle, #300e29 0%, #130414 100%), #000000;
+	background-image: url('../static/background.svg'), radial-gradient(circle, #300e29 0%, #130414 100%);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 	color: white;
 }
 
 body {
 	min-height: 100vh;
-	background: url('../static/background.svg');
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
 }
 
 a {
