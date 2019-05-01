@@ -160,6 +160,7 @@ html {
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
 	background-image: url('../static/background.svg'), radial-gradient(circle, #300e29 0%, #130414 100%);
+	background-color: #000000;
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
