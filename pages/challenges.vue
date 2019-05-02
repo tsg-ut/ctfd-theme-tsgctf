@@ -1,7 +1,7 @@
 <template>
 	<section class="Challenges">
 		<h2 class="title"><span>Challenges</span></h2>
-		<div :if="isEnded" class="ended">TSG CTF has been ended!<br>Thank you for your pariticipation!</div>
+		<div v-if="isEnded" class="ended">TSG CTF has been ended!<br>Thank you for your pariticipation!</div>
 		<div v-if="isStarted">
 			<div v-for="category in categories" :key="category.name" class="category">
 				<h3 class="category-name">{{category.name}}</h3>
