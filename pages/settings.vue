@@ -390,14 +390,17 @@ export default {
 
 	label {
 		font-size: 1rem;
+		flex: 0 0 10rem;
 		width: 10rem;
 		text-align: right;
 		padding-right: 1rem;
 	}
 
 	.form-control {
+		flex: 1 1 0;
+		width: 0;
 		font-size: 1.2rem;
-		width: 20rem;
+		max-width: 20rem;
 	}
 
 	.result {
