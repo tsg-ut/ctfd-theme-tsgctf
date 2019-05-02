@@ -22,12 +22,25 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['isLoggedIn', 'csrfToken']),
+		...mapState(['isLoggedIn', 'isVerified', 'csrfToken']),
 	},
 	async asyncData(context) {
 		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
+		if (!this.isLoggedIn) {
+			this.$router.push({
+				path: '/login',
+			});
+		}
+
+		if (this.isVerified) {
+			this.$router.push({
+				path: '/',
+			});
+			return;
+		}
+
 		if (document.referrer) {
 			const referrer = new URL(document.referrer);
 			if (referrer.pathname === '/confirm') {

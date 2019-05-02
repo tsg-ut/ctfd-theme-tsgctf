@@ -72,6 +72,7 @@ export default {
 			isLoggedIn: 'isLoggedIn',
 			isStarted: 'isStarted',
 			isEnded: 'isEnded',
+			isVerified: 'isVerified',
 			isInTeam: 'isInTeam',
 			challenges: (state) => state.challenges.challenges,
 		}),
@@ -89,6 +90,13 @@ export default {
 		await context.store.dispatch('challenges/updateChallenges', context);
 	},
 	mounted() {
+		if (!this.isVerified) {
+			this.$router.push({
+				path: '/confirm',
+			});
+			return;
+		}
+
 		if (!this.isLoggedIn) {
 			this.$router.push({
 				path: '/login',

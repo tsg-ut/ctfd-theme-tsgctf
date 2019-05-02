@@ -17,9 +17,23 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['isInTeam', 'team']),
+		...mapState(['isInTeam', 'isVerified', 'isLoggedIn', 'team']),
 	},
 	mounted() {
+		if (!this.isVerified) {
+			this.$router.push({
+				path: '/confirm',
+			});
+			return;
+		}
+
+		if (!this.isLoggedIn) {
+			this.$router.push({
+				path: '/login',
+			});
+			return;
+		}
+
 		if (this.isInTeam && this.team && this.team.id) {
 			this.$router.push({
 				path: `/teams/${this.team.id}`,

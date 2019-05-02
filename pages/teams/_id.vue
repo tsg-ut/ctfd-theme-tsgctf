@@ -69,6 +69,7 @@ export default {
 		},
 		...mapState({
 			isLoggedIn: 'isLoggedIn',
+			isVerified: 'isVerified',
 			teams: (state) => state.teams.teams,
 		}),
 		...mapGetters({
@@ -85,6 +86,13 @@ export default {
 		}
 	},
 	mounted() {
+		if (!this.isVerified) {
+			this.$router.push({
+				path: '/confirm',
+			});
+			return;
+		}
+
 		if (!this.isLoggedIn) {
 			this.$router.push({
 				path: '/login',

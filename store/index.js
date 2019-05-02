@@ -7,6 +7,7 @@ export const state = () => ({
 	isInTeam: true,
 	isStarted: true,
 	isEnded: false,
+	isVerified: true,
 	user: {},
 	team: {},
 	countries: [
@@ -287,6 +288,9 @@ export const mutations = {
 	setIsEnded(s, payload) {
 		s.isEnded = payload;
 	},
+	setIsVerified(s, payload) {
+		s.isVerified = payload;
+	},
 	setCsrfToken(s, payload) {
 		s.csrfToken = payload;
 	},
@@ -341,6 +345,7 @@ export const actions = {
 		if (headers['content-type'] === 'application/json') {
 			commit('setIsStarted', data.data.is_started);
 			commit('setIsEnded', data.data.is_ended);
+			commit('setIsVerified', data.data.is_verified);
 		} else {
 			commit('setIsLoggedIn', false, {root: true});
 		}
