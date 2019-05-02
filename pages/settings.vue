@@ -125,11 +125,12 @@
 			</div>
 		</form>
 
-		<div class="subtitle">
+		<div v-if="isInTeam" class="subtitle">
 			Team settings
 		</div>
 
 		<form
+			v-if="isInTeam"
 			id="team-settings-form"
 			method="post"
 			accept-charset="utf-8"
@@ -275,7 +276,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['isLoggedIn', 'csrfToken', 'user', 'team', 'countries']),
+		...mapState(['isLoggedIn', 'isInTeam', 'csrfToken', 'user', 'team', 'countries']),
 	},
 	watch: {
 		user(newValue) {
