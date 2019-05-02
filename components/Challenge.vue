@@ -10,6 +10,9 @@
 			</div>
 			<div v-if="isOpen" class="content">
 				<div v-if="challenge.details" class="details">
+					<div class="solves" :class="{'someone-solved': challenge.details.solves > 0, solved: challenge.solved}">
+						{{getSolvesText(challenge.details.solves)}}
+					</div>
 					<!-- eslint-disable-next-line vue/no-v-html -->
 					<div class="description" v-html="$md.render(challenge.details.description)"/>
 					<div class="attachments">
@@ -81,6 +84,10 @@ export default {
 		getFileName(path) {
 			const components = new URL(path, location.href).pathname.split('/');
 			return components[components.length - 1];
+		},
+		getSolvesText(solves) {
+			const rule = new Intl.PluralRules('en-US').select(solves);
+			return `${solves} ${{one: 'solve', other: 'solves'}[rule] || ''}`;
 		},
 		async onSubmitFlag(event) {
 			event.preventDefault();
@@ -184,9 +191,30 @@ export default {
 		margin-bottom: 1.5rem;
 		background: rgba(255, 255, 255, 0.2);
 		padding: 1rem;
-		width: 100%;
+		width: auto;
 		box-sizing: border-box;
 		border-radius: 1rem;
+		position: relative;
+		border-top-right-radius: 0;
+	}
+
+	.solves {
+		background: #2f2f44;
+		position: absolute;
+		bottom: 100%;
+		right: 0;
+		padding: 0 0.3rem;
+		border-radius: 5px;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+
+		&.someone-solved {
+			background: #FF5722;
+		}
+
+		&.solved {
+			background: #4CAF50;
+		}
 	}
 
 	.description {
@@ -213,6 +241,11 @@ export default {
 		pre {
 			background: #333;
 			padding: 0.5rem;
+		}
+
+		hr {
+			opacity: 0.4;
+			margin: 1.5rem 1rem;
 		}
 	}
 
@@ -255,6 +288,7 @@ export default {
 
 	.flag-input {
 		flex: 1 1 0;
+		width: 0;
 		height: 2.5rem;
 		border-radius: 9999px;
 		margin-right: 0.5rem;
