@@ -14,6 +14,7 @@
 					<tr v-for="team in scoreboard" :key="team.name" :class="{active: team.account_id === myTeam.id}">
 						<th scope="row" class="place">{{team.pos}}</th>
 						<td class="team">
+							<div class="team-flag" :style="getFlagStyle(team.country)"/>
 							<nuxt-link :to="`/teams/${team.account_id}`">{{team.name}}</nuxt-link>
 						</td>
 						<td>{{team.score}}</td>
@@ -40,8 +41,13 @@ export default {
 		await context.store.dispatch('scoreboard/update', context);
 	},
 	methods: {
-		getFlag(countryCode) {
-			return `https://cdn.jsdelivr.net/gh/behdad/region-flags@gh-pages/svg/${countryCode.toUpperCase()}.svg`;
+		getFlagStyle(countryCode) {
+			if (countryCode === null || countryCode === '') {
+				return {backgroundColor: 'transparent'};
+			}
+			return {
+				backgroundImage: `url(https://cdn.jsdelivr.net/gh/behdad/region-flags@gh-pages/svg/${countryCode.toUpperCase()}.svg)`,
+			};
 		},
 	},
 	head() {
@@ -64,6 +70,14 @@ export default {
 		max-width: 18rem;
 		text-overflow: ellipsis;
 		overflow: hidden;
+	}
+
+	.team-flag {
+		display: inline-block;
+		width: 27px;
+		height: 18px;
+		background-size: cover;
+		background-position: center;
 	}
 
 	tr.active {

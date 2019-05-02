@@ -13,7 +13,7 @@
 								{{team && team.name}}
 							</div>
 						</div>
-						<div v-if="isDropping" class="dropdown-menu">
+						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
 							<nuxt-link to="/notifications" class="dropdown-menu-item">Notifications</nuxt-link>
 							<nuxt-link to="/about" class="dropdown-menu-item">About</nuxt-link>
 							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
@@ -43,7 +43,7 @@
 								{{team && team.name}}
 							</div>
 						</div>
-						<div v-if="isDropping" class="dropdown-menu">
+						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
 							<nuxt-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
 							<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
 							<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
@@ -59,7 +59,7 @@
 								Menu
 							</div>
 						</div>
-						<div v-if="isDropping" class="dropdown-menu">
+						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
 							<nuxt-link to="/about" class="dropdown-menu-item">About</nuxt-link>
 							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
 							<nuxt-link to="/login" class="dropdown-menu-item">Login</nuxt-link>
@@ -128,11 +128,16 @@ export default {
 			} else {
 				this.isMobile = false;
 			}
-		})
+		});
 	},
 	methods: {
 		onClickaway() {
 			this.isDropping = false;
+		},
+		onClickDropdown(event) {
+			if (event.target.tagName === 'A') {
+				this.isDropping = false;
+			}
 		},
 		logout(event) {
 			event.preventDefault();
@@ -303,6 +308,8 @@ tbody tr {
 		max-width: 10rem;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		white-space: nowrap;
+		text-align: right;
 	}
 
 	.team-score {

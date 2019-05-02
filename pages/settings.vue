@@ -2,8 +2,7 @@
 	<section class="Settings">
 		<h2 class="title"><span>Settings</span></h2>
 		<div class="subtitle">
-			User: {{user.name}}<br>
-			Team: <nuxt-link :to="`/teams/${team.id}`">{{team.name}}</nuxt-link>
+			User settings
 		</div>
 		<form
 			id="user-settings-form"
@@ -11,87 +10,87 @@
 			accept-charset="utf-8"
 			autocomplete="off"
 			role="form"
-			@submit="onSubmit"
+			@submit="onSubmitUser"
 		>
 			<div class="form-group">
-				<label for="name-input">
+				<label for="user-name-input">
 					User Name
 				</label>
 				<input
-					id="name-input"
-					v-model="name"
+					id="user-name-input"
+					v-model="userForm.name"
 					class="form-control"
 					type="text"
 					name="name"
 				>
 			</div>
 			<div class="form-group">
-				<label for="email-input">
+				<label for="user-email-input">
 					Email
 				</label>
 				<input
-					id="email-input"
-					v-model="email"
+					id="user-email-input"
+					v-model="userForm.email"
 					class="form-control"
 					type="email"
 					name="email"
 				>
 			</div>
 			<div class="form-group">
-				<label for="confirm-input">
+				<label for="user-confirm-input">
 					Current Password
 				</label>
 				<input
-					id="confirm-input"
-					v-model="confirm"
+					id="user-confirm-input"
+					v-model="userForm.confirm"
 					class="form-control"
 					type="password"
 					name="confirm"
 				>
 			</div>
 			<div class="form-group">
-				<label for="password-input">
+				<label for="user-password-input">
 					New Password
 				</label>
 				<input
-					id="password-input"
-					v-model="password"
+					id="user-password-input"
+					v-model="userForm.password"
 					class="form-control"
 					type="password"
 					name="password"
 				>
 			</div>
 			<div class="form-group">
-				<label for="affiliation-input">
+				<label for="user-affiliation-input">
 					Affiliation
 				</label>
 				<input
-					id="affiliation-input"
-					v-model="affiliation"
+					id="user-affiliation-input"
+					v-model="userForm.affiliation"
 					class="form-control"
 					type="text"
 					name="affiliation"
 				>
 			</div>
 			<div class="form-group">
-				<label for="website-input">
+				<label for="user-website-input">
 					Website
 				</label>
 				<input
-					id="website-input"
-					v-model="website"
+					id="user-website-input"
+					v-model="userForm.website"
 					class="form-control"
 					type="url"
 					name="website"
 				>
 			</div>
 			<div class="form-group">
-				<label for="country-input">
+				<label for="user-country-input">
 					Country
 				</label>
 				<select
-					id="country-input"
-					v-model="country"
+					id="user-country-input"
+					v-model="userForm.country"
 					class="form-control"
 					name="country"
 				>
@@ -104,8 +103,8 @@
 
 			<div class="form-group">
 				<button
-					v-if="!isSubmitting"
-					id="submit"
+					v-if="!userForm.isSubmitting"
+					id="user-submit"
 					type="submit"
 					tabindex="5"
 				>
@@ -115,11 +114,124 @@
 			</div>
 
 			<div class="result">
-				<span v-if="isSuccess" class="success">
+				<span v-if="userForm.isSuccess" class="success">
 					Your profile has been updated
 				</span>
-				<ul v-if="errors.length > 0" class="errors">
-					<li v-for="error in errors" :key="error">
+				<ul v-if="userForm.errors.length > 0" class="errors">
+					<li v-for="error in userForm.errors" :key="error">
+						{{error}}
+					</li>
+				</ul>
+			</div>
+		</form>
+
+		<div class="subtitle">
+			Team settings
+		</div>
+
+		<form
+			id="team-settings-form"
+			method="post"
+			accept-charset="utf-8"
+			autocomplete="off"
+			role="form"
+			@submit="onSubmitTeam"
+		>
+			<div class="form-group">
+				<label for="team-name-input">
+					Team Name
+				</label>
+				<input
+					id="team-name-input"
+					v-model="teamForm.name"
+					class="form-control"
+					type="text"
+					name="name"
+				>
+			</div>
+			<div class="form-group">
+				<label for="team-confirm-input">
+					Current Password
+				</label>
+				<input
+					id="team-confirm-input"
+					v-model="teamForm.confirm"
+					class="form-control"
+					type="password"
+					name="confirm"
+				>
+			</div>
+			<div class="form-group">
+				<label for="team-password-input">
+					New Password
+				</label>
+				<input
+					id="team-password-input"
+					v-model="teamForm.password"
+					class="form-control"
+					type="password"
+					name="password"
+				>
+			</div>
+			<div class="form-group">
+				<label for="team-affiliation-input">
+					Affiliation
+				</label>
+				<input
+					id="team-affiliation-input"
+					v-model="teamForm.affiliation"
+					class="form-control"
+					type="text"
+					name="affiliation"
+				>
+			</div>
+			<div class="form-group">
+				<label for="team-website-input">
+					Website
+				</label>
+				<input
+					id="team-website-input"
+					v-model="teamForm.website"
+					class="form-control"
+					type="url"
+					name="website"
+				>
+			</div>
+			<div class="form-group">
+				<label for="team-country-input">
+					Country
+				</label>
+				<select
+					id="team-country-input"
+					v-model="teamForm.country"
+					class="form-control"
+					name="country"
+				>
+					<option value=""/>
+					<option v-for="[code, countryName] in countries" :key="code" :value="code">
+						{{countryName}}
+					</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<button
+					v-if="!teamForm.isSubmitting"
+					id="team-submit"
+					type="submit"
+					tabindex="5"
+				>
+					Submit
+				</button>
+				<pulse-loader v-else color="white"/>
+			</div>
+
+			<div class="result">
+				<span v-if="teamForm.isSuccess" class="success">
+					Your profile has been updated
+				</span>
+				<ul v-if="teamForm.errors.length > 0" class="errors">
+					<li v-for="error in teamForm.errors" :key="error">
 						{{error}}
 					</li>
 				</ul>
@@ -137,16 +249,29 @@ export default {
 	components: {PulseLoader},
 	data() {
 		return {
-			errors: [],
-			isSuccess: false,
-			isSubmitting: false,
-			name: '',
-			email: '',
-			confirm: '',
-			password: '',
-			affiliation: '',
-			website: '',
-			country: '',
+			userForm: {
+				name: '',
+				email: '',
+				confirm: '',
+				password: '',
+				affiliation: '',
+				website: '',
+				country: '',
+				isSuccess: false,
+				isSubmitting: false,
+				errors: [],
+			},
+			teamForm: {
+				name: '',
+				confirm: '',
+				password: '',
+				affiliation: '',
+				website: '',
+				country: '',
+				isSuccess: false,
+				isSubmitting: false,
+				errors: [],
+			},
 		};
 	},
 	computed: {
@@ -154,11 +279,10 @@ export default {
 	},
 	watch: {
 		user(newValue) {
-			this.name = newValue.name;
-			this.email = newValue.email;
-			this.affiliation = newValue.affiliation;
-			this.website = newValue.website;
-			this.country = newValue.country;
+			Object.assign(this.userForm, newValue);
+		},
+		team(newValue) {
+			Object.assign(this.teamForm, newValue);
 		},
 	},
 	async asyncData(context) {
@@ -172,20 +296,17 @@ export default {
 			return;
 		}
 
-		this.name = this.user.name;
-		this.email = this.user.email;
-		this.affiliation = this.user.affiliation;
-		this.website = this.user.website;
-		this.country = this.user.country;
+		Object.assign(this.userForm, this.user);
+		Object.assign(this.teamForm, this.team);
 	},
 	methods: {
-		async onSubmit(event) {
+		async onSubmitUser(event) {
 			event.preventDefault();
 			const form = new FormData(event.target);
 
-			this.isSubmitting = true;
-			this.isSuccess = false;
-			this.errors = [];
+			this.userForm.isSubmitting = true;
+			this.userForm.isSuccess = false;
+			this.userForm.errors = [];
 
 			const {data} = await this.$axios.patch('/api/v1/users/me', Object.fromEntries(form), {
 				headers: {
@@ -193,13 +314,36 @@ export default {
 				},
 				validateStatus: null,
 			});
-			this.isSubmitting = false;
+			this.userForm.isSubmitting = false;
 
 			if (data.success) {
-				this.isSuccess = true;
+				this.userForm.isSuccess = true;
 				await this.$store.dispatch('updateUser', {$axios: this.$axios});
 			} else {
-				this.errors = flatten(Object.values(data.errors));
+				this.userForm.errors = flatten(Object.values(data.errors));
+			}
+		},
+		async onSubmitTeam(event) {
+			event.preventDefault();
+			const form = new FormData(event.target);
+
+			this.teamForm.isSubmitting = true;
+			this.teamForm.isSuccess = false;
+			this.teamForm.errors = [];
+
+			const {data} = await this.$axios.patch('/api/v1/teams/me', Object.fromEntries(form), {
+				headers: {
+					'content-type': 'application/json',
+				},
+				validateStatus: null,
+			});
+			this.teamForm.isSubmitting = false;
+
+			if (data.success) {
+				this.teamForm.isSuccess = true;
+				await this.$store.dispatch('updateTeam', {$axios: this.$axios});
+			} else {
+				this.teamForm.errors = flatten(Object.values(data.errors));
 			}
 		},
 	},
@@ -220,8 +364,15 @@ export default {
 	}
 
 	.subtitle {
-		margin-bottom: 2rem;
-		font-size: 1.5rem;
+		font-size: 2rem;
+		font-family: 'Fredoka One', cursive;
+		font-weight: 300;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-top: 3rem;
+		margin-bottom: 1rem;
+		word-break: break-word;
 
 		a {
 			color: #90cbff;

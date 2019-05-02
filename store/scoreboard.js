@@ -11,11 +11,17 @@ export const getters = {
 	getScoreboard: (s) => {
 		const listedTeams = new Set(s.scoreboard.map((team) => team.account_id));
 		const nonListedTeams = s.teams.filter(({id}) => !listedTeams.has(id));
+		const teamsMap = new Map(s.teams.map((team) => [team.id, team]));
+
 		return [
-			...s.scoreboard,
+			...s.scoreboard.map((team) => ({
+				...team,
+				country: teamsMap.has(team.account_id) ? teamsMap.get(team.account_id).country : null,
+			})),
 			...nonListedTeams.map((team) => ({
 				name: team.name,
 				account_id: team.id,
+				country: team.country,
 				pos: s.scoreboard.length + 1,
 				score: 0,
 			})),
