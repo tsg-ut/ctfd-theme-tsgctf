@@ -105,6 +105,7 @@ export default {
 		this.melody = Math.floor(Math.random() * 4);
 		this.interval = setInterval(() => {
 			this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
+			this.$store.dispatch('updateDates', {$axios: this.$axios});
 		}, 60 * 1000);
 	},
 	destroyed() {

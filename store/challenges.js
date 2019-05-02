@@ -62,6 +62,8 @@ export const actions = {
 			const message = get(error, ['response', 'data', 'message'], '');
 			if (message.includes('not started')) {
 				commit('setIsStarted', false, {root: true});
+			} else if (message.includes('has ended')) {
+				commit('setIsEnded', true, {root: true});
 			} else {
 				commit('setIsInTeam', false, {root: true});
 			}
