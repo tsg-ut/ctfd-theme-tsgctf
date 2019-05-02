@@ -40,6 +40,14 @@ export default {
 	async asyncData(context) {
 		await context.store.dispatch('scoreboard/update', context);
 	},
+	mounted() {
+		this.interval = setInterval(() => {
+			this.$store.dispatch('scoreboard/update', {$axios: this.$axios});
+		}, 60 * 1000);
+	},
+	destroyed() {
+		clearInterval(this.interval);
+	},
 	methods: {
 		getFlagStyle(countryCode) {
 			if (countryCode === null || countryCode === '') {

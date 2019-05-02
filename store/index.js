@@ -6,6 +6,7 @@ export const state = () => ({
 	isLoggedIn: true,
 	isInTeam: true,
 	isStarted: true,
+	isEnded: false,
 	user: {},
 	team: {},
 	countries: [
@@ -283,6 +284,9 @@ export const mutations = {
 	setIsStarted(s, payload) {
 		s.isStarted = payload;
 	},
+	setIsEnded(s, payload) {
+		s.isEnded = payload;
+	},
 	setCsrfToken(s, payload) {
 		s.csrfToken = payload;
 	},
@@ -299,6 +303,7 @@ export const actions = {
 		await Promise.all([
 			dispatch('updateUser', context),
 			dispatch('updateTeam', context),
+			dispatch('updateDates', context),
 			dispatch('updateCsrfToken', context),
 			dispatch('notifications/updateNotifications', context),
 		]);
@@ -327,6 +332,15 @@ export const actions = {
 			} else {
 				commit('setTeam', data.data);
 			}
+		} else {
+			commit('setIsLoggedIn', false, {root: true});
+		}
+	},
+	async updateDates({commit}, {$axios}) {
+		const {data, headers} = await $axios.get('/api/v1/dates');
+		if (headers['content-type'] === 'application/json') {
+			commit('setIsStarted', data.data.is_started);
+			commit('setIsEnded', data.data.is_ended);
 		} else {
 			commit('setIsLoggedIn', false, {root: true});
 		}

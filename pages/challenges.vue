@@ -1,6 +1,7 @@
 <template>
 	<section class="Challenges">
 		<h2 class="title"><span>Challenges</span></h2>
+		<div :if="isEnded" class="ended">TSG CTF has been ended!<br>Thank you for your pariticipation!</div>
 		<div v-if="isStarted">
 			<div v-for="category in categories" :key="category.name" class="category">
 				<h3 class="category-name">{{category.name}}</h3>
@@ -70,6 +71,7 @@ export default {
 		...mapState({
 			isLoggedIn: 'isLoggedIn',
 			isStarted: 'isStarted',
+			isEnded: 'isEnded',
 			isInTeam: 'isInTeam',
 			challenges: (state) => state.challenges.challenges,
 		}),
@@ -101,6 +103,12 @@ export default {
 		}
 
 		this.melody = Math.floor(Math.random() * 4);
+		this.interval = setInterval(() => {
+			this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
+		}, 60 * 1000);
+	},
+	destroyed() {
+		clearInterval(this.interval);
 	},
 	head() {
 		return {
@@ -115,6 +123,18 @@ export default {
 	max-width: 800px;
 	margin: 0 auto;
 	min-height: 100vh;
+
+	.ended {
+		font-size: 2rem;
+		font-family: 'Fredoka One', cursive;
+		font-weight: 300;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-top: 3rem;
+		margin-bottom: 1rem;
+		word-break: break-word;
+	}
 
 	.category {
 		margin-top: 3rem;

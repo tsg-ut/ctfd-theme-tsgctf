@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import groupBy from 'lodash/groupBy';
 import get from 'lodash/get';
+import groupBy from 'lodash/groupBy';
 
 const categoryOrders = ['warmup', 'pwn', 'rev', 'web', 'crypto', 'stego'];
 

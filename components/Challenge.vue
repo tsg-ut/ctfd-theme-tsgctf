@@ -43,10 +43,10 @@
 						spellcheck="false"
 						:class="{yay, boo}"
 						:readonly="yay"
-						:placeholder="challenge.solved ? 'You\'ve already solved this challenge!' : 'TSGCTF{......}'"
-						:disabled="challenge.solved"
+						:placeholder="getPlaceholderText(challenge)"
+						:disabled="challenge.solved || isEnded"
 					>
-					<button type="submit" class="flag-submit" :disabled="yay || challenge.solved">Send</button>
+					<button type="submit" class="flag-submit" :disabled="yay || challenge.solved || isEnded">Send</button>
 				</form>
 			</div>
 		</div>
@@ -55,6 +55,7 @@
 
 <script>
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+import {mapState} from 'vuex';
 
 export default {
 	components: {PulseLoader},
@@ -72,6 +73,9 @@ export default {
 			flagText: '',
 		};
 	},
+	computed: {
+		...mapState(['isEnded']),
+	},
 	methods: {
 		onClickTitle() {
 			if (this.isOpen) {
@@ -88,6 +92,17 @@ export default {
 		getSolvesText(solves) {
 			const rule = new Intl.PluralRules('en-US').select(solves);
 			return `${solves} ${{one: 'solve', other: 'solves'}[rule] || ''}`;
+		},
+		getPlaceholderText(challenge) {
+			if (challenge.solved) {
+				return 'You\'ve already solved this challenge!';
+			}
+
+			if (this.isEnded) {
+				return 'Contest has been ended';
+			}
+
+			return 'TSGCTF{......}';
 		},
 		async onSubmitFlag(event) {
 			event.preventDefault();
