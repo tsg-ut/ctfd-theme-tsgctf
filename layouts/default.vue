@@ -345,7 +345,7 @@ tbody tr {
 
 .root-content {
 	padding: 4rem 1rem 0;
-	min-height: calc(100vh - 14rem);
+	min-height: calc(100vh - 13rem);
 }
 
 section > h2.title {
@@ -370,7 +370,7 @@ section > h2.title {
 .footer {
 	text-align: center;
 	margin-top: 5rem;
-	padding-bottom: 2rem;
+	padding-bottom: 1rem;
 	color: rgba(255, 255, 255, 0.8);
 	line-height: 1.2rem;
 

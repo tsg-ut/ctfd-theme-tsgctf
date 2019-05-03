@@ -1,12 +1,16 @@
 <template>
 	<section class="Challenges">
 		<h2 class="title"><span>Challenges</span></h2>
+		<div class="hide-solved">
+			<input id="checkbox" v-model="isHideSolved" type="checkbox">
+			<label for="checkbox">Hide solved</label>
+		</div>
 		<div v-if="isEnded" class="ended">TSG CTF has been ended!<br>Thank you for your pariticipation!</div>
 		<div v-if="isStarted">
 			<div v-for="category in categories" :key="category.name" class="category">
 				<h3 class="category-name">{{category.name}}</h3>
 				<ul class="challenges">
-					<challenge v-for="challenge in category.challenges" :key="challenge.id" :challenge="challenge"/>
+					<challenge v-for="challenge in category.challenges.filter(({solved}) => !isHideSolved || !solved)" :key="challenge.id" :challenge="challenge"/>
 				</ul>
 			</div>
 		</div>
@@ -62,6 +66,7 @@ export default {
 		return {
 			remainingTime: new Date('2019-05-04T07:00:00Z') - Date.now(),
 			melody: 0,
+			isHideSolved: false,
 		};
 	},
 	computed: {
@@ -132,6 +137,16 @@ export default {
 	max-width: 800px;
 	margin: 0 auto;
 	min-height: 100vh;
+
+	.title {
+		margin-bottom: 0;
+	}
+
+	.hide-solved {
+		text-align: center;
+		font-family: 'Roboto';
+		font-size: 1.2rem;
+	}
 
 	.ended {
 		font-size: 2rem;
