@@ -2,7 +2,12 @@
 	<section class="Challenges">
 		<h2 class="title"><span>Challenges</span></h2>
 		<div class="hide-solved">
-			<input id="checkbox" v-model="isHideSolved" type="checkbox">
+			<input
+				v-if="isStarted"
+				id="checkbox"
+				v-model="isHideSolved"
+				type="checkbox"
+			>
 			<label for="checkbox">Hide solved</label>
 		</div>
 		<div v-if="isEnded" class="ended">TSG CTF has been ended!<br>Thank you for your pariticipation!</div>
