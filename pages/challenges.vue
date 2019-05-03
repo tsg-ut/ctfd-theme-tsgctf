@@ -10,7 +10,11 @@
 			<div v-for="category in categories" :key="category.name" class="category">
 				<h3 class="category-name">{{category.name}}</h3>
 				<ul class="challenges">
-					<challenge v-for="challenge in category.challenges.filter(({solved}) => !isHideSolved || !solved)" :key="challenge.id" :challenge="challenge"/>
+					<challenge
+						v-for="challenge in category.challenges.filter(({solved}) => !isHideSolved || !solved)"
+						:key="challenge.id"
+						:challenge="challenge"
+					/>
 				</ul>
 			</div>
 		</div>

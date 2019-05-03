@@ -40,10 +40,7 @@ export const mutations = {
 
 export const actions = {
 	async update({dispatch}, {$axios}) {
-		await Promise.all([
-			dispatch('updateScoreboard', {$axios}),
-			dispatch('updateTeams', {$axios}),
-		]);
+		await Promise.all([dispatch('updateScoreboard', {$axios}), dispatch('updateTeams', {$axios})]);
 	},
 	async updateScoreboard({commit}, {$axios}) {
 		const {data, headers} = await $axios.get('/api/v1/scoreboard');

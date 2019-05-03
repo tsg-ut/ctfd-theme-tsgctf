@@ -227,11 +227,11 @@ export default {
 		border-bottom-left-radius: 0;
 
 		&.someone-solved {
-			background: #FF5722;
+			background: #ff5722;
 		}
 
 		&.solved {
-			background: #4CAF50;
+			background: #4caf50;
 		}
 	}
 
@@ -283,7 +283,7 @@ export default {
 
 		&::before {
 			content: '';
-			background: url("https://cdn.jsdelivr.net/gh/google/material-design-icons@2.2.0/file/2x_web/ic_attachment_white_18dp.png");
+			background: url('https://cdn.jsdelivr.net/gh/google/material-design-icons@2.2.0/file/2x_web/ic_attachment_white_18dp.png');
 			background-size: cover;
 			display: inline-block;
 			width: 1.4rem;

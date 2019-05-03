@@ -1,6 +1,8 @@
 <template>
 	<section class="Scoreboard">
-		<h2 class="title"><span>Score<wbr>board</span></h2>
+		<h2 class="title">
+			<span>Score<wbr>board</span>
+		</h2>
 		<div class="table-wrap">
 			<table class="scoreboard">
 				<thead>

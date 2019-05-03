@@ -22,7 +22,10 @@
 			<li>All challenges have dynamic score value, including sanity check.</li>
 			<li>The prize reward is paid in Bitcoin with conversion according to the exchange rate on May 4, 2019.</li>
 			<li>Writeups of solved problems are required to claim prizes. Plus, they will be open to the public.</li>
-			<li>If you have any questions during the contest, please contact us via <a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord server</a>.</li>
+			<li>
+				If you have any questions during the contest, please contact us via
+				<a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord server</a>.
+			</li>
 		</ol>
 		<h3>Prizes</h3>
 		<ul>
@@ -36,12 +39,17 @@
 		</a>
 		<p>Flatt SECURITY is the cyber security assessment service provided by Flatt, Inc.</p>
 		<p>And Flatt is the company for cyber security based in Hongo, Tokyo, nearby The University of Tokyo.</p>
-		<p>Flatt is hiring engineers. Please contact to <a href="mailto:support@flatt.tech">support@flatt.tech</a> or to form in official web site.</p>
+		<p>
+			Flatt is hiring engineers. Please contact to <a href="mailto:support@flatt.tech">support@flatt.tech</a> or to form in official web site.
+		</p>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
 			<img src="https://tsg.ne.jp/images/tsg-logo.png">
 		</a>
-		<p>TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The University of Tokyo.</p>
+		<p>
+			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
+			University of Tokyo.
+		</p>
 		<p>Below is the full list of TSG members who contributed to this TSG CTF in success. So many thanks!!</p>
 		<ul>
 			<li><a href="https://twitter.com/hakatashi" target="_blank" rel="noopener">@hakatashi</a></li>
@@ -93,7 +101,9 @@ export default {
 		line-height: 3rem;
 	}
 
-	p, ul, ol {
+	p,
+	ul,
+	ol {
 		font-family: 'Roboto';
 		width: 100%;
 		max-width: 40rem;

@@ -3,12 +3,13 @@ export const state = () => ({
 });
 
 export const getters = {
-	getNotifications: (s) => (
-		s.notifications.slice().sort((a, b) => b.id - a.id).map((notification) => ({
+	getNotifications: (s) => s.notifications
+		.slice()
+		.sort((a, b) => b.id - a.id)
+		.map((notification) => ({
 			...notification,
 			date: new Date(notification.date),
-		}))
-	),
+		})),
 };
 
 export const mutations = {

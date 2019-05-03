@@ -14,7 +14,11 @@ export default {
 		meta: [
 			{charset: 'utf-8'},
 			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
-			{name: 'description', hid: 'description', content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
+			{
+				name: 'description',
+				hid: 'description',
+				content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
+			},
 			{name: 'apple-mobile-web-app-title', content: 'TSG CTF'},
 			{name: 'og:title', content: 'TSG CTF'},
 			{name: 'og:site_name', content: 'TSG CTF'},
@@ -25,7 +29,10 @@ export default {
 			{name: 'twitter:card', content: 'summary'},
 			{name: 'twitter:site', content: '@tsg_ut'},
 			{name: 'twitter:title', content: 'TSG CTF'},
-			{name: 'twitter:description', content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
+			{
+				name: 'twitter:description',
+				content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
+			},
 			{name: 'twitter:image', content: `${staticBase}/ogimage.jpg`},
 			{name: 'twitter:image:alt', content: 'TSG CTF'},
 		],
