@@ -165,10 +165,11 @@ export default {
 			content: '';
 			position: absolute;
 			border: dashed 1px white;
-			top: 0.3rem;
-			left: 0.3rem;
-			right: 0.3rem;
-			bottom: 0.3rem;
+			top: 0.2rem;
+			left: 0.2rem;
+			right: 0.2rem;
+			bottom: 0.2rem;
+			opacity: 0.5;
 		}
 	}
 

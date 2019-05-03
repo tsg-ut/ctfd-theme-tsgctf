@@ -5,7 +5,7 @@
 		</div>
 		<div class="list-content">
 			<div class="title" @click="onClickTitle">
-				{{challenge.name}}
+				<span class="title-name">{{challenge.name}}</span>
 				<span class="points"> {{challenge.value}}pts </span>
 			</div>
 			<div v-if="isOpen" class="content">
@@ -178,13 +178,16 @@ export default {
 		font-size: 2.5rem;
 		font-family: 'Fredoka One', cursive;
 		font-weight: 300;
+		display: inline-block;
+		letter-spacing: 1px;
+		cursor: pointer;
+	}
+
+	.title-name {
 		color: rgb(0, 150, 250);
 		-webkit-text-fill-color: transparent;
 		background: linear-gradient(90deg, rgb(255, 24, 13) 0%, rgb(138, 0, 255) 100%);
 		background-clip: text;
-		display: inline-block;
-		letter-spacing: 1px;
-		cursor: pointer;
 	}
 
 	.points {

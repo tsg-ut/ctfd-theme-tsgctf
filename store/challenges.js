@@ -17,7 +17,7 @@ export const getters = {
 	getCategories: (s, g) => Object.entries(groupBy(g.getChallenges, ({category}) => category))
 		.map(([name, challenges]) => ({
 			name,
-			challenges,
+			challenges: challenges.sort((a, b) => a.value - b.value),
 		}))
 		.sort((a, b) => {
 			const orderA = categoryOrders.indexOf(a.name.toLowerCase());
@@ -27,13 +27,20 @@ export const getters = {
 };
 
 export const mutations = {
-	setChallenges(s, payload) {
+	setChallenges(s, challenges) {
 		const oldChallenges = s.challenges || [];
-		s.challenges = payload;
-		for (const challenge of s.challenges) {
+		s.challenges = challenges.map((challenge) => {
 			const oldChallenge = oldChallenges.find(({id}) => id === challenge.id);
-			challenge.details = oldChallenge ? oldChallenge.details : null;
-		}
+
+			if (!oldChallenge) {
+				return challenge;
+			}
+
+			for (const [key, value] of Object.entries(challenge)) {
+				Vue.set(oldChallenge, key, value);
+			}
+			return oldChallenge;
+		});
 	},
 	setSolves(s, solves) {
 		s.solves = new Set(solves.map((solve) => solve.challenge_id));
