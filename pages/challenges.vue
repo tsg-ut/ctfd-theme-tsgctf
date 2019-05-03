@@ -85,7 +85,7 @@ export default {
 	watch: {
 		isInTeam(newValue) {
 			if (newValue === false) {
-				this.$router.push({
+				this.$router.replace({
 					path: '/team',
 				});
 			}
@@ -96,21 +96,21 @@ export default {
 	},
 	mounted() {
 		if (!this.isVerified) {
-			this.$router.push({
+			this.$router.replace({
 				path: '/confirm',
 			});
 			return;
 		}
 
 		if (!this.isLoggedIn) {
-			this.$router.push({
+			this.$router.replace({
 				path: '/login',
 			});
 			return;
 		}
 
 		if (!this.isInTeam) {
-			this.$router.push({
+			this.$router.replace({
 				path: '/team',
 			});
 		}

@@ -291,7 +291,7 @@ export default {
 	},
 	mounted() {
 		if (!this.isLoggedIn) {
-			this.$router.push({
+			this.$router.replace({
 				path: '/login',
 			});
 			return;
