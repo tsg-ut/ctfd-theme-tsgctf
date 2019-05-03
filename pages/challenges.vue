@@ -152,11 +152,11 @@ export default {
 		font-size: 1.2rem;
 	}
 
-	input[type="checkbox"] {
+	input[type='checkbox'] {
 		display: none;
-    }
+	}
 
-	input[type="checkbox"] + label {
+	input[type='checkbox'] + label {
 		position: relative;
 		cursor: pointer;
 		-webkit-user-select: none;
@@ -164,10 +164,10 @@ export default {
 		-ms-user-select: none;
 	}
 
-	input[type="checkbox"] + label::before {
-        content: "";
+	input[type='checkbox'] + label::before {
+		content: '';
 		margin-left: -1.8rem;
-        margin-top: 0.05rem;
+		margin-top: 0.05rem;
 		display: block;
 		width: 1.2rem;
 		height: 1.2rem;
@@ -180,10 +180,10 @@ export default {
 		transition: all 0.07s, border-color 0.07s;
 	}
 
-	input[type="checkbox"]:checked + label::before {
+	input[type='checkbox']:checked + label::before {
 		width: 10px;
-        top: -0.2rem;
-        left: 0.2rem;
+		top: -0.2rem;
+		left: 0.2rem;
 		border-top-color: transparent;
 		border-left-color: transparent;
 		-webkit-transform: rotate(45deg);
