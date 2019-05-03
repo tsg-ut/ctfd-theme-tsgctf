@@ -86,17 +86,18 @@ export default {
 		}
 	},
 	mounted() {
+		if (!this.isLoggedIn) {
+			this.$router.replace({
+				path: '/login',
+			});
+			return;
+		}
+
 		if (!this.isVerified) {
 			this.$router.replace({
 				path: '/confirm',
 			});
 			return;
-		}
-
-		if (!this.isLoggedIn) {
-			this.$router.replace({
-				path: '/login',
-			});
 		}
 
 		const solvers = Array.from(new Set([
