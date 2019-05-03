@@ -84,8 +84,9 @@ export default {
 		display: inline-block;
 		width: 27px;
 		height: 18px;
-		background-size: cover;
+		background-size: contain;
 		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	tr.active {

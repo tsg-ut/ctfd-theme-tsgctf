@@ -56,6 +56,10 @@ export default {
 			bottom: 1rem;
 			right: 1rem;
 		}
+
+		.content {
+			white-space: pre-line;
+		}
 	}
 
 	.no-notification {
