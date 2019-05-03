@@ -22,7 +22,7 @@
 			<li>All challenges have dynamic score value, including sanity check.</li>
 			<li>The prize reward is paid in Bitcoin with conversion according to the exchange rate on May 4, 2019.</li>
 			<li>Writeups of solved problems are required to claim prizes. Plus, they will be open to the public.</li>
-			<li>If you have any questions during the contest, please contact us via <a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord server</a>. </li>
+			<li>If you have any questions during the contest, please contact us via <a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord server</a>.</li>
 		</ol>
 		<h3>Prizes</h3>
 		<ul>
@@ -58,6 +58,7 @@
 			<li><a href="https://twitter.com/coil_kpc" target="_blank" rel="noopener">@coil_kpc</a></li>
 			<li><a href="https://twitter.com/kuromunori" target="_blank" rel="noopener">@kuromunori</a></li>
 			<li><a href="https://twitter.com/gh_end_" target="_blank" rel="noopener">@gh_end_</a></li>
+			<li><a href="https://twitter.com/pizzacat83" target="_blank" rel="noopener">@pizzacat83</a></li>
 		</ul>
 	</section>
 </template>
