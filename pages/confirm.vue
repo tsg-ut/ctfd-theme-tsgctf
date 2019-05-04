@@ -34,13 +34,6 @@ export default {
 			});
 		}
 
-		if (this.isVerified) {
-			this.$router.replace({
-				path: '/',
-			});
-			return;
-		}
-
 		if (document.referrer) {
 			const referrer = new URL(document.referrer);
 			if (referrer.pathname === '/confirm') {
