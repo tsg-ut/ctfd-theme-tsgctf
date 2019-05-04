@@ -90,8 +90,7 @@ export default {
 			return components[components.length - 1];
 		},
 		getSolvesText(solves) {
-			const rule = new Intl.PluralRules('en-US').select(solves);
-			return `${solves} ${{one: 'solve', other: 'solves'}[rule] || ''}`;
+			return `${solves} ${solves === 1 ? 'solve' : 'solves'}`;
 		},
 		getPlaceholderText(challenge) {
 			if (challenge.solved) {

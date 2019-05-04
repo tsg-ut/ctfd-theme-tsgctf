@@ -47,15 +47,20 @@
 import {mapGetters, mapState} from 'vuex';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
-const pr = new Intl.PluralRules('en-US', {type: 'ordinal'});
-const suffixes = new Map([['one', 'st'], ['two', 'nd'], ['few', 'rd'], ['other', 'th']]);
-const formatOrdinals = (n) => {
-	if (n === Infinity) {
-		return '---';
+// https://stackoverflow.com/a/13627586/2864502
+const formatOrdinals = (i) => {
+	const j = i % 10;
+	const k = i % 100;
+	if (j === 1 && k !== 11) {
+		return `${i}st`;
 	}
-	const rule = pr.select(n);
-	const suffix = suffixes.get(rule);
-	return `${n}${suffix}`;
+	if (j === 2 && k !== 12) {
+		return `${i}nd`;
+	}
+	if (j === 3 && k !== 13) {
+		return `${i}rd`;
+	}
+	return `${i}th`;
 };
 
 export default {
