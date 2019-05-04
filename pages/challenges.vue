@@ -159,35 +159,30 @@ export default {
 	input[type='checkbox'] + label {
 		position: relative;
 		cursor: pointer;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
+		user-select: none;
+		padding-left: 1.2rem;
 	}
 
 	input[type='checkbox'] + label::before {
 		content: '';
-		margin-left: -1.8rem;
-		margin-top: 0.05rem;
 		display: block;
-		width: 1.2rem;
-		height: 1.2rem;
-		left: 0px;
-		top: 0px;
-		border: 0.7px solid #ffffff;
+		width: 0.8rem;
+		height: 0.8rem;
+		left: 0;
+		top: 0.3rem;
+		border: 1px solid #ffffff;
 		position: absolute;
 		opacity: 0.8;
-		-webkit-transition: all 0.07s, border-color 0.07s;
-		transition: all 0.07s, border-color 0.07s;
+		transition: all 0.07s;
 	}
 
 	input[type='checkbox']:checked + label::before {
-		width: 10px;
+		width: 8px;
 		top: -0.2rem;
 		left: 0.2rem;
 		border-top-color: transparent;
 		border-left-color: transparent;
-		-webkit-transform: rotate(45deg);
-		transform: rotate(45deg);
+		transform: translateY(5px) rotate(45deg);
 	}
 
 	.ended {
