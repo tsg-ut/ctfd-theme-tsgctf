@@ -197,6 +197,39 @@ select {
 	height: 1.7em;
 }
 
+input[type='checkbox'] {
+	display: none;
+}
+
+input[type='checkbox'] + label {
+	position: relative;
+	cursor: pointer;
+	user-select: none;
+	padding-left: 1.2rem;
+}
+
+input[type='checkbox'] + label::before {
+	content: '';
+	display: block;
+	width: 0.8rem;
+	height: 0.8rem;
+	left: 0;
+	top: 0.3rem;
+	border: 1px solid #ffffff;
+	position: absolute;
+	opacity: 0.8;
+	transition: all 0.07s;
+}
+
+input[type='checkbox']:checked + label::before {
+	width: 8px;
+	top: -0.2rem;
+	left: 0.2rem;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	transform: translateY(5px) rotate(45deg);
+}
+
 button {
 	border: 0;
 	color: inherit;
