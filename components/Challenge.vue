@@ -20,7 +20,7 @@
 							v-for="file in challenge.details.files"
 							:key="file"
 							class="attachment"
-							:href="file"
+							:href="getFileLink(file)"
 							target="_blank"
 							rel="noopener"
 						>
