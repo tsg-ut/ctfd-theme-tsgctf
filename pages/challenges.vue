@@ -78,6 +78,7 @@ export default {
 			categories: 'challenges/getCategories',
 		}),
 		...mapState({
+			isStatic: 'isStatic',
 			isLoggedIn: 'isLoggedIn',
 			isStarted: 'isStarted',
 			isEnded: 'isEnded',
@@ -99,31 +100,33 @@ export default {
 		await context.store.dispatch('challenges/updateChallenges', context);
 	},
 	mounted() {
-		if (!this.isVerified) {
+		if (!this.isStatic && !this.isVerified) {
 			this.$router.replace({
 				path: '/confirm',
 			});
 			return;
 		}
 
-		if (!this.isLoggedIn) {
+		if (!this.isStatic && !this.isLoggedIn) {
 			this.$router.replace({
 				path: '/login',
 			});
 			return;
 		}
 
-		if (!this.isInTeam) {
+		if (!this.isStatic && !this.isInTeam) {
 			this.$router.replace({
 				path: '/team',
 			});
 		}
 
 		this.melody = Math.floor(Math.random() * 4);
-		this.interval = setInterval(() => {
-			this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
-			this.$store.dispatch('updateDates', {$axios: this.$axios});
-		}, 60 * 1000);
+		if (!this.isStatic) {
+			this.interval = setInterval(() => {
+				this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
+				this.$store.dispatch('updateDates', {$axios: this.$axios});
+			}, 60 * 1000);
+		}
 	},
 	destroyed() {
 		clearInterval(this.interval);

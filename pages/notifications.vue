@@ -21,6 +21,9 @@ export default {
 			notifications: 'notifications/getNotifications',
 		}),
 	},
+	async asyncData(context) {
+		await context.store.dispatch('notifications/updateNotifications', context);
+	},
 	head() {
 		return {
 			title: 'Notifications - TSG CTF',

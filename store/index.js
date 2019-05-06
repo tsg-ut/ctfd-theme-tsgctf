@@ -8,6 +8,7 @@ export const state = () => ({
 	isStarted: true,
 	isEnded: false,
 	isVerified: true,
+	isStatic: null,
 	user: {},
 	team: {},
 	countries: [
@@ -291,6 +292,9 @@ export const mutations = {
 	setIsVerified(s, payload) {
 		s.isVerified = payload;
 	},
+	setIsStatic(s, payload) {
+		s.isStatic = payload;
+	},
 	setCsrfToken(s, payload) {
 		s.csrfToken = payload;
 	},
@@ -303,7 +307,11 @@ export const mutations = {
 };
 
 export const actions = {
-	async nuxtClientInit({dispatch}, context) {
+	nuxtServerInit({commit}) {
+		commit('setIsStatic', process.env.NUXT_ENV_STATIC === 'true');
+	},
+	async nuxtClientInit({dispatch, commit}, context) {
+		commit('setIsStatic', process.env.NUXT_ENV_STATIC === 'true');
 		await Promise.all([
 			dispatch('updateUser', context),
 			dispatch('updateTeam', context),
@@ -351,6 +359,9 @@ export const actions = {
 		}
 	},
 	async updateCsrfToken({commit, dispatch, state: s}, {$axios}) {
+		if (s.isStatic) {
+			return;
+		}
 		if (process.env.NODE_ENV === 'development') {
 			const {data} = await $axios.get('/api/v1/users');
 			if (data.nonce) {

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import get from 'lodash/get';
 import groupBy from 'lodash/groupBy';
 
-const categoryOrders = ['warmup', 'pwn', 'rev', 'web', 'crypto', 'stego'];
+const categoryOrders = ['cooldown', 'warmup', 'pwn', 'rev', 'web', 'crypto', 'stego'];
 
 export const state = () => ({
 	challenges: [],
@@ -55,12 +55,18 @@ export const mutations = {
 };
 
 export const actions = {
-	async updateChallenges({commit, dispatch}, {$axios}) {
+	async updateChallenges({commit, dispatch, rootState}, {$axios}) {
 		try {
 			const {data, headers} = await $axios.get('/api/v1/challenges');
 			if (headers['content-type'] === 'application/json') {
 				commit('setIsStarted', true, {root: true});
 				commit('setChallenges', data.data);
+
+				if (rootState.isStatic) {
+					await Promise.all(data.data.map(({id}) => (
+						dispatch('getDetail', {$axios, id})
+					)));
+				}
 			} else {
 				commit('setIsLoggedIn', false, {root: true});
 				return;

@@ -14,6 +14,9 @@ $ npm run dev
 
 # build the theme into tsgctf directory
 $ npm run build
+
+# build static website
+$ SESSION=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx npm run generate
 ```
 
 ```patch

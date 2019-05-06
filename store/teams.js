@@ -13,7 +13,7 @@ export const mutations = {
 };
 
 export const actions = {
-	async getTeam({commit}, {$axios, id}) {
+	async getTeam({commit, dispatch, rootState}, {$axios, id}) {
 		const [{data: team, headers}, {data: solves}] = await Promise.all([
 			$axios.get(`/api/v1/teams/${id}`),
 			$axios.get(`/api/v1/teams/${id}/solves`),
@@ -24,6 +24,10 @@ export const actions = {
 				solves: solves.data,
 			};
 			commit('setTeam', teamData);
+			if (rootState.isStatic) {
+				const solvers = Array.from(new Set([...solves.data.map(({user}) => user), ...team.data.members]));
+				await dispatch('users/getUsers', {$axios, ids: solvers}, {root: true});
+			}
 			return teamData;
 		}
 		commit('setIsLoggedIn', false, {root: true});

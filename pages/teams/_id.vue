@@ -73,6 +73,7 @@ export default {
 			return this.$store.getters['scoreboard/getScore'](parseInt(this.$route.params.id)) || {};
 		},
 		...mapState({
+			isStatic: 'isStatic',
 			isLoggedIn: 'isLoggedIn',
 			isVerified: 'isVerified',
 			teams: (state) => state.teams.teams,
@@ -91,14 +92,14 @@ export default {
 		}
 	},
 	mounted() {
-		if (!this.isLoggedIn) {
+		if (!this.isStatic && !this.isLoggedIn) {
 			this.$router.replace({
 				path: '/login',
 			});
 			return;
 		}
 
-		if (!this.isVerified) {
+		if (!this.isStatic && !this.isVerified) {
 			this.$router.replace({
 				path: '/confirm',
 			});

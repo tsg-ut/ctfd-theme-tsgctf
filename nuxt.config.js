@@ -1,13 +1,16 @@
+import axios from 'axios';
 import proxyMiddleware from 'http-proxy-middleware';
 
 const proxy = proxyMiddleware({
 	target: 'http://localhost:8000',
 });
 
-const staticBase = process.env.NODE_ENV === 'development' ? '' : '/themes/tsgctf/static';
+const isStatic = process.env.NUXT_ENV_STATIC === 'true';
+
+const staticBase = (process.env.NODE_ENV === 'development' || isStatic) ? '' : '/themes/tsgctf/static';
 
 export default {
-	mode: 'spa',
+	mode: isStatic ? 'universal' : 'spa',
 
 	head: {
 		title: 'TSG CTF',
@@ -43,11 +46,36 @@ export default {
 
 	css: [],
 
-	plugins: ['~/plugins/axios', '~/plugins/vue-timeago'],
+	plugins: ['~/plugins/axios', '~/plugins/vue-timeago', '~/plugins/inject-is-static'],
 
-	modules: ['@nuxtjs/axios', '@nuxtjs/onesignal', '@nuxtjs/pwa', '@nuxtjs/markdownit', 'nuxt-client-init-module'],
+	modules: [
+		'@nuxtjs/axios',
+		'@nuxtjs/markdownit',
+		'@nuxtjs/pwa',
+		...(isStatic ? [] : [
+			'@nuxtjs/onesignal',
+			'nuxt-client-init-module',
+		]),
+	],
+
+	generate: {
+		fallback: '404.html',
+		routes: async () => {
+			if (!isStatic) {
+				return [];
+			}
+			const {data} = await axios.get('https://score.ctf.tsg.ne.jp/api/v1/teams');
+			console.log(data.data);
+			return [
+				'/teams/1',
+				'/teams/2',
+				'/teams/3',
+			];
+		},
+	},
 
 	axios: {
+		baseURL: 'https://score.ctf.tsg.ne.jp/',
 		browserBaseURL: '/',
 	},
 
@@ -109,4 +137,8 @@ export default {
 			  ]
 			: []),
 	],
+
+	env: {
+		session: process.env.SESSION || '',
+	},
 };

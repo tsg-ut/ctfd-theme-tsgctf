@@ -74,14 +74,16 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['isEnded']),
+		...mapState(['isEnded', 'isStatic']),
 	},
 	methods: {
 		onClickTitle() {
 			if (this.isOpen) {
 				this.isOpen = false;
 			} else {
-				this.$store.dispatch('challenges/getDetail', {$axios: this.$axios, id: this.challenge.id});
+				if (!this.isStatic) {
+					this.$store.dispatch('challenges/getDetail', {$axios: this.$axios, id: this.challenge.id});
+				}
 				this.isOpen = true;
 			}
 		},
@@ -258,11 +260,21 @@ export default {
 		pre {
 			background: #333;
 			padding: 0.5rem;
+			white-space: pre-line;
+
+			code {
+				background: transparent;
+				padding: 0;
+			}
 		}
 
 		hr {
 			opacity: 0.4;
 			margin: 1.5rem 1rem;
+		}
+
+		img {
+			max-width: 100%;
 		}
 	}
 

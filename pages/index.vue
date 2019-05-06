@@ -21,7 +21,7 @@ const contestEnd = new Date('2019-05-05T07:00:00Z').getTime();
 export default {
 	data() {
 		return {
-			remainingTime: contestStart - Date.now(),
+			remainingTime: this.getRemaining(),
 		};
 	},
 	computed: {
@@ -38,18 +38,23 @@ export default {
 	},
 	mounted() {
 		this.interval = setInterval(() => {
-			const now = Date.now();
-			if (now > contestEnd) {
-				this.remainingTime = 0;
-			} else if (now > contestStart) {
-				this.remainingTime = contestEnd - now;
-			} else {
-				this.remainingTime = contestStart - now;
-			}
+			this.remainingTime = this.getRemaining();
 		}, 1000);
 	},
 	destroyed() {
 		clearInterval(this.interval);
+	},
+	methods: {
+		getRemaining() {
+			const now = Date.now();
+			if (now > contestEnd) {
+				return 0;
+			}
+			if (now > contestStart) {
+				return contestEnd - now;
+			}
+			return contestStart - now;
+		},
 	},
 	head() {
 		return {

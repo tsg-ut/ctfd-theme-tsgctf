@@ -30,9 +30,9 @@ export const actions = {
 			commit('setIsLoggedIn', false, {root: true});
 		}
 	},
-	getUsers({commit, dispatch}, {$axios, ids}) {
-		for (const id of ids) {
-			dispatch('getUser', {$axios, id});
-		}
+	async getUsers({commit, dispatch}, {$axios, ids}) {
+		await Promise.all(ids.map((id) => (
+			dispatch('getUser', {$axios, id})
+		)));
 	},
 };

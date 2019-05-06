@@ -18,9 +18,14 @@
 							<nuxt-link to="/about" class="dropdown-menu-item">About</nuxt-link>
 							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
 							<nuxt-link to="/challenges" class="dropdown-menu-item">Challenges</nuxt-link>
-							<nuxt-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
-							<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
-							<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
+							<nuxt-link v-if="!isStatic" :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
+							<nuxt-link v-if="!isStatic" to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
+							<a
+								v-if="!isStatic"
+								href="/logout"
+								class="dropdown-menu-item"
+								@click="logout"
+							>Logout</a>
 						</div>
 					</div>
 				</div>
@@ -37,7 +42,7 @@
 					<div class="menu-item">
 						<nuxt-link to="/challenges">Challenges</nuxt-link>
 					</div>
-					<div v-on-clickaway="onClickaway" class="menu-item dropdown">
+					<div v-if="!isStatic" v-on-clickaway="onClickaway" class="menu-item dropdown">
 						<div class="dropdown-trigger" @click="isDropping = !isDropping">
 							<div class="teamname">
 								{{team && team.name}}
@@ -115,7 +120,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['isLoggedIn', 'isInTeam', 'team', 'user']),
+		...mapState(['isStatic', 'isLoggedIn', 'isInTeam', 'team', 'user']),
 	},
 	mounted() {
 		if (window.innerWidth <= 900) {
