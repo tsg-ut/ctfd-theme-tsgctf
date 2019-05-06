@@ -65,7 +65,7 @@ export default {
 				return [];
 			}
 			const {data} = await axios.get('https://score.ctf.tsg.ne.jp/api/v1/teams');
-			return data.data.map(({id}) => `/teams/${id}`) && [];
+			return data.data.map(({id}) => `/teams/${id}`);
 		},
 		concurrency: 5,
 	},
