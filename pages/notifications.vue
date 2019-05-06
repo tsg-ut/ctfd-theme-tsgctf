@@ -4,7 +4,7 @@
 		<div v-for="notification in notifications" :key="notification.id" class="notification">
 			<div class="title">{{notification.title}}</div>
 			<div class="content">{{notification.content}}</div>
-			<timeago class="date" :datetime="notification.date" :auto-update="60"/>
+			<iso-timeago class="date" :datetime="notification.date" :auto-update="60"/>
 		</div>
 		<div v-if="notifications.length === 0" class="no-notification">
 			No notifications yet!
@@ -13,9 +13,11 @@
 </template>
 
 <script>
+import IsoTimeago from '~/components/IsoTimeago.vue';
 import {mapGetters} from 'vuex';
 
 export default {
+	components: {IsoTimeago},
 	computed: {
 		...mapGetters({
 			notifications: 'notifications/getNotifications',

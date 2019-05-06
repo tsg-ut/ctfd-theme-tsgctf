@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<nuxt-link to="/">TSG CTF</nuxt-link>
+				<iso-link to="/">TSG CTF</iso-link>
 			</div>
 			<div class="spacer"/>
 			<div v-if="isLoggedIn">
@@ -14,12 +14,12 @@
 							</div>
 						</div>
 						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
-							<nuxt-link to="/notifications" class="dropdown-menu-item">Notifications</nuxt-link>
-							<nuxt-link to="/about" class="dropdown-menu-item">About</nuxt-link>
-							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
-							<nuxt-link to="/challenges" class="dropdown-menu-item">Challenges</nuxt-link>
-							<nuxt-link v-if="!isStatic" :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
-							<nuxt-link v-if="!isStatic" to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
+							<iso-link to="/notifications" class="dropdown-menu-item">Notifications</iso-link>
+							<iso-link to="/about" class="dropdown-menu-item">About</iso-link>
+							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
+							<iso-link to="/challenges" class="dropdown-menu-item">Challenges</iso-link>
+							<iso-link v-if="!isStatic" :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</iso-link>
+							<iso-link v-if="!isStatic" to="/settings" class="dropdown-menu-item">Settings</iso-link>
 							<a
 								v-if="!isStatic"
 								href="/logout"
@@ -31,16 +31,16 @@
 				</div>
 				<div v-else class="menu">
 					<div class="menu-item">
-						<nuxt-link to="/notifications">Notifications</nuxt-link>
+						<iso-link to="/notifications">Notifications</iso-link>
 					</div>
 					<div class="menu-item">
-						<nuxt-link to="/about">About</nuxt-link>
+						<iso-link to="/about">About</iso-link>
 					</div>
 					<div class="menu-item">
-						<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
+						<iso-link to="/scoreboard">Scoreboard</iso-link>
 					</div>
 					<div class="menu-item">
-						<nuxt-link to="/challenges">Challenges</nuxt-link>
+						<iso-link to="/challenges">Challenges</iso-link>
 					</div>
 					<div v-if="!isStatic" v-on-clickaway="onClickaway" class="menu-item dropdown">
 						<div class="dropdown-trigger" @click="isDropping = !isDropping">
@@ -49,8 +49,8 @@
 							</div>
 						</div>
 						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
-							<nuxt-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</nuxt-link>
-							<nuxt-link to="/settings" class="dropdown-menu-item">Settings</nuxt-link>
+							<iso-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</iso-link>
+							<iso-link to="/settings" class="dropdown-menu-item">Settings</iso-link>
 							<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
 						</div>
 					</div>
@@ -65,25 +65,25 @@
 							</div>
 						</div>
 						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
-							<nuxt-link to="/about" class="dropdown-menu-item">About</nuxt-link>
-							<nuxt-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</nuxt-link>
-							<nuxt-link to="/login" class="dropdown-menu-item">Login</nuxt-link>
-							<nuxt-link to="/register" class="dropdown-menu-item">Register</nuxt-link>
+							<iso-link to="/about" class="dropdown-menu-item">About</iso-link>
+							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
+							<iso-link to="/login" class="dropdown-menu-item">Login</iso-link>
+							<iso-link to="/register" class="dropdown-menu-item">Register</iso-link>
 						</div>
 					</div>
 				</div>
 				<div v-else class="menu">
 					<div class="menu-item">
-						<nuxt-link to="/about">About</nuxt-link>
+						<iso-link to="/about">About</iso-link>
 					</div>
 					<div class="menu-item">
-						<nuxt-link to="/scoreboard">Scoreboard</nuxt-link>
+						<iso-link to="/scoreboard">Scoreboard</iso-link>
 					</div>
 					<div class="menu-item">
-						<nuxt-link to="/login">Login</nuxt-link>
+						<iso-link to="/login">Login</iso-link>
 					</div>
 					<div class="menu-item">
-						<nuxt-link to="/register">Register</nuxt-link>
+						<iso-link to="/register">Register</iso-link>
 					</div>
 				</div>
 			</div>
@@ -108,10 +108,12 @@
 </template>
 
 <script>
+import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 import {directive as onClickaway} from 'vue-clickaway';
 
 export default {
+	components: {IsoLink},
 	directives: {onClickaway},
 	data() {
 		return {

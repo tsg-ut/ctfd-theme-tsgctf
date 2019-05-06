@@ -5,20 +5,22 @@
 			<p class="subtitle">Pwn, Rev, Web, Crypto, Forensics, Stego, etc...</p>
 			<div class="timer">{{timer}}</div>
 			<div v-if="!isLoggedIn" class="buttons">
-				<nuxt-link to="/login" class="button login">Login</nuxt-link>
-				<nuxt-link to="/register" class="button register">Register</nuxt-link>
+				<iso-link to="/login" class="button login">Login</iso-link>
+				<iso-link to="/register" class="button register">Register</iso-link>
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
+import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
 const contestStart = new Date('2019-05-04T07:00:00Z').getTime();
 const contestEnd = new Date('2019-05-05T07:00:00Z').getTime();
 
 export default {
+	components: {IsoLink},
 	data() {
 		return {
 			remainingTime: this.getRemaining(),

@@ -97,7 +97,10 @@ export default {
 		},
 	},
 	async asyncData(context) {
-		await context.store.dispatch('challenges/updateChallenges', context);
+		await Promise.all([
+			context.store.dispatch('updateDates', context),
+			context.store.dispatch('challenges/updateChallenges', context),
+		]);
 	},
 	mounted() {
 		if (!this.isStatic && !this.isVerified) {

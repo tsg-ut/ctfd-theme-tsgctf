@@ -1,7 +1,7 @@
 <template>
 	<section class="Login">
 		<h2 class="title"><span>Login</span></h2>
-		<div class="subtitle">or <nuxt-link to="/register">Register</nuxt-link></div>
+		<div class="subtitle">or <iso-link to="/register">Register</iso-link></div>
 		<form
 			class="login-form"
 			method="post"
@@ -39,9 +39,9 @@
 				Login errored. Maybe incorrect username of password?
 			</div>
 			<div>
-				<nuxt-link to="/reset_password">
+				<iso-link to="/reset_password">
 					Forgot your password?
-				</nuxt-link>
+				</iso-link>
 			</div>
 			<input type="hidden" name="nonce" :value="csrfToken">
 		</form>
@@ -49,9 +49,11 @@
 </template>
 
 <script>
+import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
 export default {
+	components: {IsoLink},
 	data() {
 		return {
 			isError: false,

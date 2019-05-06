@@ -1,7 +1,7 @@
 <template>
 	<section class="Register">
 		<h2 class="title"><span>Register</span></h2>
-		<div class="subtitle">or <nuxt-link to="/login">Login</nuxt-link></div>
+		<div class="subtitle">or <iso-link to="/login">Login</iso-link></div>
 		<form
 			class="login-form"
 			method="post"
@@ -55,9 +55,11 @@
 </template>
 
 <script>
+import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
 export default {
+	components: {IsoLink},
 	data() {
 		return {
 			isError: false,

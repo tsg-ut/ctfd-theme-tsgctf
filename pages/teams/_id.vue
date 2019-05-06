@@ -35,7 +35,7 @@
 							</span>
 							<pulse-loader v-else color="white" size="10px"/>
 						</td>
-						<td><timeago :datetime="solve.date" :auto-update="60"/></td>
+						<td><iso-timeago :datetime="solve.date" :auto-update="60"/></td>
 					</tr>
 				</tbody>
 			</table>
@@ -45,6 +45,7 @@
 
 <script>
 import {mapGetters, mapState} from 'vuex';
+import IsoTimeago from '~/components/IsoTimeago.vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 // https://stackoverflow.com/a/13627586/2864502
@@ -64,7 +65,7 @@ const formatOrdinals = (i) => {
 };
 
 export default {
-	components: {PulseLoader},
+	components: {PulseLoader, IsoTimeago},
 	computed: {
 		team(context) {
 			return this.teams.get(parseInt(this.$route.params.id)) || {};

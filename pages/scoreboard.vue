@@ -17,7 +17,7 @@
 						<th scope="row" class="place">{{team.pos}}</th>
 						<td class="team">
 							<div class="team-flag" :style="getFlagStyle(team.country)"/>
-							<nuxt-link :to="`/teams/${team.account_id}`">{{team.name}}</nuxt-link>
+							<iso-link :to="`/teams/${team.account_id}`">{{team.name}}</iso-link>
 						</td>
 						<td>{{team.score}}</td>
 					</tr>
@@ -29,13 +29,16 @@
 
 <script>
 import {mapGetters, mapState} from 'vuex';
+import IsoLink from '~/components/IsoLink.vue';
 
 export default {
+	components: {IsoLink},
 	computed: {
 		...mapGetters({
 			scoreboard: 'scoreboard/getScoreboard',
 		}),
 		...mapState({
+			isStatic: 'isStatic',
 			myTeam: 'team',
 		}),
 	},
@@ -43,9 +46,11 @@ export default {
 		await context.store.dispatch('scoreboard/update', context);
 	},
 	mounted() {
-		this.interval = setInterval(() => {
-			this.$store.dispatch('scoreboard/update', {$axios: this.$axios});
-		}, 60 * 1000);
+		if (!this.isStatic) {
+			this.interval = setInterval(() => {
+				this.$store.dispatch('scoreboard/update', {$axios: this.$axios});
+			}, 60 * 1000);
+		}
 	},
 	destroyed() {
 		clearInterval(this.interval);
