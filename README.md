@@ -1,8 +1,21 @@
 # ctfd-theme-tsgctf
 
-> Custom CTFd theme made for TSG CTF
+Custom CTFd theme made for TSG CTF
 
-## Build Setup
+![](https://i.imgur.com/mXFHBrf.png)
+
+## Setup
+
+```
+cd /path/to/CTFd
+git clone https://github.com/tsg-ut/ctfd-theme-tsgctf.git themes/tsgctf
+```
+
+## Related projects
+
+* [ctfd-plugin-tsgctf](https://github.com/tsg-ut/ctfd-plugin-tsgctf)
+
+## Development
 
 ```bash
 # install dependencies
