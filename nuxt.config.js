@@ -1,7 +1,7 @@
 import axios from 'axios';
-import proxyMiddleware from 'http-proxy-middleware';
+import {createProxyMiddleware} from 'http-proxy-middleware';
 
-const proxy = proxyMiddleware({
+const proxy = createProxyMiddleware({
 	target: 'http://localhost:8000',
 });
 
@@ -49,12 +49,14 @@ export default {
 	plugins: ['~/plugins/axios', '~/plugins/vue-timeago', '~/plugins/inject-is-static'],
 
 	modules: [
+		...(isStatic ? [] : [
+			'nuxt-client-init-module',
+		]),
 		'@nuxtjs/axios',
 		'@nuxtjs/markdownit',
 		'@nuxtjs/pwa',
 		...(isStatic ? [] : [
 			'@nuxtjs/onesignal',
-			'nuxt-client-init-module',
 		]),
 	],
 
