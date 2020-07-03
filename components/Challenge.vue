@@ -130,7 +130,7 @@ export default {
 					headers: {
 						'content-type': 'application/json',
 					},
-				}
+				},
 			);
 			if (data.data.status === 'correct') {
 				this.yay = true;
@@ -197,7 +197,7 @@ export default {
 	.title-name {
 		color: rgb(0, 150, 250);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(255, 24, 13) 0%, rgb(138, 0, 255) 100%);
+		background: linear-gradient(90deg, rgb(151, 77, 255) 0%, rgb(41, 210, 119) 100%);
 		background-clip: text;
 	}
 

@@ -3,25 +3,43 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20190504T16&p1=248" target="_blank" rel="noopener">05/04 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200711T16&p1=248" target="_blank" rel="noopener">07/11 07:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20190505T16&p1=248" target="_blank" rel="noopener">05/05 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20200712T16&p1=248" target="_blank" rel="noopener">07/12 07:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
-		<h3>Links</h3>
-		<ul class="links">
-			<li>Chatting <a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord</a></li>
-			<li>Twitter <a href="https://twitter.com/tsgctf" target="_blank" rel="noopener">@tsgctf</a></li>
+		<h3>Socials</h3>
+		<ul class="socials">
+			<li>
+				<iframe
+					src="https://discord.com/widget?id=546339917459095552&theme=dark"
+					allowtransparency="true"
+					frameborder="0"
+					width="100%"
+					height="100%"
+				>
+					<a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord</a>
+				</iframe>
+			</li>
+			<li>
+				<timeline
+					id="tsgctf"
+					source-type="profile"
+					:options="{tweetLimit: '3', theme: 'dark', height: '500'}"
+				>
+					<a href="https://twitter.com/tsgctf" target="_blank" rel="noopener">Tweets from @tsgctf</a>
+				</timeline>
+			</li>
 		</ul>
 		<h3>Rules</h3>
 		<ol>
+			<li>Don’t prevent other teams from having fun.</li>
 			<li>Don’t share flags or hints, or you’ll be banned.</li>
-			<li>Don’t attack our score server, or you’ll be banned.</li>
-			<li>Do not DoS, or you’ll be banned.</li>
-			<li>The flag format is TSGCTF{blahblah}, unless otherwise specified.</li>
-			<li>All challenges have dynamic score value, including sanity check.</li>
-			<li>The prize reward is paid in Bitcoin with conversion according to the exchange rate on May 4, 2019.</li>
-			<li>Writeups of solved problems are required to claim prizes. Plus, they will be open to the public.</li>
+			<li>Don’t attack (e.g. DoS) our infrastructure, or you’ll be banned.</li>
+			<li>Don’t do automated scanning. It will be considered to be DoS.</li>
+			<li>The flag format is <span class="Common_Code">TSGCTF{blahblah}</span>, unless otherwise specified.</li>
+			<li>The prize will be paid with PayPal. If it doesn't suit you, we can pay that in BitCoin at an arbitrary exchange rate we determine.</li>
+			<li>The teams must publish the writeups of the solved problems to get their prizes.</li>
 			<li>
 				If you have any questions during the contest, please contact us via
 				<a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord server</a>.
@@ -35,13 +53,11 @@
 		</ul>
 		<h3>Sponsor</h3>
 		<a href="https://flatt.tech/" target="_blank" rel="noopener">
-			<img src="https://ctf.tsg.ne.jp/images/flatt_image.jpg">
+			<img src="https://ctf.tsg.ne.jp/images/flatt_image.png">
 		</a>
-		<p>Flatt SECURITY is the cyber security assessment service provided by Flatt, Inc.</p>
-		<p>And Flatt is the company for cyber security based in Hongo, Tokyo, nearby The University of Tokyo.</p>
-		<p>
-			Flatt is hiring engineers. Please contact to <a href="mailto:support@flatt.tech">support@flatt.tech</a> or to form in official web site.
-		</p>
+		<p>Flatt Security Inc. is a cyber security startup based in Tokyo, Japan.</p>
+		<p>We provide security assessments and other cyber security services and have been also developing security software for client companies.</p>
+		<p>We are hiring engineers. Please contact to <a href="mailto:contact@flatt.tech">contact@flatt.tech</a> or <a href="https://flatt.tech/contact">https://flatt.tech/contact</a></p>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
 			<img src="https://tsg.ne.jp/images/tsg-logo.png">
@@ -72,7 +88,10 @@
 </template>
 
 <script>
+import {Timeline} from 'vue-tweet-embed';
+
 export default {
+	components: {Timeline},
 	head() {
 		return {
 			title: 'About - TSG CTF',
@@ -106,20 +125,22 @@ export default {
 	ol {
 		font-family: 'Roboto';
 		width: 100%;
-		max-width: 40rem;
+		max-width: 50rem;
 		margin: 0 auto;
 		font-size: 1.4rem;
 		line-height: 2rem;
 	}
 
-	ul.links {
+	ul.socials {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
 		padding: 0;
 
 		li {
-			flex: 0 0 10rem;
+			flex: 0 0 20rem;
+			height: 30rem;
+			overflow-y: auto;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
