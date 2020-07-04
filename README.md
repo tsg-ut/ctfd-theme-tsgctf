@@ -8,7 +8,7 @@ Custom CTFd theme made for TSG CTF
 
 ```
 cd /path/to/CTFd
-git clone https://github.com/tsg-ut/ctfd-theme-tsgctf.git themes/tsgctf
+git clone https://github.com/tsg-ut/ctfd-theme-tsgctf.git themes/tsgctf -b dist
 ```
 
 ## Related projects
