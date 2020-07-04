@@ -146,19 +146,6 @@ export default {
 			align-items: center;
 			font-size: 1rem;
 			margin: 0 1rem 0.6rem;
-
-			a {
-				color: inherit;
-				width: 12rem;
-				text-align: center;
-				height: 2.5rem;
-				line-height: 2.5rem;
-				border-radius: 9999px;
-				font-size: 1.5rem;
-				font-family: 'Fredoka One', cursive;
-				font-weight: 300;
-				background: linear-gradient(90deg, #3e91a6 0%, #5e0fa9 100%);
-			}
 		}
 	}
 

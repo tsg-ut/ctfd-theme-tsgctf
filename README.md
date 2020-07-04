@@ -32,6 +32,8 @@ $ npm run build
 $ SESSION=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx npm run generate
 ```
 
+Following patch is required during development (don't do this in production):
+
 ```patch
 diff --git a/CTFd/api/v1/users.py b/CTFd/api/v1/users.py
 index 9317209..a52bdda 100644

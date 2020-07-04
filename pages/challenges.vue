@@ -68,7 +68,6 @@ export default {
 	components: {Challenge},
 	data() {
 		return {
-			remainingTime: new Date('2019-05-04T07:00:00Z') - Date.now(),
 			melody: 0,
 			isHideSolved: false,
 		};

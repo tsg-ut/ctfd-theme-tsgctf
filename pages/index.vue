@@ -2,7 +2,7 @@
 	<section class="Index">
 		<div class="index-content">
 			<h1 class="ctf-logo">TSG CTF</h1>
-			<p class="subtitle">Pwn, Rev, Web, Crypto, Forensics, Stego, etc...</p>
+			<p class="subtitle">Pwn, Rev, Web, Crypto, etc...</p>
 			<div class="timer">{{timer}}</div>
 			<div v-if="!isLoggedIn" class="buttons">
 				<iso-link to="/login" class="button login">Login</iso-link>
@@ -16,8 +16,8 @@
 import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
-const contestStart = new Date('2019-05-04T07:00:00Z').getTime();
-const contestEnd = new Date('2019-05-05T07:00:00Z').getTime();
+const contestStart = new Date('2020-07-11T07:00:00Z').getTime();
+const contestEnd = new Date('2020-07-12T07:00:00Z').getTime();
 
 export default {
 	components: {IsoLink},

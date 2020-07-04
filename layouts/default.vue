@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<iso-link to="/">TSG CTF</iso-link>
+				<iso-link to="/">TSG CTF 2020</iso-link>
 			</div>
 			<div class="spacer"/>
 			<div v-if="isLoggedIn">
@@ -95,7 +95,7 @@
 			<p class="flatt-line">
 				Sponsored by
 				<a href="https://flatt.tech/" target="_blank" rel="noopener">
-					<img class="flatt" src="../static/flatt.svg" alt="flatt Security">
+					<img class="flatt" src="../static/flatt.png" alt="flatt Security">
 				</a>
 				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
 					<img class="ojigineko" src="../static/ojigineko-white.gif" alt="ojigineko">
@@ -404,6 +404,7 @@ section > h2.title {
 		-webkit-text-fill-color: transparent;
 		background: linear-gradient(90deg, rgb(151, 77, 255) 0%, rgb(41, 210, 119) 100%);
 		background-clip: text;
+		font-weight: 500;
 	}
 }
 
@@ -428,7 +429,7 @@ section > h2.title {
 	}
 
 	.flatt-line {
-		line-height: 2rem;
+		line-height: 3.5rem;
 
 		&::before {
 			content: '';
@@ -440,7 +441,7 @@ section > h2.title {
 
 	.flatt {
 		vertical-align: middle;
-		width: 15rem;
+		width: 18rem;
 	}
 
 	.ojigineko {

@@ -8,6 +8,10 @@
 				<span class="title-name">{{challenge.name}}</span>
 				<span class="points"> {{challenge.value}}pts </span>
 			</div>
+			<div class="subtitle">
+				3 solves -
+				<span v-for="tag in challenge.tags" :key="tag.value" class="tag">{{tag.value}}</span>
+			</div>
 			<div v-if="isOpen" class="content">
 				<div v-if="challenge.details" class="details">
 					<div class="solves" :class="{'someone-solved': challenge.details.solves > 0, solved: challenge.solved}">
@@ -146,7 +150,7 @@ export default {
 
 <style>
 .Challenge {
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	display: flex;
 	text-align: left;
 
@@ -180,7 +184,7 @@ export default {
 		background: rgba(255, 255, 255, 0.5);
 		top: 46px;
 		left: 20px;
-		bottom: -30px;
+		bottom: -10px;
 		width: 3px;
 		border-radius: 3px;
 	}
@@ -212,6 +216,20 @@ export default {
 		vertical-align: middle;
 		letter-spacing: 0;
 		border-radius: 3px;
+	}
+
+	.subtitle {
+		line-height: 2rem;
+	}
+
+	.tag {
+		margin: 0 0.3rem;
+		padding: 0.2rem 0.8rem;
+		background: rgba(255, 255, 255, 0.5);
+		color: #333;
+		border-radius: 10rem;
+		font-weight: bold;
+		font-size: 0.8rem;
 	}
 
 	.content {
@@ -249,6 +267,8 @@ export default {
 	.description {
 		font-size: 1.2rem;
 		margin-bottom: 1rem;
+		font-family: Roboto;
+		letter-spacing: 0.05em;
 
 		strong {
 			color: #ffeb3b;
@@ -256,6 +276,7 @@ export default {
 
 		p {
 			margin: 0.5rem 0;
+			font-weight: bold;
 		}
 
 		a {
