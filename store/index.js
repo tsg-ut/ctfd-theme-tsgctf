@@ -345,7 +345,7 @@ export const actions = {
 				commit('setTeam', data.data);
 			}
 		} else {
-			commit('setIsLoggedIn', false, {root: true});
+			commit('setIsInTeam', false, {root: true});
 		}
 	},
 	async updateDates({commit}, {$axios}) {
