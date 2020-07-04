@@ -41,6 +41,9 @@
 					name="password"
 				>
 			</div>
+			<div>
+				Indivisual registration is recommended. You can create team account later.
+			</div>
 			<div v-if="isError" class="error">
 				Registration errored. Maybe username already taken?
 			</div>

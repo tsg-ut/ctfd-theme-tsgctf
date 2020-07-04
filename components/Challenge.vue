@@ -9,7 +9,7 @@
 				<span class="points"> {{challenge.value}}pts </span>
 			</div>
 			<div class="subtitle">
-				3 solves -
+				{{challenge.solves}} solves -
 				<span v-for="tag in challenge.tags" :key="tag.value" class="tag">{{tag.value}}</span>
 			</div>
 			<div v-if="isOpen" class="content">
@@ -17,8 +17,14 @@
 					<div class="solves" :class="{'someone-solved': challenge.details.solves > 0, solved: challenge.solved}">
 						{{getSolvesText(challenge.details.solves)}}
 					</div>
-					<!-- eslint-disable-next-line vue/no-v-html -->
-					<div class="description" v-html="$md.render(challenge.details.description)"/>
+					<div class="description">
+						<div
+							v-for="(column, i) in challenge.details.description.split(/^---$/m)"
+							:key="i"
+							class="description-column"
+							v-html="$md.render(column)"
+						/>
+					</div>
 					<div class="attachments">
 						<a
 							v-for="file in challenge.details.files"
@@ -267,8 +273,19 @@ export default {
 	.description {
 		font-size: 1.2rem;
 		margin-bottom: 1rem;
-		font-family: Roboto;
+		font-family: Roboto, sans-serif;
 		letter-spacing: 0.05em;
+		display: flex;
+
+		.description-column {
+			flex: 1 0 0;
+			padding: 0 0.5rem;
+
+			&:nth-child(2) p {
+				font-weight: normal;
+				letter-spacing: 0;
+			}
+		}
 
 		strong {
 			color: #ffeb3b;

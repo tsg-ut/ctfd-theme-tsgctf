@@ -99,6 +99,7 @@ export default {
 		await Promise.all([
 			context.store.dispatch('updateDates', context),
 			context.store.dispatch('challenges/updateChallenges', context),
+			context.store.dispatch('challenges/updateChallengeSolves', context),
 		]);
 	},
 	mounted() {

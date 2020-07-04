@@ -6,6 +6,7 @@ const categoryOrders = ['cooldown', 'warmup', 'pwn', 'rev', 'web', 'crypto', 'st
 
 export const state = () => ({
 	challenges: [],
+	challengeSolves: [],
 	solves: new Set(),
 });
 
@@ -13,6 +14,7 @@ export const getters = {
 	getChallenges: (s) => s.challenges.map((challenge) => ({
 		...challenge,
 		solved: s.solves.has(challenge.id),
+		solves: get(s.challengeSolves.find(({id}) => id === challenge.id), 'solves', 0),
 	})),
 	getCategories: (s, g) => Object.entries(groupBy(g.getChallenges, ({category}) => category))
 		.map(([name, challenges]) => ({
@@ -42,6 +44,9 @@ export const mutations = {
 			return oldChallenge;
 		});
 	},
+	setChallengeSolves(s, challengeSolves) {
+		s.challengeSolves = challengeSolves;
+	},
 	setSolves(s, solves) {
 		s.solves = new Set(solves.map((solve) => solve.challenge_id));
 	},
@@ -67,6 +72,30 @@ export const actions = {
 						dispatch('getDetail', {$axios, id})
 					)));
 				}
+			} else {
+				commit('setIsLoggedIn', false, {root: true});
+				return;
+			}
+		} catch (error) {
+			const message = get(error, ['response', 'data', 'message'], '');
+			if (message.includes('not started')) {
+				commit('setIsStarted', false, {root: true});
+			} else if (message.includes('has ended')) {
+				commit('setIsEnded', true, {root: true});
+			} else {
+				commit('setIsInTeam', false, {root: true});
+			}
+			return;
+		}
+
+		await dispatch('updateSolved', {$axios});
+	},
+	async updateChallengeSolves({commit, dispatch, rootState}, {$axios}) {
+		try {
+			const {data, headers} = await $axios.get('/api/v1/challenges/solves');
+			if (headers['content-type'] === 'application/json') {
+				commit('setIsStarted', true, {root: true});
+				commit('setChallengeSolves', data.data);
 			} else {
 				commit('setIsLoggedIn', false, {root: true});
 				return;
