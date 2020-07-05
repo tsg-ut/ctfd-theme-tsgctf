@@ -62,7 +62,7 @@ export const mutations = {
 export const actions = {
 	async updateChallenges({commit, dispatch, rootState}, {$axios}) {
 		try {
-			const {data, headers} = await $axios.get('/api/v1/challenges');
+			const {data, headers, request} = await $axios.get('/api/v1/challenges');
 			if (headers['content-type'] === 'application/json') {
 				commit('setIsStarted', true, {root: true});
 				commit('setChallenges', data.data);
@@ -73,7 +73,14 @@ export const actions = {
 					)));
 				}
 			} else {
-				commit('setIsLoggedIn', false, {root: true});
+				const url = new URL(request.responseURL);
+				if (url.pathname === '/team') {
+					commit('setIsInTeam', false, {root: true});
+				} else if (url.pathname === '/confirm') {
+					commit('setIsVerified', false, {root: true});
+				} else {
+					commit('setIsLoggedIn', false, {root: true});
+				}
 				return;
 			}
 		} catch (error) {
@@ -92,12 +99,19 @@ export const actions = {
 	},
 	async updateChallengeSolves({commit, dispatch, rootState}, {$axios}) {
 		try {
-			const {data, headers} = await $axios.get('/api/v1/challenges/solves');
+			const {data, headers, request} = await $axios.get('/api/v1/challenges/solves');
 			if (headers['content-type'] === 'application/json') {
 				commit('setIsStarted', true, {root: true});
 				commit('setChallengeSolves', data.data);
 			} else {
-				commit('setIsLoggedIn', false, {root: true});
+				const url = new URL(request.responseURL);
+				if (url.pathname === '/team') {
+					commit('setIsInTeam', false, {root: true});
+				} else if (url.pathname === '/confirm') {
+					commit('setIsVerified', false, {root: true});
+				} else {
+					commit('setIsLoggedIn', false, {root: true});
+				}
 				return;
 			}
 		} catch (error) {
@@ -115,19 +129,33 @@ export const actions = {
 		await dispatch('updateSolved', {$axios});
 	},
 	async updateSolved({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/teams/me/solves');
+		const {data, headers, request} = await $axios.get('/api/v1/teams/me/solves');
 		if (headers['content-type'] === 'application/json') {
 			commit('setSolves', data.data);
 		} else {
-			commit('setIsLoggedIn', false, {root: true});
+			const url = new URL(request.responseURL);
+			if (url.pathname === '/team') {
+				commit('setIsInTeam', false, {root: true});
+			} else if (url.pathname === '/confirm') {
+				commit('setIsVerified', false, {root: true});
+			} else {
+				commit('setIsLoggedIn', false, {root: true});
+			}
 		}
 	},
 	async getDetail({commit}, {$axios, id}) {
-		const {data, headers} = await $axios.get(`/api/v1/challenges/${id}`);
+		const {data, headers, request} = await $axios.get(`/api/v1/challenges/${id}`);
 		if (headers['content-type'] === 'application/json') {
 			commit('setChallengeDetail', {id, data: data.data});
 		} else {
-			commit('setIsLoggedIn', false, {root: true});
+			const url = new URL(request.responseURL);
+			if (url.pathname === '/team') {
+				commit('setIsInTeam', false, {root: true});
+			} else if (url.pathname === '/confirm') {
+				commit('setIsVerified', false, {root: true});
+			} else {
+				commit('setIsLoggedIn', false, {root: true});
+			}
 		}
 	},
 };
