@@ -112,21 +112,10 @@ export const actions = {
 				} else {
 					commit('setIsLoggedIn', false, {root: true});
 				}
-				return;
 			}
 		} catch (error) {
-			const message = get(error, ['response', 'data', 'message'], '');
-			if (message.includes('not started')) {
-				commit('setIsStarted', false, {root: true});
-			} else if (message.includes('has ended')) {
-				commit('setIsEnded', true, {root: true});
-			} else {
-				commit('setIsInTeam', false, {root: true});
-			}
-			return;
-		}
 
-		await dispatch('updateSolved', {$axios});
+		}
 	},
 	async updateSolved({commit}, {$axios}) {
 		const {data, headers, request} = await $axios.get('/api/v1/teams/me/solves');
