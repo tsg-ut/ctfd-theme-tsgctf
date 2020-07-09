@@ -37,6 +37,9 @@
 						<iso-link to="/about">About</iso-link>
 					</div>
 					<div class="menu-item">
+						<iso-link to="/rules">Rules</iso-link>
+					</div>
+					<div class="menu-item">
 						<iso-link to="/scoreboard">Scoreboard</iso-link>
 					</div>
 					<div class="menu-item">

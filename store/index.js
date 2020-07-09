@@ -11,6 +11,7 @@ export const state = () => ({
 	isStatic: null,
 	user: {},
 	team: {},
+	rules: '',
 	countries: [
 		['AF', 'Afghanistan'],
 		['AX', 'Åland Islands'],
@@ -295,6 +296,9 @@ export const mutations = {
 	setIsStatic(s, payload) {
 		s.isStatic = payload;
 	},
+	setRules(s, payload) {
+		s.rules = payload;
+	},
 	setCsrfToken(s, payload) {
 		s.csrfToken = payload;
 	},
@@ -358,7 +362,13 @@ export const actions = {
 			commit('setIsLoggedIn', false, {root: true});
 		}
 	},
-	async updateCsrfToken({commit, dispatch, state: s}, {$axios}) {
+	async updateRules({commit}, {$axios}) {
+		const {data, headers} = await $axios.get('/api/v1/rules');
+		if (headers['content-type'] === 'application/json') {
+			commit('setRules', data.data.content);
+		}
+	},
+	async updateCsrfToken({commit, state: s}, {$axios}) {
 		if (s.isStatic) {
 			return;
 		}
