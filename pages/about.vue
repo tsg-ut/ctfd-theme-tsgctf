@@ -69,19 +69,17 @@
 		<p>Below is the full list of TSG members who contributed to this TSG CTF in success. So many thanks!!</p>
 		<ul>
 			<li><a href="https://twitter.com/hakatashi" target="_blank" rel="noopener">@hakatashi</a></li>
+			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener">@moratorium08</a></li>
+			<li><a href="https://twitter.com/smallkirby_" target="_blank" rel="noopener">@smallkirby_</a></li>
+			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener">@naan112358</a></li>
+			<li><a href="https://twitter.com/satos___jp" target="_blank" rel="noopener">@satos___jp</a></li>
 			<li><a href="https://twitter.com/kcz146" target="_blank" rel="noopener">@kcz146</a></li>
 			<li><a href="https://twitter.com/y0n3uchy" target="_blank" rel="noopener">@y0n3uchy</a></li>
-			<li><a href="https://twitter.com/satos___jp" target="_blank" rel="noopener">@satos___jp</a></li>
-			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener">@moratorium08</a></li>
-			<li><a href="https://twitter.com/kurgm" target="_blank" rel="noopener">@kurgm</a></li>
-			<li><a href="https://twitter.com/taiyoslime" target="_blank" rel="noopener">@taiyoslime</a></li>
-			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener">@JP3BGY</a></li>
-			<li><a href="https://twitter.com/__dAi00" target="_blank" rel="noopener">@__dAi00</a></li>
-			<li><a href="https://twitter.com/hideo54" target="_blank" rel="noopener">@hideo54</a></li>
-			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener">@naan112358</a></li>
 			<li><a href="https://twitter.com/coil_kpc" target="_blank" rel="noopener">@coil_kpc</a></li>
-			<li><a href="https://twitter.com/kuromunori" target="_blank" rel="noopener">@kuromunori</a></li>
+			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener">@JP3BGY</a></li>
+			<li><a href="https://twitter.com/hideo54" target="_blank" rel="noopener">@hideo54</a></li>
 			<li><a href="https://twitter.com/gh_end_" target="_blank" rel="noopener">@gh_end_</a></li>
+			<li><a href="https://twitter.com/sitositositoo" target="_blank" rel="noopener">@sitositositoo</a></li>
 			<li><a href="https://twitter.com/pizzacat83" target="_blank" rel="noopener">@pizzacat83</a></li>
 		</ul>
 	</section>
