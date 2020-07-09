@@ -31,20 +31,6 @@
 				</timeline>
 			</li>
 		</ul>
-		<h3>Rules</h3>
-		<ol>
-			<li>Don’t prevent other teams from having fun.</li>
-			<li>Don’t share flags or hints, or you’ll be banned.</li>
-			<li>Don’t attack (e.g. DoS) our infrastructure, or you’ll be banned.</li>
-			<li>Don’t do automated scanning. It will be considered to be DoS.</li>
-			<li>The flag format is <span class="Common_Code">TSGCTF{blahblah}</span>, unless otherwise specified.</li>
-			<li>The prize will be paid with PayPal. If it doesn't suit you, we can pay that in BitCoin at an arbitrary exchange rate we determine.</li>
-			<li>The teams must publish the writeups of the solved problems to get their prizes.</li>
-			<li>
-				If you have any questions during the contest, please contact us via
-				<a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord server</a>.
-			</li>
-		</ol>
 		<h3>Prizes</h3>
 		<ul>
 			<li>1st: 513.31 USD</li>
