@@ -10,7 +10,14 @@
 			</div>
 			<div class="subtitle">
 				{{challenge.solves}} solves -
-				<span v-for="tag in challenge.tags" :key="tag.value" class="tag">{{tag.value}}</span>
+				<span
+					v-for="tag in challenge.tags"
+					:key="tag.value"
+					class="tag"
+					:class="[tag.value]"
+				>
+					{{tag.value}}
+				</span>
 			</div>
 			<div v-if="isOpen" class="content">
 				<div v-if="challenge.details" class="details">
@@ -116,7 +123,7 @@ export default {
 		},
 		getPlaceholderText(challenge) {
 			if (challenge.solved) {
-				return 'You\'ve already solved this challenge!';
+				return 'You already solved this challenge!';
 			}
 
 			if (this.isEnded) {
@@ -205,7 +212,7 @@ export default {
 	}
 
 	.title-name {
-		color: rgb(0, 150, 250);
+		color: rgb(82, 186, 255);
 		-webkit-text-fill-color: transparent;
 		background: linear-gradient(90deg, rgb(151, 77, 255) 0%, rgb(41, 210, 119) 100%);
 		background-clip: text;
@@ -236,6 +243,14 @@ export default {
 		border-radius: 10rem;
 		font-weight: bold;
 		font-size: 0.8rem;
+
+		&.beginner {
+			background: rgb(82, 186, 255);
+		}
+
+		&.broken {
+			background: rgb(255, 82, 82);
+		}
 	}
 
 	.content {
