@@ -31,19 +31,19 @@
 				</timeline>
 			</li>
 		</ul>
+		<h3>Sponsor</h3>
+		<a href="https://flatt.tech/" target="_blank" rel="noopener">
+			<img src="https://ctf.tsg.ne.jp/images/flatt_image.png" :style="{maxWidth: '60rem'}">
+		</a>
+		<p>Flatt Security Inc. is a cyber security startup based in Tokyo, Japan.</p>
+		<p>We provide security assessments and other cyber security services and have been also developing security software for client companies.</p>
+		<p>We are hiring engineers. Please contact to <a href="mailto:contact@flatt.tech">contact@flatt.tech</a> or <a href="https://flatt.tech/contact">https://flatt.tech/contact</a></p>
 		<h3>Prizes</h3>
 		<ul>
 			<li>1st: 513.31 USD</li>
 			<li>2nd: 213.31 USD</li>
 			<li>3rd: 113.31 USD</li>
 		</ul>
-		<h3>Sponsor</h3>
-		<a href="https://flatt.tech/" target="_blank" rel="noopener">
-			<img src="https://ctf.tsg.ne.jp/images/flatt_image.png">
-		</a>
-		<p>Flatt Security Inc. is a cyber security startup based in Tokyo, Japan.</p>
-		<p>We provide security assessments and other cyber security services and have been also developing security software for client companies.</p>
-		<p>We are hiring engineers. Please contact to <a href="mailto:contact@flatt.tech">contact@flatt.tech</a> or <a href="https://flatt.tech/contact">https://flatt.tech/contact</a></p>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
 			<img src="https://tsg.ne.jp/images/tsg-logo.png">
@@ -67,6 +67,8 @@
 			<li><a href="https://twitter.com/gh_end_" target="_blank" rel="noopener">@gh_end_</a></li>
 			<li><a href="https://twitter.com/sitositositoo" target="_blank" rel="noopener">@sitositositoo</a></li>
 			<li><a href="https://twitter.com/pizzacat83" target="_blank" rel="noopener">@pizzacat83</a></li>
+			<li><a href="https://twitter.com/u6606u5e03" target="_blank" rel="noopener">@u6606u5e03</a></li>
+			<li><a href="https://twitter.com/azaika_" target="_blank" rel="noopener">@azaika_</a></li>
 		</ul>
 	</section>
 </template>
