@@ -16,6 +16,7 @@
 						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
 							<iso-link to="/notifications" class="dropdown-menu-item">Notifications</iso-link>
 							<iso-link to="/about" class="dropdown-menu-item">About</iso-link>
+							<iso-link to="/rules" class="dropdown-menu-item">Rules</iso-link>
 							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
 							<iso-link to="/challenges" class="dropdown-menu-item">Challenges</iso-link>
 							<iso-link v-if="!isStatic" :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</iso-link>
@@ -69,6 +70,7 @@
 						</div>
 						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
 							<iso-link to="/about" class="dropdown-menu-item">About</iso-link>
+							<iso-link to="/rules" class="dropdown-menu-item">Rules</iso-link>
 							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
 							<iso-link to="/login" class="dropdown-menu-item">Login</iso-link>
 							<iso-link to="/register" class="dropdown-menu-item">Register</iso-link>
@@ -78,6 +80,9 @@
 				<div v-else class="menu">
 					<div class="menu-item">
 						<iso-link to="/about">About</iso-link>
+					</div>
+					<div class="menu-item">
+						<iso-link to="/rules">Rules</iso-link>
 					</div>
 					<div class="menu-item">
 						<iso-link to="/scoreboard">Scoreboard</iso-link>
