@@ -291,6 +291,7 @@ export default {
 		font-family: Roboto, sans-serif;
 		letter-spacing: 0.05em;
 		display: flex;
+		line-height: 1.6em;
 
 		.description-column {
 			flex: 1 0 0;
@@ -318,12 +319,14 @@ export default {
 		code {
 			background: #333;
 			padding: 0.1rem 0.5rem;
+			font-weight: normal;
 		}
 
 		pre {
 			background: #333;
 			padding: 0.5rem;
 			white-space: pre-line;
+			word-break: break-all;
 
 			code {
 				background: transparent;
