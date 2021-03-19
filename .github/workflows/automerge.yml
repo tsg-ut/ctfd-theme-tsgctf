@@ -38,5 +38,5 @@ jobs:
           GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
           MERGE_FORKS: false
           MERGE_DELETE_BRANCH: true
-          MERGE_FILTER_AUTHOR: 'dependabot[bot]'
+          MERGE_FILTER_AUTHOR: ''
           MERGE_LABELS: dependencies
