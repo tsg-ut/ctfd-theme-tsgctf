@@ -24,7 +24,7 @@ jobs:
       - name: automerge Snyk
         uses: "pascalgn/automerge-action@v0.12.0"
         env:
-          GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+          GITHUB_TOKEN: "${{secrets.USER_GITHUB_TOKEN}}"
           MERGE_FORKS: false
           MERGE_DELETE_BRANCH: true
           MERGE_FILTER_AUTHOR: snyk-bot
@@ -35,7 +35,7 @@ jobs:
       - name: automerge Dependabot
         uses: "pascalgn/automerge-action@v0.12.0"
         env:
-          GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+          GITHUB_TOKEN: "${{secrets.USER_GITHUB_TOKEN}}"
           MERGE_FORKS: false
           MERGE_DELETE_BRANCH: true
           MERGE_FILTER_AUTHOR: ''
