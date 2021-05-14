@@ -7,7 +7,7 @@
 			-
 			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210516T1613&p1=248" target="_blank" rel="noopener">05/16 16:13</a>
 		</p>
-		<p :style="{textAlign: 'center'}">(UTC)</p>
+		<p :style="{textAlign: 'center'}">(JST)</p>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
