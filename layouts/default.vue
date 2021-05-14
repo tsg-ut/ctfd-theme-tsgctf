@@ -152,7 +152,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG CTF',
+			title: 'TSG LIVE! CTF 6',
 		};
 	},
 };
