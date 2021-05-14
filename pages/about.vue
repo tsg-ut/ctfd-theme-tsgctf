@@ -10,7 +10,7 @@
 		<p :style="{textAlign: 'center'}">(UTC)</p>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
-			<img src="https://tsg.ne.jp/images/tsg-logo.png">
+			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
 		</a>
 		<p>
 			TSG LIVE! CTF 6 is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
