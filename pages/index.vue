@@ -1,7 +1,7 @@
 <template>
 	<section class="Index">
 		<div class="index-content">
-			<h1 class="ctf-logo">TSG CTF</h1>
+			<h1 class="ctf-logo">TSG LIVE! CTF 6</h1>
 			<p class="subtitle">Pwn, Rev, Web, Crypto, etc...</p>
 			<div class="timer">{{timer}}</div>
 			<div v-if="!isLoggedIn" class="buttons">
