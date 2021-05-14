@@ -350,7 +350,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Settings - TSG LIVE! CTF 6',
+			title: 'Settings - TSG LIVE! 6 CTF',
 		};
 	},
 };

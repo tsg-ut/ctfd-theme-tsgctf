@@ -30,7 +30,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Reset Password - TSG LIVE! CTF 6',
+			title: 'Reset Password - TSG LIVE! 6 CTF',
 		};
 	},
 };
