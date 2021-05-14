@@ -43,7 +43,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Confirmation Step - TSG LIVE! CTF 6',
+			title: 'Confirmation Step - TSG LIVE! 6 CTF',
 		};
 	},
 };
