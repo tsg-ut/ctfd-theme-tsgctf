@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<iso-link to="/">TSG CTF 2020</iso-link>
+				<iso-link to="/">TSG LIVE! CTF 6</iso-link>
 			</div>
 			<div class="spacer"/>
 			<div v-if="isLoggedIn">
@@ -100,15 +100,6 @@
 			<nuxt/>
 		</div>
 		<div class="footer">
-			<p class="flatt-line">
-				Sponsored by
-				<a href="https://flatt.tech/" target="_blank" rel="noopener">
-					<img class="flatt" src="../static/flatt.png" alt="flatt Security">
-				</a>
-				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
-					<img class="ojigineko" src="../static/ojigineko-white.gif" alt="ojigineko">
-				</a>
-			</p>
 			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, a student team from The University of Tokyo</p>
 			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener">CTFd</a></p>
 		</div>

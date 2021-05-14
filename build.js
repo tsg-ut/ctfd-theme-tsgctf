@@ -63,7 +63,7 @@ const templates = [
 	const dom = new JSDOM(data);
 	const meta = dom.window.document.createElement('meta');
 	meta.name = 'csrf-token';
-	meta.content = '{{nonce}}';
+	meta.content = '{{Session.nonce}}';
 	dom.window.document.querySelector('head').appendChild(meta);
 	const html = dom.serialize();
 
