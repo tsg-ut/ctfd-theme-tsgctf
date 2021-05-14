@@ -75,7 +75,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Login - TSG CTF',
+			title: 'Login - TSG LIVE! CTF 6',
 		};
 	},
 };

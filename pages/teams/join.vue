@@ -65,7 +65,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Join Team - TSG CTF',
+			title: 'Join Team - TSG LIVE! CTF 6',
 		};
 	},
 };

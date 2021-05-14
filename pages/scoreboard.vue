@@ -67,7 +67,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Scoreboard - TSG CTF',
+			title: 'Scoreboard - TSG LIVE! CTF 6',
 		};
 	},
 };

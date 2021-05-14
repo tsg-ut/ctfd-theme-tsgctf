@@ -36,7 +36,7 @@ export default {
 	components: {Timeline},
 	head() {
 		return {
-			title: 'About - TSG CTF',
+			title: 'About - TSG LIVE! CTF 6',
 		};
 	},
 };

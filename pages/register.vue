@@ -84,7 +84,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Register - TSG CTF',
+			title: 'Register - TSG LIVE! CTF 6',
 		};
 	},
 };
