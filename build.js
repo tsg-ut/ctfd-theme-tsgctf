@@ -5,6 +5,7 @@ const klaw = require('klaw');
 
 const templates = [
 	'base.html',
+	'challenge.html',
 	'challenges.html',
 	'confirm.html',
 	'errors/403.html',
