@@ -22,7 +22,7 @@ jobs:
   automerge-snyk:
     # https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-797125425
     # https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
-    if: ${{github.event_name != 'pull_request_target' || github.actor == 'dependabot[bot]'}}
+    if: ${{github.event_name != 'pull_request_target'}}
     runs-on: ubuntu-latest
     steps:
       - name: automerge Snyk
@@ -36,7 +36,7 @@ jobs:
   automerge-dependabot:
     # https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-797125425
     # https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
-    if: ${{github.event_name != 'pull_request_target' || github.actor == 'dependabot[bot]'}}
+    if: ${{github.event_name == 'pull_request_target' && github.actor == 'dependabot[bot]'}}
     runs-on: ubuntu-latest
     steps:
       - name: automerge Dependabot
