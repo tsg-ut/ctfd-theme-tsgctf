@@ -12,6 +12,7 @@ export const state = () => ({
 	user: {},
 	team: {},
 	rules: '',
+	language: 'en',
 	countries: [
 		['AF', 'Afghanistan'],
 		['AX', 'Åland Islands'],
@@ -307,6 +308,9 @@ export const mutations = {
 	},
 	setTeam(s, payload) {
 		s.team = {...s.team, ...payload};
+	},
+	setLanguage(s, payload) {
+		s.language = payload;
 	},
 };
 

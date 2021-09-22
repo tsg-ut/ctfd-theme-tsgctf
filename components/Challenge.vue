@@ -25,11 +25,11 @@
 						{{getSolvesText(challenge.details.solves)}}
 					</div>
 					<div class="lang-switcher">
-						<span class="lang" @click="lang = 'ja'">
+						<span class="lang" @click="$store.commit('setLanguage', 'ja')">
 							<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
 							<span class="lang-name">JP</span>
 						</span> /
-						<span class="lang" @click="lang = 'en'">
+						<span class="lang" @click="$store.commit('setLanguage', 'en')">
 							<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="15">
 							<span class="lang-name">EN</span>
 						</span>
@@ -96,11 +96,10 @@ export default {
 			yay: false,
 			boo: false,
 			flagText: '',
-			lang: 'en',
 		};
 	},
 	computed: {
-		...mapState(['isEnded', 'isStatic']),
+		...mapState(['isEnded', 'isStatic', 'language']),
 	},
 	methods: {
 		onClickTitle() {
@@ -143,7 +142,7 @@ export default {
 		},
 		getDescription() {
 			const descriptions = this.challenge.details.description.split(/^---$/m);
-			if (descriptions.length >= 2 && this.lang === 'ja') {
+			if (descriptions.length >= 2 && this.language === 'ja') {
 				return descriptions[1];
 			}
 			return descriptions[0];
