@@ -36,17 +36,25 @@ Following patch is required during development (don't do this in production):
 
 ```patch
 diff --git a/CTFd/api/v1/users.py b/CTFd/api/v1/users.py
-index 9317209..a52bdda 100644
+index bd1d2ca9..3bbf28c0 100644
 --- a/CTFd/api/v1/users.py
 +++ b/CTFd/api/v1/users.py
-@@ -41,7 +41,8 @@ class UserList(Resource):
-
-         return {
-             'success': True,
--            'data': response.data
-+            'data': response.data,
-+            'nonce': session.get('nonce')
+@@ -125,16 +125,17 @@ class UserList(Resource):
+                     "prev": users.prev_num,
+                     "pages": users.pages,
+                     "per_page": users.per_page,
+                     "total": users.total,
+                 }
+             },
+             "success": True,
+             "data": response.data,
++            "nonce": session.get("nonce"),
          }
-
-     @users_namespace.doc(params={'notify': 'Whether to send the created user an email with their credentials'})
+ 
+     @admins_only
+     @users_namespace.doc(
+         description="Endpoint to create a User object",
+         responses={
+             200: ("Success", "UserDetailedSuccessResponse"),
+             400: (
 ```
