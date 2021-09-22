@@ -24,12 +24,20 @@
 					<div class="solves" :class="{'someone-solved': challenge.details.solves > 0, solved: challenge.solved}">
 						{{getSolvesText(challenge.details.solves)}}
 					</div>
+					<div class="lang-switcher">
+						<span class="lang" @click="lang = 'ja'">
+							<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
+							<span class="lang-name">JP</span>
+						</span> /
+						<span class="lang" @click="lang = 'en'">
+							<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="15">
+							<span class="lang-name">EN</span>
+						</span>
+					</div>
 					<div class="description">
 						<div
-							v-for="(column, i) in challenge.details.description.split(/^---$/m)"
-							:key="i"
 							class="description-column"
-							v-html="$md.render(column)"
+							v-html="$md.render(getDescription())"
 						/>
 					</div>
 					<div class="attachments">
@@ -88,6 +96,7 @@ export default {
 			yay: false,
 			boo: false,
 			flagText: '',
+			lang: 'en',
 		};
 	},
 	computed: {
@@ -131,6 +140,13 @@ export default {
 			}
 
 			return 'TSGCTF{......}';
+		},
+		getDescription() {
+			const descriptions = this.challenge.details.description.split(/^---$/m);
+			if (descriptions.length >= 2 && this.lang === 'ja') {
+				return descriptions[1];
+			}
+			return descriptions[0];
 		},
 		async onSubmitFlag(event) {
 			event.preventDefault();
@@ -282,6 +298,17 @@ export default {
 
 		&.solved {
 			background: #4caf50;
+		}
+	}
+
+	.lang-switcher {
+		.lang {
+			color: #03a9f4;
+			cursor: pointer;
+		}
+
+		img, .lang-name {
+			vertical-align: middle;
 		}
 	}
 
