@@ -1,8 +1,8 @@
 <template>
 	<section class="Index">
 		<div class="index-content">
-			<h1 class="ctf-logo">TSG CTF</h1>
-			<p class="subtitle">Pwn, Rev, Web, Crypto, etc...</p>
+			<h1 class="ctf-logo"><span>T</span><span>S</span><span>G</span> <span>C</span><span>T</span><span>F</span></h1>
+			<p class="subtitle">Pwn, Web, Crypto, PPC, Rev, etc...</p>
 			<div class="timer">{{timer}}</div>
 			<div v-if="!isLoggedIn" class="buttons">
 				<iso-link to="/login" class="button login">Login</iso-link>
@@ -16,8 +16,8 @@
 import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
-const contestStart = new Date('2021-07-11T07:00:00Z').getTime();
-const contestEnd = new Date('2021-07-12T07:00:00Z').getTime();
+const contestStart = new Date('2021-10-02T07:00:00Z').getTime();
+const contestEnd = new Date('2021-10-03T07:00:00Z').getTime();
 
 export default {
 	components: {IsoLink},
@@ -60,13 +60,60 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG CTF',
+			title: 'TSG CTF 2021',
 		};
 	},
 };
 </script>
 
 <style>
+@property --shadow-color {
+	syntax: '<color>';
+	inherits: false;
+	initial-value: rgba(238, 255, 82, 0.1);
+}
+
+/* We are hacker :) */
+@keyframes blinkLogo {
+	0% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	1% { --shadow-color: rgba(238, 255, 82, 0); }
+
+	11% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	11.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	12% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	12.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	13% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	13.5% { --shadow-color: rgba(238, 255, 82, 0); }
+
+	24% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	25% { --shadow-color: rgba(238, 255, 82, 0); }
+	25.5% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	26.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	27% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	27.5% { --shadow-color: rgba(238, 255, 82, 0); }
+
+	50% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	51% { --shadow-color: rgba(238, 255, 82, 0); }
+	51.5% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	52% { --shadow-color: rgba(238, 255, 82, 0); }
+	52.5% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	53.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	54% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	54.5% { --shadow-color: rgba(238, 255, 82, 0); }
+
+	65% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	66% { --shadow-color: rgba(238, 255, 82, 0); }
+
+	76% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	76.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	77% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	77.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	78% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	79% { --shadow-color: rgba(238, 255, 82, 0); }
+	79.5% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	80% { --shadow-color: rgba(238, 255, 82, 0); }
+}
+
 .Index {
 	margin: 0 auto;
 	height: calc(100vh - 4rem);
@@ -83,8 +130,19 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-size: 8rem;
 		font-weight: 300;
-		color: rgb(0, 150, 250);
+		color: rgb(252 255 68);
 		-webkit-text-fill-color: transparent;
+		animation: 10s blinkLogo infinite;
+		animation-timing-function: step-end;
+		text-shadow:
+			0 0 3px var(--shadow-color),
+			0 0 10px var(--shadow-color),
+			0 0 20px var(--shadow-color),
+			0 0 30px var(--shadow-color),
+			0 0 40px var(--shadow-color),
+			0 0 50px var(--shadow-color),
+			0 0 70px var(--shadow-color),
+			0 0 100px var(--shadow-color);
 		background: linear-gradient(90deg, rgb(71 229 67) 0%, rgb(252 255 68) 100%);
 		background-clip: text;
 		display: block;

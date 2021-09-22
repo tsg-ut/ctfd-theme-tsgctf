@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210711T16&p1=248" target="_blank" rel="noopener">07/11 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211002T16&p1=248" target="_blank" rel="noopener">10/02 07:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210712T16&p1=248" target="_blank" rel="noopener">07/12 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211003T16&p1=248" target="_blank" rel="noopener">10/03 07:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
 		<h3>Socials</h3>
@@ -46,7 +46,7 @@
 		</ul>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
-			<img src="https://tsg.ne.jp/images/tsg-logo.png">
+			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
 		</a>
 		<p>
 			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
@@ -58,7 +58,6 @@
 			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener">@moratorium08</a></li>
 			<li><a href="https://twitter.com/smallkirby_" target="_blank" rel="noopener">@smallkirby_</a></li>
 			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener">@naan112358</a></li>
-			<li><a href="https://twitter.com/satos___jp" target="_blank" rel="noopener">@satos___jp</a></li>
 			<li><a href="https://twitter.com/kcz146" target="_blank" rel="noopener">@kcz146</a></li>
 			<li><a href="https://twitter.com/y0n3uchy" target="_blank" rel="noopener">@y0n3uchy</a></li>
 			<li><a href="https://twitter.com/coil_kpc" target="_blank" rel="noopener">@coil_kpc</a></li>
