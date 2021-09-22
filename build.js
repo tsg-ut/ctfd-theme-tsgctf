@@ -5,6 +5,7 @@ const klaw = require('klaw');
 
 const templates = [
 	'base.html',
+	'challenge.html',
 	'challenges.html',
 	'confirm.html',
 	'errors/403.html',
@@ -63,7 +64,7 @@ const templates = [
 	const dom = new JSDOM(data);
 	const meta = dom.window.document.createElement('meta');
 	meta.name = 'csrf-token';
-	meta.content = '{{nonce}}';
+	meta.content = '{{Session.nonce}}';
 	dom.window.document.querySelector('head').appendChild(meta);
 	const html = dom.serialize();
 
