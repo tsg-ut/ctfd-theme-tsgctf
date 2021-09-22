@@ -16,8 +16,8 @@
 import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
-const contestStart = new Date('2020-07-11T07:00:00Z').getTime();
-const contestEnd = new Date('2020-07-12T07:00:00Z').getTime();
+const contestStart = new Date('2021-07-11T07:00:00Z').getTime();
+const contestEnd = new Date('2021-07-12T07:00:00Z').getTime();
 
 export default {
 	components: {IsoLink},
@@ -85,7 +85,7 @@ export default {
 		font-weight: 300;
 		color: rgb(0, 150, 250);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(151, 77, 255) 0%, rgb(41, 210, 119) 100%);
+		background: linear-gradient(90deg, rgb(71 229 67) 0%, rgb(252 255 68) 100%);
 		background-clip: text;
 		display: block;
 		letter-spacing: 1px;
