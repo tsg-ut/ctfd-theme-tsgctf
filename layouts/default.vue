@@ -100,10 +100,19 @@
 			<nuxt/>
 		</div>
 		<div class="footer">
-			<p class="flatt-line">
+			<p class="sponsor-line">
 				Sponsored by
 				<a href="https://flatt.tech/" target="_blank" rel="noopener">
 					<img class="flatt" src="../static/flatt.png" alt="flatt Security">
+				</a>
+				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
+					<img class="ojigineko" src="../static/ojigineko-white.gif" alt="ojigineko">
+				</a>
+			</p>
+			<p class="sponsor-line">
+				Infra Sponsored by <a href="https://g.co/cloud" target="_blank" rel="noopener">g.co/cloud</a>
+				<a href="https://g.co/cloud" target="_blank" rel="noopener">
+					<img class="google-cloud" src="../static/google-cloud.png" alt="flatt Security">
 				</a>
 				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
 					<img class="ojigineko" src="../static/ojigineko-white.gif" alt="ojigineko">
@@ -436,8 +445,8 @@ section > h2.title {
 		color: #90cbff;
 	}
 
-	.flatt-line {
-		line-height: 3.5rem;
+	.sponsor-line {
+		line-height: 3rem;
 
 		&::before {
 			content: '';
@@ -450,6 +459,11 @@ section > h2.title {
 	.flatt {
 		vertical-align: middle;
 		width: 18rem;
+	}
+
+	.google-cloud {
+		vertical-align: middle;
+		width: 2rem;
 	}
 
 	.ojigineko {
