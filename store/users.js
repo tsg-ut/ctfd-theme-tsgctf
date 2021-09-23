@@ -18,7 +18,7 @@ export const actions = {
 			commit,
 			getters: {getUser},
 		},
-		{$axios, id}
+		{$axios, id},
 	) {
 		if (getUser(id)) {
 			return;

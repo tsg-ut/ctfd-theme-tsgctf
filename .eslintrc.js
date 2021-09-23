@@ -15,4 +15,4 @@ module.exports = {
 		semi: ['error', 'always'],
 		'import/order': 'off',
 	},
-}
+};
