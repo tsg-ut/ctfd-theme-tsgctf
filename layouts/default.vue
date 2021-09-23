@@ -103,19 +103,19 @@
 			<p class="sponsor-line">
 				Sponsored by
 				<a href="https://flatt.tech/" target="_blank" rel="noopener">
-					<img class="flatt" src="../static/flatt.png" alt="flatt Security">
+					<img class="flatt" src="@/static/flatt.png" alt="flatt Security">
 				</a>
 				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
-					<img class="ojigineko" src="../static/ojigineko-white.gif" alt="ojigineko">
+					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
 				</a>
 			</p>
 			<p class="sponsor-line">
 				Infra Sponsored by <a href="https://g.co/cloud" target="_blank" rel="noopener">g.co/cloud</a>
 				<a href="https://g.co/cloud" target="_blank" rel="noopener">
-					<img class="google-cloud" src="../static/google-cloud.png" alt="flatt Security">
+					<img class="google-cloud" src="@/static/google-cloud.png" alt="flatt Security">
 				</a>
 				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
-					<img class="ojigineko" src="../static/ojigineko-white.gif" alt="ojigineko">
+					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
 				</a>
 			</p>
 			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, a student team from The University of Tokyo</p>
@@ -260,7 +260,7 @@ button {
 	cursor: pointer;
 }
 
-button[type='submit'] {
+button[type='submit'], .button-style {
 	width: 6rem;
 	height: 2.5rem;
 	border-radius: 9999px;
@@ -477,7 +477,7 @@ section > h2.title {
 		transition: opacity 0.2s;
 	}
 
-	.flatt-line:hover .ojigineko {
+	.sponsor-line:hover .ojigineko {
 		opacity: 0.3;
 	}
 }

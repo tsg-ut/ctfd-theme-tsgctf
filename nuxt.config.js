@@ -109,6 +109,10 @@ export default {
 		...(process.env.NODE_ENV === 'development'
 			? [
 				{
+					path: '/oauth',
+					handler: proxy,
+				},
+				{
 					path: '/api',
 					handler: proxy,
 				},
