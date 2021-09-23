@@ -23,6 +23,7 @@ export const getters = {
 				account_id: team.id,
 				country: team.country,
 				pos: s.scoreboard.length + 1,
+				oauth_id: team.oauth_id,
 				score: 0,
 			})),
 		];

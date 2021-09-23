@@ -3,6 +3,12 @@
 		<h2 class="title">
 			<span>{{team.name}}</span>
 		</h2>
+		<div v-if="team.oauth_id" class="verified">
+			<a class="verified-badge" :href="`https://ctftime.org/team/${team.oauth_id}`" target="_blank" rel="noopener">
+				<span>Verified by CTFTime</span>
+				<check-circle :size="16"/>
+			</a>
+		</div>
 		<div class="score">{{formatOrdinals(score.pos)}} {{score.score}}pts</div>
 		<div class="members-head">Members</div>
 		<div class="members">
@@ -46,6 +52,8 @@
 <script>
 import {mapGetters, mapState} from 'vuex';
 import IsoTimeago from '~/components/IsoTimeago.vue';
+import OpenInNew from 'vue-material-design-icons/OpenInNew.vue';
+import CheckCircle from 'vue-material-design-icons/CheckCircle.vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 // https://stackoverflow.com/a/13627586/2864502
@@ -65,7 +73,7 @@ const formatOrdinals = (i) => {
 };
 
 export default {
-	components: {PulseLoader, IsoTimeago},
+	components: {PulseLoader, IsoTimeago, OpenInNew, CheckCircle},
 	computed: {
 		team(context) {
 			return this.teams.get(parseInt(this.$route.params.id)) || {};
@@ -140,6 +148,26 @@ export default {
 			left: 0;
 			right: 0;
 			bottom: calc(100% - 0.3rem);
+		}
+	}
+
+	.verified {
+		margin: 1rem 0;
+		text-align: center;
+	}
+
+	.verified-badge {
+		display: inline-block;
+		margin: 0 auto;
+		background-color: #c31b1b;
+		color: white;
+		height: 1.5rem;
+		line-height: 1.5rem;
+		padding: 0 1rem;
+		border-radius: 0.5rem;
+
+		& > *, svg {
+			vertical-align: text-bottom;
 		}
 	}
 

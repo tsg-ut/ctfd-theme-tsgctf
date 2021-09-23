@@ -13,11 +13,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="team in scoreboard" :key="team.name" :class="{active: team.account_id === myTeam.id}">
+					<tr v-for="team in scoreboard" :key="team.id" :class="{active: team.account_id === myTeam.id}">
 						<th scope="row" class="place">{{team.pos}}</th>
 						<td class="team">
 							<div class="team-flag" :style="getFlagStyle(team.country)"/>
-							<iso-link :to="`/teams/${team.account_id}`">{{team.name}}</iso-link>
+							<iso-link :to="`/teams/${team.account_id}`" class="team-name">
+								<span>{{team.name}}</span>
+								<check-circle v-if="team.oauth_id" class="authed" :size="16"/>
+							</iso-link>
 						</td>
 						<td>{{team.score}}</td>
 					</tr>
@@ -29,10 +32,11 @@
 
 <script>
 import {mapGetters, mapState} from 'vuex';
+import CheckCircle from 'vue-material-design-icons/CheckCircle.vue';
 import IsoLink from '~/components/IsoLink.vue';
 
 export default {
-	components: {IsoLink},
+	components: {IsoLink, CheckCircle},
 	computed: {
 		...mapGetters({
 			scoreboard: 'scoreboard/getScoreboard',
@@ -94,6 +98,15 @@ export default {
 		background-size: contain;
 		background-position: center;
 		background-repeat: no-repeat;
+	}
+
+	.team-name > * {
+		vertical-align: middle;
+	}
+
+	.authed {
+		margin-left: 0.2em;
+		color: #c31b1b;
 	}
 
 	tr.active {
