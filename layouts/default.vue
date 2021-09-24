@@ -153,6 +153,11 @@ export default {
 				this.isMobile = false;
 			}
 		});
+
+		window.chatwootSDK.run({
+			websiteToken: '5pb6Q4vimR97abVRSqSWJJvH', // public token
+			baseUrl: 'https://app.chatwoot.com',
+		});
 	},
 	methods: {
 		onClickaway() {
