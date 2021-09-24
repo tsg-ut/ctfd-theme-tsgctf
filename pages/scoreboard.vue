@@ -19,7 +19,7 @@
 							<div class="team-flag" :style="getFlagStyle(team.country)"/>
 							<iso-link :to="`/teams/${team.account_id}`" class="team-name">
 								<span>{{team.name}}</span>
-								<check-circle v-if="team.oauth_id" class="authed" :size="16"/>
+								<check-circle v-if="team.oauth_id" class="authed" title="Verified with CTFTime" :size="16"/>
 							</iso-link>
 						</td>
 						<td>{{team.score}}</td>

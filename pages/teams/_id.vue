@@ -5,7 +5,7 @@
 		</h2>
 		<div v-if="team.oauth_id" class="verified">
 			<a class="verified-badge" :href="`https://ctftime.org/team/${team.oauth_id}`" target="_blank" rel="noopener">
-				<span>Verified by CTFTime</span>
+				<span>Verified with CTFTime</span>
 				<check-circle :size="16"/>
 			</a>
 		</div>
