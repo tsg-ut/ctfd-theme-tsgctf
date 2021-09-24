@@ -19,14 +19,14 @@ import {mapState} from 'vuex';
 
 export default {
 	props: {
-		class: {
+		klass: {
 			required: false,
 			default: '',
 			type: String,
 		},
 		datetime: {
 			required: true,
-			type: Number,
+			type: Date,
 		},
 		autoUpdate: {
 			required: true,
@@ -35,9 +35,6 @@ export default {
 	},
 	computed: {
 		...mapState(['isStatic']),
-		klass() {
-			return this.class;
-		},
 		date() {
 			return new Date(this.datetime);
 		},

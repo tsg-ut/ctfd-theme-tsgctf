@@ -294,6 +294,16 @@ tbody tr {
 	border-top: rgba(255, 255, 255, 0.7) 1px solid;
 }
 
+hr {
+	margin: 5rem auto;
+	height: 3px;
+	width: 20rem;
+	background: white;
+	border: none;
+	border-radius: 9999px;
+	opacity: 0.5;
+}
+
 *,
 *:before,
 *:after {

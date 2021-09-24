@@ -129,16 +129,6 @@ export default {
 		}
 	}
 
-	hr {
-		margin: 5rem auto;
-		height: 3px;
-		width: 20rem;
-		background: white;
-		border: none;
-		border-radius: 9999px;
-		opacity: 0.5;
-	}
-
 	.form-group {
 		display: flex;
 		justify-content: center;
