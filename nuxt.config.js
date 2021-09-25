@@ -43,6 +43,8 @@ export default {
 		script: [
 			{
 				src: 'https://app.chatwoot.com/packs/js/sdk.js',
+				defer: true,
+				async: true,
 			},
 		],
 	},
