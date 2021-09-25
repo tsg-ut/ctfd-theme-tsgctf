@@ -19,7 +19,7 @@
 					{{tag}}
 				</span>
 			</div>
-			<marquee v-if="isSolvesOpen" class="solves">
+			<marquee v-if="isOpen && isSolvesOpen" class="solves">
 				<span v-if="solves === undefined">Loading...</span>
 				<span v-else>
 					<span v-for="j in 100" :key="j">
