@@ -165,7 +165,6 @@ export default {
 		});
 
 		this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
-			console.log({isEnabled});
 			this.$store.commit('setIsPushEnabled', isEnabled);
 		});
 	},
