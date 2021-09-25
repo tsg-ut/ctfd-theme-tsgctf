@@ -2,11 +2,11 @@
 	<section class="Notifications">
 		<h2 class="title"><span>Notifications</span></h2>
 		<div class="lang-switcher">
-			<span class="lang" @click="$store.commit('setLanguage', 'ja')">
+			<span class="lang" :class="{active: language === 'ja'}" @click="$store.commit('setLanguage', 'ja')">
 				<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
 				<span class="lang-name">JP</span>
 			</span> /
-			<span class="lang" @click="$store.commit('setLanguage', 'en')">
+			<span class="lang" :class="{active: language === 'en'}" @click="$store.commit('setLanguage', 'en')">
 				<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="15">
 				<span class="lang-name">EN</span>
 			</span>
@@ -65,8 +65,12 @@ export default {
 		font-size: 1.5rem;
 
 		.lang {
-			color: #03a9f4;
+			display: inline-block;
 			cursor: pointer;
+
+			&.active {
+				border-bottom: 1.5px white solid;
+			}
 		}
 
 		img, .lang-name {
