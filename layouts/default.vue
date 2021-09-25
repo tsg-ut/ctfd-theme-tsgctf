@@ -232,6 +232,7 @@ select {
 	padding: 0 1rem;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.4rem;
+	font-weight: bold;
 	height: 1.7em;
 }
 
