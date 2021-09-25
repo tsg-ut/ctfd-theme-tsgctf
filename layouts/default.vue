@@ -138,6 +138,11 @@ export default {
 			isMobile: false,
 		};
 	},
+	head() {
+		return {
+			title: 'TSG CTF',
+		};
+	},
 	computed: {
 		...mapState(['isStatic', 'isLoggedIn', 'isInTeam', 'team', 'user']),
 	},
@@ -158,6 +163,11 @@ export default {
 			websiteToken: '5pb6Q4vimR97abVRSqSWJJvH', // public token
 			baseUrl: 'https://app.chatwoot.com',
 		});
+
+		this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
+			console.log({isEnabled});
+			this.$store.commit('setIsPushEnabled', isEnabled);
+		});
 	},
 	methods: {
 		onClickaway() {
@@ -172,11 +182,6 @@ export default {
 			event.preventDefault();
 			location.href = '/logout';
 		},
-	},
-	head() {
-		return {
-			title: 'TSG CTF',
-		};
 	},
 };
 </script>

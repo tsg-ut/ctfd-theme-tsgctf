@@ -86,7 +86,7 @@ export default {
 
 	oneSignal: {
 		init: {
-			appId: '6acee8f3-7842-4a55-91f6-b63ac21a667d', // public token
+			appId: 'b91908c4-0470-445e-8a5f-8bb886de1cb9', // public token
 			allowLocalhostAsSecureOrigin: true,
 		},
 	},
