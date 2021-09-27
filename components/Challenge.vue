@@ -62,6 +62,7 @@
 					</div>
 					<div class="description">
 						<div
+							ref="description"
 							class="description-column"
 							v-html="$md.render(getDescription())"
 						/>
@@ -140,6 +141,14 @@ export default {
 			}
 			return authorTag.value.split(':')[1].trim();
 		},
+	},
+	mounted() {
+		if (!this.isStatic) {
+			this.interval = setInterval(this.updateImgSrc, 60 * 1000);
+		}
+	},
+	destroyed() {
+		clearInterval(this.interval);
 	},
 	methods: {
 		onClickTitle() {
@@ -234,6 +243,17 @@ export default {
 				await this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
 			} else {
 				this.boo = true;
+			}
+		},
+		updateImgSrc() {
+			if (this.$refs.description) {
+				const imgs = Array.from(this.$refs.description.querySelectorAll('img'));
+				const timestamp = Date.now();
+				for (const img of imgs) {
+					const srcUrl = new URL(img.src);
+					srcUrl.hash = `#${timestamp}`;
+					img.src = srcUrl.toString();
+				}
 			}
 		},
 	},
