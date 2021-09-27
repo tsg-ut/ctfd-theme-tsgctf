@@ -1,6 +1,6 @@
 {
-  "name": "ctfd-theme-tsgctf",
-  "short_name": "ctfd-theme-tsgctf",
+  "name": "TSG CTF 2021",
+  "short_name": "TSG CTF",
   "icons": [
     {
       "src": "/themes/tsgctf/static/_nuxt/icons/icon_64x64.59a784.png",
@@ -45,8 +45,9 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/?standalone=true",
+  "start_url": "https://score.ctf.tsg.ne.jp/?standalone=true",
   "display": "standalone",
   "background_color": "#ffffff",
+  "theme_color": "#47e543",
   "lang": "en"
 }
