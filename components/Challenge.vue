@@ -49,7 +49,7 @@
 						<div class="lang-switcher">
 							<span class="lang" :class="{active: language === 'ja'}" @click="$store.commit('setLanguage', 'ja')">
 								<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
-								<span class="lang-name">JP</span>
+								<span class="lang-name">JA</span>
 							</span> /
 							<span class="lang" :class="{active: language === 'en'}" @click="$store.commit('setLanguage', 'en')">
 								<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="15">
