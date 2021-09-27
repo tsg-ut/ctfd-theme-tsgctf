@@ -26,7 +26,7 @@
 					v-if="melody === 0"
 					href="https://www.youtube.com/watch?v=d_T1StgldnM"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					the aesthetic Iwashi melody
 				</a>
@@ -34,7 +34,7 @@
 					v-if="melody === 1"
 					href="https://www.youtube.com/watch?v=ceyr4ezheOg"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					the comfortable Maguro melody
 				</a>
@@ -42,7 +42,7 @@
 					v-if="melody === 2"
 					href="https://www.youtube.com/watch?v=C9PFVo1FEwU"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					the cozy Yatsume melody
 				</a>
@@ -50,7 +50,7 @@
 					v-if="melody === 3"
 					href="https://www.youtube.com/watch?v=ok7UX3utzvI"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					the intoxicant Kurage melody
 				</a>

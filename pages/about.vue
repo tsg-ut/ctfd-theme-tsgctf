@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211002T16&p1=248" target="_blank" rel="noopener">10/02 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211002T16&p1=248" target="_blank" rel="noopener noreferrer">10/02 07:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211003T16&p1=248" target="_blank" rel="noopener">10/03 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211003T16&p1=248" target="_blank" rel="noopener noreferrer">10/03 07:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
 		<h3>Socials</h3>
@@ -18,7 +18,7 @@
 					width="100%"
 					height="100%"
 				>
-					<a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener">Discord</a>
+					<a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener noreferrer">Discord</a>
 				</iframe>
 			</li>
 			<li>
@@ -27,12 +27,12 @@
 					source-type="profile"
 					:options="{tweetLimit: '3', theme: 'dark', height: '500'}"
 				>
-					<a href="https://twitter.com/tsgctf" target="_blank" rel="noopener">Tweets from @tsgctf</a>
+					<a href="https://twitter.com/tsgctf" target="_blank" rel="noopener noreferrer">Tweets from @tsgctf</a>
 				</timeline>
 			</li>
 		</ul>
 		<h3>Sponsor</h3>
-		<a href="https://flatt.tech/" target="_blank" rel="noopener">
+		<a href="https://flatt.tech/" target="_blank" rel="noopener noreferrer">
 			<img src="https://ctf.tsg.ne.jp/images/flatt_image.png" :style="{maxWidth: '60rem'}">
 		</a>
 		<p>Flatt Security Inc. is a cyber security startup based in Tokyo, Japan.</p>
@@ -45,29 +45,29 @@
 			<li>3rd: 113.31 USD</li>
 		</ul>
 		<h3>Staffs</h3>
-		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener">
+		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
 		</a>
 		<p>
-			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
+			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
 		<p>Below is the full list of TSG members who contributed to this TSG CTF in success. So many thanks!!</p>
 		<ul>
-			<li><a href="https://twitter.com/hakatashi" target="_blank" rel="noopener">@hakatashi</a></li>
-			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener">@moratorium08</a></li>
-			<li><a href="https://twitter.com/smallkirby_" target="_blank" rel="noopener">@smallkirby_</a></li>
-			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener">@naan112358</a></li>
-			<li><a href="https://twitter.com/kcz146" target="_blank" rel="noopener">@kcz146</a></li>
-			<li><a href="https://twitter.com/y0n3uchy" target="_blank" rel="noopener">@y0n3uchy</a></li>
-			<li><a href="https://twitter.com/coil_kpc" target="_blank" rel="noopener">@coil_kpc</a></li>
-			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener">@JP3BGY</a></li>
-			<li><a href="https://twitter.com/hideo54" target="_blank" rel="noopener">@hideo54</a></li>
-			<li><a href="https://twitter.com/gh_end_" target="_blank" rel="noopener">@gh_end_</a></li>
-			<li><a href="https://twitter.com/sitositositoo" target="_blank" rel="noopener">@sitositositoo</a></li>
-			<li><a href="https://twitter.com/pizzacat83" target="_blank" rel="noopener">@pizzacat83</a></li>
-			<li><a href="https://twitter.com/u6606u5e03" target="_blank" rel="noopener">@u6606u5e03</a></li>
-			<li><a href="https://twitter.com/azaika_" target="_blank" rel="noopener">@azaika_</a></li>
+			<li><a href="https://twitter.com/hakatashi" target="_blank" rel="noopener noreferrer">@hakatashi</a></li>
+			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener noreferrer">@moratorium08</a></li>
+			<li><a href="https://twitter.com/smallkirby_" target="_blank" rel="noopener noreferrer">@smallkirby_</a></li>
+			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener noreferrer">@naan112358</a></li>
+			<li><a href="https://twitter.com/kcz146" target="_blank" rel="noopener noreferrer">@kcz146</a></li>
+			<li><a href="https://twitter.com/y0n3uchy" target="_blank" rel="noopener noreferrer">@y0n3uchy</a></li>
+			<li><a href="https://twitter.com/coil_kpc" target="_blank" rel="noopener noreferrer">@coil_kpc</a></li>
+			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener noreferrer">@JP3BGY</a></li>
+			<li><a href="https://twitter.com/hideo54" target="_blank" rel="noopener noreferrer">@hideo54</a></li>
+			<li><a href="https://twitter.com/gh_end_" target="_blank" rel="noopener noreferrer">@gh_end_</a></li>
+			<li><a href="https://twitter.com/sitositositoo" target="_blank" rel="noopener noreferrer">@sitositositoo</a></li>
+			<li><a href="https://twitter.com/pizzacat83" target="_blank" rel="noopener noreferrer">@pizzacat83</a></li>
+			<li><a href="https://twitter.com/u6606u5e03" target="_blank" rel="noopener noreferrer">@u6606u5e03</a></li>
+			<li><a href="https://twitter.com/azaika_" target="_blank" rel="noopener noreferrer">@azaika_</a></li>
 		</ul>
 	</section>
 </template>

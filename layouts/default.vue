@@ -102,24 +102,24 @@
 		<div class="footer">
 			<p class="sponsor-line">
 				Sponsored by
-				<a href="https://flatt.tech/" target="_blank" rel="noopener">
+				<a href="https://flatt.tech/" target="_blank" rel="noopener noreferrer">
 					<img class="flatt" src="@/static/flatt.png" alt="flatt Security">
 				</a>
-				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
+				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener noreferrer">
 					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
 				</a>
 			</p>
 			<p class="sponsor-line">
-				Infra Sponsored by <a href="https://g.co/cloud" target="_blank" rel="noopener">g.co/cloud</a>
-				<a href="https://g.co/cloud" target="_blank" rel="noopener">
+				Infra Sponsored by <a href="https://g.co/cloud" target="_blank" rel="noopener noreferrer">g.co/cloud</a>
+				<a href="https://g.co/cloud" target="_blank" rel="noopener noreferrer">
 					<img class="google-cloud" src="@/static/google-cloud.png" alt="flatt Security">
 				</a>
-				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener">
+				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener noreferrer">
 					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
 				</a>
 			</p>
-			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, a student team from The University of Tokyo</p>
-			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener">CTFd</a></p>
+			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, a student team from The University of Tokyo</p>
+			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener noreferrer">CTFd</a></p>
 		</div>
 	</div>
 </template>

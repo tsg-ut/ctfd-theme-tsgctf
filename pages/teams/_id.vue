@@ -8,7 +8,7 @@
 				class="verified-badge"
 				:href="`https://ctftime.org/team/${team.oauth_id}`"
 				target="_blank"
-				rel="noopener"
+				rel="noopener noreferrer"
 			>
 				<span>Verified with CTFTime</span>
 				<check-circle :size="16"/>
