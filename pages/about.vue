@@ -85,7 +85,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
 .About {
 	h3 {
 		font-size: 2rem;

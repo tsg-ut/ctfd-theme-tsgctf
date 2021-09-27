@@ -26,6 +26,11 @@ export default {
 			remainingTime: this.getRemaining(),
 		};
 	},
+	head() {
+		return {
+			title: 'TSG CTF 2021',
+		};
+	},
 	computed: {
 		timer() {
 			const days = Math.floor(this.remainingTime / 1000 / 60 / 60 / 24)
@@ -58,15 +63,10 @@ export default {
 			return contestStart - now;
 		},
 	},
-	head() {
-		return {
-			title: 'TSG CTF 2021',
-		};
-	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 @property --shadow-color {
 	syntax: '<color>';
 	inherits: false;

@@ -1,5 +1,6 @@
 module.exports = {
 	root: true,
+	ignorePatterns: ['static/**/*.js'],
 	env: {
 		browser: true,
 		node: true,
@@ -14,7 +15,11 @@ module.exports = {
 		'node/no-unsupported-features/es-syntax': 'off',
 		semi: ['error', 'always'],
 		'import/order': 'off',
+		'import/extensions': 'off',
 		// destroyed was introduced in Vue v3
 		'vue/no-deprecated-destroyed-lifecycle': 'off',
+	},
+	settings: {
+		'import/resolver': 'nuxt',
 	},
 };

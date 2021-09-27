@@ -61,11 +61,13 @@
 						</div>
 					</div>
 					<div class="description">
+						<!-- eslint-disable vue/no-v-html -->
 						<div
 							ref="description"
 							class="description-column"
 							v-html="$md.render(getDescription())"
 						/>
+						<!-- eslint-enable vue/no-v-html -->
 					</div>
 					<div class="attachments">
 						<a
@@ -260,7 +262,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
 .Challenge {
 	margin-bottom: 10px;
 	display: flex;

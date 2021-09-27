@@ -62,17 +62,22 @@ import {mapState} from 'vuex';
 
 export default {
 	components: {IsoLink, CtftimeLoginButton},
+	async asyncData(context) {
+		await context.store.dispatch('updateCsrfToken', context);
+	},
 	data() {
 		return {
 			isError: false,
 			isLegacyActive: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Login - TSG CTF',
+		};
+	},
 	computed: {
 		...mapState(['isLoggedIn', 'csrfToken']),
-	},
-	async asyncData(context) {
-		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
 		if (document.referrer) {
@@ -82,15 +87,10 @@ export default {
 			}
 		}
 	},
-	head() {
-		return {
-			title: 'Login - TSG CTF',
-		};
-	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 .Login {
 	text-align: center;
 

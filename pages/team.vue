@@ -17,9 +17,9 @@ import {mapState} from 'vuex';
 
 export default {
 	components: {IsoLink, CtftimeLoginButton},
-	data() {
+	head() {
 		return {
-			isError: false,
+			title: 'Team - TSG CTF',
 		};
 	},
 	computed: {
@@ -46,15 +46,10 @@ export default {
 			});
 		}
 	},
-	head() {
-		return {
-			title: 'Team - TSG CTF',
-		};
-	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 .JoinTeam {
 	text-align: center;
 

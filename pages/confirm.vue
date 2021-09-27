@@ -16,16 +16,21 @@
 import {mapState} from 'vuex';
 
 export default {
+	async asyncData(context) {
+		await context.store.dispatch('updateCsrfToken', context);
+	},
 	data() {
 		return {
 			isError: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Confirmation Step - TSG CTF',
+		};
+	},
 	computed: {
 		...mapState(['isLoggedIn', 'isVerified', 'csrfToken']),
-	},
-	async asyncData(context) {
-		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
 		if (!this.isLoggedIn) {
@@ -41,15 +46,10 @@ export default {
 			}
 		}
 	},
-	head() {
-		return {
-			title: 'Confirmation Step - TSG CTF',
-		};
-	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 .Confirm {
 	text-align: center;
 

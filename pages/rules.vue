@@ -1,10 +1,12 @@
 <template>
 	<section class="Rules">
 		<h2 class="title"><span>Rules</span></h2>
+		<!-- eslint-disable vue/no-v-html -->
 		<div
 			class="description"
 			v-html="$md.render(rules)"
 		/>
+		<!-- eslint-enable vue/no-v-html -->
 	</section>
 </template>
 
@@ -15,18 +17,18 @@ export default {
 	async asyncData(context) {
 		await context.store.dispatch('updateRules', context);
 	},
-	computed: {
-		...mapState(['rules']),
-	},
 	head() {
 		return {
 			title: 'Rules - TSG CTF',
 		};
 	},
+	computed: {
+		...mapState(['rules']),
+	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 .Rules {
 	h1, h2, h3 {
 		font-family: 'Fredoka One', cursive;

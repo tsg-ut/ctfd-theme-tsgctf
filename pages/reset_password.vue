@@ -9,16 +9,21 @@
 import {mapState} from 'vuex';
 
 export default {
+	async asyncData(context) {
+		await context.store.dispatch('updateCsrfToken', context);
+	},
 	data() {
 		return {
 			isError: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Reset Password - TSG CTF',
+		};
+	},
 	computed: {
 		...mapState(['isLoggedIn', 'csrfToken']),
-	},
-	async asyncData(context) {
-		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
 		if (document.referrer) {
@@ -28,15 +33,10 @@ export default {
 			}
 		}
 	},
-	head() {
-		return {
-			title: 'Reset Password - TSG CTF',
-		};
-	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 .Reset {
 	text-align: center;
 

@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
 .CtftimeLoginButton {
 	display: inline-block;
 	width: auto;

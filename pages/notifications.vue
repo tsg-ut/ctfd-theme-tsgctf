@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
 .Notifications {
 	.lang-switcher {
 		text-align: center;

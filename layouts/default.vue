@@ -19,14 +19,28 @@
 							<iso-link to="/rules" class="dropdown-menu-item">Rules</iso-link>
 							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
 							<iso-link to="/challenges" class="dropdown-menu-item">Challenges</iso-link>
-							<iso-link v-if="!isStatic" :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</iso-link>
-							<iso-link v-if="!isStatic" to="/settings" class="dropdown-menu-item">Settings</iso-link>
+							<iso-link
+								v-if="!isStatic"
+								:to="isInTeam ? `/teams/${team && team.id}` : '/team'"
+								class="dropdown-menu-item"
+							>
+								Team
+							</iso-link>
+							<iso-link
+								v-if="!isStatic"
+								to="/settings"
+								class="dropdown-menu-item"
+							>
+								Settings
+							</iso-link>
 							<a
 								v-if="!isStatic"
 								href="/logout"
 								class="dropdown-menu-item"
 								@click="logout"
-							>Logout</a>
+							>
+								Logout
+							</a>
 						</div>
 					</div>
 				</div>
@@ -190,7 +204,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
 @import 'https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:100';
 
 html {

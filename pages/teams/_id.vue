@@ -57,7 +57,6 @@
 <script>
 import {mapGetters, mapState} from 'vuex';
 import IsoTimeago from '~/components/IsoTimeago.vue';
-import OpenInNew from 'vue-material-design-icons/OpenInNew.vue';
 import CheckCircle from 'vue-material-design-icons/CheckCircle.vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
@@ -78,7 +77,21 @@ const formatOrdinals = (i) => {
 };
 
 export default {
-	components: {PulseLoader, IsoTimeago, OpenInNew, CheckCircle},
+	components: {PulseLoader, IsoTimeago, CheckCircle},
+	async asyncData(context) {
+		const [team] = await Promise.all([
+			context.store.dispatch('teams/getTeam', {...context, id: context.route.params.id}),
+			context.store.dispatch('scoreboard/updateScoreboard', context),
+		]);
+		if (team === null) {
+			context.error({statusCode: 404, message: 'Team not found'});
+		}
+	},
+	head() {
+		return {
+			title: `Team ${this.team && this.team.name} - TSG CTF`,
+		};
+	},
 	computed: {
 		team(context) {
 			return this.teams.get(parseInt(this.$route.params.id)) || {};
@@ -95,15 +108,6 @@ export default {
 		...mapGetters({
 			getUser: 'users/getUser',
 		}),
-	},
-	async asyncData(context) {
-		const [team] = await Promise.all([
-			context.store.dispatch('teams/getTeam', {...context, id: context.route.params.id}),
-			context.store.dispatch('scoreboard/updateScoreboard', context),
-		]);
-		if (team === null) {
-			context.error({statusCode: 404, message: 'Team not found'});
-		}
 	},
 	mounted() {
 		if (!this.isStatic && !this.isLoggedIn) {
@@ -124,15 +128,10 @@ export default {
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
 	methods: {formatOrdinals},
-	head() {
-		return {
-			title: `Team ${this.team && this.team.name} - TSG CTF`,
-		};
-	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 .Team {
 	.title {
 		text-transform: none;

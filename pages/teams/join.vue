@@ -44,16 +44,21 @@
 import {mapState} from 'vuex';
 
 export default {
+	async asyncData(context) {
+		await context.store.dispatch('updateCsrfToken', context);
+	},
 	data() {
 		return {
 			isError: false,
 		};
 	},
+	head() {
+		return {
+			title: 'Join Team - TSG CTF',
+		};
+	},
 	computed: {
 		...mapState(['csrfToken']),
-	},
-	async asyncData(context) {
-		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
 		if (document.referrer) {
@@ -63,15 +68,10 @@ export default {
 			}
 		}
 	},
-	head() {
-		return {
-			title: 'Join Team - TSG CTF',
-		};
-	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 .JoinTeam {
 	text-align: center;
 

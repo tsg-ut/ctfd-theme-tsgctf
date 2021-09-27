@@ -248,6 +248,9 @@ import {mapState} from 'vuex';
 
 export default {
 	components: {PulseLoader},
+	async asyncData(context) {
+		await context.store.dispatch('updateCsrfToken', context);
+	},
 	data() {
 		return {
 			userForm: {
@@ -275,6 +278,11 @@ export default {
 			},
 		};
 	},
+	head() {
+		return {
+			title: 'Settings - TSG CTF',
+		};
+	},
 	computed: {
 		...mapState(['isLoggedIn', 'isInTeam', 'csrfToken', 'user', 'team', 'countries']),
 	},
@@ -285,9 +293,6 @@ export default {
 		team(newValue) {
 			Object.assign(this.teamForm, newValue);
 		},
-	},
-	async asyncData(context) {
-		await context.store.dispatch('updateCsrfToken', context);
 	},
 	mounted() {
 		if (!this.isLoggedIn) {
@@ -348,15 +353,10 @@ export default {
 			}
 		},
 	},
-	head() {
-		return {
-			title: 'Settings - TSG CTF',
-		};
-	},
 };
 </script>
 
-<style>
+<style lang="postcss">
 .Settings {
 	text-align: center;
 
