@@ -251,7 +251,7 @@ export default {
 				const timestamp = Date.now();
 				for (const img of imgs) {
 					const srcUrl = new URL(img.src);
-					srcUrl.hash = `#${timestamp}`;
+					srcUrl.searchParams.set('ts', timestamp.toString());
 					img.src = srcUrl.toString();
 				}
 			}
