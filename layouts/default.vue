@@ -186,6 +186,10 @@ export default {
 		this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
 			this.$store.commit('setIsPushEnabled', isEnabled);
 		});
+
+		if (navigator.language.includes('ja')) {
+			this.$store.commit('setLanguage', 'ja');
+		}
 	},
 	methods: {
 		onClickaway() {
