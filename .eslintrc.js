@@ -14,5 +14,7 @@ module.exports = {
 		'node/no-unsupported-features/es-syntax': 'off',
 		semi: ['error', 'always'],
 		'import/order': 'off',
+		// destroyed was introduced in Vue v3
+		'vue/no-deprecated-destroyed-lifecycle': 'off',
 	},
 };

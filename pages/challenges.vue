@@ -66,10 +66,22 @@ import Challenge from '~/components/Challenge.vue';
 
 export default {
 	components: {Challenge},
+	async asyncData(context) {
+		await Promise.all([
+			context.store.dispatch('updateDates', context),
+			context.store.dispatch('challenges/updateChallenges', context),
+			context.store.dispatch('challenges/updateChallengeSolves', context),
+		]);
+	},
 	data() {
 		return {
 			melody: 0,
 			isHideSolved: false,
+		};
+	},
+	head() {
+		return {
+			title: 'Challenges - TSG CTF',
 		};
 	},
 	computed: {
@@ -94,13 +106,6 @@ export default {
 				});
 			}
 		},
-	},
-	async asyncData(context) {
-		await Promise.all([
-			context.store.dispatch('updateDates', context),
-			context.store.dispatch('challenges/updateChallenges', context),
-			context.store.dispatch('challenges/updateChallengeSolves', context),
-		]);
 	},
 	mounted() {
 		if (!this.isStatic && !this.isVerified) {
@@ -132,13 +137,8 @@ export default {
 			}, 60 * 1000);
 		}
 	},
-	unmounted() {
+	destroyed() {
 		clearInterval(this.interval);
-	},
-	head() {
-		return {
-			title: 'Challenges - TSG CTF',
-		};
 	},
 };
 </script>

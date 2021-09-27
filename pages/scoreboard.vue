@@ -19,7 +19,12 @@
 							<div class="team-flag" :style="getFlagStyle(team.country)"/>
 							<iso-link :to="`/teams/${team.account_id}`" class="team-name">
 								<span>{{team.name}}</span>
-								<check-circle v-if="team.oauth_id" class="authed" title="Verified with CTFTime" :size="16"/>
+								<check-circle
+									v-if="team.oauth_id"
+									class="authed"
+									title="Verified with CTFTime"
+									:size="16"
+								/>
 							</iso-link>
 						</td>
 						<td>{{team.score}}</td>
@@ -37,6 +42,14 @@ import IsoLink from '~/components/IsoLink.vue';
 
 export default {
 	components: {IsoLink, CheckCircle},
+	async asyncData(context) {
+		await context.store.dispatch('scoreboard/update', context);
+	},
+	head() {
+		return {
+			title: 'Scoreboard - TSG CTF',
+		};
+	},
 	computed: {
 		...mapGetters({
 			scoreboard: 'scoreboard/getScoreboard',
@@ -46,9 +59,6 @@ export default {
 			myTeam: 'team',
 		}),
 	},
-	async asyncData(context) {
-		await context.store.dispatch('scoreboard/update', context);
-	},
 	mounted() {
 		if (!this.isStatic) {
 			this.interval = setInterval(() => {
@@ -56,7 +66,7 @@ export default {
 			}, 60 * 1000);
 		}
 	},
-	unmounted() {
+	destroyed() {
 		clearInterval(this.interval);
 	},
 	methods: {
@@ -68,11 +78,6 @@ export default {
 				backgroundImage: `url(https://cdn.jsdelivr.net/gh/behdad/region-flags@gh-pages/svg/${countryCode.toUpperCase()}.svg)`,
 			};
 		},
-	},
-	head() {
-		return {
-			title: 'Scoreboard - TSG CTF',
-		};
 	},
 };
 </script>
