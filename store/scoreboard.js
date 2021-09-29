@@ -63,12 +63,13 @@ export const actions = {
 				return;
 			}
 
+			teams.push(...get(data, ['data'], []));
+
 			const next = get(data, ['meta', 'pagination', 'next'], null);
 			if (next === null) {
 				break;
 			}
 
-			teams.push(...data.data);
 			page++;
 		}
 
