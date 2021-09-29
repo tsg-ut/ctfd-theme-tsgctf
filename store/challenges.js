@@ -6,16 +6,10 @@ const categoryOrders = ['cooldown', 'warmup', 'pwn', 'rev', 'web', 'crypto', 'st
 
 export const state = () => ({
 	challenges: [],
-	challengeSolves: [],
-	solves: new Set(),
 });
 
 export const getters = {
-	getChallenges: (s) => s.challenges.map((challenge) => ({
-		...challenge,
-		solved: s.solves.has(challenge.id),
-		solves: get(s.challengeSolves.find(({id}) => id === challenge.id), 'solves', 0),
-	})),
+	getChallenges: (s) => s.challenges,
 	getCategories: (s, g) => Object.entries(groupBy(g.getChallenges, ({category}) => category))
 		.map(([name, challenges]) => ({
 			name,
@@ -43,12 +37,6 @@ export const mutations = {
 			}
 			return oldChallenge;
 		});
-	},
-	setChallengeSolves(s, challengeSolves) {
-		s.challengeSolves = challengeSolves;
-	},
-	setSolves(s, solves) {
-		s.solves = new Set(solves.map((solve) => solve.challenge_id));
 	},
 	setChallengeDetail(s, {id, data}) {
 		const target = s.challenges.findIndex((challenge) => challenge.id === id);
@@ -91,44 +79,6 @@ export const actions = {
 				commit('setIsEnded', true, {root: true});
 			} else {
 				commit('setIsInTeam', false, {root: true});
-			}
-			return;
-		}
-
-		await dispatch('updateSolved', {$axios});
-	},
-	async updateChallengeSolves({commit, dispatch, rootState}, {$axios}) {
-		try {
-			const {data, headers, request} = await $axios.get('/api/v1/challenges/solves');
-			if (headers['content-type'] === 'application/json') {
-				commit('setIsStarted', true, {root: true});
-				commit('setChallengeSolves', data.data);
-			} else {
-				const url = new URL(request.responseURL);
-				if (url.pathname === '/team') {
-					commit('setIsInTeam', false, {root: true});
-				} else if (url.pathname === '/confirm') {
-					commit('setIsVerified', false, {root: true});
-				} else {
-					commit('setIsLoggedIn', false, {root: true});
-				}
-			}
-		} catch (error) {
-
-		}
-	},
-	async updateSolved({commit}, {$axios}) {
-		const {data, headers, request} = await $axios.get('/api/v1/teams/me/solves');
-		if (headers['content-type'] === 'application/json') {
-			commit('setSolves', data.data);
-		} else {
-			const url = new URL(request.responseURL);
-			if (url.pathname === '/team') {
-				commit('setIsInTeam', false, {root: true});
-			} else if (url.pathname === '/confirm') {
-				commit('setIsVerified', false, {root: true});
-			} else {
-				commit('setIsLoggedIn', false, {root: true});
 			}
 		}
 	},

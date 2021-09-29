@@ -70,7 +70,6 @@ export default {
 		await Promise.all([
 			context.store.dispatch('updateDates', context),
 			context.store.dispatch('challenges/updateChallenges', context),
-			context.store.dispatch('challenges/updateChallengeSolves', context),
 		]);
 	},
 	data() {
@@ -133,7 +132,6 @@ export default {
 			this.interval = setInterval(() => {
 				this.$store.dispatch('updateDates', {$axios: this.$axios});
 				this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
-				this.$store.dispatch('challenges/updateChallengeSolves', {$axios: this.$axios});
 			}, 60 * 1000);
 		}
 	},

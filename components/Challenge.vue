@@ -1,7 +1,7 @@
 <template>
 	<div class="Challenge">
 		<div class="list-marker">
-			<div class="checkbox" :class="{solved: challenge.solved}"/>
+			<div class="checkbox" :class="{solved: challenge.solved_by_me}"/>
 		</div>
 		<div class="list-content">
 			<div class="title" @click="onClickTitle">
@@ -37,9 +37,9 @@
 					<div
 						class="solve-count"
 						:class="{
-							'someone-solved': challenge.details.solves > 0,
+							'someone-solved': challenge.solves > 0,
 							'is-solves-open': isSolvesOpen,
-							solved: challenge.solved,
+							solved: challenge.solved_by_me,
 						}"
 						@click="toggleSolves"
 					>
@@ -98,9 +98,9 @@
 						:class="{yay, boo}"
 						:readonly="yay"
 						:placeholder="getPlaceholderText(challenge)"
-						:disabled="challenge.solved || isEnded"
+						:disabled="challenge.solved_by_me || isEnded"
 					>
-					<button type="submit" class="flag-submit" :disabled="yay || challenge.solved || isEnded">Send</button>
+					<button type="submit" class="flag-submit" :disabled="yay || challenge.solved_by_me || isEnded">Send</button>
 				</form>
 			</div>
 		</div>
@@ -196,7 +196,7 @@ export default {
 			return `${solves} ${solves === 1 ? 'solve' : 'solves'}`;
 		},
 		getPlaceholderText(challenge) {
-			if (challenge.solved) {
+			if (challenge.solved_by_me) {
 				return 'You already solved this challenge!';
 			}
 
