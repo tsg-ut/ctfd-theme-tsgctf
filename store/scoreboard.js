@@ -1,3 +1,5 @@
+import get from 'lodash/get';
+
 export const state = () => ({
 	scoreboard: [],
 	teams: [],
@@ -52,11 +54,24 @@ export const actions = {
 		}
 	},
 	async updateTeams({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/teams');
-		if (headers['content-type'] === 'application/json') {
-			commit('setTeams', data.data);
-		} else {
-			commit('setIsLoggedIn', false, {root: true});
+		const teams = [];
+		let page = 1;
+		while (page <= 20) {
+			const {data, headers} = await $axios.get('/api/v1/teams', {params: {page}});
+			if (headers['content-type'] !== 'application/json') {
+				commit('setIsLoggedIn', false, {root: true});
+				return;
+			}
+
+			const next = get(data, ['meta', 'pagination', 'next'], null);
+			if (next === null) {
+				break;
+			}
+
+			teams.push(...data.data);
+			page++;
 		}
+
+		commit('setTeams', teams);
 	},
 };
