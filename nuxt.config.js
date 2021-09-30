@@ -10,7 +10,9 @@ const isStatic = process.env.NUXT_ENV_STATIC === 'true';
 const staticBase = (process.env.NODE_ENV === 'development' || isStatic) ? '' : '/themes/tsgctf/static';
 
 export default {
-	mode: isStatic ? 'universal' : 'spa',
+	ssr: isStatic,
+
+	target: 'static',
 
 	head: {
 		title: 'TSG CTF',
@@ -153,6 +155,9 @@ export default {
 	},
 
 	pwa: {
+		icon: {
+			source: 'static/favicon.png',
+		},
 		manifest: {
 			name: 'TSG CTF 2021',
 			short_name: 'TSG CTF',
