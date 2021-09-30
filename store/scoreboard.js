@@ -1,4 +1,7 @@
 import get from 'lodash/get';
+import {Mutex} from 'async-mutex';
+
+const mutex = new Mutex();
 
 export const state = () => ({
 	scoreboard: [],
@@ -59,40 +62,42 @@ export const actions = {
 			commit('setIsLoggedIn', false, {root: true});
 		}
 	},
-	async updateTeams({commit, state}, {$axios}) {
-		const isTeamsAlreadyFetched = state.teams.length !== 0;
+	async updateTeams({commit, state: s}, {$axios}) {
+		await mutex.runExclusive(async () => {
+			const isTeamsAlreadyFetched = s.teams.length !== 0;
 
-		const teams = [];
-		let page = 1;
-		while (page <= 20) {
-			const {data, headers} = await $axios.get('/api/v1/teams', {params: {page}});
-			if (headers['content-type'] !== 'application/json') {
-				commit('setIsLoggedIn', false, {root: true});
-				return;
+			const teams = [];
+			let page = 1;
+			while (page <= 40) {
+				const {data, headers} = await $axios.get('/api/v1/teams', {params: {page}});
+				if (headers['content-type'] !== 'application/json') {
+					commit('setIsLoggedIn', false, {root: true});
+					return;
+				}
+
+				const newTeams = get(data, ['data'], []);
+
+				if (isTeamsAlreadyFetched) {
+					teams.push(...newTeams);
+				} else {
+					commit('pushTeams', newTeams);
+				}
+
+				const next = get(data, ['meta', 'pagination', 'next'], null);
+				if (next === null) {
+					break;
+				}
+
+				await new Promise((resolve) => {
+					setTimeout(resolve, 500);
+				});
+
+				page++;
 			}
-
-			const newTeams = get(data, ['data'], []);
 
 			if (isTeamsAlreadyFetched) {
-				teams.push(...newTeams);
-			} else {
-				commit('pushTeams', newTeams);
+				commit('setTeams', teams);
 			}
-
-			const next = get(data, ['meta', 'pagination', 'next'], null);
-			if (next === null) {
-				break;
-			}
-
-			await new Promise((resolve) => {
-				setTimeout(resolve, 500);
-			});
-
-			page++;
-		}
-
-		if (isTeamsAlreadyFetched) {
-			commit('setTeams', teams);
-		}
+		});
 	},
 };
