@@ -42,9 +42,6 @@ import IsoLink from '~/components/IsoLink.vue';
 
 export default {
 	components: {IsoLink, CheckCircle},
-	async asyncData(context) {
-		await context.store.dispatch('scoreboard/update', context);
-	},
 	head() {
 		return {
 			title: 'Scoreboard - TSG CTF',
@@ -61,6 +58,7 @@ export default {
 	},
 	mounted() {
 		if (!this.isStatic) {
+			this.$store.dispatch('scoreboard/update', {$axios: this.$axios});
 			this.interval = setInterval(() => {
 				this.$store.dispatch('scoreboard/update', {$axios: this.$axios});
 			}, 60 * 1000);

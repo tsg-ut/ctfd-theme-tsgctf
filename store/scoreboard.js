@@ -39,6 +39,12 @@ export const mutations = {
 	setTeams(s, teams) {
 		s.teams = teams;
 	},
+	pushTeams(s, teams) {
+		s.teams.push(...teams);
+	},
+	clearTeams(s) {
+		s.teams = [];
+	},
 };
 
 export const actions = {
@@ -53,7 +59,9 @@ export const actions = {
 			commit('setIsLoggedIn', false, {root: true});
 		}
 	},
-	async updateTeams({commit}, {$axios}) {
+	async updateTeams({commit, state}, {$axios}) {
+		const isTeamsAlreadyFetched = state.teams.length !== 0;
+
 		const teams = [];
 		let page = 1;
 		while (page <= 20) {
@@ -63,16 +71,28 @@ export const actions = {
 				return;
 			}
 
-			teams.push(...get(data, ['data'], []));
+			const newTeams = get(data, ['data'], []);
+
+			if (isTeamsAlreadyFetched) {
+				teams.push(...newTeams);
+			} else {
+				commit('pushTeams', newTeams);
+			}
 
 			const next = get(data, ['meta', 'pagination', 'next'], null);
 			if (next === null) {
 				break;
 			}
 
+			await new Promise((resolve) => {
+				setTimeout(resolve, 500);
+			});
+
 			page++;
 		}
 
-		commit('setTeams', teams);
+		if (isTeamsAlreadyFetched) {
+			commit('setTeams', teams);
+		}
 	},
 };
