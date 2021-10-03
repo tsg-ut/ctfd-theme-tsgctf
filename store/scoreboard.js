@@ -68,7 +68,7 @@ export const actions = {
 
 			const teams = [];
 			let page = 1;
-			while (page <= 40) {
+			while (false) {
 				const {data, headers} = await $axios.get('/api/v1/teams', {params: {page}});
 				if (headers['content-type'] !== 'application/json') {
 					commit('setIsLoggedIn', false, {root: true});
