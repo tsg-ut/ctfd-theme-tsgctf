@@ -173,19 +173,23 @@ export default {
 			}
 		});
 
-		const interval = setInterval(() => {
-			if (typeof window.chatwootSDK !== 'undefined') {
-				window.chatwootSDK.run({
-					websiteToken: '5pb6Q4vimR97abVRSqSWJJvH', // public token
-					baseUrl: 'https://app.chatwoot.com',
-				});
-				clearInterval(interval);
-			}
-		}, 1000);
+		if (!this.isStatic) {
+			const interval = setInterval(() => {
+				if (typeof window.chatwootSDK !== 'undefined') {
+					window.chatwootSDK.run({
+						websiteToken: '5pb6Q4vimR97abVRSqSWJJvH', // public token
+						baseUrl: 'https://app.chatwoot.com',
+					});
+					clearInterval(interval);
+				}
+			}, 1000);
+		}
 
-		this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
-			this.$store.commit('setIsPushEnabled', isEnabled);
-		});
+		if (typeof this.$OneSignal !== 'undefined') {
+			this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
+				this.$store.commit('setIsPushEnabled', isEnabled);
+			});
+		}
 
 		if (typeof globalThis.OneSignal !== 'undefined') {
 			globalThis.OneSignal.getNotificationPermission().then((permission) => {

@@ -20,10 +20,10 @@
 				</span>
 			</div>
 			<marquee v-if="isOpen && isSolvesOpen" class="solves">
-				<span v-if="solves === undefined">Loading...</span>
+				<span v-if="challenge.solveInfos === undefined">Loading...</span>
 				<span v-else>
 					<span v-for="j in 100" :key="j">
-						<span v-for="solve, i in solves" :key="solve.account_id">
+						<span v-for="solve, i in challenge.solveInfos" :key="solve.account_id">
 							{{formatOrdinals(i + 1)}}:
 							<iso-link :to="`/teams/${solve.account_id}`">{{solve.name}}</iso-link>
 							<liquid-spot v-if="i === 0" class="first-blood" name="first blood"/>
@@ -127,7 +127,6 @@ export default {
 			yay: false,
 			boo: false,
 			flagText: '',
-			solves: undefined,
 			isSolvesOpen: false,
 		};
 	},
@@ -206,14 +205,15 @@ export default {
 
 			return 'TSGCTF{......}';
 		},
-		async toggleSolves() {
+		toggleSolves() {
 			if (this.isSolvesOpen) {
 				this.isSolvesOpen = false;
 				return;
 			}
+			if (!this.isStatic) {
+				this.$store.dispatch('challenges/getSolveInfos', {$axios: this.$axios, id: this.challenge.id});
+			}
 			this.isSolvesOpen = true;
-			const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/solves`);
-			this.solves = data.data;
 		},
 		getDescription() {
 			const descriptions = this.challenge.details.description.split(/^---$/m);

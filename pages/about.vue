@@ -40,9 +40,9 @@
 		<p>We are hiring engineers. Please contact to <a href="mailto:contact@flatt.tech">contact@flatt.tech</a> or <a href="https://flatt.tech/contact">https://flatt.tech/contact</a></p>
 		<h3>Prizes</h3>
 		<ul>
-			<li>1st: 513.31 USD</li>
-			<li>2nd: 213.31 USD</li>
-			<li>3rd: 113.31 USD</li>
+			<li>1st: 513.37 USD</li>
+			<li>2nd: 213.37 USD</li>
+			<li>3rd: 113.37 USD</li>
 		</ul>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">

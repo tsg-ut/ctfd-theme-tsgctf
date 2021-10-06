@@ -45,6 +45,13 @@ export const mutations = {
 			details: data,
 		});
 	},
+	setChallengeSolves(s, {id, data}) {
+		const target = s.challenges.findIndex((challenge) => challenge.id === id);
+		Vue.set(s.challenges, target, {
+			...s.challenges[target],
+			solveInfos: data,
+		});
+	},
 };
 
 export const actions = {
@@ -56,9 +63,10 @@ export const actions = {
 				commit('setChallenges', data.data);
 
 				if (rootState.isStatic) {
-					await Promise.all(data.data.map(({id}) => (
-						dispatch('getDetail', {$axios, id})
-					)));
+					await Promise.all(data.data.flatMap(({id}) => [
+						dispatch('getDetail', {$axios, id}),
+						dispatch('getSolveInfos', {$axios, id}),
+					]));
 				}
 			} else {
 				const url = new URL(request.responseURL);
@@ -86,6 +94,21 @@ export const actions = {
 		const {data, headers, request} = await $axios.get(`/api/v1/challenges/${id}`);
 		if (headers['content-type'] === 'application/json') {
 			commit('setChallengeDetail', {id, data: data.data});
+		} else {
+			const url = new URL(request.responseURL);
+			if (url.pathname === '/team') {
+				commit('setIsInTeam', false, {root: true});
+			} else if (url.pathname === '/confirm') {
+				commit('setIsVerified', false, {root: true});
+			} else {
+				commit('setIsLoggedIn', false, {root: true});
+			}
+		}
+	},
+	async getSolveInfos({commit}, {$axios, id}) {
+		const {data, headers, request} = await $axios.get(`/api/v1/challenges/${id}/solves`);
+		if (headers['content-type'] === 'application/json') {
+			commit('setChallengeSolves', {id, data: data.data});
 		} else {
 			const url = new URL(request.responseURL);
 			if (url.pathname === '/team') {
