@@ -20,7 +20,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Rules - TSG LIVE! 6 CTF',
+			title: 'Rules - TSG LIVE! 7 CTF',
 		};
 	},
 };

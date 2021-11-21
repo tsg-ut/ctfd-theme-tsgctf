@@ -44,7 +44,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Team - TSG LIVE! 6 CTF',
+			title: 'Team - TSG LIVE! 7 CTF',
 		};
 	},
 };

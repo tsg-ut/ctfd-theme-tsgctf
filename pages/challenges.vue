@@ -5,7 +5,7 @@
 			<input id="checkbox" v-model="isHideSolved" type="checkbox">
 			<label for="checkbox">Hide solved</label>
 		</div>
-		<div v-if="isEnded" class="ended">TSG LIVE! 6 CTF has been ended!<br>Thank you for your pariticipation!</div>
+		<div v-if="isEnded" class="ended">TSG LIVE! 7 CTF has been ended!<br>Thank you for your pariticipation!</div>
 		<div v-if="isStarted">
 			<div v-for="category in categories" :key="category.name" class="category">
 				<h3 class="category-name">{{category.name}}</h3>
@@ -132,12 +132,12 @@ export default {
 			}, 60 * 1000);
 		}
 	},
-	destroyed() {
+	unmounted() {
 		clearInterval(this.interval);
 	},
 	head() {
 		return {
-			title: 'Challenges - TSG LIVE! 6 CTF',
+			title: 'Challenges - TSG LIVE! 7 CTF',
 		};
 	},
 };
