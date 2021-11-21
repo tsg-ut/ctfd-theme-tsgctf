@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210516T1433&p1=248" target="_blank" rel="noopener">05/16 14:33</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210516T1433&p1=248" target="_blank" rel="noopener">11/21 14:03</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210516T1613&p1=248" target="_blank" rel="noopener">05/16 16:13</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20210516T1613&p1=248" target="_blank" rel="noopener">11/21 15:43</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(JST)</p>
 		<h3>Staffs</h3>
@@ -13,7 +13,7 @@
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
 		</a>
 		<p>
-			TSG LIVE! 6 CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
+			TSG LIVE! 7 CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
 		<p>Below is the full list of TSG members who contributed to this CTF in success. So many thanks!!</p>
