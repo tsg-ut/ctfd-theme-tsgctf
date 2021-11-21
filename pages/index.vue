@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="pcss">
 .Index {
 	margin: 0 auto;
 	height: calc(100vh - 4rem);

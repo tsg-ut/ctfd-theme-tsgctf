@@ -90,7 +90,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="pcss">
 .Register {
 	text-align: center;
 

@@ -158,7 +158,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="pcss">
 @import 'https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:100';
 
 html {

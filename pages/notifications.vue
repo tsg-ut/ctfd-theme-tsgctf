@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="pcss">
 .Notifications {
 	& > .title {
 		margin-bottom: 5rem;

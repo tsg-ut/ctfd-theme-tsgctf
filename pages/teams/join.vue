@@ -71,7 +71,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="pcss">
 .JoinTeam {
 	text-align: center;
 

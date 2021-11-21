@@ -119,7 +119,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="pcss">
 .Team {
 	.title {
 		text-transform: none;

@@ -143,7 +143,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="pcss">
 .Challenges {
 	max-width: 800px;
 	margin: 0 auto;

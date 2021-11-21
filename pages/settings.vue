@@ -356,7 +356,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="pcss">
 .Settings {
 	text-align: center;
 
