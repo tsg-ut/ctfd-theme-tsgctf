@@ -18,6 +18,12 @@ on:
       - completed
   status: {}
   pull_request_target:
+  workflow_run:
+    workflows: [Build, Test]
+    types: [completed]
+    branches-ignore:
+      - master
+      - main
 jobs:
   automerge-snyk:
     # https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-797125425
