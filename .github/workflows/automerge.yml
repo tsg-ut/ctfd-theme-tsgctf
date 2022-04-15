@@ -32,13 +32,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: automerge Snyk
-        uses: "pascalgn/automerge-action@v0.14.3"
+        uses: "pascalgn/automerge-action@v0.15.2"
         env:
           GITHUB_TOKEN: "${{secrets.USER_GITHUB_TOKEN}}"
           MERGE_FORKS: false
           MERGE_DELETE_BRANCH: true
           MERGE_FILTER_AUTHOR: snyk-bot
           MERGE_LABELS: ''
+          MERGE_RETRY_SLEEP: 30000
+          MERGE_RETRIES: 10
   automerge-dependabot:
     # https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-797125425
     # https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
@@ -46,10 +48,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: automerge Dependabot
-        uses: "pascalgn/automerge-action@v0.14.3"
+        uses: "pascalgn/automerge-action@v0.15.2"
         env:
           GITHUB_TOKEN: "${{secrets.USER_GITHUB_TOKEN}}"
           MERGE_FORKS: false
           MERGE_DELETE_BRANCH: true
           MERGE_FILTER_AUTHOR: ''
           MERGE_LABELS: dependencies
+          MERGE_RETRY_SLEEP: 30000
+          MERGE_RETRIES: 10
