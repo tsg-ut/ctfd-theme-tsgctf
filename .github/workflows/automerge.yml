@@ -28,7 +28,7 @@ jobs:
   automerge-snyk:
     # https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-797125425
     # https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
-    if: ${{github.event_name != 'pull_request_target' && startsWith(github.event.pull_request.title, "[Snyk]")}}
+    if: ${{github.event_name != 'pull_request_target' && startsWith(github.event.pull_request.title, '[Snyk]')}}
     runs-on: ubuntu-latest
     steps:
       - name: automerge Snyk
