@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="pcss">
+<style lang="postcss">
 .Confirm {
 	text-align: center;
 

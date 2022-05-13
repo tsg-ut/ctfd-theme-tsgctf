@@ -73,7 +73,7 @@ export default {
 };
 </script>
 
-<style lang="pcss">
+<style lang="postcss">
 .Scoreboard {
 	table .place {
 		padding-right: 1rem;

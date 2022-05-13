@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style lang="pcss">
+<style lang="postcss">
 .Reset {
 	text-align: center;
 

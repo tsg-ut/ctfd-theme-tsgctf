@@ -356,7 +356,7 @@ export default {
 };
 </script>
 
-<style lang="pcss">
+<style lang="postcss">
 .Settings {
 	text-align: center;
 

@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang="pcss">
+<style lang="postcss">
 .About {
 	h3 {
 		font-size: 2rem;

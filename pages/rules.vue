@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style lang="pcss">
+<style lang="postcss">
 .Rules {
 	h1, h2, h3 {
 		font-family: 'Fredoka One', cursive;

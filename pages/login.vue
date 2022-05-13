@@ -81,7 +81,7 @@ export default {
 };
 </script>
 
-<style lang="pcss">
+<style lang="postcss">
 .Login {
 	text-align: center;
 

@@ -161,7 +161,7 @@ export default {
 };
 </script>
 
-<style lang="pcss">
+<style lang="postcss">
 .Challenge {
 	margin-bottom: 10px;
 	display: flex;
