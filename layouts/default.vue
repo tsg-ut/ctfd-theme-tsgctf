@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<iso-link to="/">TSG LIVE! 7 CTF</iso-link>
+				<iso-link to="/">TSG LIVE! 8 CTF</iso-link>
 			</div>
 			<div class="spacer"/>
 			<div v-if="isLoggedIn">
@@ -152,7 +152,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG LIVE! 7 CTF',
+			title: 'TSG LIVE! 8 CTF',
 		};
 	},
 };
