@@ -22,7 +22,7 @@
     "@nuxtjs/bulma": "^1.2.7",
     "async-mutex": "^0.3.2",
     "nuxt": "^2.15.8",
-    "vue": "^3.2.33",
+    "vue": "^3.2.34",
     "vue-clickaway": "^2.2.2",
     "vue-material-design-icons": "^5.0.0",
     "vue-tweet-embed": "^2.4.0",
