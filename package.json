@@ -20,7 +20,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/bulma": "^1.2.7",
-    "async-mutex": "^0.3.2",
+    "async-mutex": "^0.4.0",
     "nuxt": "^2.15.8",
     "vue": "^3.2.37",
     "vue-clickaway": "^2.2.2",
