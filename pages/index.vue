@@ -1,7 +1,7 @@
 <template>
 	<section class="Index">
 		<div class="index-content">
-			<h1 class="ctf-logo">TSG LIVE! 8 CTF</h1>
+			<h1 class="ctf-logo">TSG LIVE! 9 CTF</h1>
 			<p class="subtitle">Pwn, Rev, Web, Crypto, etc...</p>
 			<div class="timer">{{timer}}</div>
 			<div v-if="!isLoggedIn" class="buttons">
@@ -60,7 +60,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG LIVE! 8 CTF',
+			title: 'TSG LIVE! 9 CTF',
 		};
 	},
 };

@@ -65,7 +65,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Create Team - TSG LIVE! 8 CTF',
+			title: 'Create Team - TSG LIVE! 9 CTF',
 		};
 	},
 };
