@@ -27,7 +27,7 @@ export default {
 			{name: 'og:site_name', content: 'TSG LIVE! 9 CTF'},
 			{name: 'og:description', content: 'TSG LIVE! 9 CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
 			{name: 'og:type', content: 'website'},
-			{name: 'og:url', content: 'https://score.ctf.tsg.ne.jp'},
+			{name: 'og:url', content: 'https://live.ctf.tsg.ne.jp'},
 			{name: 'og:image', content: `${staticBase}/ogimage.jpg`},
 			{name: 'twitter:card', content: 'summary'},
 			{name: 'twitter:site', content: '@tsg_ut'},
@@ -66,14 +66,14 @@ export default {
 			if (!isStatic) {
 				return [];
 			}
-			const {data} = await axios.get('https://score.ctf.tsg.ne.jp/api/v1/teams');
+			const {data} = await axios.get('https://live.ctf.tsg.ne.jp/api/v1/teams');
 			return data.data.map(({id}) => `/teams/${id}`);
 		},
 		concurrency: 5,
 	},
 
 	axios: {
-		baseURL: 'https://score.ctf.tsg.ne.jp/',
+		baseURL: 'https://live.ctf.tsg.ne.jp/',
 		browserBaseURL: '/',
 	},
 
