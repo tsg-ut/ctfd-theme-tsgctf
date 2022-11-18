@@ -22,9 +22,7 @@
 			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener">@moratorium08</a></li>
 			<li><a href="https://twitter.com/smallkirby_" target="_blank" rel="noopener">@smallkirby_</a></li>
 			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener">@naan112358</a></li>
-			<li><a href="https://twitter.com/kcz146" target="_blank" rel="noopener">@kcz146</a></li>
 			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener">@JP3BGY</a></li>
-			<li><a href="https://twitter.com/platypus999" target="_blank" rel="noopener">@platypus999</a></li>
 		</ul>
 	</section>
 </template>
