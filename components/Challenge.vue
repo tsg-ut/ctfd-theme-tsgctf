@@ -7,6 +7,9 @@
 			<div class="title" @click="onClickTitle">
 				<span class="title-name">{{challenge.name}}</span>
 				<span class="points"> {{challenge.value}}pts </span>
+				<span class="status-badge" v-if="badgeUrl !== null">
+					<img :src="badgeUrl" />
+				</span>
 			</div>
 			<div class="subtitle">
 				{{challenge.solves}} solves -
@@ -128,6 +131,7 @@ export default {
 			boo: false,
 			flagText: '',
 			isSolvesOpen: false,
+			badgeUrl: null,
 		};
 	},
 	computed: {
@@ -143,9 +147,10 @@ export default {
 			return authorTag.value.split(':')[1].trim();
 		},
 	},
-	mounted() {
+	async mounted() {
 		if (!this.isStatic) {
 			this.interval = setInterval(this.updateImgSrc, 60 * 1000);
+			await this.fetchBadgeUrl();
 		}
 	},
 	destroyed() {
@@ -257,6 +262,10 @@ export default {
 					img.src = srcUrl.toString();
 				}
 			}
+		},
+		async fetchBadgeUrl() {
+			const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/badge`);
+			this.badgeUrl = data.badge_url;
 		},
 	},
 };
