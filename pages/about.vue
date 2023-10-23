@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211002T16&p1=248" target="_blank" rel="noopener noreferrer">10/02 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231002T16&p1=248" target="_blank" rel="noopener noreferrer">10/02 07:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20211003T16&p1=248" target="_blank" rel="noopener noreferrer">10/03 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20231003T16&p1=248" target="_blank" rel="noopener noreferrer">10/03 07:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
 		<h3>Socials</h3>
@@ -18,7 +18,7 @@
 					width="100%"
 					height="100%"
 				>
-					<a href="https://discord.gg/xJn7v62" target="_blank" rel="noopener noreferrer">Discord</a>
+					<a href="https://discord.gg/xcZ3t9bC2A" target="_blank" rel="noopener noreferrer">Discord</a>
 				</iframe>
 			</li>
 			<li>
@@ -52,7 +52,7 @@
 			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
-		<p>Below is the full list of TSG members who contributed to this TSG CTF 2021 in success. So many thanks!!</p>
+		<p>Below is the full list of TSG members who contributed to this TSG CTF 2023 in success. So many thanks!!</p>
 		<ul>
 			<li><a href="https://twitter.com/hakatashi" target="_blank" rel="noopener noreferrer">@hakatashi</a></li>
 			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener noreferrer">@moratorium08</a></li>

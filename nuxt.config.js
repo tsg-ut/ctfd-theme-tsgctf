@@ -169,7 +169,7 @@ export default {
 			source: 'static/favicon.png',
 		},
 		manifest: {
-			name: 'TSG CTF 2021',
+			name: 'TSG CTF 2023',
 			short_name: 'TSG CTF',
 			start_url: 'https://score.ctf.tsg.ne.jp/?standalone=true',
 			theme_color: '#47e543',
