@@ -7,9 +7,6 @@
 			<div class="title" @click="onClickTitle">
 				<span class="title-name">{{challenge.name}}</span>
 				<span class="points"> {{challenge.value}}pts </span>
-				<span class="status-badge" v-if="badgeUrl !== null">
-					<img :src="badgeUrl" />
-				</span>
 			</div>
 			<div class="subtitle">
 				{{challenge.solves}} solves -
@@ -61,6 +58,9 @@
 						</div>
 						<div v-if="author" class="author">
 							<span class="author-name">Author: {{author}}</span>
+						</div>
+						<div class="server-status" v-if="badgeUrl !== null">
+							<img :src="badgeUrl" />
 						</div>
 					</div>
 					<div class="description">
