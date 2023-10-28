@@ -2,18 +2,11 @@
 	<section class="Login">
 		<h2 class="title"><span>Login</span></h2>
 		<div class="subtitle">or <iso-link to="/register">Register</iso-link></div>
-		<div class="ctftime-login-area">
-			<ctftime-login-button prefix="Login with"/>
-		</div>
-		<hr>
-		<h3 class="title"><span>Legacy Login</span></h3>
 		<form
 			class="login-form"
-			:class="{active: isLegacyActive}"
 			method="post"
 			accept-charset="utf-8"
 			autocomplete="off"
-			@click="isLegacyActive = true"
 		>
 			<div class="form-group">
 				<label for="name-input">
@@ -57,18 +50,16 @@
 
 <script>
 import IsoLink from '~/components/IsoLink.vue';
-import CtftimeLoginButton from '../components/CtftimeLoginButton.vue';
 import {mapState} from 'vuex';
 
 export default {
-	components: {IsoLink, CtftimeLoginButton},
+	components: {IsoLink},
 	async asyncData(context) {
 		await context.store.dispatch('updateCsrfToken', context);
 	},
 	data() {
 		return {
 			isError: false,
-			isLegacyActive: false,
 		};
 	},
 	head() {
@@ -104,15 +95,6 @@ export default {
 
 		a {
 			color: #90cbff;
-		}
-	}
-
-	.login-form {
-		opacity: 0.1;
-		transition: opacity 0.3s;
-
-		&.active {
-			opacity: 1;
 		}
 	}
 

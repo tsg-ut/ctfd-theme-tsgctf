@@ -3,17 +3,6 @@
 		<h2 class="title">
 			<span>{{team.name}}</span>
 		</h2>
-		<div v-if="team.oauth_id" class="verified">
-			<a
-				class="verified-badge"
-				:href="`https://ctftime.org/team/${team.oauth_id}`"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<span>Verified with CTFTime</span>
-				<check-circle :size="16"/>
-			</a>
-		</div>
 		<div class="score">{{formatOrdinals(score.pos)}} {{score.score}}pts</div>
 		<div class="members-head">Members</div>
 		<div class="members">

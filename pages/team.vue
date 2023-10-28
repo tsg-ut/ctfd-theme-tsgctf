@@ -2,9 +2,6 @@
 	<section class="JoinTeam">
 		<h2 class="title"><span>Join or Create Team</span></h2>
 		<div class="subtitle">In order to participate you must either join or create a team.</div>
-		<div class="ctftime-login-area">
-			<ctftime-login-button prefix="Join/Create team with"/>
-		</div>
 		<iso-link to="/teams/join" class="button join">Join Team</iso-link>
 		<iso-link to="/teams/new" class="button new">Create Team</iso-link>
 	</section>
@@ -12,11 +9,10 @@
 
 <script>
 import IsoLink from '~/components/IsoLink.vue';
-import CtftimeLoginButton from '../components/CtftimeLoginButton.vue';
 import {mapState} from 'vuex';
 
 export default {
-	components: {IsoLink, CtftimeLoginButton},
+	components: {IsoLink},
 	head() {
 		return {
 			title: 'Team - TSG CTF',
