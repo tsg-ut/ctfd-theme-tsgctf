@@ -43,13 +43,6 @@ export default {
 			{name: 'twitter:image:alt', content: 'TSG CTF'},
 		],
 		link: [{rel: 'icon', type: 'image/png', href: `${staticBase}/favicon.png`}],
-		script: [
-			{
-				src: 'https://app.chatwoot.com/packs/js/sdk.js',
-				defer: true,
-				async: true,
-			},
-		],
 	},
 
 	loading: {color: '#fff'},
