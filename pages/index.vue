@@ -70,47 +70,47 @@ export default {
 @property --shadow-color {
 	syntax: '<color>';
 	inherits: false;
-	initial-value: rgba(238, 255, 82, 0.1);
+	initial-value: rgba(249, 255, 196, 0.1);
 }
 
 /* We are hacker :) */
 @keyframes blinkLogo {
-	0% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	0% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	1% { --shadow-color: rgba(238, 255, 82, 0); }
 
-	11% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	11% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	11.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	12% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	12% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	12.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	13% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	13% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	13.5% { --shadow-color: rgba(238, 255, 82, 0); }
 
-	24% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	24% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	25% { --shadow-color: rgba(238, 255, 82, 0); }
-	25.5% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	25.5% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	26.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	27% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	27% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	27.5% { --shadow-color: rgba(238, 255, 82, 0); }
 
-	50% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	50% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	51% { --shadow-color: rgba(238, 255, 82, 0); }
-	51.5% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	51.5% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	52% { --shadow-color: rgba(238, 255, 82, 0); }
-	52.5% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	52.5% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	53.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	54% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	54% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	54.5% { --shadow-color: rgba(238, 255, 82, 0); }
 
-	65% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	65% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	66% { --shadow-color: rgba(238, 255, 82, 0); }
 
-	76% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	76% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	76.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	77% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	77% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	77.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	78% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	78% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	79% { --shadow-color: rgba(238, 255, 82, 0); }
-	79.5% { --shadow-color: rgba(238, 255, 82, 0.1); }
+	79.5% { --shadow-color: rgba(249, 255, 196, 0.1); }
 	80% { --shadow-color: rgba(238, 255, 82, 0); }
 }
 
@@ -130,7 +130,7 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-size: 8rem;
 		font-weight: 300;
-		color: rgb(252 255 68);
+		color: rgb(242 250 254);
 		-webkit-text-fill-color: transparent;
 		animation: 10s blinkLogo infinite;
 		animation-timing-function: step-end;
@@ -143,7 +143,7 @@ export default {
 			0 0 50px var(--shadow-color),
 			0 0 70px var(--shadow-color),
 			0 0 100px var(--shadow-color);
-		background: linear-gradient(90deg, rgb(71 229 67) 0%, rgb(252 255 68) 100%);
+		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
 		background-clip: text;
 		display: block;
 		letter-spacing: 1px;
