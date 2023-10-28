@@ -16,8 +16,8 @@
 import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 
-const contestStart = new Date('2021-10-02T07:00:00Z').getTime();
-const contestEnd = new Date('2021-10-03T07:00:00Z').getTime();
+const contestStart = new Date('2023-10-02T07:00:00Z').getTime();
+const contestEnd = new Date('2023-10-03T07:00:00Z').getTime();
 
 export default {
 	components: {IsoLink},
@@ -28,7 +28,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG CTF 2021',
+			title: 'TSG CTF 2023',
 		};
 	},
 	computed: {
