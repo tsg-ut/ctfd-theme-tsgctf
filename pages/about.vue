@@ -36,13 +36,13 @@
 			<img src="https://ctf.tsg.ne.jp/images/flatt_image.png" :style="{maxWidth: '60rem'}">
 		</a>
 		<p>Flatt Security Inc. is a cyber security startup based in Tokyo, Japan.</p>
-		<p>We provide security assessments and other cyber security services and have been also developing security software for client companies.</p>
-		<p>We are hiring engineers. Please contact to <a href="mailto:contact@flatt.tech">contact@flatt.tech</a> or <a href="https://flatt.tech/contact">https://flatt.tech/contact</a></p>
+		<p>We provide a variety of cyber security services, including security assessment.  We also develop and provide security software “Shisho Cloud” for client companies.</p>
+		<p>We are hiring engineers. Please see our employment page <a href="https://recruit.flatt.tech/">https://recruit.flatt.tech/</a> and contact to <a href="https://flatt.tech/contact/">https://flatt.tech/contact/</a></p>
 		<h3>Prizes</h3>
 		<ul>
-			<li>1st: 513.37 USD</li>
-			<li>2nd: 213.37 USD</li>
-			<li>3rd: 113.37 USD</li>
+			<li>1st: 1,000USD</li>
+			<li>2nd: 500 USD</li>
+			<li>3rd: 200 USD</li>
 		</ul>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">
@@ -59,22 +59,11 @@
 			<li><a href="https://twitter.com/smallkirby" target="_blank" rel="noopener noreferrer">@smallkirby</a></li>
 			<li><a href="https://twitter.com/m1kit" target="_blank" rel="noopener noreferrer">@m1kit</a></li>
 			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener noreferrer">@naan112358</a></li>
-			<li><a href="https://twitter.com/kcz146" target="_blank" rel="noopener noreferrer">@kcz146</a></li>
 			<li><a href="https://twitter.com/__dAi00" target="_blank" rel="noopener noreferrer">@__dAi00</a></li>
-			<li><a href="https://twitter.com/y0n3uchy" target="_blank" rel="noopener noreferrer">@y0n3uchy</a></li>
 			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener noreferrer">@JP3BGY</a></li>
-			<li><a href="https://twitter.com/ishitatsuyuki" target="_blank" rel="noopener noreferrer">@ishitatsuyuki</a></li>
 			<li><a href="https://twitter.com/iwashiira" target="_blank" rel="noopener noreferrer">@iwashiira</a></li>
 			<li><a href="https://twitter.com/shell_mug" target="_blank" rel="noopener noreferrer">@shell_mug</a></li>
 			<li><a href="https://twitter.com/sitositositoo" target="_blank" rel="noopener noreferrer">@sitositositoo</a></li>
-			<li><a href="https://twitter.com/u6606u5e03" target="_blank" rel="noopener noreferrer">@u6606u5e03</a></li>
-			<li><a href="https://twitter.com/azaika_" target="_blank" rel="noopener noreferrer">@azaika_</a></li>
-			<li><a href="https://twitter.com/n4o847" target="_blank" rel="noopener noreferrer">@n4o847</a></li>
-			<li><a href="https://twitter.com/syobon_hinata" target="_blank" rel="noopener noreferrer">@syobon_hinata</a></li>
-			<li><a href="https://twitter.com/mistterpp" target="_blank" rel="noopener noreferrer">@mistterpp</a></li>
-			<li><a href="https://twitter.com/taiyoslime" target="_blank" rel="noopener noreferrer">@taiyoslime</a></li>
-			<li><a href="https://twitter.com/platypus999" target="_blank" rel="noopener noreferrer">@platypus999</a></li>
-			<li><a href="https://twitter.com/coil_kpc" target="_blank" rel="noopener noreferrer">@coil_kpc</a></li>
 		</ul>
 	</section>
 </template>
@@ -151,6 +140,10 @@ export default {
 
 	a {
 		color: #90cbff;
+	}
+
+	:has(.twitter-timeline) {
+		width: 100%;
 	}
 }
 </style>
