@@ -30,8 +30,8 @@
 						<td>{{solve.challenge.category}}</td>
 						<td>{{solve.challenge.value}}</td>
 						<td>
-							<span v-if="getUser(solve.user)">
-								{{getUser(solve.user).name}}
+							<span v-if="solve.user">
+								{{solve.user.name}}
 							</span>
 							<pulse-loader v-else color="white" size="10px"/>
 						</td>
@@ -113,7 +113,7 @@ export default {
 			return;
 		}
 
-		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user), ...this.team.members]));
+		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user.id), ...this.team.members]));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
 	methods: {formatOrdinals},

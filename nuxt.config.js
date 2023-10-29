@@ -72,7 +72,6 @@ export default {
 			const teams = [];
 			let page = 1;
 			while (true) {
-				console.log(`Fetching teams... (page = ${page})`);
 				const {data} = await axios.get('https://score.ctf.tsg.ne.jp/api/v1/teams', {params: {page}});
 				teams.push(...data.data);
 				if (data.meta.pagination.next === null) {
