@@ -11,7 +11,7 @@
 				<h3 class="category-name">{{category.name}}</h3>
 				<ul class="challenges">
 					<challenge
-						v-for="challenge in category.challenges.filter(({solved}) => !isHideSolved || !solved)"
+						v-for="challenge in category.challenges.filter(({solved_by_me}) => !isHideSolved || !solved_by_me)"
 						:key="challenge.id"
 						:challenge="challenge"
 					/>
