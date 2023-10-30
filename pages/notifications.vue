@@ -1,11 +1,6 @@
 <template>
 	<section class="Notifications">
 		<h2 class="title"><span>Notifications</span></h2>
-		<div v-if="!isPushEnabled" class="enable-notifications-area">
-			<div class="enable-notifications" @click="enableNotifications">
-				<bell-ring/> <span>Enable Push Notification</span>
-			</div>
-		</div>
 		<div class="lang-switcher">
 			<span class="lang" :class="{active: language === 'ja'}" @click="$store.commit('setLanguage', 'ja')">
 				<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
@@ -49,7 +44,7 @@ export default {
 		...mapGetters({
 			notifications: 'notifications/getNotifications',
 		}),
-		...mapState(['language', 'isPushEnabled']),
+		...mapState(['language']),
 	},
 	methods: {
 		getContent(notification) {
@@ -84,24 +79,6 @@ export default {
 		}
 
 		img, .lang-name {
-			vertical-align: middle;
-		}
-	}
-
-	.enable-notifications-area {
-		text-align: center;
-	}
-
-	.enable-notifications {
-		display: inline-block;
-		width: auto;
-		cursor: pointer;
-		background-color: #e54b4d;
-		padding: 0.2rem 2rem;
-		margin-bottom: 1rem;
-		border-radius: 9999px;
-
-		& > * {
 			vertical-align: middle;
 		}
 	}
