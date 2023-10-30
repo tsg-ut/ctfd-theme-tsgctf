@@ -119,7 +119,7 @@
 				<a href="https://flatt.tech/" target="_blank" rel="noopener noreferrer">
 					<img class="flatt" src="@/static/flatt.png" alt="flatt Security">
 				</a>
-				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener noreferrer">
+				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
 					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
 				</a>
 			</p>
@@ -128,7 +128,7 @@
 				<a href="https://g.co/cloud" target="_blank" rel="noopener noreferrer">
 					<img class="google-cloud" src="@/static/google-cloud.png" alt="flatt Security">
 				</a>
-				<a href="https://jpninfo.com/4905" target="_blank" rel="noopener noreferrer">
+				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
 					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
 				</a>
 			</p>
