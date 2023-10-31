@@ -93,7 +93,6 @@ export default {
 				{ url: 'https://twitter.com/satos___jp', name: '@satos' },
 				{ url: 'https://twitter.com/sitositositoo', name: 'settyan117' },
 				{ url: 'https://twitter.com/shell_mug', name: '@shell_mug' },
-				{ url: 'https://twitter.com/smallkirby', name: '@smallkirby' },
 				{ url: 'https://twitter.com/syobon_hinata', name: '@syobon_hinata (fabon)' },
 				{ url: 'https://twitter.com/shion_urei', name: '@shion_urei' },
 			],
