@@ -89,7 +89,7 @@ export default {
 				{ url: 'https://twitter.com/naan112358', name: '@naan112358' },
 				{ url: 'https://twitter.com/n4o847', name: '@n4o847' },
 				{ url: 'https://twitter.com/platypus999', name: '@platypus999' },
-				{ url: 'https://twitter.com/sasakiy84"', name: '@sasakiy84' },
+				{ url: 'https://twitter.com/sasakiy84', name: '@sasakiy84' },
 				{ url: 'https://twitter.com/satos___jp', name: '@satos' },
 				{ url: 'https://twitter.com/sitositositoo', name: 'settyan117' },
 				{ url: 'https://twitter.com/shell_mug', name: '@shell_mug' },
