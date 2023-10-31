@@ -53,9 +53,12 @@
 			University of Tokyo.
 		</p>
 		<p>Below is the full list of TSG members who contributed to this TSG CTF 2023 in success. So many thanks!!</p>
-		<ul>
-			<li v-for="member in members" :key="member">
+		<ul class="members">
+			<li v-for="member in members" :key="member" class="member">
 				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
+				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
+					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
+				</a>
 			</li>
 		</ul>
 	</section>
@@ -161,6 +164,25 @@ export default {
 
 	:has(.twitter-timeline) {
 		width: 100%;
+	}
+
+	.ojigineko {
+		background: url('../static/ojigineko-white.gif');
+		background-size: cover;
+		display: inline-block;
+		width: 1rem;
+		opacity: 0;
+		transition: opacity 0.2s;
+		margin-bottom: 0;
+		margin-left: 0.2rem;
+	}
+
+	.member {
+		&:hover {
+			.ojigineko {
+				opacity: 0.3;
+			}
+		}
 	}
 }
 </style>
