@@ -54,16 +54,9 @@
 		</p>
 		<p>Below is the full list of TSG members who contributed to this TSG CTF 2023 in success. So many thanks!!</p>
 		<ul>
-			<li><a href="https://twitter.com/hakatashi" target="_blank" rel="noopener noreferrer">@hakatashi</a></li>
-			<li><a href="https://twitter.com/moratorium08" target="_blank" rel="noopener noreferrer">@moratorium08</a></li>
-			<li><a href="https://twitter.com/smallkirby" target="_blank" rel="noopener noreferrer">@smallkirby</a></li>
-			<li><a href="https://twitter.com/m1kit" target="_blank" rel="noopener noreferrer">@m1kit</a></li>
-			<li><a href="https://twitter.com/naan112358" target="_blank" rel="noopener noreferrer">@naan112358</a></li>
-			<li><a href="https://twitter.com/__dAi00" target="_blank" rel="noopener noreferrer">@__dAi00</a></li>
-			<li><a href="https://twitter.com/JP3BGY" target="_blank" rel="noopener noreferrer">@JP3BGY</a></li>
-			<li><a href="https://twitter.com/iwashiira" target="_blank" rel="noopener noreferrer">@iwashiira</a></li>
-			<li><a href="https://twitter.com/shell_mug" target="_blank" rel="noopener noreferrer">@shell_mug</a></li>
-			<li><a href="https://twitter.com/sitositositoo" target="_blank" rel="noopener noreferrer">@sitositositoo</a></li>
+			<li v-for="member in members" :key="member">
+				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
+			</li>
 		</ul>
 	</section>
 </template>
@@ -76,6 +69,30 @@ export default {
 	head() {
 		return {
 			title: 'About - TSG CTF',
+		};
+	},
+	data() {
+		return {
+			members: [
+				{ url: 'https://twitter.com/hakatashi', name: '@hakatashi' },
+				{ url: 'https://twitter.com/caphosra', name: '@caphosra' },
+				{ url: 'https://twitter.com/__dAi00', name: 'dai' },
+				{ url: 'https://twitter.com/iwashiira', name: '@iwashiira' },
+				{ url: 'https://twitter.com/jiei_univ', name: '@jiei_univ' },
+				{ url: 'https://twitter.com/JP3BGY', name: '@JP3BGY' },
+				{ url: 'https://twitter.com/khei4444', name: '@khei4444' },
+				{ url: 'https://twitter.com/m1kit', name: '@m1kit' },
+				{ url: 'https://twitter.com/moratorium08', name: '@moratorium08' },
+				{ url: 'https://twitter.com/naan112358', name: '@naan112358' },
+				{ url: 'https://twitter.com/n4o847', name: '@n4o847' },
+				{ url: 'https://twitter.com/platypus999', name: '@platypus999' },
+				{ url: 'https://twitter.com/sasakiy84"', name: '@sasakiy84' },
+				{ url: 'https://twitter.com/satos___jp', name: '@satos' },
+				{ url: 'https://twitter.com/sitositositoo', name: 'settyan117' },
+				{ url: 'https://twitter.com/shell_mug', name: '@shell_mug' },
+				{ url: 'https://twitter.com/smallkirby', name: '@smallkirby' },
+				{ url: 'https://twitter.com/syobon_hinata', name: '@syobon_hinata (fabon)' },
+			],
 		};
 	},
 };
