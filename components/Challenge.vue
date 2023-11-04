@@ -56,11 +56,13 @@
 								<span class="lang-name">EN</span>
 							</span>
 						</div>
-						<div v-if="author" class="author">
-							<span class="author-name">Author: {{author}}</span>
-						</div>
-						<div class="server-status" v-if="badgeUrl !== null">
-							<img :src="badgeUrl" />
+						<div class="metainfo">
+							<div class="server-status" v-if="badgeUrl !== null">
+								<img :src="badgeUrl" />
+							</div>
+							<div v-if="author" class="author">
+								<span class="author-name">Author: {{author}}</span>
+							</div>
 						</div>
 					</div>
 					<div class="description">
@@ -641,6 +643,16 @@ export default {
 		&[disabled] {
 			cursor: default;
 			background: #888;
+		}
+	}
+
+	.metainfo {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+
+		.server-status {
+			margin-bottom: 0.2rem;
 		}
 	}
 }
