@@ -266,8 +266,12 @@ export default {
 			}
 		},
 		async fetchBadgeUrl() {
-			const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/badge`);
-			this.badgeUrl = data.badge_url;
+			if (this.isEnded) {
+				this.badgeUrl = 'https://img.shields.io/badge/Unknown-CTF_Ended-blue'
+			} else {
+				const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/badge`);
+				this.badgeUrl = data.badge_url;
+			}
 		},
 	},
 };
