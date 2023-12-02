@@ -21,7 +21,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/bulma": "^1.2.7",
     "async-mutex": "^0.4.0",
-    "nuxt": "^3.5.3",
+    "nuxt": "^3.8.1",
     "vue": "^2.7.14",
     "vue-clickaway": "^2.2.2",
     "vue-material-design-icons": "^5.2.0",
