@@ -59,7 +59,7 @@
     "nuxt-client-init-module": "^0.3.0",
     "postcss-import-url": "7.2.0",
     "precss": "^4.0.0",
-    "prettier": "^3.2.3",
+    "prettier": "^3.2.4",
     "prettier-eslint-cli": "^8.0.1",
     "vue-spinner": "^1.0.4",
     "vue-timeago": "^5.1.3"
