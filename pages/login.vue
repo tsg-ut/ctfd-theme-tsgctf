@@ -8,10 +8,11 @@
 			accept-charset="utf-8"
 			autocomplete="off"
 		>
+		<p>
+			User Name or Email
+		</p>
 			<div class="form-group">
-				<label for="name-input">
-					User Name or Email
-				</label>
+				
 				<input
 					id="name-input"
 					class="form-control"
@@ -19,10 +20,9 @@
 					name="name"
 				>
 			</div>
+			<p>Password</p>
 			<div class="form-group">
-				<label for="password-input">
-					Password
-				</label>
+			
 				<input
 					id="password-input"
 					class="form-control"
@@ -116,12 +116,16 @@ export default {
 	.form-control {
 		font-size: 1.2rem;
 		width: 20rem;
+		background-color: rgba(29, 29, 29, 0.753);
+		border-radius: 5px;
+		color: white;
+		box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.952);
 	}
 
 	.error {
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		font-family: 'Fredoka One', cursive;
-		font-weight: 300;
+		font-weight: 100;
 
 		color: #f44336;
 		padding: 0;
@@ -131,6 +135,13 @@ export default {
 	button[type='submit'] {
 		width: 10rem;
 		margin: 1rem 0;
+		box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.952);
+
+	}
+
+	button[type='submit']:hover {
+		background-color: white;
+		color: rgb(29, 29, 29);
 	}
 }
 </style>

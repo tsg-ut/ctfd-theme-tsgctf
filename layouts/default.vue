@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<iso-link to="/">TSG CTF 2023</iso-link>
+				<iso-link to="/">4T$ CTF 2024</iso-link>
 			</div>
 			<div class="spacer"/>
 			<div v-if="isLoggedIn">
@@ -114,7 +114,7 @@
 			<nuxt/>
 		</div>
 		<div class="footer">
-			<p class="sponsor-line">
+			<!-- <p class="sponsor-line">
 				Sponsored by
 				<a href="https://flatt.tech/" target="_blank" rel="noopener noreferrer">
 					<img class="flatt" src="@/static/flatt.png" alt="flatt Security">
@@ -133,7 +133,8 @@
 				</a>
 			</p>
 			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, a student team from The University of Tokyo</p>
-			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener noreferrer">CTFd</a></p>
+			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener noreferrer">CTFd</a></p> -->
+			<p>MADE BY NATHAAAAAAN</p>
 		</div>
 	</div>
 </template>
@@ -300,8 +301,10 @@ button[type='submit'], .button-style {
 	font-size: 1.5rem;
 	font-family: 'Fredoka One', cursive;
 	font-weight: 300;
-	background: linear-gradient(90deg, #3e91a6 0%, #5e0fa9 100%);
+	background: rgba(29, 29, 29, 0.753);
 }
+
+
 
 table {
 	width: 100%;

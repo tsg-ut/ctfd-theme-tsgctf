@@ -118,7 +118,7 @@ export default {
 	router: {},
 
 	serverMiddleware: [
-		...(process.env.NODE_ENV === 'development'
+		...(process.env.NODE_ENV === 'd'
 			? [
 				{
 					path: '/oauth',

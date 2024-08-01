@@ -67,10 +67,10 @@ import Challenge from '~/components/Challenge.vue';
 export default {
 	components: {Challenge},
 	async asyncData(context) {
-		await Promise.all([
-			context.store.dispatch('updateDates', context),
-			context.store.dispatch('challenges/updateChallenges', context),
-		]);
+		// await Promise.all([
+		// 	context.store.dispatch('updateDates', context),
+		// 	context.store.dispatch('challenges/updateChallenges', context),
+		// ]);
 	},
 	data() {
 		return {

@@ -327,7 +327,7 @@ export const actions = {
 		await Promise.all([
 			dispatch('updateUser', context),
 			dispatch('updateTeam', context),
-			dispatch('updateDates', context),
+			//dispatch('updateDates', context),
 			dispatch('updateCsrfToken', context),
 			dispatch('notifications/updateNotifications', context),
 		]);
