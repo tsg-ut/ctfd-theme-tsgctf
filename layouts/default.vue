@@ -140,6 +140,8 @@
 </template>
 
 <script>
+// TODO: Trouver un meilleur fond d'écran
+
 import IsoLink from '~/components/IsoLink.vue';
 import {mapState} from 'vuex';
 import {directive as onClickaway} from 'vue-clickaway';
@@ -221,8 +223,8 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background-image: url('../static/background.svg'), radial-gradient(circle, #000000 0%, #000000 70%, #3f3f3f 100%);
-	background-color: #130414;
+	/*background-image: url('../static/background.svg'), radial-gradient(circle, #000000 0%, #000000 70%, #3f3f3f 100%);*/
+	background-color: #151817;
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -294,7 +296,7 @@ button {
 	cursor: pointer;
 }
 
-button[type='submit'], .button-style {
+button[id='submit'], .button-style {
 	width: 6rem;
 	height: 2.5rem;
 	border-radius: 9999px;

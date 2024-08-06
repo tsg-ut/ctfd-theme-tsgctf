@@ -4,7 +4,6 @@
 		<div class="subtitle">or <iso-link to="/login">Login</iso-link></div>
 		<form
 			class="login-form"
-			method="post"
 			accept-charset="utf-8"
 			autocomplete="off"
 		>
@@ -47,13 +46,15 @@
 			<div v-if="isError" class="error">
 				Registration errored. Maybe username already taken?
 			</div>
-			<div>
-				<button id="submit" type="submit" tabindex="5">
-					Submit
-				</button>
-			</div>
+			
 			<input type="hidden" name="nonce" :value="csrfToken">
 		</form>
+	<div>
+				<button id="submit" @click="handleRegisterButton()"  tabindex="5">
+					Submit
+				</button>
+				
+			</div>
 	</section>
 </template>
 
@@ -86,6 +87,11 @@ export default {
 				this.isError = true;
 			}
 		}
+	},
+	methods: {
+		handleRegisterButton() {
+			console.log('hey');
+		},
 	},
 };
 </script>
@@ -141,12 +147,12 @@ export default {
 		line-height: 2rem;
 	}
 
-	button[type='submit'] {
+	button[id='submit'] {
 		width: 10rem;
 		margin: 1rem 0;
 		box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.952);
 	}
-	button[type='submit']:hover {
+	button[id='submit']:hover {
 		background-color: white;
 		color: rgb(29, 29, 29);
 	}

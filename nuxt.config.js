@@ -17,69 +17,80 @@ export default {
 	head: {
 		title: 'TSG CTF',
 		meta: [
-			{charset: 'utf-8'},
-			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
+			{ charset: 'utf-8' },
+			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			{
 				name: 'description',
 				hid: 'description',
-				content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
+				content:
+					'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
 			},
-			{name: 'apple-mobile-web-app-title', content: 'TSG CTF 2023'},
-			{name: 'og:title', content: 'TSG CTF 2023'},
-			{name: 'og:site_name', content: 'TSG CTF 2023'},
-			{name: 'og:description', content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo'},
-			{name: 'og:type', content: 'website'},
-			{name: 'og:url', content: 'https://score.ctf.tsg.ne.jp'},
-			{name: 'og:image', content: `${staticBase}/ogimage.jpg`},
-			{name: 'twitter:card', content: 'summary_large_image'},
-			{name: 'twitter:site', content: '@tsgctf'},
-			{name: 'twitter:site', content: '@tsgctf'},
-			{name: 'twitter:title', content: 'TSG CTF 2023'},
+			{ name: 'apple-mobile-web-app-title', content: 'TSG CTF 2023' },
+			{ name: 'og:title', content: 'TSG CTF 2023' },
+			{ name: 'og:site_name', content: 'TSG CTF 2023' },
+			{
+				name: 'og:description',
+				content:
+					'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
+			},
+			{ name: 'og:type', content: 'website' },
+			{ name: 'og:url', content: 'https://score.ctf.tsg.ne.jp' },
+			{ name: 'og:image', content: `${staticBase}/ogimage.jpg` },
+			{ name: 'twitter:card', content: 'summary_large_image' },
+			{ name: 'twitter:site', content: '@tsgctf' },
+			{ name: 'twitter:site', content: '@tsgctf' },
+			{ name: 'twitter:title', content: 'TSG CTF 2023' },
 			{
 				name: 'twitter:description',
-				content: 'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
+				content:
+					'TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo',
 			},
-			{name: 'twitter:image', content: `${staticBase}/ogimage.jpg`},
-			{name: 'twitter:image:alt', content: 'TSG CTF'},
+			{ name: 'twitter:image', content: `${staticBase}/ogimage.jpg` },
+			{ name: 'twitter:image:alt', content: 'TSG CTF' },
 		],
-		link: [{rel: 'icon', type: 'image/png', href: `${staticBase}/favicon.png`}],
+		link: [
+			{ rel: 'icon', type: 'image/png', href: `${staticBase}/favicon.png` },
+		],
 	},
 
-	loading: {color: '#fff'},
+	loading: { color: '#fff' },
 
 	css: [],
 
-	plugins: ['~/plugins/axios', '~/plugins/vue-timeago', '~/plugins/inject-is-static'],
+	plugins: [
+		'~/plugins/axios',
+		'~/plugins/vue-timeago',
+		'~/plugins/inject-is-static',
+	],
 
 	modules: [
-		...(isStatic ? [] : [
-			'nuxt-client-init-module',
-		]),
+		...(isStatic ? [] : ['nuxt-client-init-module']),
 		'@nuxtjs/axios',
 		'@nuxtjs/markdownit',
 		'@nuxtjs/pwa',
-		...(isStatic ? [] : [
-			'@nuxtjs/onesignal',
-		]),
+		...(isStatic ? [] : ['@nuxtjs/onesignal']),
 	],
 
 	generate: {
 		fallback: '404.html',
 		routes: async () => {
 			if (!isStatic) {
-				return [];
+				return []
 			}
-			const teams = [];
-			let page = 1;
+			const teams = []
+			let page = 1
 			while (true) {
-				const {data} = await axios.get('https://score.ctf.tsg.ne.jp/api/v1/teams', {params: {page}});
-				teams.push(...data.data);
+				const { data } = await axios.get(
+					'https://score.ctf.tsg.ne.jp/api/v1/teams',
+					{ params: { page } },
+				)
+				teams.push(...data.data)
 				if (data.meta.pagination.next === null) {
-					break;
+					break
 				}
-				page++;
+				page++
 			}
-			return teams.map(({id}) => `/teams/${id}`);
+			return teams.map(({ id }) => `/teams/${id}`)
 		},
 		concurrency: 5,
 	},
@@ -118,37 +129,37 @@ export default {
 	router: {},
 
 	serverMiddleware: [
-		...(process.env.NODE_ENV === 'd'
+		...(process.env.NODE_ENV === 'development'
 			? [
-				{
-					path: '/oauth',
-					handler: proxy,
-				},
-				{
-					path: '/api',
-					handler: proxy,
-				},
-				{
-					path: '/login',
-					handler: proxy,
-				},
-				{
-					path: '/logout',
-					handler: proxy,
-				},
-				{
-					path: '/register',
-					handler: proxy,
-				},
-				{
-					path: '/teams/join',
-					handler: proxy,
-				},
-				{
-					path: '/teams/new',
-					handler: proxy,
-				},
-			  ]
+					{
+						path: '/oauth',
+						handler: proxy,
+					},
+					{
+						path: '/api',
+						handler: proxy,
+					},
+					{
+						path: '/login',
+						handler: proxy,
+					},
+					{
+						path: '/logout',
+						handler: proxy,
+					},
+					{
+						path: '/register',
+						handler: proxy,
+					},
+					{
+						path: '/teams/join',
+						handler: proxy,
+					},
+					{
+						path: '/teams/new',
+						handler: proxy,
+					},
+				]
 			: []),
 	],
 
@@ -168,4 +179,4 @@ export default {
 			lang: 'en',
 		},
 	},
-};
+}

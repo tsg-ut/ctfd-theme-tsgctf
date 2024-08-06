@@ -1,5 +1,7 @@
 <template>
+	
 	<div class="Challenge">
+		
 		<div class="list-marker">
 			<div class="checkbox" :class="{solved: challenge.solved_by_me}"/>
 		</div>
@@ -46,7 +48,7 @@
 						{{getSolvesText(challenge.details.solves)}}
 					</div>
 					<div class="description-header">
-						<div class="lang-switcher">
+						<!-- <div class="lang-switcher">
 							<span class="lang" :class="{active: language === 'ja'}" @click="$store.commit('setLanguage', 'ja')">
 								<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
 								<span class="lang-name">JA</span>
@@ -55,7 +57,7 @@
 								<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="15">
 								<span class="lang-name">EN</span>
 							</span>
-						</div>
+						</div> -->
 						<div class="metainfo">
 							<div class="server-status" v-if="badgeUrl !== null">
 								<img :src="badgeUrl" />
@@ -67,6 +69,7 @@
 					</div>
 					<div class="description">
 						<!-- eslint-disable vue/no-v-html -->
+				
 						<div
 							ref="description"
 							class="description-column"
@@ -269,8 +272,8 @@ export default {
 			if (this.isEnded) {
 				this.badgeUrl = 'https://img.shields.io/badge/Unknown-CTF_Ended-blue'
 			} else {
-				const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/badge`);
-				this.badgeUrl = data.badge_url;
+				// const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/badge`);
+				// this.badgeUrl = data.badge_url;
 			}
 		},
 	},
@@ -320,7 +323,7 @@ export default {
 
 	.title {
 		font-size: 2.5rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: "General Sans Regular", sans-serif;
 		font-weight: 300;
 		display: inline-block;
 		letter-spacing: 1px;
@@ -328,7 +331,7 @@ export default {
 	}
 
 	.title-name {
-		color: rgb(242 250 254);
+		color: rgb(129, 129, 129);
 		-webkit-text-fill-color: transparent;
 		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
 		background-clip: text;
@@ -373,11 +376,12 @@ export default {
 		margin-top: 1rem;
 		margin-left: 0.5rem;
 		margin-bottom: 1.5rem;
-		background: rgba(255, 255, 255, 0.2);
+		background: rgba(0, 0, 0, 0.548);
+		border: 1px solid #7777778f;
 		padding: 1rem;
 		width: auto;
 		box-sizing: border-box;
-		border-radius: 1rem;
+		border-radius: 5px;
 		position: relative;
 		border-top-right-radius: 0;
 
@@ -462,9 +466,9 @@ export default {
 	.description {
 		font-size: 1.2rem;
 		margin-bottom: 1rem;
-		font-family: Roboto, sans-serif;
-		letter-spacing: 0.05em;
+		font-family: "General Sans Regular", sans-serif;
 		display: flex;
+		
 		line-height: 1.6em;
 
 		.description-column {
@@ -554,20 +558,21 @@ export default {
 	.flag-form {
 		display: flex;
 		margin-top: 1rem;
+		
 	}
 
 	.flag-input {
 		flex: 1 1 0;
 		width: 0;
 		height: 2.5rem;
-		border-radius: 9999px;
+		border-radius: 5px;
 		margin-right: 0.5rem;
 		padding: 0 1rem;
 		font-family: 'Roboto', sans-serif;
 		font-size: 1.4rem;
-		background: #ddd;
-		color: #333;
-
+		background: #dddddd00;
+		color: #c0c0c0;
+		border: 1px solid #c0c0c070;
 		&[disabled] {
 			background: #aaa;
 			color: black;
@@ -643,7 +648,9 @@ export default {
 
 	.flag-submit {
 		flex: 0 0 6rem;
-
+		background: rgb(59, 59, 59);
+		font-size: 1.2rem;
+		border-radius: 5px;
 		&[disabled] {
 			cursor: default;
 			background: #888;

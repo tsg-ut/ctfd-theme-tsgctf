@@ -8,7 +8,12 @@
 		<div v-if="isEnded" class="ended">TSG CTF has been ended!<br>Thank you for your pariticipation!</div>
 		<div v-if="isStarted">
 			<div v-for="category in categories" :key="category.name" class="category">
+				<div class="category-title">
+				<div/>
 				<h3 class="category-name">{{category.name}}</h3>
+				<div/>
+				</div>
+				
 				<ul class="challenges">
 					<challenge
 						v-for="challenge in category.challenges.filter(({solved_by_me}) => !isHideSolved || !solved_by_me)"
@@ -67,10 +72,10 @@ import Challenge from '~/components/Challenge.vue';
 export default {
 	components: {Challenge},
 	async asyncData(context) {
-		// await Promise.all([
-		// 	context.store.dispatch('updateDates', context),
-		// 	context.store.dispatch('challenges/updateChallenges', context),
-		// ]);
+		await Promise.all([
+			//context.store.dispatch('updateDates', context),
+			context.store.dispatch('challenges/updateChallenges', context),
+		]);
 	},
 	data() {
 		return {
@@ -173,23 +178,33 @@ export default {
 	.category {
 		margin-top: 3rem;
 		text-align: center;
+	
 	}
-
+	.category-title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 1rem;
+		& > div {
+			flex: 1;
+			border-top: 1px solid #ccc;
+		}
+	}
 	.category-name {
 		display: inline-block;
 		text-transform: capitalize;
-		font-family: 'Roboto';
+		font-family: "General Sans Regular", sans-serif;
 		font-size: 2rem;
 		text-align: center;
 		padding: 0.5rem 1rem;
-		background: #520514;
+		background: none;
 		position: relative;
-		margin-bottom: 1rem;
-
+		color: rgba(100, 233, 160, 0.692);
+		
 		&::before {
 			content: '';
 			position: absolute;
-			border: dashed 1px white;
+			
 			top: 0.2rem;
 			left: 0.2rem;
 			right: 0.2rem;
