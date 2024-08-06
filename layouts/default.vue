@@ -449,7 +449,7 @@ hr {
 }
 
 .root-content {
-	padding: 4rem 1rem 0;
+	padding: rem 1rem 0;
 	min-height: calc(100vh - 13rem);
 }
 
