@@ -81,6 +81,7 @@ export default {
 		return {
 			melody: 0,
 			isHideSolved: false,
+			
 		};
 	},
 	head() {

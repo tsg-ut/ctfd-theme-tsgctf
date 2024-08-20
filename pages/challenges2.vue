@@ -9,43 +9,48 @@
 		<div v-if="isStarted" class="challenges-container">
             <div class="side-panel-category">
                 <h3>Categories</h3>
-                <div class="separator"/>
-
-                <div v-for="category in categories" :key="category.name" class="category">
+          
+				<div v-for="category in categories" :key="category.name" class="category">
+			<input id="checkbox" v-model="isHideSolved" type="checkbox">
+			<label for="checkbox">{{ category.name }}</label>
+		</div>
+                <!-- <div v-for="category in categories" :key="category.name" class="category">
                         
                 <label :for="category.name" ><input type="checkbox" :id="category.name" >{{category.name}}</label>
                 
-                </div>
+                </div> -->
             </div>
 			<div class="challenges-tiles">
 				<div v-for="category in categories" :key="category.name" class="category-challenges">
 				
 					<h3 class="category-challenges-title">{{ category.name }}</h3>
-				
-				<div>
-					<div v-for="challenge in category.challenges.filter(({solved_by_me}) => !isHideSolved || !solved_by_me)"
-						:key="challenge.id"
-						:challenge="challenge"
-						class="challenge-tile"
-						>
-						{{ challenge.name }}
+					<div>
+						<div v-for="challenge in category.challenges.filter(({solved_by_me}) => !isHideSolved || !solved_by_me)"
+							:key="challenge.id"
+							:challenge="challenge"
+							class="challenge-tile"
+							@click="openModal(challenge.id)"
+							>
+							{{ challenge.name }}
+						</div>
 					</div>
-				</div>
 			</div>
 			</div>
             
-
         </div>
+		<div >
+			<challenge-modal :display="isChallengeModalOpen" @closeModal="closeModal()"/>
+		</div>
 
   </section>
 </template>
 
 <script>
 import {mapGetters, mapState} from 'vuex';
-import Challenge from '~/components/Challenge.vue';
 
+import ChallengeModal from '../components/ChallengeModal.vue';
 export default {
-	components: {Challenge},
+	components: {ChallengeModal},
 	async asyncData(context) {
 		await Promise.all([
 			//context.store.dispatch('updateDates', context),
@@ -56,6 +61,7 @@ export default {
 		return {
 			melody: 0,
 			isHideSolved: false,
+			isChallengeModalOpen: false,
 		};
 	},
 	head() {
@@ -114,14 +120,27 @@ export default {
 				this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
 			}, 60 * 1000);
 		}
+		this.openModal(3);
 	},
 	destroyed() {
 		clearInterval(this.interval);
+	},
+	methods: {
+		closeModal() {
+			this.isChallengeModalOpen = false;
+		},
+		async openModal(id) {
+			await this.$store.dispatch('challenges/getSelectedChallengeDetail', {$axios: this.$axios, id});
+			this.isChallengeModalOpen = true;
+		},
 	},
 };
 </script>
 
 <style lang="postcss" scoped>
+
+
+
 .challenges {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -150,6 +169,7 @@ export default {
 		margin-bottom: 1rem;
 		word-break: break-word;
 	}
+
 
 
 	.category-title {
@@ -219,57 +239,70 @@ export default {
 }
 .challenges-container{
     display: flex;
-    height: 250px;
+   
     width: 100%;
+	flex-grow: 1;
 }
 .side-panel-category{
-    padding: 10px;
+	background-color: #ffffff09;
+    padding: 10px 20px;
     width: 30%;
-    height: 100%;
+   
     float: left;
     color: white;
-    
+	
+	border-radius: 20px;
+	margin: 10px 20px;
+    &>h3{
+		padding: 5px;
+	}
+
+
+input[type='checkbox'] + label {
+	position: relative;
+	cursor: pointer;
+	user-select: none;
+	padding-left: 1.8rem;
+}
+
+
+	input[type='checkbox'] + label::before {
+	content: '';
+	display: block;
+	width: 1.3rem;
+	height: 1.3rem;
+	left: 0;
+	top: 0rem;
+	border: 1px solid #ffffff;
+	position: absolute;
+	opacity: 0.8;
+	transition: all 0.07s;
+}
+
+input[type='checkbox']:checked + label::before {
+	width: 8px;
+	top: -0.2rem;
+	left: 0.2rem;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	transform: translateY(5px) rotate(45deg);
+}
+
+
 }
 .category{
-	margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
-    text-align: center;
-    color: white;
-	font-weight: bold;
-
-    & >label {
-  display: block;
-  padding-left: 15px;
-  text-indent: -15px;
-
-  &>input {
-	content: '';
-  	display: inline;
-  	width: 20px;
-  	height: 20px;
-  	padding: 0;
-  	margin-right: 10px;
-  	vertical-align: bottom;
-  	position: relative;
-  	top: -1px;
-  	*overflow: hidden;
-  	background-color: transparent;
-}
-}
+		padding: 0 20px;
+   		font-family: 'Roboto';
+		font-size: 1.2rem;
+		margin: 10px 0;
+		font-weight: bold;
 }
 
-.challenges-tiles{
- display: inline;
-	
-	
-}
+
 .category-challenges{
 	padding: 10px;
+	background-color: #ffffff09;
 	
-	border: 1px solid #333;
 	border-radius: 10px;
 	margin: 10px 0;
 	float: right;
@@ -300,6 +333,7 @@ export default {
 }
 
 .challenge-tile{
+	margin: 10px;
 	padding: 20px;
 	width: 30%;
 	cursor: pointer;
