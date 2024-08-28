@@ -28,7 +28,7 @@
 						<div v-for="challenge in category.challenges.filter(({solved_by_me}) => !isHideSolved || !solved_by_me)"
 							:key="challenge.id"
 							:challenge="challenge"
-							class="challenge-tile"
+							:class="challengeTileClass(challenge.solved_by_me)"
 							@click="openModal(challenge.id)"
 							>
 							{{ challenge.name }}
@@ -82,6 +82,8 @@ export default {
 			isInTeam: 'isInTeam',
 			challenges: (state) => state.challenges.challenges,
 		}),
+		
+		
 	},
 	watch: {
 		isInTeam(newValue) {
@@ -132,6 +134,12 @@ export default {
 		async openModal(id) {
 			await this.$store.dispatch('challenges/getSelectedChallengeDetail', {$axios: this.$axios, id});
 			this.isChallengeModalOpen = true;
+		},
+		challengeTileClass(solved_by_me) {
+			return {
+				'challenge-tile': true,
+				'challenge-tile-completed': solved_by_me,
+			};
 		},
 	},
 };
@@ -347,6 +355,12 @@ input[type='checkbox']:checked + label::before {
 	&:hover {
 		background-color: #4e4e4e;
 	}
+}
+
+.challenge-tile-completed{
+	background-color: #14a807;
+}.challenge-tile-completed:hover{
+	background-color: #14a807;
 }
      
 }

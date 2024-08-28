@@ -69,6 +69,7 @@ export default {
 		'@nuxtjs/markdownit',
 		'@nuxtjs/pwa',
 		...(isStatic ? [] : ['@nuxtjs/onesignal']),
+
 	],
 
 	generate: {

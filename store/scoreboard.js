@@ -5,6 +5,7 @@ const mutex = new Mutex();
 
 export const state = () => ({
 	scoreboard: [],
+	scoreboardTop10: [],
 	teams: [],
 });
 
@@ -33,6 +34,9 @@ export const getters = {
 			})),
 		];
 	},
+	getScoreboardTop10: (s)=>{
+		return s.scoreboardTop10
+	}
 };
 
 export const mutations = {
@@ -48,6 +52,10 @@ export const mutations = {
 	clearTeams(s) {
 		s.teams = [];
 	},
+	setScoreboardTop10(s, top10) {
+		console.log(top10)
+		s.scoreboardTop10 = top10;
+	}
 };
 
 export const actions = {
@@ -64,7 +72,15 @@ export const actions = {
 		} else {
 			commit('setIsLoggedIn', false, {root: true});
 		}
+	},async updateScoreboardTop10({commit}, {$axios}) {
+		const {data, headers} = await $axios.get('/api/v1/scoreboard/top/10');
+		if (headers['content-type'] === 'application/json') {
+			commit('setScoreboardTop10', data.data);
+		} else {
+			commit('setIsLoggedIn', false, {root: true});
+		}
 	},
+
 	async updateTeams({commit, state: s}, {$axios}) {
 		await mutex.runExclusive(async () => {
 			const isTeamsAlreadyFetched = s.teams.length !== 0;

@@ -66,6 +66,9 @@ export const mutations = {
 	setSelectedChallenge(s, challenge) {
 		s.selectedChallenge = challenge
 	},
+	setSelectedChallengeSolvesInfos(s, data) {
+		s.selectedChallenge.solveInfos = data
+	},
 }
 
 export const actions = {
@@ -147,6 +150,24 @@ export const actions = {
 		)
 		if (headers['content-type'] === 'application/json') {
 			commit('setChallengeSolves', { id, data: data.data })
+		} else {
+			const url = new URL(request.responseURL)
+			if (url.pathname === '/team') {
+				commit('setIsInTeam', false, { root: true })
+			} else if (url.pathname === '/confirm') {
+				commit('setIsVerified', false, { root: true })
+			} else {
+				commit('setIsLoggedIn', false, { root: true })
+			}
+		}
+	},
+	async getSelectedChallengeSolvesInfos({ commit }, { $axios, id }) {
+		const { data, headers, request } = await $axios.get(
+			`/api/v1/challenges/${id}/solves`,
+		)
+		if (headers['content-type'] === 'application/json') {
+			commit('setSelectedChallengeSolvesInfos', data)
+			consolke.log()
 		} else {
 			const url = new URL(request.responseURL)
 			if (url.pathname === '/team') {

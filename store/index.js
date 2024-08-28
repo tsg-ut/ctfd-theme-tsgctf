@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import get from 'lodash/get'
 
 export const state = () => ({
 	configs: [],
@@ -9,7 +9,7 @@ export const state = () => ({
 	isEnded: false,
 	isVerified: true,
 	isStatic: null,
-	isPushEnabled: false,
+	isPushEnabled: true,
 	user: {},
 	team: {},
 	rules: '',
@@ -270,127 +270,135 @@ export const state = () => ({
 		['ZM', 'Zambia'],
 		['ZW', 'Zimbabwe'],
 	],
-});
+})
 
 export const getters = {
-	ctfName: ({configs}) => get(configs.find(({key}) => key === 'ctf_name'), ['value'], ''),
-};
+	ctfName: ({ configs }) =>
+		get(
+			configs.find(({ key }) => key === 'ctf_name'),
+			['value'],
+			'',
+		),
+}
 
 export const mutations = {
 	setConfigs(s, payload) {
-		s.configs = payload;
+		s.configs = payload
 	},
 	setIsLoggedIn(s, payload) {
-		s.isLoggedIn = payload;
+		s.isLoggedIn = payload
 	},
 	setIsInTeam(s, payload) {
-		s.isInTeam = payload;
+		s.isInTeam = payload
 	},
 	setIsStarted(s, payload) {
-		s.isStarted = payload;
+		s.isStarted = payload
 	},
 	setIsEnded(s, payload) {
-		s.isEnded = payload;
+		s.isEnded = payload
 	},
 	setIsVerified(s, payload) {
-		s.isVerified = payload;
+		s.isVerified = payload
 	},
 	setIsStatic(s, payload) {
-		s.isStatic = payload;
+		s.isStatic = payload
 	},
 	setRules(s, payload) {
-		s.rules = payload;
+		s.rules = payload
 	},
 	setCsrfToken(s, payload) {
-		s.csrfToken = payload;
+		s.csrfToken = payload
 	},
 	setUser(s, payload) {
-		s.user = {...s.user, ...payload};
+		s.user = { ...s.user, ...payload }
 	},
 	setTeam(s, payload) {
-		s.team = {...s.team, ...payload};
+		s.team = { ...s.team, ...payload }
 	},
 	setLanguage(s, payload) {
-		s.language = payload;
+		s.language = payload
 	},
 	setIsPushEnabled(s, payload) {
-		s.isPushEnabled = payload;
+		s.isPushEnabled = payload
 	},
-};
+}
 
 export const actions = {
-	nuxtServerInit({commit}) {
-		commit('setIsStatic', process.env.NUXT_ENV_STATIC === 'true');
+	nuxtServerInit({ commit }) {
+		commit('setIsStatic', process.env.NUXT_ENV_STATIC === 'true')
 	},
-	async nuxtClientInit({dispatch, commit}, context) {
-		commit('setIsStatic', process.env.NUXT_ENV_STATIC === 'true');
+	async nuxtClientInit({ dispatch, commit }, context) {
+		commit('setIsStatic', process.env.NUXT_ENV_STATIC === 'true')
 		await Promise.all([
 			dispatch('updateUser', context),
 			dispatch('updateTeam', context),
 			//dispatch('updateDates', context),
 			dispatch('updateCsrfToken', context),
 			dispatch('notifications/updateNotifications', context),
-		]);
+		])
 	},
-	async updateConfigs({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/configs');
+	async updateConfigs({ commit }, { $axios }) {
+		const { data, headers } = await $axios.get('/api/v1/configs')
 		if (headers['content-type'] === 'application/json') {
-			commit('setConfigs', data.data.map(({key, value}) => ({key, value})));
+			commit(
+				'setConfigs',
+				data.data.map(({ key, value }) => ({ key, value })),
+			)
 		} else {
-			commit('setIsLoggedIn', false, {root: true});
+			commit('setIsLoggedIn', false, { root: true })
 		}
 	},
-	async updateUser({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/users/me');
+	async updateUser({ commit }, { $axios }) {
+		const { data, headers } = await $axios.get('/api/v1/users/me')
 		if (headers['content-type'] === 'application/json') {
-			commit('setUser', data.data);
+			commit('setUser', data.data)
 		} else {
-			commit('setIsLoggedIn', false, {root: true});
+			commit('setIsLoggedIn', false, { root: true })
 		}
 	},
-	async updateTeam({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/teams/me');
+	async updateTeam({ commit }, { $axios }) {
+		const { data, headers } = await $axios.get('/api/v1/teams/me')
 		if (headers['content-type'] === 'application/json') {
 			if (Object.keys(data.data).length === 0) {
-				commit('setIsInTeam', false, {root: true});
+				commit('setIsInTeam', false, { root: true })
 			} else {
-				commit('setTeam', data.data);
+				commit('setTeam', data.data)
 			}
 		} else {
-			commit('setIsInTeam', false, {root: true});
+			commit('setIsInTeam', false, { root: true })
 		}
 	},
-	async updateDates({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/dates');
+	async updateDates({ commit }, { $axios }) {
+		const { data, headers } = await $axios.get('/api/v1/dates')
 		if (headers['content-type'] === 'application/json') {
-			commit('setIsStarted', data.data.is_started);
-			commit('setIsEnded', data.data.is_ended);
-			commit('setIsVerified', data.data.is_verified);
+			commit('setIsStarted', data.data.is_started)
+			commit('setIsEnded', data.data.is_ended)
+			commit('setIsVerified', data.data.is_verified)
 		} else {
-			commit('setIsLoggedIn', false, {root: true});
+			commit('setIsLoggedIn', false, { root: true })
 		}
 	},
-	async updateRules({commit}, {$axios}) {
-		const {data, headers} = await $axios.get('/api/v1/rules');
+	async updateRules({ commit }, { $axios }) {
+		const { data, headers } = await $axios.get('/api/v1/rules')
 		if (headers['content-type'] === 'application/json') {
-			commit('setRules', data.data.content);
+			commit('setRules', data.data.content)
 		}
 	},
-	async updateCsrfToken({commit, state: s}, {$axios}) {
+	async updateCsrfToken({ commit, state: s }, { $axios }) {
 		if (s.isStatic) {
-			return;
+			return
 		}
 		if (process.env.NODE_ENV === 'development') {
-			const {data} = await $axios.get('/api/v1/users');
+			const { data } = await $axios.get('/api/v1/users')
 			if (data.nonce) {
-				commit('setCsrfToken', data.nonce);
+				commit('setCsrfToken', data.nonce)
 			}
 		} else {
-			const meta = document.querySelector('meta[name=csrf-token]');
+			const meta = document.querySelector('meta[name=csrf-token]')
 			if (meta) {
-				const token = meta.getAttribute('content');
-				commit('setCsrfToken', token);
+				const token = meta.getAttribute('content')
+				commit('setCsrfToken', token)
 			}
 		}
 	},
-};
+}

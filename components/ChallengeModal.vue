@@ -7,7 +7,19 @@
             <div>
                 <h1 class="title">{{challenge.name}}</h1>
             </div>
-            
+			<marquee v-if=" isSolvesOpen" class="solves">
+				<span v-if="challenge.solveInfos === undefined">Loading...</span>
+				<span v-else>
+					<span v-for="j in 100" :key="j">
+						<span v-for="solve, i in challenge.solveInfos" :key="solve.account_id">
+							{{formatOrdinals(i + 1)}}:
+							<iso-link :to="`/teams/${solve.account_id}`">{{solve.name}}</iso-link>
+							<liquid-spot v-if="i === 0" class="first-blood" name="first blood"/>
+						</span>
+						<span :style="{display: 'inline-block', width: '3rem'}"/>
+					</span>
+				</span>
+			</marquee>
             <div v-if="challenge" class="details">
 					<div
 						class="solve-count"
@@ -117,9 +129,12 @@ export default {
 			badgeUrl: null,
 		};
 	},
+	mounted() { 
+		
+	},
     computed: {
         challenge() {
-           
+			console.log(this.$store.state.challenges.selectedChallenge.challenge)
             return  this.$store.state.challenges.selectedChallenge.challenge;
         },
         ...mapState(['isEnded', 'isStatic', 'language']),
@@ -197,7 +212,7 @@ export default {
 				return;
 			}
 			if (!this.isStatic) {
-				this.$store.dispatch('challenges/getSolveInfos', {$axios: this.$axios, id: this.challenge.id});
+				this.$store.dispatch('challenges/getSelectedChallengeSolvesInfos', {$axios: this.$axios, id: this.challenge.id});
 			}
 			this.isSolvesOpen = true;
 		},
@@ -292,6 +307,10 @@ export default {
        }
         
     }
+	.details{
+		display: flex;
+		flex-direction: column;
+	}
     .title {
         font-size: 1.3rem;
         color: white;
@@ -301,6 +320,7 @@ export default {
     .solve-count {
 		text-align: center;
 		padding: 0 0.3rem;
+
 		border-radius: 5px;
 		border-bottom-right-radius: 0;
 		border-bottom-left-radius: 0;

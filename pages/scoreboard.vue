@@ -4,6 +4,7 @@
 			<span>Score<wbr>board</span>
 		</h2>
 		<div class="table-wrap">
+			<ScoreboardGraph/>
 			<table class="scoreboard">
 				<thead>
 					<tr>
@@ -33,9 +34,12 @@
 import {mapGetters, mapState} from 'vuex';
 import CheckCircle from 'vue-material-design-icons/CheckCircle.vue';
 import IsoLink from '~/components/IsoLink.vue';
+import ScoreboardGraph from "@/components/ScoreboardGraph.vue";
 
 export default {
-	components: {IsoLink, CheckCircle},
+	components: {IsoLink, CheckCircle, ScoreboardGraph},
+
+
 	async asyncData(context) {
 		await context.store.dispatch('scoreboard/update', context);
 	},
@@ -47,23 +51,30 @@ export default {
 	computed: {
 		...mapGetters({
 			scoreboard: 'scoreboard/getScoreboard',
+
 		}),
 		...mapState({
 			isStatic: 'isStatic',
 			myTeam: 'team',
 		}),
+
 	},
-	mounted() {
+	async mounted() {
+
 		if (!this.isStatic) {
-			this.$store.dispatch('scoreboard/update', {$axios: this.$axios});
+			await this.$store.dispatch('scoreboard/update', {$axios: this.$axios});
+
 			this.interval = setInterval(() => {
 				this.$store.dispatch('scoreboard/updateScoreboard', {$axios: this.$axios});
 			}, 60 * 1000);
+
+
 		}
 	},
 	destroyed() {
 		clearInterval(this.interval);
 	},
+
 	methods: {
 		getFlagStyle(countryCode) {
 			if (countryCode === null || countryCode === '') {
@@ -73,11 +84,13 @@ export default {
 				backgroundImage: `url(https://cdn.jsdelivr.net/gh/behdad/region-flags@gh-pages/svg/${countryCode.toUpperCase()}.svg)`,
 			};
 		},
+
 	},
 };
 </script>
 
 <style lang="postcss">
+
 .Scoreboard {
 	table .place {
 		padding-right: 1rem;
@@ -105,7 +118,7 @@ export default {
 	}
 
 	tr.active {
-		background: rgba(255, 0, 0, 0.3);
+		//background: rgba(255, 0, 0, 0.3);
 	}
 }
 </style>
