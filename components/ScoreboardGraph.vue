@@ -27,6 +27,9 @@ export default {
 					type: 'line',
 					zoom: {
 						enabled: false
+					},
+					toolbar:{
+						show: false
 					}
 				},
 				dataLabels: {
