@@ -56,7 +56,7 @@
 
 					<div class="description">
 						<!-- eslint-disable vue/no-v-html -->
-				
+
 						<div
 							ref="description"
 							class="description-column"
@@ -99,7 +99,7 @@
 				</form>
 			</div>
 </div>
-        
+
 
 </template>
 <script>
@@ -109,7 +109,7 @@ import IsoLink from '~/components/IsoLink.vue';
 import LiquidSpot from 'vue-material-design-icons/LiquidSpot.vue';
 export default {
 
-    // TODO : manage solved counts little component 
+    // TODO : manage solved counts little component
 
 
     components: { PulseLoader, IsoLink, LiquidSpot },
@@ -122,15 +122,13 @@ export default {
     data() {
 		return {
 			isOpen: false,
-			yay: false,
-			boo: false,
 			flagText: '',
 			isSolvesOpen: false,
 			badgeUrl: null,
 		};
 	},
-	mounted() { 
-		
+	mounted() {
+
 	},
     computed: {
         challenge() {
@@ -271,7 +269,7 @@ export default {
         console.log(this.challenge)
     },
     },
- 
+
     }
 </script>
 <style lang="postcss">
@@ -285,7 +283,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-    
+
     }
     .modale-content {
         background-color: #424242;
@@ -305,7 +303,7 @@ export default {
               font-size: 1.5rem;
               cursor: pointer;
        }
-        
+
     }
 	.details{
 		display: flex;
@@ -392,7 +390,7 @@ export default {
 		margin-bottom: 1rem;
 		font-family: "General Sans Regular", sans-serif;
 		display: flex;
-		
+
 		line-height: 1.6em;
 
 		.description-column {
@@ -481,7 +479,7 @@ export default {
 	.flag-form {
 		display: flex;
 		margin-top: 1rem;
-		
+
 	}
 
 	.flag-input {

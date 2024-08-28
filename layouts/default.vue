@@ -18,7 +18,7 @@
 							<iso-link to="/about" class="dropdown-menu-item">About</iso-link>
 							<iso-link to="/rules" class="dropdown-menu-item">Rules</iso-link>
 							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
-							<iso-link to="/challenges" class="dropdown-menu-item">Challenges</iso-link>
+							<iso-link to="/ctf-2024-ctfd-theme/pages/oldchallenges" class="dropdown-menu-item">Challenges</iso-link>
 							<iso-link
 								v-if="!isStatic"
 								:to="isInTeam ? `/teams/${team && team.id}` : '/team'"
@@ -58,7 +58,7 @@
 						<iso-link to="/scoreboard">Scoreboard</iso-link>
 					</div>
 					<div class="menu-item">
-						<iso-link to="/challenges">Challenges</iso-link>
+						<iso-link to="/ctf-2024-ctfd-theme/pages/oldchallenges">Challenges</iso-link>
 					</div>
 					<div v-if="!isStatic" v-on-clickaway="onClickaway" class="menu-item dropdown">
 						<div class="dropdown-trigger" @click="isDropping = !isDropping">
