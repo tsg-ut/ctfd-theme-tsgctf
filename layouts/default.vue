@@ -4,21 +4,33 @@
 			<div class="title">
 				<iso-link to="/">4T$ CTF 2024</iso-link>
 			</div>
-			<div class="spacer"/>
+			<div class="spacer" />
 			<div v-if="isLoggedIn">
 				<div v-if="isMobile" class="menu">
 					<div v-on-clickaway="onClickaway" class="menu-item dropdown">
 						<div class="dropdown-trigger" @click="isDropping = !isDropping">
 							<div class="teamname">
-								{{team && team.name}}
+								{{ team && team.name }}
 							</div>
 						</div>
-						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
-							<iso-link to="/notifications" class="dropdown-menu-item">Notifications</iso-link>
+						<div
+							v-if="isDropping"
+							class="dropdown-menu"
+							@click="onClickDropdown"
+						>
+							<iso-link to="/notifications" class="dropdown-menu-item"
+								>Notifications</iso-link
+							>
 							<iso-link to="/about" class="dropdown-menu-item">About</iso-link>
 							<iso-link to="/rules" class="dropdown-menu-item">Rules</iso-link>
-							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
-							<iso-link to="/ctf-2024-ctfd-theme/pages/oldchallenges" class="dropdown-menu-item">Challenges</iso-link>
+							<iso-link to="/scoreboard" class="dropdown-menu-item"
+								>Scoreboard</iso-link
+							>
+							<iso-link
+								to="/ctf-2024-ctfd-theme/pages/oldchallenges"
+								class="dropdown-menu-item"
+								>Challenges</iso-link
+							>
 							<iso-link
 								v-if="!isStatic"
 								:to="isInTeam ? `/teams/${team && team.id}` : '/team'"
@@ -58,18 +70,36 @@
 						<iso-link to="/scoreboard">Scoreboard</iso-link>
 					</div>
 					<div class="menu-item">
-						<iso-link to="/ctf-2024-ctfd-theme/pages/oldchallenges">Challenges</iso-link>
+						<iso-link to="/ctf-2024-ctfd-theme/pages/oldchallenges"
+							>Challenges</iso-link
+						>
 					</div>
-					<div v-if="!isStatic" v-on-clickaway="onClickaway" class="menu-item dropdown">
+					<div
+						v-if="!isStatic"
+						v-on-clickaway="onClickaway"
+						class="menu-item dropdown"
+					>
 						<div class="dropdown-trigger" @click="isDropping = !isDropping">
 							<div class="teamname">
-								{{team && team.name}}
+								{{ team && team.name }}
 							</div>
 						</div>
-						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
-							<iso-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</iso-link>
-							<iso-link to="/settings" class="dropdown-menu-item">Settings</iso-link>
-							<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
+						<div
+							v-if="isDropping"
+							class="dropdown-menu"
+							@click="onClickDropdown"
+						>
+							<iso-link
+								:to="isInTeam ? `/teams/${team && team.id}` : '/team'"
+								class="dropdown-menu-item"
+								>Team</iso-link
+							>
+							<iso-link to="/settings" class="dropdown-menu-item"
+								>Settings</iso-link
+							>
+							<a href="/logout" class="dropdown-menu-item" @click="logout"
+								>Logout</a
+							>
 						</div>
 					</div>
 				</div>
@@ -78,16 +108,22 @@
 				<div v-if="isMobile" class="menu">
 					<div v-on-clickaway="onClickaway" class="menu-item dropdown">
 						<div class="dropdown-trigger" @click="isDropping = !isDropping">
-							<div class="teamname">
-								Menu
-							</div>
+							<div class="teamname">Menu</div>
 						</div>
-						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
+						<div
+							v-if="isDropping"
+							class="dropdown-menu"
+							@click="onClickDropdown"
+						>
 							<iso-link to="/about" class="dropdown-menu-item">About</iso-link>
 							<iso-link to="/rules" class="dropdown-menu-item">Rules</iso-link>
-							<iso-link to="/scoreboard" class="dropdown-menu-item">Scoreboard</iso-link>
+							<iso-link to="/scoreboard" class="dropdown-menu-item"
+								>Scoreboard</iso-link
+							>
 							<iso-link to="/login" class="dropdown-menu-item">Login</iso-link>
-							<iso-link to="/register" class="dropdown-menu-item">Register</iso-link>
+							<iso-link to="/register" class="dropdown-menu-item"
+								>Register</iso-link
+							>
 						</div>
 					</div>
 				</div>
@@ -111,7 +147,7 @@
 			</div>
 		</div>
 		<div class="root-content">
-			<nuxt/>
+			<nuxt />
 		</div>
 		<div class="footer">
 			<!-- <p class="sponsor-line">
@@ -142,80 +178,88 @@
 <script>
 // TODO: Trouver un meilleur fond d'écran
 
-import IsoLink from '~/components/IsoLink.vue';
-import {mapState} from 'vuex';
-import {directive as onClickaway} from 'vue-clickaway';
+import IsoLink from '~/components/IsoLink.vue'
+import { mapState } from 'vuex'
+import { directive as onClickaway } from 'vue-clickaway'
 
 export default {
-	components: {IsoLink},
-	directives: {onClickaway},
+	components: { IsoLink },
+	directives: { onClickaway },
 	data() {
 		return {
 			isDropping: false,
 			isMobile: false,
-		};
+		}
 	},
 	head() {
 		return {
 			title: 'TSG CTF',
-		};
+		}
 	},
 	computed: {
 		...mapState(['isStatic', 'isLoggedIn', 'isInTeam', 'team', 'user']),
 	},
 	mounted() {
 		if (window.innerWidth <= 900) {
-			this.isMobile = true;
+			this.isMobile = true
 		}
 
 		window.addEventListener('resize', () => {
 			if (window.innerWidth <= 900) {
-				this.isMobile = true;
+				this.isMobile = true
 			} else {
-				this.isMobile = false;
+				this.isMobile = false
 			}
-		});
+		})
 
 		if (typeof this.$OneSignal !== 'undefined') {
 			this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
-				this.$store.commit('setIsPushEnabled', isEnabled);
-			});
+				this.$store.commit('setIsPushEnabled', isEnabled)
+			})
 		}
 
 		if (typeof globalThis.OneSignal !== 'undefined') {
 			globalThis.OneSignal.getNotificationPermission().then((permission) => {
 				if (permission === 'granted') {
-					this.$store.commit('setIsPushEnabled', true);
+					this.$store.commit('setIsPushEnabled', true)
 				}
-			});
+			})
 		}
 
 		if (navigator.language.includes('ja')) {
-			this.$store.commit('setLanguage', 'ja');
+			this.$store.commit('setLanguage', 'ja')
 		}
 	},
 	methods: {
 		onClickaway() {
-			this.isDropping = false;
+			this.isDropping = false
 		},
 		onClickDropdown(event) {
 			if (event.target.tagName === 'A') {
-				this.isDropping = false;
+				this.isDropping = false
 			}
 		},
 		logout(event) {
-			event.preventDefault();
-			location.href = '/logout';
+			event.preventDefault()
+			location.href = '/logout'
 		},
 	},
-};
+}
 </script>
 
 <style lang="postcss">
 @import 'https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:100';
 
 html {
-	font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	font-family:
+		'Source Sans Pro',
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		'Helvetica Neue',
+		Arial,
+		sans-serif;
 	font-size: 16px;
 	word-spacing: 1px;
 	-ms-text-size-adjust: 100%;
@@ -296,7 +340,8 @@ button {
 	cursor: pointer;
 }
 
-button[id='submit'], .button-style {
+button[id='submit'],
+.button-style {
 	width: 6rem;
 	height: 2.5rem;
 	border-radius: 9999px;
@@ -305,8 +350,6 @@ button[id='submit'], .button-style {
 	font-weight: 300;
 	background: rgba(29, 29, 29, 0.753);
 }
-
-
 
 table {
 	width: 100%;
@@ -357,11 +400,17 @@ hr {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0.8),
+		rgba(0, 0, 0, 0.3) 70%,
+		rgba(0, 0, 0, 0) 100%
+	);
 	color: rgba(255, 255, 255, 0.8);
 	z-index: 1;
 
 	.title {
+		margin-top: 0;
 		font-family: 'Fredoka One', cursive;
 		font-weight: 300;
 		font-size: 2rem;
@@ -449,7 +498,7 @@ hr {
 }
 
 .root-content {
-	padding: rem 1rem 0;
+	padding: 3rem 1rem 0;
 	min-height: calc(100vh - 13rem);
 }
 
@@ -460,14 +509,18 @@ section > h2.title {
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	margin-top: 3rem;
+	margin-top: 0;
 	margin-bottom: 1rem;
 	word-break: break-word;
 
 	span {
 		color: rgb(242 250 254);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
+		background: linear-gradient(
+			90deg,
+			rgb(242 250 254) 0%,
+			rgb(118 125 131) 100%
+		);
 		background-clip: text;
 		font-weight: 500;
 	}
