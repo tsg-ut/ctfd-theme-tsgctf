@@ -11,7 +11,7 @@
 				<span v-if="challenge.solveInfos === undefined">Loading...</span>
 				<span v-else>
 					<span v-for="j in 100" :key="j">
-						<span v-for="solve, i in challenge.solveInfos" :key="solve.account_id">
+						<span v-for="(solve, i) in challenge.solveInfos" :key="solve.account_id">
 							{{formatOrdinals(i + 1)}}:
 							<iso-link :to="`/teams/${solve.account_id}`">{{solve.name}}</iso-link>
 							<liquid-spot v-if="i === 0" class="first-blood" name="first blood"/>
@@ -93,7 +93,7 @@
 						:class="{yay, boo}"
 						:readonly="yay"
 						:placeholder="getPlaceholderText(challenge)"
-						:disabled="challenge.solved_by_me || isEnded"
+						:disabled="challenge.solved_by_me || solved_by_team|| isEnded"
 					>
 					<button type="submit" class="flag-submit" :disabled="yay || challenge.solved_by_me || isEnded">Send</button>
 				</form>
@@ -113,11 +113,16 @@ export default {
 
 
     components: { PulseLoader, IsoLink, LiquidSpot },
+
     props: {
         display: {
             type: Boolean,
             default: false,
         },
+			solved_by_team:{
+					 type: Boolean,
+            default: false,
+			}
     },
     data() {
 		return {
@@ -133,6 +138,7 @@ export default {
     computed: {
         challenge() {
 			console.log(this.$store.state.challenges.selectedChallenge.challenge)
+
             return  this.$store.state.challenges.selectedChallenge.challenge;
         },
         ...mapState(['isEnded', 'isStatic', 'language']),
@@ -194,14 +200,18 @@ export default {
 			if (challenge.solved_by_me) {
 				return 'You already solved this challenge!';
 			}
-
-			if (this.isEnded) {
-				return 'Contest has been ended';
+			if(!challenge.solved_by_me && this.solved_by_team){
+				return 'Your team solved this challenge!';
 			}
 
-			return 'TSGCTF{......}';
+			if (this.isEnded) {
+				return 'Contest has ben ended';
+			}
+
+			return 'Enter your flag here ...';
         },
         close() {
+			this.yay = false
             this.$emit('closeModal');
         },
 		toggleSolves() {
@@ -240,7 +250,7 @@ export default {
 			);
 			if (data.data.status === 'correct') {
 				this.yay = true;
-				this.flagText = 'Brilliant!';
+				this.flagText = 'WELL PLAYED!';
 				await this.$store.dispatch('challenges/updateChallenges', {$axios: this.$axios});
 			} else {
 				this.boo = true;
@@ -495,7 +505,7 @@ export default {
 		color: #c0c0c0;
 		border: 1px solid #ffffffdc;
 		&[disabled] {
-			background: #aaa;
+			background: none;
 			color: black;
 		}
 
@@ -526,9 +536,9 @@ export default {
 			background-size: 1000% 1000%;
 			animation: Gradient 3s ease-out 1 both;
 			color: white;
-			font-size: 2rem;
+			font-size: 1.2rem;
 			font-family: 'Fredoka One', cursive;
-			font-weight: 300;
+
 
 			@keyframes Gradient {
 				0% {

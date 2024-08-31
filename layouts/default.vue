@@ -27,7 +27,7 @@
 								>Scoreboard</iso-link
 							>
 							<iso-link
-								to="/ctf-2024-ctfd-theme/pages/oldchallenges"
+								to="/challenges"
 								class="dropdown-menu-item"
 								>Challenges</iso-link
 							>
@@ -70,7 +70,7 @@
 						<iso-link to="/scoreboard">Scoreboard</iso-link>
 					</div>
 					<div class="menu-item">
-						<iso-link to="/ctf-2024-ctfd-theme/pages/oldchallenges"
+						<iso-link to="/challenges"
 							>Challenges</iso-link
 						>
 					</div>
@@ -429,7 +429,8 @@ hr {
 		font-family: 'Roboto', sans-serif;
 		font-size: 1.2rem;
 		margin-right: 1rem;
-		text-transform: uppercase;
+		text-transform: capitalize;
+		font-weight: bold;
 	}
 
 	.menu-item {
@@ -478,13 +479,13 @@ hr {
 		position: absolute;
 		top: calc(100% - 0.5rem);
 		right: 0;
-
-		background: #520514;
+		background: transparent;
 		line-height: 3rem;
 		display: flex;
 		flex-direction: column;
-
+		text-transform: capitalize;
 		box-shadow: 0 0 5px black;
+
 	}
 
 	.dropdown-menu-item {
@@ -507,7 +508,7 @@ section > h2.title {
 	font-family: 'Fredoka One', cursive;
 	font-weight: 300;
 	text-align: center;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	letter-spacing: 1px;
 	margin-top: 0;
 	margin-bottom: 1rem;

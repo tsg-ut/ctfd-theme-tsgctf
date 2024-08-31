@@ -123,7 +123,7 @@ export default {
 <style lang="postcss">
 .Team {
 	.title {
-		text-transform: none;
+		text-transform: capitalize;
 		margin-bottom: 0;
 		z-index: -1;
 		display: flex;
@@ -132,7 +132,7 @@ export default {
 		align-items: center;
 
 		&::before {
-			content: 'Team';
+
 			font-family: initial;
 			color: rgba(255, 255, 255, 0.6);
 			font-size: 1rem;

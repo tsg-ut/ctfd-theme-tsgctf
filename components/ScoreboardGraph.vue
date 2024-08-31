@@ -80,8 +80,6 @@ export default {
 				}
 			},
 		}
-
-
 	},
 	async asyncData(context) {
 		await context.store.dispatch('scoreboard/update', context);

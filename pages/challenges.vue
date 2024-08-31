@@ -27,7 +27,7 @@
 								 :key="challenge.id"
 
 								 :class="challengeTileClass(challenge.solved_by_me)"
-								 @click="openModal(challenge.id)"
+								 @click="openModal(challenge.id,challenge.solved_by_me)"
 						>
 							{{ challenge.name }}
 						</div>
@@ -40,7 +40,7 @@
 
         </div>
 		<div >
-			<challenge-modal :display="isChallengeModalOpen" @closeModal="closeModal()"/>
+			<challenge-modal :display="isChallengeModalOpen" :solved_by_team="this.isSelectedChallengeSolved" @closeModal="closeModal()"/>
 		</div>
 
   </section>
@@ -65,6 +65,7 @@ export default {
 			isChallengeModalOpen: false,
 			categoriesFilter: [],
 			filteredCategories: [],
+			isSelectedChallengeSolved: false
 		};
 	},
 	head() {
@@ -135,7 +136,7 @@ export default {
 		closeModal() {
 			this.isChallengeModalOpen = false;
 		},
-		async openModal(id) {
+		async openModal(id,solved) {this.isSelectedChallengeSolved = solved
 			await this.$store.dispatch('challenges/getSelectedChallengeDetail', {$axios: this.$axios, id});
 			this.isChallengeModalOpen = true;
 		},
@@ -375,12 +376,12 @@ input[type='checkbox']:checked + label::before {
 	}
 }
 
-.challenge-tile-completed{
-	background-color: #14a807;
-}.challenge-tile-completed:hover{
+.challenge-tile-completed {
 	background-color: #14a807;
 }
-
+	.challenge-tile-completed:hover{
+		background-color: #14a807
+	}
 }
 
 </style>
