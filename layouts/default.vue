@@ -479,7 +479,7 @@ hr {
 		position: absolute;
 		top: calc(100% - 0.5rem);
 		right: 0;
-		background: transparent;
+		background: #151817;
 		line-height: 3rem;
 		display: flex;
 		flex-direction: column;

@@ -15,7 +15,7 @@ import {mapState} from 'vuex';
 
 export default {
 	async asyncData(context) {
-		await context.store.dispatch('updateRules', context);
+		//await context.store.dispatch('updateRules', context);
 	},
 	head() {
 		return {

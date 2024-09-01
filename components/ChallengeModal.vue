@@ -107,6 +107,7 @@ import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import {mapState} from 'vuex';
 import IsoLink from '~/components/IsoLink.vue';
 import LiquidSpot from 'vue-material-design-icons/LiquidSpot.vue';
+import challengesVue from '../pages/challenges.vue';
 export default {
 
     // TODO : manage solved counts little component
@@ -130,6 +131,8 @@ export default {
 			flagText: '',
 			isSolvesOpen: false,
 			badgeUrl: null,
+			yay: false,
+			boo: false
 		};
 	},
 	mounted() {
@@ -137,9 +140,9 @@ export default {
 	},
     computed: {
         challenge() {
-			console.log(this.$store.state.challenges.selectedChallenge.challenge)
+			console.log(this.$store.state.challenges.selectedChallenge)
 
-            return  this.$store.state.challenges.selectedChallenge.challenge;
+            return  this.$store.state.challenges.selectedChallenge;
         },
         ...mapState(['isEnded', 'isStatic', 'language']),
 		tags() {
@@ -166,6 +169,7 @@ export default {
 		},
 		// https://stackoverflow.com/a/13627586/2864502
 		formatOrdinals(i) {
+			
 			const j = i % 10;
 			const k = i % 100;
 			if (j === 1 && k !== 11) {
@@ -212,15 +216,16 @@ export default {
         },
         close() {
 			this.yay = false
+			this.isSolvesOpen = false
             this.$emit('closeModal');
         },
-		toggleSolves() {
+		async toggleSolves() {
 			if (this.isSolvesOpen) {
 				this.isSolvesOpen = false;
 				return;
 			}
 			if (!this.isStatic) {
-				this.$store.dispatch('challenges/getSelectedChallengeSolvesInfos', {$axios: this.$axios, id: this.challenge.id});
+				await this.$store.dispatch('challenges/getSelectedChallengeSolvesInfos', {$axios: this.$axios, id: this.challenge.id});
 			}
 			this.isSolvesOpen = true;
 		},
@@ -297,8 +302,7 @@ export default {
     }
     .modale-content {
         background-color: #424242;
-        min-width: 50%;
-        max-width: 80%;
+       width: 80%;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -330,8 +334,7 @@ export default {
 		padding: 0 0.3rem;
 
 		border-radius: 5px;
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
+		
 		cursor: pointer;
         margin-bottom: 5px;
 		&.someone-solved {
@@ -353,17 +356,19 @@ export default {
 		line-height: 2rem;
 		padding: 0 0.5rem;
 		margin-top: 1rem;
-		margin-left: 0.5rem;
+		
 		border-top-left-radius: 1rem;
-
+		border-top-right-radius: 1rem;
+		color: #fff;
+		font-weight: bold;
 		text-align: right;
-		background: #272b24;
-
+		background: #000000af;
 		overflow: hidden;
 
 		.first-blood {
 			color: red;
 			vertical-align: text-top;
+			margin-right: 3px;
 		}
 
 		a {

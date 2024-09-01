@@ -35,7 +35,7 @@
 							</span>
 							<pulse-loader v-else color="white" size="10px"/>
 						</td>
-						<td><iso-timeago :datetime="solve.date" :auto-update="60"/></td>
+						<td><iso-timeago :datetime="new Date(solve.date)" :auto-update="60"/></td>
 					</tr>
 				</tbody>
 			</table>

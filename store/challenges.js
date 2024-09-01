@@ -64,10 +64,10 @@ export const mutations = {
 		})
 	},
 	setSelectedChallenge(s, challenge) {
-		s.selectedChallenge = challenge
+		s.selectedChallenge = challenge.challenge
 	},
-	setSelectedChallengeSolvesInfos(s, data) {
-		s.selectedChallenge.solveInfos = data
+	setSelectedChallengeSolvesInfos(s, infos) {
+		s.selectedChallenge.solveInfos = infos.data
 	},
 }
 
@@ -166,8 +166,7 @@ export const actions = {
 			`/api/v1/challenges/${id}/solves`,
 		)
 		if (headers['content-type'] === 'application/json') {
-			commit('setSelectedChallengeSolvesInfos', data)
-			consolke.log()
+			commit('setSelectedChallengeSolvesInfos', { data: data.data })
 		} else {
 			const url = new URL(request.responseURL)
 			if (url.pathname === '/team') {
