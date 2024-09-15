@@ -1,6 +1,6 @@
-# ctfd-theme-tsgctf
+# ctfd-theme-4t$ctf
 
-Custom CTFd theme made for TSG CTF
+Custom CTFd theme made for 4T$ CTF
 
 ![](https://i.imgur.com/mXFHBrf.png)
 
@@ -8,12 +8,12 @@ Custom CTFd theme made for TSG CTF
 
 ```
 cd /path/to/CTFd
-git clone https://github.com/tsg-ut/ctfd-theme-tsgctf.git themes/tsgctf -b dist
+git clone <URL> themes/4t$ctf -b dist
 ```
 
 ## Related projects
 
-* [ctfd-plugin-tsgctf](https://github.com/tsg-ut/ctfd-plugin-tsgctf)
+* [i](https://github.com/4T-24/CTFd-Instancier-Plugin)
 
 ## Development
 
@@ -25,7 +25,7 @@ $ npm install
 # when you use this please serve patched CTFd server as below at localhost:8000
 $ npm run dev
 
-# build the theme into tsgctf directory
+# build the theme into 4t$ctf directory
 $ npm run build
 
 # build static website

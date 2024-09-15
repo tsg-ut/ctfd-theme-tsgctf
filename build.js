@@ -37,19 +37,19 @@ const templates = [
 		console.error('Build contents by `nuxt generate` first');
 		return;
 	}
-	await fs.remove('tsgctf');
-	await fs.mkdirp('tsgctf/static');
-	await fs.mkdirp('tsgctf/templates');
+	await fs.remove('4t$ctf');
+	await fs.mkdirp('4t$ctf/static');
+	await fs.mkdirp('4t$ctf/templates');
 
 	const walker = klaw('dist');
 	walker.on('data', async (item) => {
 		if (!item.stats.isDirectory() && !item.path.endsWith('.html')) {
 			const newPath = item.path.includes('_nuxt')
-				? path.join('tsgctf/static', path.relative(path.join(__dirname, 'dist/themes/tsgctf/static'), item.path))
-				: path.join('tsgctf/static', path.relative(path.join(__dirname, 'dist'), item.path));
+				? path.join('4t$ctf/static', path.relative(path.join(__dirname, 'dist/themes/4t$ctf/static'), item.path))
+				: path.join('4t$ctf/static', path.relative(path.join(__dirname, 'dist'), item.path));
 			if (item.path.endsWith('OneSignalSDKWorker.js')) {
 				const worker = await fs.readFile(item.path);
-				const newWorker = worker.toString().replace('/sw.js', '/themes/tsgctf/static/sw.js');
+				const newWorker = worker.toString().replace('/sw.js', '/themes/4t$ctf/static/sw.js');
 				await fs.outputFile(newPath, newWorker);
 			} else {
 				fs.copy(item.path, newPath);
@@ -69,6 +69,6 @@ const templates = [
 	const html = dom.serialize();
 
 	for (const template of templates) {
-		await fs.outputFile(path.join('tsgctf/templates', template), html);
+		await fs.outputFile(path.join('4t$ctf/templates', template), html);
 	}
 })();

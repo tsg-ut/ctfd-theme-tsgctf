@@ -7,7 +7,7 @@ const proxy = createProxyMiddleware({
 
 const isStatic = process.env.NUXT_ENV_STATIC === 'true';
 
-const staticBase = (process.env.NODE_ENV === 'development' || isStatic) ? '' : '/themes/tsgctf/static';
+const staticBase = (process.env.NODE_ENV === 'development' || isStatic) ? '' : '/themes/4t$ctf/static';
 
 export default {
 	ssr: isStatic,

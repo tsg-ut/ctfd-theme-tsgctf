@@ -213,7 +213,7 @@ export default {
 				return 'Contest has been ended';
 			}
 
-			return 'TSGCTF{......}';
+			return '4T${......}';
 		},
 		toggleSolves() {
 			if (this.isSolvesOpen) {
