@@ -54,7 +54,7 @@
     "jsdom": "^25.0.0",
     "klaw": "^4.1.0",
     "lodash": "^4.17.21",
-    "nodemon": "^3.1.6",
+    "nodemon": "^3.1.7",
     "normalize.css": "^8.0.1",
     "nuxt-client-init-module": "^0.3.0",
     "postcss-import-url": "7.2.0",
