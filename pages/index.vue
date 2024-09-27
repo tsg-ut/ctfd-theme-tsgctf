@@ -27,7 +27,7 @@
 			<div class="contributors">
 				<div v-for="contributor in contributors" :key="contributor.name">
 					<img
-						:src="'/_nuxt/static/' + contributor.icon"
+						:src="contributor.icon"
 						alt=""
 						width="80px"
 						class="contributor_image"
