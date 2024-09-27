@@ -1,69 +1,134 @@
 <template>
-	<section class="Index">
-		<div class="index-content">
-			<h1 class="ctf-logo"><span>T</span><span>S</span><span>G</span> <span>C</span><span>T</span><span>F</span></h1>
-			<p class="subtitle">Pwn, Web, Crypto, Rev, etc...</p>
-			<div class="timer">{{timer}}</div>
-			<div v-if="!isLoggedIn" class="buttons">
-				<iso-link to="/login" class="button login">Login</iso-link>
-				<iso-link to="/register" class="button register">Register</iso-link>
+	<section class="index_section">
+		<div class="Index">
+			<div class="index-content">
+				<!-- <h1 class="ctf-logo"><span>T</span><span>S</span><span>G</span> <span>C</span><span>T</span><span>F</span></h1> -->
+				<h1 class="ctf-logo">
+					<span>4</span><span>T</span><span>$</span> <span>C</span><span>T</span
+					><span>F</span>
+				</h1>
+				<p class="subtitle">Pwn, Web, Crypto, Rev, etc...</p>
+				<div class="timer">{{ timer }}</div>
+				<div v-if="!isLoggedIn" class="buttons">
+					<iso-link to="/login" class="button login">Login</iso-link>
+					<iso-link to="/register" class="button register">Register</iso-link>
+				</div>
+			</div>
+		</div>
+		<div class="sponsors_container">
+			<div class="">
+				<img src="@/static/google-cloud.png" alt="" width="250px" />
+				<img src="@/static/google-cloud.png" alt="" width="250px" />
+			</div>
+		</div>
+		<!-- Section Team -->
+		<div class="contributors_container">
+			<p>LA TEAM</p>
+			<div class="contributors">
+				<div v-for="contributor in contributors" :key="contributor.name">
+					<img
+						:src="'/_nuxt/static/' + contributor.icon"
+						alt=""
+						width="80px"
+						class="contributor_image"
+					/>
+
+					<p style="font-weight: bold; margin-bottom: 5px">
+						{{ contributor.name }}
+					</p>
+					<p style="text-align: center">{{ contributor.role }}</p>
+				</div>
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
-import IsoLink from '~/components/IsoLink.vue';
-import {mapState} from 'vuex';
+import IsoLink from '~/components/IsoLink.vue'
+import { mapState } from 'vuex'
 
-const contestStart = new Date('2023-11-04T07:00:00Z').getTime();
-const contestEnd = new Date('2023-11-05T07:00:00Z').getTime();
+const contestStart = new Date('2023-11-04T07:00:00Z').getTime()
+const contestEnd = new Date('2023-11-05T07:00:00Z').getTime()
 
 export default {
-	components: {IsoLink},
+	components: { IsoLink },
 	data() {
 		return {
 			remainingTime: this.getRemaining(),
-		};
+
+			contributors: [
+				{
+					name: 'Yewolf',
+					role: 'Genre ',
+					icon: 'dog.jpeg',
+				},
+				{
+					name: 'MysterGoo',
+					role: 'Genre vraiment big dev front',
+					icon: 'dog.jpeg',
+				},
+				{
+					name: 'Nathan',
+					role: 'Genre vraiment big dev front',
+					icon: 'dog.jpeg',
+				},
+				{
+					name: 'Thib',
+					role: 'Genre vraiment big dev front',
+					icon: 'dog.jpeg',
+				},
+				{
+					name: 'Mada07',
+					role: 'Genre vraiment big dev front',
+					icon: 'dog.jpeg',
+				},
+			],
+		}
 	},
 	head() {
 		return {
 			title: 'TSG CTF 2023',
-		};
+		}
 	},
 	computed: {
 		timer() {
 			const days = Math.floor(this.remainingTime / 1000 / 60 / 60 / 24)
 				.toString()
-				.padStart(2, '0');
-			const hours = (Math.floor(this.remainingTime / 1000 / 60 / 60) % 24).toString().padStart(2, '0');
-			const minutes = (Math.floor(this.remainingTime / 1000 / 60) % 60).toString().padStart(2, '0');
-			const seconds = (Math.floor(this.remainingTime / 1000) % 60).toString().padStart(2, '0');
-			return `${days}:${hours}:${minutes}:${seconds}`;
+				.padStart(2, '0')
+			const hours = (Math.floor(this.remainingTime / 1000 / 60 / 60) % 24)
+				.toString()
+				.padStart(2, '0')
+			const minutes = (Math.floor(this.remainingTime / 1000 / 60) % 60)
+				.toString()
+				.padStart(2, '0')
+			const seconds = (Math.floor(this.remainingTime / 1000) % 60)
+				.toString()
+				.padStart(2, '0')
+			return `${days}:${hours}:${minutes}:${seconds}`
 		},
 		...mapState(['isLoggedIn']),
 	},
 	mounted() {
 		this.interval = setInterval(() => {
-			this.remainingTime = this.getRemaining();
-		}, 1000);
+			this.remainingTime = this.getRemaining()
+		}, 1000)
 	},
 	destroyed() {
-		clearInterval(this.interval);
+		clearInterval(this.interval)
 	},
 	methods: {
 		getRemaining() {
-			const now = Date.now();
+			const now = Date.now()
 			if (now > contestEnd) {
-				return 0;
+				return 0
 			}
 			if (now > contestStart) {
-				return contestEnd - now;
+				return contestEnd - now
 			}
-			return contestStart - now;
+			return contestStart - now
 		},
 	},
-};
+}
 </script>
 
 <style lang="postcss">
@@ -75,48 +140,112 @@ export default {
 
 /* We are hacker :) */
 @keyframes blinkLogo {
-	0% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	1% { --shadow-color: rgba(238, 255, 82, 0); }
+	0% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	1% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
 
-	11% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	11.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	12% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	12.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	13% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	13.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	11% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	11.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	12% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	12.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	13% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	13.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
 
-	24% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	25% { --shadow-color: rgba(238, 255, 82, 0); }
-	25.5% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	26.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	27% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	27.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	24% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	25% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	25.5% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	26.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	27% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	27.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
 
-	50% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	51% { --shadow-color: rgba(238, 255, 82, 0); }
-	51.5% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	52% { --shadow-color: rgba(238, 255, 82, 0); }
-	52.5% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	53.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	54% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	54.5% { --shadow-color: rgba(238, 255, 82, 0); }
+	50% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	51% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	51.5% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	52% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	52.5% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	53.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	54% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	54.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
 
-	65% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	66% { --shadow-color: rgba(238, 255, 82, 0); }
+	65% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	66% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
 
-	76% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	76.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	77% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	77.5% { --shadow-color: rgba(238, 255, 82, 0); }
-	78% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	79% { --shadow-color: rgba(238, 255, 82, 0); }
-	79.5% { --shadow-color: rgba(249, 255, 196, 0.1); }
-	80% { --shadow-color: rgba(238, 255, 82, 0); }
+	76% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	76.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	77% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	77.5% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	78% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	79% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
+	79.5% {
+		--shadow-color: rgba(249, 255, 196, 0.1);
+	}
+	80% {
+		--shadow-color: rgba(238, 255, 82, 0);
+	}
 }
 
 .Index {
 	margin: 0 auto;
-	height: calc(100vh - 4rem);
+	height: calc(100vh - 40rem);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -143,7 +272,11 @@ export default {
 			0 0 50px var(--shadow-color),
 			0 0 70px var(--shadow-color),
 			0 0 100px var(--shadow-color);
-		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
+		background: linear-gradient(
+			90deg,
+			rgb(242 250 254) 0%,
+			rgb(118 125 131) 100%
+		);
 		background-clip: text;
 		display: block;
 		letter-spacing: 1px;
@@ -191,6 +324,45 @@ export default {
 		margin-top: 1rem;
 		font-family: 'Roboto', sans-serif;
 		font-size: 4rem;
+	}
+}
+.sponsors_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	& > div {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 60%;
+	}
+}
+.contributors_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	& > p {
+		font-weight: bolder;
+		font-size: larger;
+		margin-bottom: 15px;
+	}
+	.contributors {
+		display: flex;
+		align-self: center;
+		justify-content: center;
+		& > div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 20%;
+		}
+		.contributor_image {
+			margin-bottom: 10px;
+			padding-left: 5px;
+			padding-right: 5px;
+			border-radius: 100%;
+			overflow: hidden;
+		}
 	}
 }
 </style>

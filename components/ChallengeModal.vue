@@ -1,12 +1,12 @@
 <template>
-    <div v-if="display && challenge" class="modale" >
-        <div class="modale-content">
-            <div class="close-button">
-                <button @click="close()">X</button>
-            </div>
-            <div>
-                <h1 class="title">{{challenge.name}}</h1>
-            </div>
+	<div v-if="display && challenge" class="modale">
+		<div class="modale-content">
+			<div class="close-button">
+				<button @click="close">X</button>
+			</div>
+			<div>
+				<h1 class="title">{{challenge.name}}</h1>
+			</div>
 			<marquee v-if=" isSolvesOpen" class="solves">
 				<span v-if="challenge.solveInfos === undefined">Loading...</span>
 				<span v-else>
@@ -20,131 +20,130 @@
 					</span>
 				</span>
 			</marquee>
-            <div v-if="challenge" class="details">
-					<div
-						class="solve-count"
-						:class="{
-							'someone-solved': challenge.solves > 0,
-							'is-solves-open': isSolvesOpen,
-							solved: challenge.solved_by_me,
-						}"
-						@click="toggleSolves"
-					>
-						{{getSolvesText(challenge.solves)}}
-					</div>
-					<div class="description-header">
-						<!-- <div class="lang-switcher">
-							<span class="lang" :class="{active: language === 'ja'}" @click="$store.commit('setLanguage', 'ja')">
-								<img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
-								<span class="lang-name">JA</span>
-							</span> /
-							<span class="lang" :class="{active: language === 'en'}" @click="$store.commit('setLanguage', 'en')">
-								<img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="15">
-								<span class="lang-name">EN</span>
-							</span>
-						</div> -->
+			<div v-if="challenge" class="details">
+				<div
+					class="solve-count"
+					:class="{
+						'someone-solved': challenge.solves > 0,
+						'is-solves-open': isSolvesOpen,
+						solved: challenge.solved_by_me,
+					}"
+					@click="toggleSolves"
+				>
+					{{getSolvesText(challenge.solves)}}
+				</div>
+				<div class="description-header">
+					<!--
+					  <div class="lang-switcher">
+					  <span class="lang" :class="{active: language === 'ja'}" @click="$store.commit('setLanguage', 'ja')">
+					  <img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" width="15">
+					  <span class="lang-name">JA</span>
+					  </span> /
+					  <span class="lang" :class="{active: language === 'en'}" @click="$store.commit('setLanguage', 'en')">
+					  <img src="https://hatscripts.github.io/circle-flags/flags/gb.svg" width="15">
+					  <span class="lang-name">EN</span>
+					  </span>
+					  </div>
+					-->
 
-						<div class="metainfo">
-							<div class="server-status" v-if="badgeUrl !== null">
-								<img :src="badgeUrl" />
-							</div>
-							<div v-if="author" class="author">
-								<span class="author-name">Author: {{author}}</span>
-							</div>
+					<div class="metainfo">
+						<div v-if="badgeUrl !== null" class="server-status">
+							<img :src="badgeUrl">
+						</div>
+						<div v-if="author" class="author">
+							<span class="author-name">Author: {{author}}</span>
 						</div>
 					</div>
-
-					<div class="description">
-						<!-- eslint-disable vue/no-v-html -->
-
-						<div
-							ref="description"
-							class="description-column"
-							v-html="$md.render(getDescription())"
-						/>
-						<!-- eslint-enable vue/no-v-html -->
-					</div>
-					<div class="attachments">
-						<a
-							v-for="file in challenge.files"
-							:key="file"
-							class="attachment"
-							:href="getFileLink(file)"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							{{getFileName(file)}}
-						</a>
-					</div>
 				</div>
-				<div v-else class="description-loading">
-					<pulse-loader color="white"/>
+
+				<div class="description">
+					<!-- eslint-disable vue/no-v-html -->
+
+					<div
+						ref="description"
+						class="description-column"
+						v-html="$md.render(getDescription())"
+					/>
+					<!-- eslint-enable vue/no-v-html -->
 				</div>
-				<form class="flag-form" @submit="onSubmitFlag">
-					<input
-						v-model="flagText"
-						type="text"
-						name="flag"
-						class="flag-input"
-						autocomplete="off"
-						autocorrect="off"
-						autocapitalize="off"
-						spellcheck="false"
-						:class="{yay, boo}"
-						:readonly="yay"
-						:placeholder="getPlaceholderText(challenge)"
-						:disabled="challenge.solved_by_me || solved_by_team|| isEnded"
+				<div class="attachments">
+					<a
+						v-for="file in challenge.files"
+						:key="file"
+						class="attachment"
+						:href="getFileLink(file)"
+						target="_blank"
+						rel="noopener noreferrer"
 					>
-					<button type="submit" class="flag-submit" :disabled="yay || challenge.solved_by_me || isEnded">Send</button>
-				</form>
+						{{getFileName(file)}}
+					</a>
+				</div>
 			</div>
-</div>
-
-
+			<div v-else class="description-loading">
+				<pulse-loader color="white"/>
+			</div>
+			<form class="flag-form" @submit="onSubmitFlag">
+				<input
+					v-model="flagText"
+					type="text"
+					name="flag"
+					class="flag-input"
+					autocomplete="off"
+					autocorrect="off"
+					autocapitalize="off"
+					spellcheck="false"
+					:class="{yay, boo}"
+					:readonly="yay"
+					:placeholder="getPlaceholderText(challenge)"
+					:disabled="challenge.solved_by_me || solved_by_team || isEnded"
+				>
+				<button type="submit" class="flag-submit" :disabled="yay || challenge.solved_by_me || isEnded">Send</button>
+			</form>
+		</div>
+	</div>
 </template>
+
 <script>
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import {mapState} from 'vuex';
 import IsoLink from '~/components/IsoLink.vue';
 import LiquidSpot from 'vue-material-design-icons/LiquidSpot.vue';
-import challengesVue from '../pages/challenges.vue';
+
 export default {
 
-    // TODO : manage solved counts little component
+	// TODO : manage solved counts little component
 
+	components: {PulseLoader, IsoLink, LiquidSpot},
 
-    components: { PulseLoader, IsoLink, LiquidSpot },
-
-    props: {
-        display: {
-            type: Boolean,
-            default: false,
-        },
-			solved_by_team:{
-					 type: Boolean,
-            default: false,
-			}
-    },
-    data() {
+	props: {
+		display: {
+			type: Boolean,
+			default: false,
+		},
+		solved_by_team: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	emits: ['closeModal'],
+	data() {
 		return {
 			isOpen: false,
 			flagText: '',
 			isSolvesOpen: false,
 			badgeUrl: null,
 			yay: false,
-			boo: false
+			boo: false,
 		};
 	},
-	mounted() {
 
-	},
-    computed: {
-        challenge() {
-			console.log(this.$store.state.challenges.selectedChallenge)
+	computed: {
+		challenge() {
+			console.log(this.$store.state.challenges.selectedChallenge);
 
-            return  this.$store.state.challenges.selectedChallenge;
-        },
-        ...mapState(['isEnded', 'isStatic', 'language']),
+			return this.$store.state.challenges.selectedChallenge;
+		},
+		...mapState(['isEnded', 'isStatic', 'language']),
 		tags() {
 			return this.challenge.tags.map((tag) => tag.value).filter((tag) => !tag.match(/author:/i));
 		},
@@ -155,8 +154,9 @@ export default {
 			}
 			return authorTag.value.split(':')[1].trim();
 		},
-    },
-    methods: {
+	},
+
+	methods: {
 		onClickTitle() {
 			if (this.isOpen) {
 				this.isOpen = false;
@@ -169,7 +169,6 @@ export default {
 		},
 		// https://stackoverflow.com/a/13627586/2864502
 		formatOrdinals(i) {
-			
 			const j = i % 10;
 			const k = i % 100;
 			if (j === 1 && k !== 11) {
@@ -204,7 +203,7 @@ export default {
 			if (challenge.solved_by_me) {
 				return 'You already solved this challenge!';
 			}
-			if(!challenge.solved_by_me && this.solved_by_team){
+			if (!challenge.solved_by_me && this.solved_by_team) {
 				return 'Your team solved this challenge!';
 			}
 
@@ -213,12 +212,12 @@ export default {
 			}
 
 			return 'Enter your flag here ...';
-        },
-        close() {
-			this.yay = false
-			this.isSolvesOpen = false
-            this.$emit('closeModal');
-        },
+		},
+		close() {
+			this.yay = false;
+			this.isSolvesOpen = false;
+			this.$emit('closeModal');
+		},
 		async toggleSolves() {
 			if (this.isSolvesOpen) {
 				this.isSolvesOpen = false;
@@ -274,19 +273,18 @@ export default {
 		},
 		async fetchBadgeUrl() {
 			if (this.isEnded) {
-				this.badgeUrl = 'https://img.shields.io/badge/Unknown-CTF_Ended-blue'
+				this.badgeUrl = 'https://img.shields.io/badge/Unknown-CTF_Ended-blue';
 			} else {
 				// const {data} = await this.$axios.get(`/api/v1/challenges/${this.challenge.id}/badge`);
 				// this.badgeUrl = data.badge_url;
 			}
-        },
-           displayInfo() {
-        console.log(this.challenge)
-    },
-    },
+		},
 
-    }
+	},
+
+};
 </script>
+
 <style lang="postcss">
     .modale {
         position: fixed;
@@ -334,7 +332,7 @@ export default {
 		padding: 0 0.3rem;
 
 		border-radius: 5px;
-		
+
 		cursor: pointer;
         margin-bottom: 5px;
 		&.someone-solved {
@@ -356,7 +354,7 @@ export default {
 		line-height: 2rem;
 		padding: 0 0.5rem;
 		margin-top: 1rem;
-		
+
 		border-top-left-radius: 1rem;
 		border-top-right-radius: 1rem;
 		color: #fff;
@@ -544,7 +542,6 @@ export default {
 			font-size: 1.2rem;
 			font-family: 'Fredoka One', cursive;
 
-
 			@keyframes Gradient {
 				0% {
 					background-position: 0% 50%;
@@ -602,6 +599,4 @@ export default {
 			margin-bottom: 0.2rem;
 		}
 	}
-
-
 </style>

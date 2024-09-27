@@ -6,6 +6,9 @@
 			class="description"
 			v-html="$md.render(rules)"
 		/>
+		<div>
+			<p>Je crois qu'il faut être sympa</p>
+		</div>
 		<!-- eslint-enable vue/no-v-html -->
 	</section>
 </template>
@@ -15,7 +18,7 @@ import {mapState} from 'vuex';
 
 export default {
 	async asyncData(context) {
-		//await context.store.dispatch('updateRules', context);
+		// await context.store.dispatch('updateRules', context);
 	},
 	head() {
 		return {

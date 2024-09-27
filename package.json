@@ -23,6 +23,7 @@
     "apexcharts": "^3.52.0",
     "async-mutex": "^0.4.0",
     "chart.js": "^4.2.0",
+    "node-fetch": "^2.6.1",
     "nuxt": "^2.17.1",
     "vue": "^2.7.14",
     "vue-apexcharts": "^1.6.2",
@@ -38,7 +39,8 @@
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
     "@nuxtjs/pwa": "^3.3.5",
     "axios": "^1.6.2",
-    "babel-eslint": "^10.1.0",
+
+		"@babel/eslint-parser": "^7.5.4",
     "cross-env": "^7.0.3",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",

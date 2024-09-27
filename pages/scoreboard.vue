@@ -60,14 +60,12 @@ export default {
 
 	},
 	async mounted() {
-
 		if (!this.isStatic) {
 			await this.$store.dispatch('scoreboard/update', {$axios: this.$axios});
 
 			this.interval = setInterval(() => {
 				this.$store.dispatch('scoreboard/updateScoreboard', {$axios: this.$axios});
 			}, 60 * 1000);
-
 
 		}
 	},
