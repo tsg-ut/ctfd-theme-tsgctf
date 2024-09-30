@@ -29,7 +29,29 @@
 		<div class="contributors_container">
 			<p>LA TEAM</p>
 			<div class="contributors">
-				<div v-for="contributor in contributors" :key="contributor.name">
+				<div
+					v-for="contributor in contributors.slice(0, 2)"
+					:key="contributor.name"
+				>
+					<img
+						:src="contributor.icon"
+						alt=""
+						width="80px"
+						class="contributor_image"
+					/>
+
+					<p style="font-weight: bold; margin-bottom: 5px">
+						{{ contributor.name }}
+					</p>
+
+					<p style="text-align: center">{{ contributor.role }}</p>
+				</div>
+			</div>
+			<div class="contributors">
+				<div
+					v-for="contributor in contributors.slice(2, 5)"
+					:key="contributor.name"
+				>
 					<img
 						:src="contributor.icon"
 						alt=""
@@ -353,14 +375,17 @@ export default {
 		margin-bottom: 15px;
 	}
 	.contributors {
+		margin-top: 20px;
 		display: flex;
 		align-self: center;
 		justify-content: center;
+		width: 100%;
 		& > div {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			width: 20%;
+			max-width: 150px;
 		}
 		.contributor_image {
 			margin-bottom: 10px;
