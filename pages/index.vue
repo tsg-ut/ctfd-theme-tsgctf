@@ -17,8 +17,12 @@
 		</div>
 		<div class="sponsors_container">
 			<div class="">
-				<img src="@/static/google-cloud.png" alt="" width="250px" />
-				<img src="@/static/google-cloud.png" alt="" width="250px" />
+				<img
+					src="/logo_infomaniak_baseline_light-theme_vertical.png"
+					alt=""
+					width="250px"
+				/>
+				<!-- <img src="@/static/google-cloud.png" alt="" width="250px" /> -->
 			</div>
 		</div>
 		<!-- Section Team -->
@@ -36,6 +40,7 @@
 					<p style="font-weight: bold; margin-bottom: 5px">
 						{{ contributor.name }}
 					</p>
+
 					<p style="text-align: center">{{ contributor.role }}</p>
 				</div>
 			</div>
@@ -330,6 +335,7 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 5rem;
 	& > div {
 		display: flex;
 		align-items: center;

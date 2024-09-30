@@ -35,7 +35,6 @@ import {mapGetters, mapState} from 'vuex';
 import CheckCircle from 'vue-material-design-icons/CheckCircle.vue';
 import IsoLink from '~/components/IsoLink.vue';
 import ScoreboardGraph from "@/components/ScoreboardGraph.vue";
-
 export default {
 	components: {IsoLink, CheckCircle, ScoreboardGraph},
 
