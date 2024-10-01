@@ -272,6 +272,7 @@ export default {
 	margin: 0 auto;
 	height: calc(100vh - 10rem);
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
