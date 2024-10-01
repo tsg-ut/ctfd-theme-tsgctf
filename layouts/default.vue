@@ -26,9 +26,7 @@
 							<iso-link to="/scoreboard" class="dropdown-menu-item"
 								>Scoreboard</iso-link
 							>
-							<iso-link
-								to="/challenges"
-								class="dropdown-menu-item"
+							<iso-link to="/challenges" class="dropdown-menu-item"
 								>Challenges</iso-link
 							>
 							<iso-link
@@ -70,9 +68,7 @@
 						<iso-link to="/scoreboard">Scoreboard</iso-link>
 					</div>
 					<div class="menu-item">
-						<iso-link to="/challenges"
-							>Challenges</iso-link
-						>
+						<iso-link to="/challenges">Challenges</iso-link>
 					</div>
 					<div
 						v-if="!isStatic"
@@ -170,7 +166,7 @@
 			</p>
 			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, a student team from The University of Tokyo</p>
 			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener noreferrer">CTFd</a></p> -->
-			<p>MADE BY NATHAAAAAAN</p>
+			<p>Made with ❤️ by Nathan</p>
 		</div>
 	</div>
 </template>
@@ -485,7 +481,6 @@ hr {
 		flex-direction: column;
 		text-transform: capitalize;
 		box-shadow: 0 0 5px black;
-
 	}
 
 	.dropdown-menu-item {

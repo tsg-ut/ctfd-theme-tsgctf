@@ -1,18 +1,16 @@
 <template>
 	<section class="index_section">
 		<div class="Index">
-			<div class="index-content">
-				<!-- <h1 class="ctf-logo"><span>T</span><span>S</span><span>G</span> <span>C</span><span>T</span><span>F</span></h1> -->
-				<h1 class="ctf-logo">
-					<span>4</span><span>T</span><span>$</span> <span>C</span><span>T</span
-					><span>F</span>
-				</h1>
-				<p class="subtitle">Pwn, Web, Crypto, Rev, etc...</p>
-				<div class="timer">{{ timer }}</div>
-				<div v-if="!isLoggedIn" class="buttons">
-					<iso-link to="/login" class="button login">Login</iso-link>
-					<iso-link to="/register" class="button register">Register</iso-link>
-				</div>
+			<!-- <h1 class="ctf-logo"><span>T</span><span>S</span><span>G</span> <span>C</span><span>T</span><span>F</span></h1> -->
+			<h1 class="ctf-logo">
+				<span>4</span><span>T</span><span>$</span> <span>C</span><span>T</span
+				><span>F</span>
+			</h1>
+			<p class="subtitle">Pwn, Web, Crypto, Rev, etc...</p>
+			<div class="timer">{{ timer }}</div>
+			<div v-if="!isLoggedIn" class="buttons">
+				<iso-link to="/login" class="button login">Login</iso-link>
+				<iso-link to="/register" class="button register">Register</iso-link>
 			</div>
 		</div>
 		<div class="sponsors_container">
@@ -272,15 +270,11 @@ export default {
 
 .Index {
 	margin: 0 auto;
-	height: calc(100vh - 40rem);
+	height: calc(100vh - 10rem);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-
-	.index-content {
-		max-width: 100%;
-	}
 
 	.ctf-logo {
 		font-family: 'Fredoka One', cursive;
