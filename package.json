@@ -50,7 +50,7 @@
     "eslint-plugin-standard": ">=4.1.0",
     "eslint-plugin-vue": "^9.28.0",
     "fs-extra": "^11.2.0",
-    "http-proxy-middleware": "^3.0.2",
+    "http-proxy-middleware": "^3.0.3",
     "jsdom": "^25.0.1",
     "klaw": "^4.1.0",
     "lodash": "^4.17.21",
