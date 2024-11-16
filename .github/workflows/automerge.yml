@@ -1,59 +1,22 @@
 name: automerge
-on:
-  pull_request:
-    types:
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
-  status: {}
-  pull_request_target:
-  workflow_run:
-    workflows: [Build, Test, Run tests]
-    types: [completed]
-    branches-ignore:
-      - master
-      - main
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
-  automerge-snyk:
-    # https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-797125425
-    # https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
-    if: ${{github.event_name != 'pull_request_target' && startsWith(github.event.pull_request.title, '[Snyk]')}}
+  dependabot:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'tsg-ut/ctfd-theme-tsgctf'
     steps:
-      - name: automerge Snyk
-        uses: "pascalgn/automerge-action@v0.15.2"
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Enable auto-merge for Dependabot PRs
+        run: gh pr merge --auto --merge "$PR_URL"
         env:
-          GITHUB_TOKEN: "${{secrets.USER_GITHUB_TOKEN}}"
-          MERGE_FORKS: false
-          MERGE_DELETE_BRANCH: true
-          MERGE_FILTER_AUTHOR: hakatashi
-          MERGE_LABELS: ''
-          MERGE_RETRY_SLEEP: 30000
-          MERGE_RETRIES: 10
-  automerge-dependabot:
-    # https://github.com/dependabot/dependabot-core/issues/3253#issuecomment-797125425
-    # https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
-    if: ${{(github.event_name == 'workflow_run' || github.event_name == 'pull_request_target') && github.actor == 'dependabot[bot]'}}
-    runs-on: ubuntu-latest
-    steps:
-      - name: automerge Dependabot
-        uses: "pascalgn/automerge-action@v0.15.2"
-        env:
-          GITHUB_TOKEN: "${{secrets.USER_GITHUB_TOKEN}}"
-          MERGE_FORKS: false
-          MERGE_DELETE_BRANCH: true
-          MERGE_FILTER_AUTHOR: ''
-          MERGE_LABELS: dependencies
-          MERGE_RETRY_SLEEP: 30000
-          MERGE_RETRIES: 10
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.USER_GITHUB_TOKEN }}
