@@ -32,17 +32,21 @@
 			</li>
 		</ul>
 		<h3>Sponsor</h3>
-		<a href="https://flatt.tech/" target="_blank" rel="noopener noreferrer">
-			<img src="https://ctf.tsg.ne.jp/images/flatt_image.png" :style="{maxWidth: '60rem'}">
+		<a href="https://flatt.tech/en" target="_blank" rel="noopener noreferrer">
+			<img src="https://ctf.tsg.ne.jp/images/fs_logo.png" :style="{maxWidth: '60rem'}">
 		</a>
-		<p>Flatt Security Inc. is a cyber security startup based in Tokyo, Japan.</p>
-		<p>We provide a variety of cyber security services, including security assessment.  We also develop and provide security software “Shisho Cloud” for client companies.</p>
-		<p>We are hiring engineers. Please see our employment page <a href="https://recruit.flatt.tech/">https://recruit.flatt.tech/</a> and contact to <a href="https://flatt.tech/contact/">https://flatt.tech/contact/</a></p>
+		<p>Flatt Security, based in Tokyo, offers expert security assessments and penetration testing for software.</p>
+		<p>Our seasoned professionals deliver proven, top-tier services.</p>
+		<p>We also provide tools to help you internalize cutting edge, state of the art security practices.</p>
 		<h3>Prizes</h3>
 		<ul>
 			<li>1st: 1,000USD</li>
 			<li>2nd: 500 USD</li>
 			<li>3rd: 200 USD</li>
+		</ul>
+		<ul>
+			<li>The winning team will also qualify for the SECCON CTF 2024 Finals (International Division).</li>
+			If the first-place team has already qualified, it will receive another entry unless it declines; if the team withdraws from qualification, the second-place team qualifies instead.
 		</ul>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">
@@ -52,7 +56,7 @@
 			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
-		<p>Below is the full list of TSG members who contributed to this TSG CTF 2023 in success. So many thanks!!</p>
+		<p>Below is the full list of TSG members who contributed to this TSG CTF 2024 in success. So many thanks!!</p>
 		<ul class="members">
 			<li v-for="member in members" :key="member" class="member">
 				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>

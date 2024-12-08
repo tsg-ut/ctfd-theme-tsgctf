@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<iso-link to="/">TSG CTF 2023</iso-link>
+				<iso-link to="/">TSG CTF 2024</iso-link>
 			</div>
 			<div class="spacer"/>
 			<div v-if="isLoggedIn">
