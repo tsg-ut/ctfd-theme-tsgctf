@@ -9,85 +9,73 @@
 			autocomplete="off"
 		>
 			<div class="form-group">
-				<label for="name-input">
-					User Name
-				</label>
-				<input
-					id="name-input"
-					class="form-control"
-					type="text"
-					name="name"
-				>
+				<label for="name-input"> User Name </label>
+				<input id="name-input" class="form-control" type="text" name="name" />
 			</div>
 			<div class="form-group">
-				<label for="email-input">
-					Email
-				</label>
+				<label for="email-input"> Email </label>
 				<input
 					id="email-input"
 					class="form-control"
 					type="email"
 					name="email"
-				>
+				/>
 			</div>
 			<div class="form-group">
-				<label for="password-input">
-					Password
-				</label>
+				<label for="password-input"> Password </label>
 				<input
 					id="password-input"
 					class="form-control"
 					type="password"
 					name="password"
-				>
+				/>
 			</div>
 			<div>
-				Individual registration is recommended. You can create team account later.
+				Individual registration is recommended. You can create team account
+				later.
 			</div>
 			<div v-if="isError" class="error">
 				Registration errored. Maybe username already taken?
 			</div>
 			<div>
-				<button id="submit" type="submit" tabindex="5">
-					Submit
-				</button>
+				<button id="submit" type="submit" tabindex="5">Submit</button>
 			</div>
-			<input type="hidden" name="nonce" :value="csrfToken">
+			<input type="hidden" name="nonce" :value="csrfToken" />
 		</form>
 	</section>
 </template>
 
 <script>
-import IsoLink from '~/components/IsoLink.vue';
-import {mapState} from 'vuex';
+import IsoLink from '~/components/IsoLink.vue'
+import { mapState } from 'vuex'
 
 export default {
-	components: {IsoLink},
+	components: { IsoLink },
 	async asyncData(context) {
-		await context.store.dispatch('updateCsrfToken', context);
+		await context.store.dispatch('updateCsrfToken', context)
 	},
 	data() {
 		return {
 			isError: false,
-		};
+		}
 	},
 	head() {
 		return {
 			title: 'Register - TSG CTF',
-		};
+		}
 	},
 	computed: {
 		...mapState(['isLoggedIn', 'csrfToken']),
 	},
 	mounted() {
 		if (document.referrer) {
-			const referrer = new URL(document.referrer);
+			const referrer = new URL(document.referrer)
 			if (referrer.pathname === '/register') {
-				this.isError = true;
+				this.isError = true
 			}
 		}
 	},
-};
+}
 </script>
 
 <style lang="postcss">
@@ -103,7 +91,7 @@ export default {
 		font-size: 1.5rem;
 
 		a {
-			color: #90cbff;
+			color: #2bf0fe;
 		}
 	}
 
@@ -132,7 +120,7 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-weight: 300;
 
-		color: #f44336;
+		color: #2bf0fe;
 		padding: 0;
 		line-height: 2rem;
 	}
