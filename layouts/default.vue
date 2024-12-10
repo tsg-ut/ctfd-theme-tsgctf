@@ -311,7 +311,7 @@ table {
 	border-collapse: collapse;
 
 	a {
-		color: #90cbff;
+		color: #2bf0fe;
 	}
 }
 
@@ -353,7 +353,7 @@ hr {
 	align-items: center;
 	justify-content: center;
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(43, 240,254, 0.8);
 	z-index: 1;
 
 	.title {
@@ -460,9 +460,9 @@ section > h2.title {
 	word-break: break-word;
 
 	span {
-		color: rgb(242 250 254);
+		color: rgb(43, 240, 254);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(242 250 254) 0%, rgb(118 125 131) 100%);
+		background: linear-gradient(90deg, rgb(43 240 254) 0%, rgb(252 255 68) 100%);
 		background-clip: text;
 		font-weight: 500;
 	}
@@ -472,7 +472,7 @@ section > h2.title {
 	text-align: center;
 	margin-top: 5rem;
 	padding-bottom: 1rem;
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(43, 240, 254, 0.8);
 	line-height: 1.2rem;
 
 	&::before {
