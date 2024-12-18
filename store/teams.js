@@ -13,24 +13,40 @@ export const mutations = {
 };
 
 export const actions = {
-	async getTeam({commit, dispatch, rootState}, {$axios, id}) {
-		const [{data: team, headers}, {data: solves}] = await Promise.all([
+	async getTeam({ commit, dispatch, rootState }, { $axios, id }) {
+		const [{ data: team, headers }, { data: solves }] = await Promise.all([
 			$axios.get(`/api/v1/teams/${id}`),
 			$axios.get(`/api/v1/teams/${id}/solves`),
 		]);
-		if (headers['content-type'] === 'application/json') {
+
+		if (headers["content-type"] === "application/json") {
 			const teamData = {
 				...team.data,
 				solves: solves.data,
 			};
-			commit('setTeam', teamData);
+			commit("setTeam", teamData);
 			if (rootState.isStatic) {
-				const solvers = Array.from(new Set([...solves.data.map(({user}) => user), ...team.data.members]));
-				await dispatch('users/getUsers', {$axios, ids: solvers}, {root: true});
+				const solvers = Array.from(
+					new Set([
+						...solves.data
+							.map(({ user }) => {
+								if (typeof user === "object") {
+									return user.id;
+								}
+							})
+							.filter((id) => id !== undefined),
+						...team.data.members,
+					]),
+				);
+				await dispatch(
+					"users/getUsers",
+					{ $axios, ids: solvers },
+					{ root: true },
+				);
 			}
 			return teamData;
 		}
-		commit('setIsLoggedIn', false, {root: true});
+		commit("setIsLoggedIn", false, { root: true });
 		return null;
 	},
 };
