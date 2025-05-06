@@ -37,7 +37,7 @@
     "axios": "^1.9.0",
     "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.3",
-    "eslint": "^9.25.1",
+    "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-config-standard": ">=17.1.0",
     "eslint-import-resolver-nuxt": "^1.0.1",
