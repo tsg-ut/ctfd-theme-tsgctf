@@ -34,7 +34,7 @@
     "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
     "@nuxtjs/pwa": "^3.3.5",
-    "axios": "^1.12.2",
+    "axios": "^1.13.0",
     "babel-eslint": "^10.1.0",
     "cross-env": "^10.1.0",
     "eslint": "^9.38.0",
