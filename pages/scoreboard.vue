@@ -20,6 +20,9 @@
 							<iso-link :to="`/teams/${team.account_id}`" class="team-name">
 								<span>{{team.name}}</span>
 							</iso-link>
+							<span v-if="team.bracket_name === 'Domestic'" class="bracket">
+								{{ team.bracket_name }}
+							</span>
 						</td>
 						<td>{{team.score}}</td>
 					</tr>
@@ -102,6 +105,13 @@ export default {
 
 	.team-name > * {
 		vertical-align: middle;
+	}
+
+	.bracket {
+		display: inline-block;
+		font-family: 'Fredoka One', cursive;
+		font-size: 1.2rem;
+		font-weight: 200;
 	}
 
 	tr.active {
