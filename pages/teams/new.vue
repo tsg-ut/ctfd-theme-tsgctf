@@ -30,6 +30,24 @@
 					name="password"
 				>
 			</div>
+			<div class="form-group" v-if="brackets && brackets.length">
+				<label for="bracket-input"> Bracket </label>
+				<select
+					id="bracket-input"
+					class="form-control"
+					name="bracket_id"
+					required
+				>
+					<option disabled value="">Select bracket</option>
+					<option
+						v-for="bracket in brackets"
+						:key="bracket.id"
+						:value="bracket.id"
+					>
+						{{ bracket.name }}
+					</option>
+				</select>
+			</div>
 			<div>
 				<button id="submit" type="submit" tabindex="5">
 					Create
@@ -49,6 +67,7 @@ export default {
 	},
 	data() {
 		return {
+			brackets: [],
 			isError: false,
 		};
 	},
@@ -67,6 +86,16 @@ export default {
 				this.isError = true;
 			}
 		}
+		this.$axios
+			.$get('/api/v1/brackets', {
+				params: { type: 'teams' },
+			})
+			.then((res) => {
+				this.brackets = res.data || [];
+			})
+			.catch((err) => {
+				console.error('Failed to load brackets:', err);
+			});
 	},
 };
 </script>

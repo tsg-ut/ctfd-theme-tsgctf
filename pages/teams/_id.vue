@@ -4,6 +4,9 @@
 			<span>{{team.name}}</span>
 		</h2>
 		<div class="score">{{formatOrdinals(score.pos)}} {{score.score}}pts</div>
+		<div class="bracket" v-if="team.bracket_id && brackets && brackets.length && brackets.find(b => b.id === team.bracket_id)">
+			{{brackets.find(b => b.id === team.bracket_id).name}}
+		</div>
 		<div class="members-head">Members</div>
 		<div class="members">
 			<div v-for="member in team.members" :key="member" class="member">
@@ -76,6 +79,11 @@ export default {
 			context.error({statusCode: 404, message: 'Team not found'});
 		}
 	},
+	data() {
+		return {
+			brackets: [],
+		};
+	},
 	head() {
 		return {
 			title: `Team ${this.team && this.team.name} - TSG CTF`,
@@ -112,6 +120,16 @@ export default {
 			});
 			return;
 		}
+		this.$axios
+			.$get('/api/v1/brackets', {
+				params: { type: 'teams' },
+			})
+			.then((res) => {
+				this.brackets = res.data || [];
+			})
+			.catch((err) => {
+				console.error('Failed to load brackets:', err);
+			});
 
 		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user.id), ...this.team.members]));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
@@ -168,6 +186,13 @@ export default {
 		text-align: center;
 		font-family: 'Roboto';
 		font-size: 2rem;
+	}
+
+	.bracket {
+		font-family: 'Fredoka One', cursive;
+		font-size: 1.5rem;
+		font-weight: 300;
+		text-align: center;
 	}
 
 	.members-head {
