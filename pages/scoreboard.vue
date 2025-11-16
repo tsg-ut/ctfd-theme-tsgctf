@@ -23,6 +23,9 @@
 							<span v-if="team.bracket_name === 'Domestic'" class="bracket">
 								{{ team.bracket_name }}
 							</span>
+							<span v-else-if="isDomestic(team)" class="bracket">
+								{{ bracketFor(team).name }}
+							</span>
 						</td>
 						<td>{{team.score}}</td>
 					</tr>
@@ -41,6 +44,11 @@ export default {
 	components: {IsoLink, CheckCircle},
 	async asyncData(context) {
 		await context.store.dispatch('scoreboard/update', context);
+	},
+	data() {
+		return {
+			brackets: [],
+		};
 	},
 	head() {
 		return {
@@ -63,6 +71,16 @@ export default {
 				this.$store.dispatch('scoreboard/updateScoreboard', {$axios: this.$axios});
 			}, 60 * 1000);
 		}
+		this.$axios
+			.$get('/api/v1/brackets', {
+				params: { type: 'teams' },
+			})
+			.then((res) => {
+				this.brackets = res.data || [];
+			})
+			.catch((err) => {
+				console.error('Failed to load brackets:', err);
+			});
 	},
 	destroyed() {
 		clearInterval(this.interval);
@@ -76,6 +94,13 @@ export default {
 				backgroundImage: `url(https://cdn.jsdelivr.net/gh/behdad/region-flags@gh-pages/svg/${countryCode.toUpperCase()}.svg)`,
 			};
 		},
+		bracketFor(team) {
+			return this.brackets.find(br => br.id === team.bracket_id) || null;
+		},
+		isDomestic(team) {
+			const br = this.bracketFor(team);
+			return br && br.name === 'Domestic';
+		}
 	},
 };
 </script>
