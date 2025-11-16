@@ -4,8 +4,8 @@
 			<span>{{team.name}}</span>
 		</h2>
 		<div class="score">{{formatOrdinals(score.pos)}} {{score.score}}pts</div>
-		<div class="bracket" v-if="team.bracket_id && brackets && brackets.length && brackets.find(b => b.id === team.bracket_id)">
-			{{brackets.find(b => b.id === team.bracket_id).name}}
+		<div class="bracket" v-if="bracketFor(team)">
+			{{bracketFor(team).name}}
 		</div>
 		<div class="members-head">Members</div>
 		<div class="members">
@@ -134,7 +134,12 @@ export default {
 		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user.id), ...this.team.members]));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
-	methods: {formatOrdinals},
+	methods: {
+		formatOrdinals,
+		bracketFor(team) {
+			return this.brackets.find(br => br.id === team.bracket_id) || null;
+		},
+	},
 };
 </script>
 
