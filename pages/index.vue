@@ -31,7 +31,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG CTF 2024',
+			title: 'TSG CTF 2025',
 		}
 	},
 	computed: {
