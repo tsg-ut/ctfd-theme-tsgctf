@@ -50,7 +50,7 @@
 			</div>
 			<div v-for="field in fields" :key="field.id">
 				<div v-if="field.field_type === 'boolean'">
-					<div class="field-container">
+					<div class="field-container" :class="{ optional: !field.required }">
 						<small class="field-description">
 							{{field.description}}
 						</small>
@@ -171,13 +171,33 @@ export default {
 	}
 
 	.field-container {
+		position: relative;
 		display: block;
 		border: 2px solid #ffffff;
 		border-radius: 8px;
 		width: fit-content;
+		min-width: 600px;
 		background: rgba(255,255,255,0.05);
 		margin: 1.5rem auto;
 		padding: 1rem 1.5rem;
+	}
+
+	.field-container.optional::before {
+    display: inline;
+		content: "Optional";
+		position: absolute;
+		top: -12px;
+		left: 10px;
+
+		background: #ffeb8a;
+		color: #000;
+		font-size: 0.7rem;
+		font-weight: bold;
+
+		padding: 2px 6px;
+		border-radius: 4px;
+
+		box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 	}
 
   .form-check {
