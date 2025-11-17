@@ -48,6 +48,28 @@
 					</option>
 				</select>
 			</div>
+			<div v-for="field in fields" :key="field.id">
+				<div v-if="field.field_type === 'boolean'">
+					<div class="field-container">
+						<small class="field-description">
+							{{field.description}}
+						</small>
+						<div class="form-check">
+							<label class="form-check-label" :for="`fields[${field.id}]`">
+								{{ field.name }}
+							</label>
+							<input
+								class="form-check-input"
+								:id="`fields[${field.id}]`"
+								:name="`fields[${field.id}]`"
+								type="checkbox"
+								value="y"
+								:required="field.required"
+							>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div>
 				<button id="submit" type="submit" tabindex="5">
 					Create
@@ -68,6 +90,7 @@ export default {
 	data() {
 		return {
 			brackets: [],
+			fields: [],
 			isError: false,
 		};
 	},
@@ -92,6 +115,16 @@ export default {
 			})
 			.then((res) => {
 				this.brackets = res.data || [];
+			})
+			.catch((err) => {
+				console.error('Failed to load brackets:', err);
+			});
+		this.$axios
+			.$get('/api/v1/fields', {
+				params: { type: 'teams' },
+			})
+			.then((res) => {
+				this.fields = res.data || [];
 			})
 			.catch((err) => {
 				console.error('Failed to load brackets:', err);
@@ -136,6 +169,56 @@ export default {
 		font-size: 1.2rem;
 		width: 20rem;
 	}
+
+	.field-container {
+		display: block;
+		border: 2px solid #ffffff;
+		border-radius: 8px;
+		width: fit-content;
+		background: rgba(255,255,255,0.05);
+		margin: 1.5rem auto;
+		padding: 1rem 1.5rem;
+	}
+
+  .form-check {
+		display: block;
+    align-items: center;
+		margin: 0.8rem auto;
+  }
+
+  .form-check-input {
+    display: inline;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2.5px solid #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .form-check-input:checked::after {
+    content: "✔";
+    color: #5ced73;
+    font-size: 30px;
+    position: absolute;
+    top: -13px;
+    left: 0px;
+  }
+
+	.form-check-label {
+		font-family: 'Fredoka One', cursive;
+    text-align: center;
+    padding-right: 0.5rem;
+    font-size: 1.5rem;
+		font-weight: bold;
+  }
+
+	.field-description {
+		font-weight: bold;
+  }
 
 	button[type='submit'] {
 		width: 10rem;
