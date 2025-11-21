@@ -49,6 +49,7 @@
 				</select>
 			</div>
 			<div v-for="field in fields" :key="field.id">
+				<!-- checkboxとして使用するためにfield機能へ対応させたので、textのfield typeの表示は実装しない -->
 				<div v-if="field.field_type === 'boolean'">
 					<div class="field-container" :class="{ optional: !field.required }">
 						<small class="field-description">
@@ -86,11 +87,19 @@ import {mapState} from 'vuex';
 export default {
 	async asyncData(context) {
 		await context.store.dispatch('updateCsrfToken', context);
+		await Promise.all([
+			context.store.dispatch('teams/fetchBrackets', {
+				$axios: context.$axios,
+				type: 'teams',
+			}),
+			context.store.dispatch('teams/fetchFields', {
+				$axios: context.$axios,
+				type: 'teams',
+			}),
+		]);
 	},
 	data() {
 		return {
-			brackets: [],
-			fields: [],
 			isError: false,
 		};
 	},
@@ -101,6 +110,7 @@ export default {
 	},
 	computed: {
 		...mapState(['csrfToken']),
+		...mapState('teams', ['brackets', 'fields']),
 	},
 	mounted() {
 		if (document.referrer) {
@@ -109,26 +119,6 @@ export default {
 				this.isError = true;
 			}
 		}
-		this.$axios
-			.$get('/api/v1/brackets', {
-				params: { type: 'teams' },
-			})
-			.then((res) => {
-				this.brackets = res.data || [];
-			})
-			.catch((err) => {
-				console.error('Failed to load brackets:', err);
-			});
-		this.$axios
-			.$get('/api/v1/fields', {
-				params: { type: 'teams' },
-			})
-			.then((res) => {
-				this.fields = res.data || [];
-			})
-			.catch((err) => {
-				console.error('Failed to load brackets:', err);
-			});
 	},
 };
 </script>
@@ -183,7 +173,6 @@ export default {
 	}
 
 	.field-container.optional::before {
-    display: inline;
 		content: "Optional";
 		position: absolute;
 		top: -12px;
@@ -202,12 +191,11 @@ export default {
 
   .form-check {
 		display: block;
-    align-items: center;
 		margin: 0.8rem auto;
   }
 
   .form-check-input {
-    display: inline;
+    display: inline-block;
     width: 20px;
     height: 20px;
     margin: 0;

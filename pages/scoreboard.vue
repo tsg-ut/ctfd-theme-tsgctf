@@ -43,12 +43,13 @@ import IsoLink from '~/components/IsoLink.vue';
 export default {
 	components: {IsoLink, CheckCircle},
 	async asyncData(context) {
-		await context.store.dispatch('scoreboard/update', context);
-	},
-	data() {
-		return {
-			brackets: [],
-		};
+		await Promise.all([
+			context.store.dispatch('scoreboard/update', context),
+			context.store.dispatch('teams/fetchBrackets', {
+				$axios: context.$axios,
+				type: 'teams',
+			}),
+		]);
 	},
 	head() {
 		return {
@@ -63,6 +64,7 @@ export default {
 			isStatic: 'isStatic',
 			myTeam: 'team',
 		}),
+		...mapState('teams', ['brackets']),
 	},
 	mounted() {
 		if (!this.isStatic) {
@@ -71,16 +73,6 @@ export default {
 				this.$store.dispatch('scoreboard/updateScoreboard', {$axios: this.$axios});
 			}, 60 * 1000);
 		}
-		this.$axios
-			.$get('/api/v1/brackets', {
-				params: { type: 'teams' },
-			})
-			.then((res) => {
-				this.brackets = res.data || [];
-			})
-			.catch((err) => {
-				console.error('Failed to load brackets:', err);
-			});
 	},
 	destroyed() {
 		clearInterval(this.interval);

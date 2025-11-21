@@ -74,15 +74,11 @@ export default {
 		const [team] = await Promise.all([
 			context.store.dispatch('teams/getTeam', {...context, id: context.route.params.id}),
 			context.store.dispatch('scoreboard/updateScoreboard', context),
+			context.store.dispatch('teams/fetchBrackets', {$axios: context.$axios, type: 'teams',}),
 		]);
 		if (team === null) {
 			context.error({statusCode: 404, message: 'Team not found'});
 		}
-	},
-	data() {
-		return {
-			brackets: [],
-		};
 	},
 	head() {
 		return {
@@ -102,6 +98,7 @@ export default {
 			isVerified: 'isVerified',
 			teams: (state) => state.teams.teams,
 		}),
+		...mapState('teams', ['brackets']),
 		...mapGetters({
 			getUser: 'users/getUser',
 		}),
@@ -120,16 +117,6 @@ export default {
 			});
 			return;
 		}
-		this.$axios
-			.$get('/api/v1/brackets', {
-				params: { type: 'teams' },
-			})
-			.then((res) => {
-				this.brackets = res.data || [];
-			})
-			.catch((err) => {
-				console.error('Failed to load brackets:', err);
-			});
 
 		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user.id), ...this.team.members]));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
