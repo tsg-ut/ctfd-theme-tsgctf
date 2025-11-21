@@ -28,9 +28,9 @@ export default {
 				content:
 					"TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
-			{ name: "apple-mobile-web-app-title", content: "TSG CTF 2024" },
-			{ name: "og:title", content: "TSG CTF 2024" },
-			{ name: "og:site_name", content: "TSG CTF 2024" },
+			{ name: "apple-mobile-web-app-title", content: "TSG CTF 2025" },
+			{ name: "og:title", content: "TSG CTF 2025" },
+			{ name: "og:site_name", content: "TSG CTF 2025" },
 			{
 				name: "og:description",
 				content:
@@ -42,7 +42,7 @@ export default {
 			{ name: "twitter:card", content: "summary_large_image" },
 			{ name: "twitter:site", content: "@tsgctf" },
 			{ name: "twitter:site", content: "@tsgctf" },
-			{ name: "twitter:title", content: "TSG CTF 2024" },
+			{ name: "twitter:title", content: "TSG CTF 2025" },
 			{
 				name: "twitter:description",
 				content:
@@ -180,7 +180,7 @@ export default {
 			source: "static/favicon.png",
 		},
 		manifest: {
-			name: "TSG CTF 2024",
+			name: "TSG CTF 2025",
 			short_name: "TSG CTF",
 			start_url: "https://score.ctf.tsg.ne.jp/?standalone=true",
 			theme_color: "#47e543",

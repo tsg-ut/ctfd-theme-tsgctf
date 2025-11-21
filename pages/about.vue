@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20241214T16&p1=248" target="_blank" rel="noopener noreferrer">12/14 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20251220T16&p1=248" target="_blank" rel="noopener noreferrer">12/20 07:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20241215T16&p1=248" target="_blank" rel="noopener noreferrer">12/15 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20251221T16&p1=248" target="_blank" rel="noopener noreferrer">12/21 07:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
 		<h3>Socials</h3>
@@ -45,7 +45,7 @@
 			<li>3rd: 200 USD</li>
 		</ul>
 		<ul>
-			<li>The winning team will also qualify for the SECCON CTF 2024 Finals (International Division).</li>
+			<li>The winning team will also qualify for the SECCON CTF 14 Finals (International Division).</li>
 			If the first-place team has already qualified, it will receive another entry unless it declines; if the team withdraws from qualification, the second-place team qualifies instead.
 		</ul>
 		<h3>Staffs</h3>
@@ -56,7 +56,7 @@
 			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
-		<p>Below is the full list of TSG members who contributed to this TSG CTF 2024 in success. So many thanks!!</p>
+		<p>Below is the full list of TSG members who contributed to this TSG CTF 2025 in success. So many thanks!!</p>
 		<ul class="members">
 			<li v-for="member in members" :key="member" class="member">
 				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
@@ -87,15 +87,8 @@ export default {
 				{ url: 'https://twitter.com/iwashiira', name: '@iwashiira' },
 				{ url: 'https://twitter.com/jiei_univ', name: '@jiei_univ' },
 				{ url: 'https://twitter.com/JP3BGY', name: '@JP3BGY' },
-				{ url: 'https://twitter.com/m1kit', name: '@m1kit' },
-				{ url: 'https://twitter.com/moratorium08', name: '@moratorium08' },
-				{ url: 'https://twitter.com/naan112358', name: '@naan112358' },
-				{ url: 'https://twitter.com/n4o847', name: '@n4o847' },
-				{ url: 'https://twitter.com/platypus999', name: '@platypus999' },
 				{ url: 'https://twitter.com/sasakiy84', name: '@sasakiy84' },
-				{ url: 'https://twitter.com/satos___jp', name: '@satos' },
 				{ url: 'https://twitter.com/sitositositoo', name: '@settyan117' },
-				{ url: 'https://twitter.com/shell_mug', name: '@shell_mug' },
 				{ url: 'https://twitter.com/syobon_hinata', name: '@syobon_hinata (fabon)' },
 				{ url: 'https://twitter.com/yuimyun_hykook', name: '@yuimyun' },
 				{ url: 'https://twitter.com/lluuiiggeeinfo', name: '@LLUUIIGGEE' },
