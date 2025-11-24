@@ -48,7 +48,7 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-promise": ">=6.6.0",
     "eslint-plugin-standard": ">=4.1.0",
-    "eslint-plugin-vue": "^10.5.1",
+    "eslint-plugin-vue": "^10.6.0",
     "fs-extra": "^11.3.2",
     "http-proxy-middleware": "^3.0.5",
     "jsdom": "^27.2.0",
