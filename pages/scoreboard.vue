@@ -129,6 +129,7 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-size: 1.2rem;
 		font-weight: 200;
+		color: rgb(222,242,255);
 	}
 
 	tr.active {

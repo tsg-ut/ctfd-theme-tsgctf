@@ -185,6 +185,7 @@ export default {
 		font-size: 1.5rem;
 		font-weight: 300;
 		text-align: center;
+		color: rgb(222,242,255);
 	}
 
 	.members-head {

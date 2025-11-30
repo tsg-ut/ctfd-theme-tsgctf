@@ -220,7 +220,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background-image: url('../static/background.svg'), radial-gradient(circle, #000000 0%, #000000 70%, #3f3f3f 100%);
+	background-image: url('../static/background.svg'), radial-gradient(circle, #000000 0%, #000000 70%, #4B0082 100%);
 	background-color: #130414;
 	background-size: cover;
 	background-position: center;
@@ -353,7 +353,7 @@ hr {
 	align-items: center;
 	justify-content: center;
 	background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
-	color: rgba(43, 240,254, 0.8);
+	color: rgba(222,242,255, 0.8);
 	z-index: 1;
 
 	.title {
@@ -460,9 +460,9 @@ section > h2.title {
 	word-break: break-word;
 
 	span {
-		color: rgb(43, 240, 254);
+		color: hsl(275, 100%, 45%);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(43 240 254) 0%, rgb(252 255 68) 100%);
+		background: linear-gradient(90deg, hsl(275, 100%, 45%) 0%, rgb(222,242,255) 100%);
 		background-clip: text;
 		font-weight: 500;
 	}
@@ -472,7 +472,7 @@ section > h2.title {
 	text-align: center;
 	margin-top: 5rem;
 	padding-bottom: 1rem;
-	color: rgba(43, 240, 254, 0.8);
+	color: rgba(222,242,255, 0.8);
 	line-height: 1.2rem;
 
 	&::before {
