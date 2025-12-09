@@ -29,6 +29,7 @@ export const getters = {
 				country: team.country,
 				pos: s.scoreboard.length + 1,
 				oauth_id: team.oauth_id,
+				bracket_id: team.bracket_id,
 				score: 0,
 			})),
 		];

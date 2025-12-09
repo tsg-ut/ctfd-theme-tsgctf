@@ -19,8 +19,8 @@
 import IsoLink from '~/components/IsoLink.vue'
 import { mapState } from 'vuex'
 
-const contestStart = new Date('2024-12-14T07:00:00Z').getTime()
-const contestEnd = new Date('2024-12-15T07:00:00Z').getTime()
+const contestStart = new Date('2025-12-20T07:00:00Z').getTime()
+const contestEnd = new Date('2025-12-21T07:00:00Z').getTime()
 
 export default {
 	components: { IsoLink },
@@ -31,7 +31,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG CTF 2024',
+			title: 'TSG CTF 2025',
 		}
 	},
 	computed: {
@@ -85,105 +85,105 @@ export default {
 /* We are hacker :) */
 @keyframes blinkLogo {
 	0% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	1% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	11% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	11.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	12% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	12.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	13% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	13.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	24% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	25% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	25.5% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	26.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	27% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	27.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	50% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	51% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	51.5% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	52% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	52.5% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	53.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	54% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	54.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	65% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	66% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	76% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	76.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	77% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	77.5% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	78% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	79% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 	79.5% {
-		--shadow-color: rgba(43,240,254, 0.1);
+		--shadow-color: rgba(75,0,130, 0.1);
 	}
 	80% {
-		--shadow-color: rgba(252, 255, 68, 0);
+		--shadow-color: rgba(222,242,255, 0);
 	}
 }
 
@@ -203,7 +203,7 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-size: 8rem;
 		font-weight: 300;
-		color: rgb(43, 240, 254);
+		color: rgb(75,0,130);
 		-webkit-text-fill-color: transparent;
 		animation: 10s blinkLogo infinite;
 		animation-timing-function: step-end;
@@ -218,13 +218,12 @@ export default {
 			0 0 100px var(--shadow-color);
 		background: linear-gradient(
 			90deg,
-			rgb(43, 240, 254) 0%,
-			rgb(252, 255, 68) 100%
+			rgb(75,0,130) 0%,
+			rgb(222,242,255) 100%
 		);
 		background-clip: text;
 		display: block;
 		letter-spacing: 1px;
-		mix-blend-mode: screen;
 
 		@media (max-width: 900px) {
 			font-size: 18vw;

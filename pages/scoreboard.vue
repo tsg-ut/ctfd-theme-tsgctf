@@ -20,6 +20,12 @@
 							<iso-link :to="`/teams/${team.account_id}`" class="team-name">
 								<span>{{team.name}}</span>
 							</iso-link>
+							<span v-if="team.bracket_name === 'Domestic'" class="bracket">
+								{{ team.bracket_name }}
+							</span>
+							<span v-else-if="isDomestic(team)" class="bracket">
+								{{ bracketFor(team).name }}
+							</span>
 						</td>
 						<td>{{team.score}}</td>
 					</tr>
@@ -37,7 +43,13 @@ import IsoLink from '~/components/IsoLink.vue';
 export default {
 	components: {IsoLink, CheckCircle},
 	async asyncData(context) {
-		await context.store.dispatch('scoreboard/update', context);
+		await Promise.all([
+			context.store.dispatch('scoreboard/update', context),
+			context.store.dispatch('teams/fetchBrackets', {
+				$axios: context.$axios,
+				type: 'teams',
+			}),
+		]);
 	},
 	head() {
 		return {
@@ -52,6 +64,7 @@ export default {
 			isStatic: 'isStatic',
 			myTeam: 'team',
 		}),
+		...mapState('teams', ['brackets']),
 	},
 	mounted() {
 		if (!this.isStatic) {
@@ -73,6 +86,13 @@ export default {
 				backgroundImage: `url(https://cdn.jsdelivr.net/gh/behdad/region-flags@gh-pages/svg/${countryCode.toUpperCase()}.svg)`,
 			};
 		},
+		bracketFor(team) {
+			return this.brackets.find(br => br.id === team.bracket_id) || null;
+		},
+		isDomestic(team) {
+			const br = this.bracketFor(team);
+			return br && br.name === 'Domestic';
+		}
 	},
 };
 </script>
@@ -102,6 +122,14 @@ export default {
 
 	.team-name > * {
 		vertical-align: middle;
+	}
+
+	.bracket {
+		display: inline-block;
+		font-family: 'Fredoka One', cursive;
+		font-size: 1.2rem;
+		font-weight: 200;
+		color: rgb(222,242,255);
 	}
 
 	tr.active {

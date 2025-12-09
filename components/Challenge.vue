@@ -328,9 +328,9 @@ export default {
 	}
 
 	.title-name {
-		color: rgb(43,240,254);
+		color: rgb(75,0,130);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, rgb(43 240 254) 0%, rgb(252 255 68) 100%);
+		background: linear-gradient(90deg, rgb(75,0,130) 0%, rgb(222,242,255) 100%);
 		background-clip: text;
 	}
 

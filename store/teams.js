@@ -1,5 +1,7 @@
 export const state = () => ({
 	teams: new Map(),
+	brackets: [],
+	fields: [],
 });
 
 export const getters = {
@@ -9,6 +11,12 @@ export const getters = {
 export const mutations = {
 	setTeam(s, team) {
 		s.teams.set(team.id, team);
+	},
+	setBrackets(s, brackets) {
+		s.brackets = brackets;
+	},
+	setFields(s, fields) {
+		s.fields = fields;
 	},
 };
 
@@ -48,5 +56,19 @@ export const actions = {
 		}
 		commit("setIsLoggedIn", false, { root: true });
 		return null;
+	},
+
+	async fetchBrackets({commit}, {$axios, type = 'teams'}) {
+		const res = await $axios.$get('/api/v1/brackets', {
+			params: {type},
+		});
+		commit('setBrackets', res.data);
+	},
+
+	async fetchFields({commit}, {$axios, type = 'teams'}) {
+		const res = await $axios.$get('/api/v1/fields', {
+			params: {type},
+		});
+		commit('setFields', res.data);
 	},
 };

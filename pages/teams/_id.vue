@@ -4,6 +4,9 @@
 			<span>{{team.name}}</span>
 		</h2>
 		<div class="score">{{formatOrdinals(score.pos)}} {{score.score}}pts</div>
+		<div class="bracket" v-if="bracketFor(team)">
+			{{bracketFor(team).name}}
+		</div>
 		<div class="members-head">Members</div>
 		<div class="members">
 			<div v-for="member in team.members" :key="member" class="member">
@@ -71,6 +74,7 @@ export default {
 		const [team] = await Promise.all([
 			context.store.dispatch('teams/getTeam', {...context, id: context.route.params.id}),
 			context.store.dispatch('scoreboard/updateScoreboard', context),
+			context.store.dispatch('teams/fetchBrackets', {$axios: context.$axios, type: 'teams',}),
 		]);
 		if (team === null) {
 			context.error({statusCode: 404, message: 'Team not found'});
@@ -94,6 +98,7 @@ export default {
 			isVerified: 'isVerified',
 			teams: (state) => state.teams.teams,
 		}),
+		...mapState('teams', ['brackets']),
 		...mapGetters({
 			getUser: 'users/getUser',
 		}),
@@ -116,7 +121,12 @@ export default {
 		const solvers = Array.from(new Set([...this.team.solves.map(({user}) => user.id), ...this.team.members]));
 		this.$store.dispatch('users/getUsers', {$axios: this.$axios, ids: solvers});
 	},
-	methods: {formatOrdinals},
+	methods: {
+		formatOrdinals,
+		bracketFor(team) {
+			return this.brackets.find(br => br.id === team.bracket_id) || null;
+		},
+	},
 };
 </script>
 
@@ -168,6 +178,14 @@ export default {
 		text-align: center;
 		font-family: 'Roboto';
 		font-size: 2rem;
+	}
+
+	.bracket {
+		font-family: 'Fredoka One', cursive;
+		font-size: 1.5rem;
+		font-weight: 300;
+		text-align: center;
+		color: rgb(222,242,255);
 	}
 
 	.members-head {
