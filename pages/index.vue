@@ -85,102 +85,102 @@ export default {
 /* We are hacker :) */
 @keyframes blinkLogo {
 	0% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	1% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	11% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	11.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	12% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	12.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	13% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	13.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	24% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	25% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	25.5% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	26.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	27% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	27.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	50% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	51% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	51.5% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	52% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	52.5% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	53.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	54% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	54.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	65% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	66% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 
 	76% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	76.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	77% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	77.5% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	78% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	79% {
 		--shadow-color: rgba(222,242,255, 0);
 	}
 	79.5% {
-		--shadow-color: rgba(75,0,130, 0.1);
+		--shadow-color: hsl(275, 100%, 45%);
 	}
 	80% {
 		--shadow-color: rgba(222,242,255, 0);
@@ -203,7 +203,7 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-size: 8rem;
 		font-weight: 300;
-		color: rgb(75,0,130);
+		color: hsl(275, 100%, 45%);
 		-webkit-text-fill-color: transparent;
 		animation: 10s blinkLogo infinite;
 		animation-timing-function: step-end;
@@ -218,7 +218,7 @@ export default {
 			0 0 100px var(--shadow-color);
 		background: linear-gradient(
 			90deg,
-			rgb(75,0,130) 0%,
+			hsl(275, 100%, 45%) 0%,
 			rgb(222,242,255) 100%
 		);
 		background-clip: text;
