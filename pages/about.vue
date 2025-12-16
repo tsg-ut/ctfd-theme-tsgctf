@@ -35,9 +35,12 @@
 		<a href="https://flatt.tech/en" target="_blank" rel="noopener noreferrer">
 			<img src="https://ctf.tsg.ne.jp/images/fs_logo.png" :style="{maxWidth: '60rem'}">
 		</a>
-		<p>Flatt Security, based in Tokyo, offers expert security assessments and penetration testing for software.</p>
+		<p>GMO Flatt Security, based in Tokyo, offers expert security assessments and penetration testing for software.</p>
 		<p>Our seasoned professionals deliver proven, top-tier services.</p>
-		<p>We also provide tools to help you internalize cutting edge, state of the art security practices.</p>
+		<p>We also provide Takumi byGMO, the AI Security Engineer that brings human-level reasoning to application security.</p>
+		<p>東京に拠点を置くGMO Flatt Securityは、ソフトウェアを対象とした専門的な脆弱性診断およびペネトレーションテストを提供しています。</p>
+		<p>当社の経験豊富なプロフェッショナルが、実績のある最高水準のサービスをご提供します。</p>
+		<p>加えて、当社はアプリケーションセキュリティに人間レベルの推論をもたらすAIセキュリティエンジニア、Takumi byGMOも提供しています。</p>
 		<h3>Prizes</h3>
 		<ul>
 			<li>1st: 1,000USD</li>
@@ -94,6 +97,9 @@ export default {
 				{ url: 'https://twitter.com/lluuiiggeeinfo', name: '@LLUUIIGGEE' },
 				{ url: 'https://twitter.com/aperiodicmikan', name: '@mikanami' },
 				{ url: 'https://twitter.com/sashiming_syumi', name: '@sashiming' },
+				{ url: 'https://x.com/pelo_gram', name: '@puru' },
+				{ url: 'https://github.com/aster-void', name: '@aster-void' },
+				{ url: 'http://twitter.com/13lackade', name: '@matsumatsu' },
 			],
 		};
 	},
