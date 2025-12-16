@@ -460,9 +460,14 @@ section > h2.title {
 	word-break: break-word;
 
 	span {
-		color: hsl(275, 100%, 45%);
+		color: rgb(164, 107, 245);
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(90deg, hsl(275, 100%, 45%) 0%, rgb(222,242,255) 100%);
+		background: linear-gradient(
+			90deg,
+			rgb(164, 107, 245) 0%,
+			rgb(89, 169, 211) 50%,
+			rgb(122, 191, 164) 100%
+		);
 		background-clip: text;
 		font-weight: 500;
 	}
