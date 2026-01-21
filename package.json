@@ -53,7 +53,7 @@
     "http-proxy-middleware": "^3.0.5",
     "jsdom": "^27.4.0",
     "klaw": "^4.1.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "nodemon": "^3.1.11",
     "normalize.css": "^8.0.1",
     "nuxt-client-init-module": "^0.3.0",
