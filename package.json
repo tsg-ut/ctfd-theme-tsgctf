@@ -61,7 +61,7 @@
     "precss": "^4.0.0",
     "prettier": "^3.8.1",
     "prettier-eslint-cli": "^8.0.1",
-    "vue-spinner": "^1.0.4",
+    "vue-spinner": "^3.0.1",
     "vue-timeago": "^5.1.3"
   }
 }
