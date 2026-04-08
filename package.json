@@ -51,7 +51,7 @@
     "eslint-plugin-vue": "^10.8.0",
     "fs-extra": "^11.3.4",
     "http-proxy-middleware": "^3.0.5",
-    "jsdom": "^29.0.1",
+    "jsdom": "^29.0.2",
     "klaw": "^4.1.0",
     "lodash": "^4.18.1",
     "nodemon": "^3.1.14",
