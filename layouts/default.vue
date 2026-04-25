@@ -2,7 +2,7 @@
 	<div>
 		<div class="header">
 			<div class="title">
-				<iso-link to="/">TSG CTF 2025</iso-link>
+				<iso-link to="/">TSG CTF 2025 Finals</iso-link>
 			</div>
 			<div class="spacer"/>
 			<div v-if="isLoggedIn">
@@ -115,18 +115,9 @@
 		</div>
 		<div class="footer">
 			<p class="sponsor-line">
-				Sponsored by
-				<a href="https://flatt.tech/" target="_blank" rel="noopener noreferrer">
-					<img class="flatt" src="@/static/flatt.png" alt="flatt Security">
-				</a>
-				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
-					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
-				</a>
-			</p>
-			<p class="sponsor-line">
 				Infra Sponsored by <a href="https://g.co/cloud" target="_blank" rel="noopener noreferrer">g.co/cloud</a>
 				<a href="https://g.co/cloud" target="_blank" rel="noopener noreferrer">
-					<img class="google-cloud" src="@/static/google-cloud.png" alt="flatt Security">
+					<img class="google-cloud" src="@/static/google-cloud.png" alt="google cloud">
 				</a>
 				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
 					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">

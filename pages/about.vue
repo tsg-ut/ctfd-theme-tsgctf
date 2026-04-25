@@ -31,26 +31,6 @@
 				</timeline>
 			</li>
 		</ul>
-		<h3>Sponsor</h3>
-		<a href="https://flatt.tech/en" target="_blank" rel="noopener noreferrer">
-			<img src="https://ctf.tsg.ne.jp/images/fs_logo.png" :style="{maxWidth: '60rem'}">
-		</a>
-		<p>GMO Flatt Security, based in Tokyo, offers expert security assessments and penetration testing for software.</p>
-		<p>Our seasoned professionals deliver proven, top-tier services.</p>
-		<p>We also provide Takumi byGMO, the AI Security Engineer that brings human-level reasoning to application security.</p>
-		<p>東京に拠点を置くGMO Flatt Securityは、ソフトウェアを対象とした専門的な脆弱性診断およびペネトレーションテストを提供しています。</p>
-		<p>当社の経験豊富なプロフェッショナルが、実績のある最高水準のサービスをご提供します。</p>
-		<p>加えて、当社はアプリケーションセキュリティに人間レベルの推論をもたらすAIセキュリティエンジニア、Takumi byGMOも提供しています。</p>
-		<h3>Prizes</h3>
-		<ul>
-			<li>1st: 1,000USD</li>
-			<li>2nd: 500 USD</li>
-			<li>3rd: 200 USD</li>
-		</ul>
-		<ul>
-			<li>The winning team will also qualify for the SECCON CTF 14 Finals (International Division).</li>
-			If the first-place team has already qualified, it will receive another entry unless it declines; if the team withdraws from qualification, the second-place team qualifies instead.
-		</ul>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
