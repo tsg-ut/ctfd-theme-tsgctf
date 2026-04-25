@@ -30,6 +30,15 @@
 					name="password"
 				/>
 			</div>
+			<div class="form-group">
+				<label for="registration-code-input"> Registration Code </label>
+				<input
+					id="registration-code-input"
+					class="form-control"
+					type="text"
+					name="registration_code"
+				/>
+			</div>
 			<div>
 				Individual registration is recommended. You can create team account
 				later.
