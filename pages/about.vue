@@ -81,6 +81,7 @@ export default {
 				{ url: 'https://github.com/aster-void', name: '@aster-void' },
 				{ url: 'https://twitter.com/13lackade', name: '@mtmt' },
 				{ url: 'https://twitter.com/alcea_log', name: '@alcea' },
+				{ url: 'https://twitter.com/Sqrt10_31622776', name: '@Sqrt10' },
 			],
 		};
 	},
