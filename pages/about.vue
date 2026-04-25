@@ -3,9 +3,9 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20251220T16&p1=248" target="_blank" rel="noopener noreferrer">12/20 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20260426T0930&p1=248" target="_blank" rel="noopener noreferrer">4/26 00:30</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20251221T16&p1=248" target="_blank" rel="noopener noreferrer">12/21 07:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20260426T1730&p1=248" target="_blank" rel="noopener noreferrer">4/26 08:30</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
 		<h3>Socials</h3>
