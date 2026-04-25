@@ -39,7 +39,7 @@
 			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
-		<p>Below is the full list of TSG members who contributed to this TSG CTF 2025 in success. So many thanks!!</p>
+		<p>Below is the full list of TSG members who contributed to this TSG CTF 2025 Finals in success. So many thanks!!</p>
 		<ul class="members">
 			<li v-for="member in members" :key="member" class="member">
 				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
@@ -79,7 +79,8 @@ export default {
 				{ url: 'https://twitter.com/sashiming_syumi', name: '@sashiming' },
 				{ url: 'https://x.com/pelo_gram', name: '@puru' },
 				{ url: 'https://github.com/aster-void', name: '@aster-void' },
-				{ url: 'http://twitter.com/13lackade', name: '@matsumatsu' },
+				{ url: 'https://twitter.com/13lackade', name: '@mtmt' },
+				{ url: 'https://twiiter.com/alcea_log', name: '@alcea' },
 			],
 		};
 	},
