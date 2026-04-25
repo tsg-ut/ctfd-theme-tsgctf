@@ -80,7 +80,7 @@ export default {
 				{ url: 'https://x.com/pelo_gram', name: '@puru' },
 				{ url: 'https://github.com/aster-void', name: '@aster-void' },
 				{ url: 'https://twitter.com/13lackade', name: '@mtmt' },
-				{ url: 'https://twiiter.com/alcea_log', name: '@alcea' },
+				{ url: 'https://twitter.com/alcea_log', name: '@alcea' },
 			],
 		};
 	},
