@@ -196,7 +196,8 @@ export default {
 			const components = new URL(path, location.href).pathname.split('/');
 			const fileName = components[components.length - 1];
 			const challengeId = components[components.length - 2];
-			return `https://tsgctf-ctfd-storage.storage.googleapis.com/tsgctf-ctfd-storage/${challengeId}/${fileName}`;
+			// return `https://tsgctf-ctfd-storage.storage.googleapis.com/tsgctf-ctfd-storage/${challengeId}/${fileName}`;
+			return `https://tsgctf-2025-finals.storage.googleapis.com/tsgctf-2025-finals/${challengeId}/${fileName}`;
 		},
 		getSolvesText(solves) {
 			return `${solves} ${solves === 1 ? 'solve' : 'solves'}`;

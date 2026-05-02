@@ -37,7 +37,7 @@ export default {
 					"TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
 			{ name: "og:type", content: "website" },
-			{ name: "og:url", content: "https://score.ctf.tsg.ne.jp" },
+			{ name: "og:url", content: "https://finals.score.ctf.tsg.ne.jp" },
 			{ name: "og:image", content: `${staticBase}/ogimage.jpg` },
 			{ name: "twitter:card", content: "summary_large_image" },
 			{ name: "twitter:site", content: "@tsgctf" },
@@ -87,7 +87,8 @@ export default {
 			let page = 1;
 			while (true) {
 				const { data } = await axios.get(
-					"https://score.ctf.tsg.ne.jp/api/v1/teams",
+					// "https://score.ctf.tsg.ne.jp/api/v1/teams",
+					"http://localhost:8000/api/v1/teams",
 					{ params: { page } },
 				);
 				teams.push(...data.data);
@@ -104,7 +105,8 @@ export default {
 	},
 
 	axios: {
-		baseURL: "https://score.ctf.tsg.ne.jp/",
+		// baseURL: "https://score.ctf.tsg.ne.jp/",
+		baseURL: "http://localhost:8000/",
 		browserBaseURL: "/",
 	},
 
@@ -182,7 +184,7 @@ export default {
 		manifest: {
 			name: "TSG CTF 2025",
 			short_name: "TSG CTF",
-			start_url: "https://score.ctf.tsg.ne.jp/?standalone=true",
+			start_url: "https://finals.score.ctf.tsg.ne.jp/?standalone=true",
 			theme_color: "#47e543",
 			lang: "en",
 		},
