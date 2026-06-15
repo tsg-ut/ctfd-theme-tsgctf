@@ -60,7 +60,7 @@
     "postcss-import-url": "7.2.0",
     "precss": "^4.0.0",
     "prettier": "^3.8.4",
-    "prettier-eslint-cli": "^8.0.1",
+    "prettier-eslint-cli": "^9.2.0",
     "vue-spinner": "^3.0.2",
     "vue-timeago": "^5.1.3"
   }
