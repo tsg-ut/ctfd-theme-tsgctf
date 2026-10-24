@@ -18,7 +18,7 @@
 		</p>
 		<p>Below is the full list of TSG members who contributed to this TSG LIVE! 17 CTF in success. So many thanks!!</p>
 		<ul class="members">
-			<li v-for="member in members" :key="member" class="member">
+			<li v-for="member in members" :key="member.url" class="member">
 				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
 				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
 					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
