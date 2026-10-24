@@ -79,111 +79,18 @@ export default {
 @property --shadow-color {
 	syntax: '<color>';
 	inherits: false;
-	initial-value: rgba(249, 255, 196, 0.1);
+	initial-value: rgba(255, 214, 0, 0);
 }
 
-/* We are hacker :) */
 @keyframes blinkLogo {
-	0% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	1% {
-		--shadow-color: rgba(122, 191, 164, 0);
+	0%, 11%, 12%, 13%, 24%, 25.5%, 27%, 50%,
+	51.5%, 52.5%, 54%, 65%, 76%, 77%, 78%, 79.5% {
+		--shadow-color: rgba(255, 214, 0, 0.1);
 	}
 
-	11% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	11.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	12% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	12.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	13% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	13.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-
-	24% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	25% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	25.5% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	26.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	27% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	27.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-
-	50% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	51% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	51.5% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	52% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	52.5% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	53.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	54% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	54.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-
-	65% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	66% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-
-	76% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	76.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	77% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	77.5% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	78% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	79% {
-		--shadow-color: rgba(122, 191, 164, 0);
-	}
-	79.5% {
-		--shadow-color: rgba(164, 107, 245, 0.1);
-	}
-	80% {
-		--shadow-color: rgba(122, 191, 164, 0);
+	1%, 11.5%, 12.5%, 13.5%, 25%, 26.5%, 27.5%, 51%,
+	52%, 53.5%, 54.5%, 66%, 76.5%, 77.5%, 79%, 80%, 100% {
+		--shadow-color: rgba(255, 138, 0, 0);
 	}
 }
 
@@ -203,24 +110,19 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-size: 8rem;
 		font-weight: 300;
-		color: rgb(164, 107, 245);
+		color: #ffd600;
 		-webkit-text-fill-color: transparent;
-		animation: 10s blinkLogo infinite;
-		animation-timing-function: step-end;
+		animation: blinkLogo 10s step-end infinite;
 		text-shadow:
-			0 0 3px var(--shadow-color),
-			0 0 10px var(--shadow-color),
-			0 0 20px var(--shadow-color),
-			0 0 30px var(--shadow-color),
-			0 0 40px var(--shadow-color),
-			0 0 50px var(--shadow-color),
-			0 0 70px var(--shadow-color),
-			0 0 100px var(--shadow-color);
-		background: linear-gradient(
-			90deg,
-			rgb(164, 107, 245) 0%,
-			rgb(122, 191, 164) 100%
-		);
+			0 0 3px var(--shadow-color, rgba(255, 214, 0, 0)),
+			0 0 10px var(--shadow-color, rgba(255, 214, 0, 0)),
+			0 0 20px var(--shadow-color, rgba(255, 214, 0, 0)),
+			0 0 30px var(--shadow-color, rgba(255, 214, 0, 0)),
+			0 0 40px var(--shadow-color, rgba(255, 214, 0, 0)),
+			0 0 50px var(--shadow-color, rgba(255, 214, 0, 0)),
+			0 0 70px var(--shadow-color, rgba(255, 214, 0, 0)),
+			0 0 100px var(--shadow-color, rgba(255, 214, 0, 0));
+		background: linear-gradient(90deg, #ffd600 0%, #ff8a00 100%);
 		background-clip: text;
 		display: block;
 		letter-spacing: 1px;
@@ -228,13 +130,19 @@ export default {
 		@media (max-width: 900px) {
 			font-size: 18vw;
 		}
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none;
+			text-shadow: none;
+		}
 	}
 
 	.subtitle {
 		font-family: 'Roboto', sans-serif;
 		font-size: 1.5rem;
 		margin-top: -1rem;
-		opacity: 0.3;
+		color: #ead2a2;
+		opacity: 1;
 	}
 
 	.buttons {
@@ -255,11 +163,14 @@ export default {
 		font-weight: 300;
 
 		&.login {
-			background: linear-gradient(90deg, #6299a7 0%, #21207d 100%);
+			background: #2b1c08;
+			border: 1px solid #ffd600;
+			color: #fff8e7;
 		}
 
 		&.register {
-			background: linear-gradient(90deg, #ffc107 0%, #f44336 100%);
+			background: linear-gradient(90deg, #ffd600 0%, #ff8a00 100%);
+			color: #120d00;
 		}
 	}
 

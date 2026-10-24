@@ -183,7 +183,7 @@ export default {
 			name: "TSG CTF 2025",
 			short_name: "TSG CTF",
 			start_url: "https://score.ctf.tsg.ne.jp/?standalone=true",
-			theme_color: "#47e543",
+			theme_color: "#ffd600",
 			lang: "en",
 		},
 	},

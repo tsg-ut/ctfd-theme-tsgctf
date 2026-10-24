@@ -295,7 +295,7 @@ export default {
 			left: 0;
 			background: url('../static/checkbox_off.svg');
 			background-size: cover;
-			opacity: 0.8;
+			opacity: 1;
 
 			&.solved {
 				background: url('../static/checkbox_on.svg');
@@ -328,22 +328,17 @@ export default {
 	}
 
 	.title-name {
-		color: rgb(164, 107, 245) 0%;
+		color: #ffd600;
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(
-			90deg,
-			rgb(164, 107, 245) 0%,
-			rgb(89, 169, 211) 50%,
-			rgb(122, 191, 164) 100%
-		);
+		background: linear-gradient(90deg, #ffd600 0%, #ff8a00 100%);
 		background-clip: text;
 	}
 
 	.points {
-		background: rgba(255, 255, 255, 0.6);
+		background: #ff8a00;
 		display: inline-block;
-		color: #0d030e;
-		-webkit-text-fill-color: #0d030e;
+		color: #120d00;
+		-webkit-text-fill-color: #120d00;
 		font-size: 1.2rem;
 		margin-left: 0.2rem;
 		padding: 0.1rem 0.3rem;
@@ -359,18 +354,19 @@ export default {
 	.tag {
 		margin: 0 0.3rem;
 		padding: 0.2rem 0.8rem;
-		background: rgba(255, 255, 255, 0.5);
-		color: #333;
+		background: #ff8a00;
+		color: #120d00;
+		-webkit-text-fill-color: #120d00;
 		border-radius: 10rem;
 		font-weight: bold;
 		font-size: 0.8rem;
 
 		&.beginner {
-			background: rgb(82, 186, 255);
+			background: #ffd600;
 		}
 
 		&.broken {
-			background: rgb(255, 82, 82);
+			background: #f09a98;
 		}
 	}
 
@@ -378,7 +374,8 @@ export default {
 		margin-top: 1rem;
 		margin-left: 0.5rem;
 		margin-bottom: 1.5rem;
-		background: rgba(255, 255, 255, 0.2);
+		background: #2b1c08;
+		border: 1px solid #9a742c;
 		padding: 1rem;
 		width: auto;
 		box-sizing: border-box;
@@ -404,11 +401,13 @@ export default {
 		cursor: pointer;
 
 		&.someone-solved {
-			background: #ff5722;
+			background: #ffd600;
+			color: #120d00;
 		}
 
 		&.solved {
-			background: #4caf50;
+			background: #a8c4af;
+			color: #120d00;
 		}
 
 		&.is-solves-open {
@@ -426,7 +425,8 @@ export default {
 		border-top-left-radius: 1rem;
 
 		text-align: right;
-		background: #272b24;
+		background: #2b1c08;
+		border: 1px solid #9a742c;
 
 		overflow: hidden;
 
@@ -436,7 +436,7 @@ export default {
 		}
 
 		a {
-			color: #03a9f4;
+			color: #ff8a00;
 		}
 	}
 
@@ -483,7 +483,7 @@ export default {
 		}
 
 		strong {
-			color: #ffeb3b;
+			color: #ffd600;
 		}
 
 		p {
@@ -492,17 +492,19 @@ export default {
 		}
 
 		a {
-			color: #03a9f4;
+			color: #ff8a00;
 		}
 
 		code {
-			background: #333;
+			background: #120d00;
+			color: #fff8e7;
 			padding: 0.1rem 0.5rem;
 			font-weight: normal;
 		}
 
 		pre {
-			background: #333;
+			background: #120d00;
+			color: #fff8e7;
 			padding: 0.5rem;
 			white-space: pre-line;
 			word-break: break-all;
@@ -533,7 +535,8 @@ export default {
 		margin: 0.5rem;
 		height: 3rem;
 		line-height: 3rem;
-		background: #222;
+		background: #120d00;
+		color: #fff8e7;
 		border-radius: 3px;
 		text-align: center;
 		padding: 0 1rem;
@@ -570,8 +573,13 @@ export default {
 		padding: 0 1rem;
 		font-family: 'Roboto', sans-serif;
 		font-size: 1.4rem;
-		background: #ddd;
-		color: #333;
+		background: #fff6e6;
+		color: #120d00;
+
+		&::placeholder {
+			color: #2b1c08;
+			opacity: 1;
+		}
 
 		&[disabled] {
 			background: #aaa;
@@ -651,7 +659,8 @@ export default {
 
 		&[disabled] {
 			cursor: default;
-			background: #888;
+			background: #9a742c;
+			color: #fff8e7;
 		}
 	}
 

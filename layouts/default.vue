@@ -220,12 +220,12 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
-	background-image: url('../static/background.svg'), radial-gradient(circle, #000000 0%, #000000 70%, #4B0082 100%);
-	background-color: #130414;
+	background-image: url('../static/background.svg'), radial-gradient(circle, #120d00 0%, #120d00 70%, #6b3a00 100%);
+	background-color: #120d00;
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
-	color: white;
+	color: #fff8e7;
 	height: 100vh;
 	overflow: auto;
 }
@@ -300,7 +300,8 @@ button[type='submit'], .button-style {
 	font-size: 1.5rem;
 	font-family: 'Fredoka One', cursive;
 	font-weight: 300;
-	background: linear-gradient(90deg, #3e91a6 0%, #5e0fa9 100%);
+	background: linear-gradient(90deg, #ffd600 0%, #ff8a00 100%);
+	color: #120d00;
 }
 
 table {
@@ -311,7 +312,7 @@ table {
 	border-collapse: collapse;
 
 	a {
-		color: #2bf0fe;
+		color: #ff8a00;
 	}
 }
 
@@ -352,8 +353,8 @@ hr {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
-	color: rgba(222,242,255, 0.8);
+	background: linear-gradient(180deg, #120d00, transparent);
+	color: #fff8e7;
 	z-index: 1;
 
 	.title {
@@ -425,7 +426,7 @@ hr {
 		top: calc(100% - 0.5rem);
 		right: 0;
 
-		background: #520514;
+		background: #2b1c08;
 		line-height: 3rem;
 		display: flex;
 		flex-direction: column;
@@ -460,14 +461,9 @@ section > h2.title {
 	word-break: break-word;
 
 	span {
-		color: rgb(164, 107, 245);
+		color: #ffd600;
 		-webkit-text-fill-color: transparent;
-		background: linear-gradient(
-			90deg,
-			rgb(164, 107, 245) 0%,
-			rgb(89, 169, 211) 50%,
-			rgb(122, 191, 164) 100%
-		);
+		background: linear-gradient(90deg, #ffd600 0%, #ff8a00 100%);
 		background-clip: text;
 		font-weight: 500;
 	}
@@ -477,7 +473,7 @@ section > h2.title {
 	text-align: center;
 	margin-top: 5rem;
 	padding-bottom: 1rem;
-	color: rgba(222,242,255, 0.8);
+	color: #ead2a2;
 	line-height: 1.2rem;
 
 	&::before {
@@ -490,7 +486,7 @@ section > h2.title {
 	}
 
 	a {
-		color: #90cbff;
+		color: #ff8a00;
 	}
 
 	.sponsor-line {

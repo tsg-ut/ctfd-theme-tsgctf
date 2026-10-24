@@ -182,7 +182,7 @@ export default {
 		font-size: 2rem;
 		text-align: center;
 		padding: 0.5rem 1rem;
-		background: #520514;
+		background: #2b1c08;
 		position: relative;
 		margin-bottom: 1rem;
 
