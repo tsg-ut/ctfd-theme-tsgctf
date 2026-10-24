@@ -136,7 +136,7 @@ export default {
 		font-size: 1.5rem;
 
 		a {
-			color: #90cbff;
+			color: #ff8a00;
 		}
 	}
 
@@ -163,11 +163,11 @@ export default {
 	.field-container {
 		position: relative;
 		display: block;
-		border: 2px solid #ffffff;
+		border: 2px solid #9a742c;
 		border-radius: 8px;
 		width: fit-content;
 		min-width: 600px;
-		background: rgba(255,255,255,0.05);
+		background: #2b1c08;
 		margin: 1.5rem auto;
 		padding: 1rem 1.5rem;
 	}
@@ -178,8 +178,8 @@ export default {
 		top: -12px;
 		left: 10px;
 
-		background: #ffeb8a;
-		color: #000;
+		background: #ffd600;
+		color: #120d00;
 		font-size: 0.7rem;
 		font-weight: bold;
 
@@ -201,7 +201,7 @@ export default {
     margin: 0;
     -webkit-appearance: none;
     background-color: transparent;
-    border: 2.5px solid #ffffff;
+    border: 2.5px solid #9a742c;
     border-radius: 4px;
     cursor: pointer;
     position: relative;
@@ -209,7 +209,7 @@ export default {
 
   .form-check-input:checked::after {
     content: "✔";
-    color: #5ced73;
+    color: #a8c4af;
     font-size: 30px;
     position: absolute;
     top: -13px;

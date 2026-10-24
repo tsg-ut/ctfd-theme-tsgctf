@@ -69,7 +69,7 @@ export default {
 			cursor: pointer;
 
 			&.active {
-				border-bottom: 1.5px white solid;
+				border-bottom: 1.5px #ffd600 solid;
 			}
 		}
 
@@ -82,7 +82,7 @@ export default {
 		width: 100%;
 		max-width: 50rem;
 		position: relative;
-		color: white;
+		color: #fff8e7;
 		margin: 1rem auto;
 		box-sizing: border-box;
 		border-radius: 3px;

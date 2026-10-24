@@ -84,7 +84,7 @@ export default {
 		font-size: 1.5rem;
 
 		a {
-			color: #90cbff;
+			color: #ff8a00;
 		}
 	}
 

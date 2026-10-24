@@ -212,6 +212,8 @@ input[type='password'],
 input[type='email'],
 input[type='url'],
 select {
+	background: #fff6e6;
+	color: #120d00;
 	border: 0;
 	outline: 0;
 	border-radius: 9999px;
@@ -240,7 +242,7 @@ input[type='checkbox'] + label::before {
 	height: 0.8rem;
 	left: 0;
 	top: 0.3rem;
-	border: 1px solid #ffffff;
+	border: 1px solid #ead2a2;
 	position: absolute;
 	opacity: 0.8;
 	transition: all 0.07s;
@@ -293,14 +295,14 @@ tr {
 }
 
 tbody tr {
-	border-top: rgba(255, 255, 255, 0.7) 1px solid;
+	border-top: rgba(234, 210, 162, 0.7) 1px solid;
 }
 
 hr {
 	margin: 5rem auto;
 	height: 3px;
 	width: 20rem;
-	background: white;
+	background: #ead2a2;
 	border: none;
 	border-radius: 9999px;
 	opacity: 0.5;
@@ -367,7 +369,7 @@ hr {
 			width: 0;
 			height: 0;
 			margin-left: 0.5rem;
-			border-top: white 6px solid;
+			border-top: #ead2a2 6px solid;
 			border-left: transparent 6px solid;
 			border-right: transparent 6px solid;
 			vertical-align: middle;
@@ -407,7 +409,7 @@ hr {
 		padding: 0 1rem;
 
 		&:hover {
-			background: rgba(255, 255, 255, 0.2);
+			background: rgba(255, 214, 0, 0.12);
 		}
 	}
 }
@@ -455,7 +457,7 @@ section > h2.title {
 		display: inline-block;
 		width: 8rem;
 		height: 1px;
-		background: white;
+		background: #ead2a2;
 		margin-bottom: 1.2rem;
 	}
 

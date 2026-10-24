@@ -70,11 +70,14 @@ export default {
 		font-weight: 300;
 
 		&.join {
-			background: linear-gradient(90deg, #3e91a6 0%, #5e0fa9 100%);
+			background: #2b1c08;
+			border: 1px solid #ffd600;
+			color: #fff8e7;
 		}
 
 		&.new {
-			background: linear-gradient(90deg, #a6643e 0%, #a90f5d 100%);
+			background: linear-gradient(90deg, #ffd600 0%, #ff8a00 100%);
+			color: #120d00;
 		}
 	}
 }

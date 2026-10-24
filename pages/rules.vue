@@ -54,7 +54,7 @@ export default {
 	}
 
 	strong {
-		color: #ffeb3b;
+		color: #ffd600;
 	}
 
 	p,

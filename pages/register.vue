@@ -91,7 +91,7 @@ export default {
 		font-size: 1.5rem;
 
 		a {
-			color: #2bf0fe;
+			color: #ff8a00;
 		}
 	}
 
@@ -120,7 +120,7 @@ export default {
 		font-family: 'Fredoka One', cursive;
 		font-weight: 300;
 
-		color: #2bf0fe;
+		color: #f09a98;
 		padding: 0;
 		line-height: 2rem;
 	}

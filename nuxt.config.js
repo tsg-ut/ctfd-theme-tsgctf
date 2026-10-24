@@ -64,7 +64,7 @@ export default {
 		],
 	},
 
-	loading: { color: "#fff" },
+	loading: { color: "#ffd600" },
 
 	css: [],
 

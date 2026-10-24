@@ -88,7 +88,7 @@
 					</div>
 				</div>
 				<div v-else class="description-loading">
-					<pulse-loader color="white"/>
+					<pulse-loader color="#ffd600"/>
 				</div>
 				<form class="flag-form" @submit="onSubmitFlag">
 					<input
@@ -310,7 +310,7 @@ export default {
 	&:not(:last-child) .list-marker::before {
 		content: '';
 		position: absolute;
-		background: rgba(255, 255, 255, 0.5);
+		background: rgba(234, 210, 162, 0.5);
 		top: 46px;
 		left: 20px;
 		bottom: -10px;
@@ -390,7 +390,7 @@ export default {
 	}
 
 	.solve-count {
-		background: #2f2f44;
+		background: #2b1c08;
 		position: absolute;
 		bottom: 100%;
 		right: 0;
@@ -431,7 +431,7 @@ export default {
 		overflow: hidden;
 
 		.first-blood {
-			color: red;
+			color: #f09a98;
 			vertical-align: text-top;
 		}
 
@@ -455,7 +455,7 @@ export default {
 			cursor: pointer;
 
 			&.active {
-				border-bottom: 1.5px white solid;
+				border-bottom: 1.5px #ffd600 solid;
 			}
 		}
 
@@ -582,8 +582,8 @@ export default {
 		}
 
 		&[disabled] {
-			background: #aaa;
-			color: black;
+			background: #ead2a2;
+			color: #120d00;
 		}
 
 		&.yay {
@@ -642,7 +642,7 @@ export default {
 				transform: translateX(8px);
 			}
 			50% {
-				color: indianred;
+				color: #f09a98;
 			}
 			10%,
 			30%,

@@ -188,7 +188,7 @@ export default {
 		&::before {
 			content: '';
 			position: absolute;
-			border: dashed 1px white;
+			border: dashed 1px #9a742c;
 			top: 0.2rem;
 			left: 0.2rem;
 			right: 0.2rem;

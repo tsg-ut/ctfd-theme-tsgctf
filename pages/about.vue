@@ -87,7 +87,7 @@ export default {
 	}
 
 	a {
-		color: #90cbff;
+		color: #ff8a00;
 	}
 
 	.ojigineko {

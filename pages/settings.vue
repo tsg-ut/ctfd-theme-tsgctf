@@ -110,7 +110,7 @@
 				>
 					Submit
 				</button>
-				<pulse-loader v-else color="white"/>
+				<pulse-loader v-else color="#ffd600"/>
 			</div>
 
 			<div class="result">
@@ -224,7 +224,7 @@
 				>
 					Submit
 				</button>
-				<pulse-loader v-else color="white"/>
+				<pulse-loader v-else color="#ffd600"/>
 			</div>
 
 			<div class="result">
@@ -376,7 +376,7 @@ export default {
 		word-break: break-word;
 
 		a {
-			color: #90cbff;
+			color: #ff8a00;
 		}
 	}
 
@@ -409,11 +409,11 @@ export default {
 		font-weight: 300;
 
 		.success {
-			color: #45d823;
+			color: #a8c4af;
 		}
 
 		.errors {
-			color: #f44336;
+			color: #f09a98;
 			padding: 0;
 			line-height: 2rem;
 		}

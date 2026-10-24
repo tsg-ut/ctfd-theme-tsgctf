@@ -11,7 +11,7 @@
 		<div class="members">
 			<div v-for="member in team.members" :key="member" class="member">
 				<span v-if="getUser(member)">{{getUser(member).name}}</span>
-				<pulse-loader v-else color="white" size="10px"/>
+				<pulse-loader v-else color="#ffd600" size="10px"/>
 			</div>
 		</div>
 		<div class="table-wrap">
@@ -36,7 +36,7 @@
 							<span v-if="solve.user">
 								{{solve.user.name}}
 							</span>
-							<pulse-loader v-else color="white" size="10px"/>
+							<pulse-loader v-else color="#ffd600" size="10px"/>
 						</td>
 						<td><iso-timeago :datetime="solve.date" :auto-update="60"/></td>
 					</tr>
@@ -144,7 +144,7 @@ export default {
 		&::before {
 			content: 'Team';
 			font-family: initial;
-			color: rgba(255, 255, 255, 0.6);
+			color: #ead2a2;
 			font-size: 1rem;
 			line-height: 0.2rem;
 			text-align: center;
@@ -162,8 +162,8 @@ export default {
 	.verified-badge {
 		display: inline-block;
 		margin: 0 auto;
-		background-color: #c31b1b;
-		color: white;
+		background-color: #a8c4af;
+		color: #120d00;
 		height: 1.5rem;
 		line-height: 1.5rem;
 		padding: 0 1rem;
@@ -185,7 +185,7 @@ export default {
 		font-size: 1.5rem;
 		font-weight: 300;
 		text-align: center;
-		color: rgb(222,242,255);
+		color: #ead2a2;
 	}
 
 	.members-head {
