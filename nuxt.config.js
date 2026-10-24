@@ -40,8 +40,7 @@ export default {
 			{ name: "og:url", content: "https://score.live-ctf.tsg.ne.jp" },
 			{ name: "og:image", content: `${staticBase}/ogimage.jpg` },
 			{ name: "twitter:card", content: "summary_large_image" },
-			{ name: "twitter:site", content: "@tsgctf" },
-			{ name: "twitter:site", content: "@tsgctf" },
+			{ name: "twitter:site", content: "@tsg_ut" },
 			{ name: "twitter:title", content: "TSG LIVE! 17 CTF" },
 			{
 				name: "twitter:description",
