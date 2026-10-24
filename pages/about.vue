@@ -42,6 +42,7 @@ export default {
 				{ url: 'https://twitter.com/sashiming_syumi', name: '@sashiming' },
 				{ url: 'https://twitter.com/13lackade', name: '@mtmt' },
 				{ url: 'https://x.com/hiikun_Z', name: '@hiikunZ' },
+				{ url: 'https://x.com/Ojun52', name: '@Ojun' },
 			],
 		};
 	},
