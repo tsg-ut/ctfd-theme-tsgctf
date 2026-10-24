@@ -18,7 +18,7 @@ export default {
 	target: "static",
 
 	head: {
-		title: "TSG CTF",
+		title: "TSG LIVE! 17 CTF",
 		meta: [
 			{ charset: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -28,9 +28,9 @@ export default {
 				content:
 					"TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
-			{ name: "apple-mobile-web-app-title", content: "TSG CTF 2025" },
-			{ name: "og:title", content: "TSG CTF 2025" },
-			{ name: "og:site_name", content: "TSG CTF 2025" },
+			{ name: "apple-mobile-web-app-title", content: "TSG LIVE! 17 CTF" },
+			{ name: "og:title", content: "TSG LIVE! 17 CTF" },
+			{ name: "og:site_name", content: "TSG LIVE! 17 CTF" },
 			{
 				name: "og:description",
 				content:
@@ -42,7 +42,7 @@ export default {
 			{ name: "twitter:card", content: "summary_large_image" },
 			{ name: "twitter:site", content: "@tsgctf" },
 			{ name: "twitter:site", content: "@tsgctf" },
-			{ name: "twitter:title", content: "TSG CTF 2025" },
+			{ name: "twitter:title", content: "TSG LIVE! 17 CTF" },
 			{
 				name: "twitter:description",
 				content:

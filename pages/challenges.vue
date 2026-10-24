@@ -80,7 +80,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Challenges - TSG CTF',
+			title: 'Challenges - TSG LIVE! 17 CTF',
 		};
 	},
 	computed: {

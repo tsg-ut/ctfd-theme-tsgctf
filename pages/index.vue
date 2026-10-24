@@ -2,8 +2,9 @@
 	<section class="Index">
 		<div class="index-content">
 			<h1 class="ctf-logo">
-				<span>T</span><span>S</span><span>G</span> <span>C</span><span>T</span
-				><span>F</span>
+				<span>T</span><span>S</span><span>G</span>
+				<span>L</span><span>I</span><span>V</span><span>E</span><span>!</span>
+				<span>C</span><span>T</span><span>F</span>
 			</h1>
 			<p class="subtitle">Pwn, Web, Crypto, Rev, etc...</p>
 			<div class="timer">{{ timer }}</div>
@@ -31,7 +32,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'TSG CTF 2025',
+			title: 'TSG LIVE! 17 CTF',
 		}
 	},
 	computed: {

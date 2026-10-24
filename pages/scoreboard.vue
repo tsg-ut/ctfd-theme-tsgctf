@@ -53,7 +53,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Scoreboard - TSG CTF',
+			title: 'Scoreboard - TSG LIVE! 17 CTF',
 		};
 	},
 	computed: {

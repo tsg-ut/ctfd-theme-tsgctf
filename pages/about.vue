@@ -32,7 +32,7 @@
 export default {
 	head() {
 		return {
-			title: 'About - TSG CTF',
+			title: 'About - TSG LIVE! 17 CTF',
 		};
 	},
 	data() {

@@ -105,7 +105,7 @@ export default {
 	},
 	head() {
 		return {
-			title: 'Create Team - TSG CTF',
+			title: 'Create Team - TSG LIVE! 17 CTF',
 		};
 	},
 	computed: {

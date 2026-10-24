@@ -82,7 +82,7 @@ export default {
 	},
 	head() {
 		return {
-			title: `Team ${this.team && this.team.name} - TSG CTF`,
+			title: `Team ${this.team && this.team.name} - TSG LIVE! 17 CTF`,
 		};
 	},
 	computed: {
