@@ -3,11 +3,11 @@
 		<h2 class="title"><span>About</span></h2>
 		<h3>Period</h3>
 		<p class="period">
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20261121T1500&p1=248" target="_blank" rel="noopener noreferrer">11/21 06:00</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20261121T1500&p1=248" target="_blank" rel="noopener noreferrer">11/21 15:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20261121T1730&p1=248" target="_blank" rel="noopener noreferrer">11/21 08:30</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20261121T1730&p1=248" target="_blank" rel="noopener noreferrer">11/21 17:30</a>
 		</p>
-		<p :style="{textAlign: 'center'}">(UTC)</p>
+		<p :style="{textAlign: 'center'}">(JST)</p>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
