@@ -173,20 +173,6 @@ export default {
 			}
 		});
 
-		if (typeof this.$OneSignal !== 'undefined') {
-			this.$OneSignal.isPushNotificationsEnabled().then((isEnabled) => {
-				this.$store.commit('setIsPushEnabled', isEnabled);
-			});
-		}
-
-		if (typeof globalThis.OneSignal !== 'undefined') {
-			globalThis.OneSignal.getNotificationPermission().then((permission) => {
-				if (permission === 'granted') {
-					this.$store.commit('setIsPushEnabled', true);
-				}
-			});
-		}
-
 		if (navigator.language.includes('ja')) {
 			this.$store.commit('setLanguage', 'ja');
 		}

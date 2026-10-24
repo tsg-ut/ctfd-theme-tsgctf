@@ -71,7 +71,6 @@ export default {
 		"@nuxtjs/axios",
 		"@nuxtjs/markdownit",
 		"@nuxtjs/pwa",
-		...(isStatic ? [] : ["@nuxtjs/onesignal"]),
 	],
 	render: {
 		ssrLog: true,
@@ -108,13 +107,6 @@ export default {
 		browserBaseURL: "/",
 	},
 
-	oneSignal: {
-		init: {
-			appId: "6acee8f3-7842-4a55-91f6-b63ac21a667d", // public token
-			allowLocalhostAsSecureOrigin: true,
-		},
-	},
-
 	markdownit: {
 		injected: true,
 	},
@@ -127,7 +119,7 @@ export default {
 			},
 			preset: {
 				features: {
-					customProperties: false,
+					"custom-properties": false,
 				},
 			},
 		},

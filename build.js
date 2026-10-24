@@ -56,15 +56,7 @@ const templates = [
 						"tsgctf/static",
 						path.relative(path.join(__dirname, "dist"), item.path),
 					);
-			if (item.path.endsWith("OneSignalSDKWorker.js")) {
-				const worker = await fs.readFile(item.path);
-				const newWorker = worker
-					.toString()
-					.replace("/sw.js", "/themes/tsgctf/static/sw.js");
-				await fs.outputFile(newPath, newWorker);
-			} else {
-				fs.copy(item.path, newPath);
-			}
+			fs.copy(item.path, newPath);
 		}
 	});
 	await new Promise((resolve) => {

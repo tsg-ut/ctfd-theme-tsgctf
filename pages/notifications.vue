@@ -28,10 +28,9 @@
 <script>
 import IsoTimeago from '~/components/IsoTimeago.vue';
 import {mapGetters, mapState} from 'vuex';
-import BellRing from 'vue-material-design-icons/BellRing.vue';
 
 export default {
-	components: {IsoTimeago, BellRing},
+	components: {IsoTimeago},
 	async asyncData(context) {
 		await context.store.dispatch('notifications/updateNotifications', context);
 	},
@@ -53,10 +52,6 @@ export default {
 				return sections[0].trim();
 			}
 			return sections[1].trim();
-		},
-		async enableNotifications() {
-			await this.$OneSignal.showNativePrompt();
-			this.$store.commit('setIsPushEnabled', true);
 		},
 	},
 };

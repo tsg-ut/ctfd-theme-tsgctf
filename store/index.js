@@ -9,7 +9,6 @@ export const state = () => ({
 	isEnded: false,
 	isVerified: true,
 	isStatic: null,
-	isPushEnabled: false,
 	user: {},
 	team: {},
 	rules: '',
@@ -312,9 +311,6 @@ export const mutations = {
 	},
 	setLanguage(s, payload) {
 		s.language = payload;
-	},
-	setIsPushEnabled(s, payload) {
-		s.isPushEnabled = payload;
 	},
 };
 
