@@ -210,7 +210,7 @@ export default {
 				return 'Contest has been ended';
 			}
 
-			return 'TSGCTF{......}';
+			return 'TSGLIVE{ ... }';
 		},
 		toggleSolves() {
 			if (this.isSolvesOpen) {

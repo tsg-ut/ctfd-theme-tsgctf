@@ -26,7 +26,7 @@ export default {
 				name: "description",
 				hid: "description",
 				content:
-					"TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
+					"TSG LIVE! CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
 			{ name: "apple-mobile-web-app-title", content: "TSG LIVE! 17 CTF" },
 			{ name: "og:title", content: "TSG LIVE! 17 CTF" },
@@ -34,7 +34,7 @@ export default {
 			{
 				name: "og:description",
 				content:
-					"TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
+					"TSG LIVE! CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
 			{ name: "og:type", content: "website" },
 			{ name: "og:url", content: "https://score.live-ctf.tsg.ne.jp" },
@@ -45,10 +45,10 @@ export default {
 			{
 				name: "twitter:description",
 				content:
-					"TSG CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
+					"TSG LIVE! CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
 			{ name: "twitter:image", content: `${staticBase}/ogimage.jpg` },
-			{ name: "twitter:image:alt", content: "TSG CTF" },
+			{ name: "twitter:image:alt", content: "TSG LIVE! CTF" },
 		],
 		link: [
 			{ rel: "icon", type: "image/png", href: `${staticBase}/favicon.png` },
@@ -171,8 +171,8 @@ export default {
 			source: "static/favicon.png",
 		},
 		manifest: {
-			name: "TSG CTF 2025",
-			short_name: "TSG CTF",
+			name: "TSG LIVE! 17 CTF",
+			short_name: "TSG LIVE! 17 CTF",
 			start_url: "https://score.live-ctf.tsg.ne.jp/?standalone=true",
 			theme_color: "#ffd600",
 			lang: "en",
