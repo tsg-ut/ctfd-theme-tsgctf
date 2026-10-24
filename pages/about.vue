@@ -13,10 +13,10 @@
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
 		</a>
 		<p>
-			TSG CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
+			TSG LIVE! CTF is organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, the official computer society of The
 			University of Tokyo.
 		</p>
-		<p>Below is the full list of TSG members who contributed to this TSG CTF 2025 in success. So many thanks!!</p>
+		<p>Below is the full list of TSG members who contributed to this TSG LIVE! 17 CTF in success. So many thanks!!</p>
 		<ul class="members">
 			<li v-for="member in members" :key="member" class="member">
 				<a :href="member.url" target="_blank" rel="noopener noreferrer">{{ member.name }}</a>
@@ -38,22 +38,9 @@ export default {
 	data() {
 		return {
 			members: [
-				{ url: 'https://twitter.com/hakatashi', name: '@hakatashi' },
-				{ url: 'https://twitter.com/caphosra', name: '@caphosra' },
-				{ url: 'https://twitter.com/__dAi00', name: '@dai' },
-				{ url: 'https://twitter.com/iwashiira', name: '@iwashiira' },
-				{ url: 'https://twitter.com/jiei_univ', name: '@jiei_univ' },
-				{ url: 'https://twitter.com/JP3BGY', name: '@JP3BGY' },
-				{ url: 'https://twitter.com/sasakiy84', name: '@sasakiy84' },
-				{ url: 'https://twitter.com/sitositositoo', name: '@settyan117' },
-				{ url: 'https://twitter.com/syobon_hinata', name: '@syobon_hinata (fabon)' },
-				{ url: 'https://twitter.com/yuimyun_hykook', name: '@yuimyun' },
 				{ url: 'https://twitter.com/lluuiiggeeinfo', name: '@LLUUIIGGEE' },
-				{ url: 'https://twitter.com/aperiodicmikan', name: '@mikanami' },
 				{ url: 'https://twitter.com/sashiming_syumi', name: '@sashiming' },
-				{ url: 'https://x.com/pelo_gram', name: '@puru' },
-				{ url: 'https://github.com/aster-void', name: '@aster-void' },
-				{ url: 'http://twitter.com/13lackade', name: '@matsumatsu' },
+				{ url: 'https://twitter.com/13lackade', name: '@mtmt' },
 			],
 		};
 	},
