@@ -12,6 +12,10 @@ const staticBase =
 		? ""
 		: "/themes/tsgctf/static";
 
+const siteUrl = "https://score.live-ctf.tsg.ne.jp";
+const ogImageUrl = `${siteUrl}${staticBase}/ogimage.jpg`;
+const ogImageAlt = "TSG LIVE! CTF - 2026/11/21 (Sat) 15:00-17:30 (JST)";
+
 export default {
 	ssr: isStatic,
 
@@ -29,16 +33,21 @@ export default {
 					"TSG LIVE! CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
 			{ name: "apple-mobile-web-app-title", content: "TSG LIVE! 17 CTF" },
-			{ name: "og:title", content: "TSG LIVE! 17 CTF" },
-			{ name: "og:site_name", content: "TSG LIVE! 17 CTF" },
+			{ hid: "og:title", property: "og:title", content: "TSG LIVE! 17 CTF" },
+			{ hid: "og:site_name", property: "og:site_name", content: "TSG LIVE! 17 CTF" },
 			{
-				name: "og:description",
+				hid: "og:description",
+				property: "og:description",
 				content:
 					"TSG LIVE! CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
-			{ name: "og:type", content: "website" },
-			{ name: "og:url", content: "https://score.live-ctf.tsg.ne.jp" },
-			{ name: "og:image", content: `${staticBase}/ogimage.jpg` },
+			{ hid: "og:type", property: "og:type", content: "website" },
+			{ hid: "og:url", property: "og:url", content: siteUrl },
+			{ hid: "og:image", property: "og:image", content: ogImageUrl },
+			{ hid: "og:image:type", property: "og:image:type", content: "image/jpeg" },
+			{ hid: "og:image:width", property: "og:image:width", content: "1200" },
+			{ hid: "og:image:height", property: "og:image:height", content: "630" },
+			{ hid: "og:image:alt", property: "og:image:alt", content: ogImageAlt },
 			{ name: "twitter:card", content: "summary_large_image" },
 			{ name: "twitter:site", content: "@tsg_ut" },
 			{ name: "twitter:title", content: "TSG LIVE! 17 CTF" },
@@ -47,8 +56,8 @@ export default {
 				content:
 					"TSG LIVE! CTF is an on-line CTF organized by TSG, the official computer society of The University of Tokyo",
 			},
-			{ name: "twitter:image", content: `${staticBase}/ogimage.jpg` },
-			{ name: "twitter:image:alt", content: "TSG LIVE! CTF" },
+			{ name: "twitter:image", content: ogImageUrl },
+			{ name: "twitter:image:alt", content: ogImageAlt },
 		],
 		link: [
 			{ rel: "icon", type: "image/png", href: `${staticBase}/favicon.png` },
