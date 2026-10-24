@@ -8,49 +8,6 @@
 			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20251221T16&p1=248" target="_blank" rel="noopener noreferrer">12/21 07:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(UTC)</p>
-		<h3>Socials</h3>
-		<ul class="socials">
-			<li>
-				<iframe
-					src="https://discord.com/widget?id=546339917459095552&theme=dark"
-					allowtransparency="true"
-					frameborder="0"
-					width="100%"
-					height="100%"
-				>
-					<a href="https://discord.gg/xcZ3t9bC2A" target="_blank" rel="noopener noreferrer">Discord</a>
-				</iframe>
-			</li>
-			<li>
-				<timeline
-					id="tsgctf"
-					source-type="profile"
-					:options="{tweetLimit: '3', theme: 'dark', height: '500'}"
-				>
-					<a href="https://twitter.com/tsgctf" target="_blank" rel="noopener noreferrer">Tweets from @tsgctf</a>
-				</timeline>
-			</li>
-		</ul>
-		<h3>Sponsor</h3>
-		<a href="https://flatt.tech/en" target="_blank" rel="noopener noreferrer">
-			<img src="https://ctf.tsg.ne.jp/images/fs_logo.png" :style="{maxWidth: '60rem'}">
-		</a>
-		<p>GMO Flatt Security, based in Tokyo, offers expert security assessments and penetration testing for software.</p>
-		<p>Our seasoned professionals deliver proven, top-tier services.</p>
-		<p>We also provide Takumi byGMO, the AI Security Engineer that brings human-level reasoning to application security.</p>
-		<p>東京に拠点を置くGMO Flatt Securityは、ソフトウェアを対象とした専門的な脆弱性診断およびペネトレーションテストを提供しています。</p>
-		<p>当社の経験豊富なプロフェッショナルが、実績のある最高水準のサービスをご提供します。</p>
-		<p>加えて、当社はアプリケーションセキュリティに人間レベルの推論をもたらすAIセキュリティエンジニア、Takumi byGMOも提供しています。</p>
-		<h3>Prizes</h3>
-		<ul>
-			<li>1st: 1,000USD</li>
-			<li>2nd: 500 USD</li>
-			<li>3rd: 200 USD</li>
-		</ul>
-		<ul>
-			<li>The winning team will also qualify for the SECCON CTF 14 Finals (International Division).</li>
-			If the first-place team has already qualified, it will receive another entry unless it declines; if the team withdraws from qualification, the second-place team qualifies instead.
-		</ul>
 		<h3>Staffs</h3>
 		<a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">
 			<img src="https://old.tsg.ne.jp/images/tsg-logo.png">
@@ -72,10 +29,7 @@
 </template>
 
 <script>
-import {Timeline} from 'vue-tweet-embed';
-
 export default {
-	components: {Timeline},
 	head() {
 		return {
 			title: 'About - TSG CTF',
@@ -137,24 +91,6 @@ export default {
 		line-height: 2rem;
 	}
 
-	ul.socials {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		padding: 0;
-
-		li {
-			flex: 0 0 20rem;
-			height: 30rem;
-			overflow-y: auto;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			font-size: 1rem;
-			margin: 0 1rem 0.6rem;
-		}
-	}
-
 	img {
 		display: block;
 		margin: 0 auto;
@@ -165,10 +101,6 @@ export default {
 
 	a {
 		color: #90cbff;
-	}
-
-	:has(.twitter-timeline) {
-		width: 100%;
 	}
 
 	.ojigineko {

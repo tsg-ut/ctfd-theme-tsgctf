@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="layout">
 		<div class="header">
 			<div class="title">
 				<iso-link to="/">TSG CTF 2025</iso-link>
@@ -114,24 +114,6 @@
 			<nuxt/>
 		</div>
 		<div class="footer">
-			<p class="sponsor-line">
-				Sponsored by
-				<a href="https://flatt.tech/" target="_blank" rel="noopener noreferrer">
-					<img class="flatt" src="@/static/flatt.png" alt="flatt Security">
-				</a>
-				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
-					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
-				</a>
-			</p>
-			<p class="sponsor-line">
-				Infra Sponsored by <a href="https://g.co/cloud" target="_blank" rel="noopener noreferrer">g.co/cloud</a>
-				<a href="https://g.co/cloud" target="_blank" rel="noopener noreferrer">
-					<img class="google-cloud" src="@/static/google-cloud.png" alt="flatt Security">
-				</a>
-				<a href="https://en.wiktionary.org/wiki/%E3%81%8A%E8%BE%9E%E5%84%80" target="_blank" rel="noopener noreferrer">
-					<img class="ojigineko" src="@/static/ojigineko-white.gif" alt="ojigineko">
-				</a>
-			</p>
 			<p>Organized by <a href="https://tsg.ne.jp/" target="_blank" rel="noopener noreferrer">TSG</a>, a student team from The University of Tokyo</p>
 			<p>Powered by <a href="https://ctfd.io/" target="_blank" rel="noopener noreferrer">CTFd</a></p>
 		</div>
@@ -430,9 +412,15 @@ hr {
 	}
 }
 
+.layout {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 .root-content {
+	flex: 1;
 	padding: 4rem 1rem 0;
-	min-height: calc(100vh - 13rem);
 }
 
 section > h2.title {
@@ -473,42 +461,6 @@ section > h2.title {
 
 	a {
 		color: #ff8a00;
-	}
-
-	.sponsor-line {
-		line-height: 3rem;
-
-		&::before {
-			content: '';
-			display: inline-block;
-			width: 1rem;
-			height: 1rem;
-		}
-	}
-
-	.flatt {
-		vertical-align: middle;
-		width: 18rem;
-	}
-
-	.google-cloud {
-		vertical-align: middle;
-		width: 2rem;
-	}
-
-	.ojigineko {
-		background: url('../static/ojigineko-white.gif');
-		background-size: cover;
-		display: inline-block;
-		width: 1rem;
-		height: 1rem;
-		opacity: 0;
-		vertical-align: -28%;
-		transition: opacity 0.2s;
-	}
-
-	.sponsor-line:hover .ojigineko {
-		opacity: 0.3;
 	}
 }
 
