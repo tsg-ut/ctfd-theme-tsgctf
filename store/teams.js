@@ -1,7 +1,6 @@
 export const state = () => ({
 	teams: new Map(),
 	brackets: [],
-	fields: [],
 });
 
 export const getters = {
@@ -14,9 +13,6 @@ export const mutations = {
 	},
 	setBrackets(s, brackets) {
 		s.brackets = brackets;
-	},
-	setFields(s, fields) {
-		s.fields = fields;
 	},
 };
 
@@ -63,12 +59,5 @@ export const actions = {
 			params: {type},
 		});
 		commit('setBrackets', res.data);
-	},
-
-	async fetchFields({commit}, {$axios, type = 'teams'}) {
-		const res = await $axios.$get('/api/v1/fields', {
-			params: {type},
-		});
-		commit('setFields', res.data);
 	},
 };
