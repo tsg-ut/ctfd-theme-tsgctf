@@ -17,6 +17,17 @@ export const mutations = {
 };
 
 export const actions = {
+	async getOwnTeam({rootState}, {$axios}) {
+		if (rootState.isStatic) {
+			return null;
+		}
+		const {data: team, headers} = await $axios.get('/api/v1/teams/me');
+		if (headers['content-type'] !== 'application/json' || !team.data.id) {
+			return null;
+		}
+		const {data: solves} = await $axios.get('/api/v1/teams/me/solves');
+		return {...team.data, solves: solves.data};
+	},
 	async getTeam({ commit, dispatch, rootState }, { $axios, id }) {
 		const [{ data: team, headers }, { data: solves }] = await Promise.all([
 			$axios.get(`/api/v1/teams/${id}`),

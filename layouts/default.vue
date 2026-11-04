@@ -21,7 +21,7 @@
 							<iso-link to="/challenges" class="dropdown-menu-item">Challenges</iso-link>
 							<iso-link
 								v-if="!isStatic"
-								:to="isInTeam ? `/teams/${team && team.id}` : '/team'"
+								to="/team"
 								class="dropdown-menu-item"
 							>
 								Team
@@ -67,7 +67,7 @@
 							</div>
 						</div>
 						<div v-if="isDropping" class="dropdown-menu" @click="onClickDropdown">
-							<iso-link :to="isInTeam ? `/teams/${team && team.id}` : '/team'" class="dropdown-menu-item">Team</iso-link>
+							<iso-link to="/team" class="dropdown-menu-item">Team</iso-link>
 							<iso-link to="/settings" class="dropdown-menu-item">Settings</iso-link>
 							<a href="/logout" class="dropdown-menu-item" @click="logout">Logout</a>
 						</div>

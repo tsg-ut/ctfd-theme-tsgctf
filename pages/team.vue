@@ -1,5 +1,6 @@
 <template>
-	<section class="JoinTeam">
+	<team-profile v-if="privateTeam" :team="privateTeam" :score="privateScore"/>
+	<section v-else class="JoinTeam">
 		<h2 class="title"><span>Join or Create Team</span></h2>
 		<div class="subtitle">In order to participate you must either join or create a team.</div>
 		<iso-link to="/teams/join" class="button join">Join Team</iso-link>
@@ -9,17 +10,31 @@
 
 <script>
 import IsoLink from '~/components/IsoLink.vue';
+import TeamProfile from '~/components/TeamProfile.vue';
 import {mapState} from 'vuex';
 
 export default {
-	components: {IsoLink},
+	components: {IsoLink, TeamProfile},
+	async asyncData(context) {
+		if (context.store.state.isStatic) {
+			return {privateTeam: null};
+		}
+		const [privateTeam] = await Promise.all([
+			context.store.dispatch('teams/getOwnTeam', context),
+			context.store.dispatch('teams/fetchBrackets', {$axios: context.$axios, type: 'teams'}),
+		]);
+		return {privateTeam};
+	},
 	head() {
 		return {
 			title: 'Team - TSG LIVE! 17 CTF',
 		};
 	},
 	computed: {
-		...mapState(['isInTeam', 'isVerified', 'isLoggedIn', 'team']),
+		privateScore() {
+			return {score: this.privateTeam.score, pos: this.privateTeam.place};
+		},
+		...mapState(['isVerified', 'isLoggedIn']),
 	},
 	mounted() {
 		if (!this.isVerified) {
@@ -34,12 +49,6 @@ export default {
 				path: '/login',
 			});
 			return;
-		}
-
-		if (this.isInTeam && this.team && this.team.id) {
-			this.$router.replace({
-				path: `/teams/${this.team.id}`,
-			});
 		}
 	},
 };
