@@ -6,6 +6,7 @@ const proxy = createProxyMiddleware({
 });
 
 const isStatic = process.env.NUXT_ENV_STATIC === "true";
+const isPreContest = isStatic && process.env.NUXT_ENV_PRE_CONTEST === "true";
 
 const staticBase =
 	process.env.NODE_ENV === "development" || isStatic
@@ -18,6 +19,8 @@ const ogImageUrl = `${siteUrl}${staticBase}/ogimage.jpg`;
 const ogImageAlt = "TSG LIVE! CTF - 2026/11/21 (Sat) 15:00-17:30 (JST)";
 
 export default {
+	srcDir: isPreContest ? process.env.NUXT_ENV_PRE_CONTEST_SRC : ".",
+
 	ssr: isStatic,
 
 	target: "static",
@@ -70,15 +73,13 @@ export default {
 	css: [],
 
 	plugins: [
-		"~/plugins/axios",
-		"~/plugins/vue-timeago",
+		...(isPreContest ? [] : ["~/plugins/axios", "~/plugins/vue-timeago"]),
 		"~/plugins/inject-is-static",
 	],
 
 	modules: [
 		...(isStatic ? [] : ["nuxt-client-init-module"]),
-		"@nuxtjs/axios",
-		"@nuxtjs/markdownit",
+		...(isPreContest ? [] : ["@nuxtjs/axios", "@nuxtjs/markdownit"]),
 		"@nuxtjs/pwa",
 	],
 	render: {
@@ -88,7 +89,7 @@ export default {
 	generate: {
 		fallback: "404.html",
 		routes: async () => {
-			if (!isStatic) {
+			if (!isStatic || isPreContest) {
 				return [];
 			}
 			const teams = [];

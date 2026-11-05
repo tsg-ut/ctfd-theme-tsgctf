@@ -5,7 +5,7 @@
 				<iso-link to="/">TSG LIVE! 17 CTF</iso-link>
 			</div>
 			<div class="spacer"/>
-			<div v-if="isLoggedIn">
+			<div v-if="!isPreContest && isLoggedIn">
 				<div v-if="isMobile" class="menu">
 					<div v-on-clickaway="onClickaway" class="menu-item dropdown">
 						<div class="dropdown-trigger" @click="isDropping = !isDropping">
@@ -74,7 +74,7 @@
 					</div>
 				</div>
 			</div>
-			<div v-else>
+			<div v-else-if="!isPreContest">
 				<div v-if="isMobile" class="menu">
 					<div v-on-clickaway="onClickaway" class="menu-item dropdown">
 						<div class="dropdown-trigger" @click="isDropping = !isDropping">
@@ -140,7 +140,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapState(['isStatic', 'isLoggedIn', 'isInTeam', 'team', 'user']),
+		...mapState(['isStatic', 'isPreContest', 'isLoggedIn', 'isInTeam', 'team', 'user']),
 	},
 	mounted() {
 		if (window.innerWidth <= 900) {

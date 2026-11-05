@@ -4,6 +4,7 @@ const path = require('node:path');
 const {spawn} = require('node:child_process');
 const fs = require('fs-extra');
 const {Archive} = require('./lib/archive');
+const {preparePreContest} = require('./lib/pre-contest');
 
 async function main() {
 	const root = path.resolve(__dirname, '..');
@@ -15,8 +16,9 @@ async function main() {
 	});
 	const requests = new Map();
 	let failed = false;
+	let preContest = false;
 	const server = http.createServer(async (request, response) => {
-		if (request.method !== 'GET' || !request.url.startsWith('/api/v1/')) {
+		if (request.method !== 'GET' || !request.url.startsWith('/api/v1/') || preContest) {
 			response.writeHead(404).end();
 			return;
 		}
@@ -36,8 +38,22 @@ async function main() {
 		}
 	});
 	try {
+		const dates = await archive.api('/api/v1/dates');
+		if (!dates.data || typeof dates.data.is_started !== 'boolean' || typeof dates.data.is_ended !== 'boolean') {
+			throw new Error('Cannot determine contest state from /api/v1/dates');
+		}
+		preContest = !dates.data.is_started && !dates.data.is_ended;
+		requests.set('/api/v1/dates', Promise.resolve(dates));
+		const source = preContest ? await preparePreContest(root, temporary) : root;
+		console.log(preContest ? 'Exporting pre-contest site (home and 404 only)' : 'Exporting full contest archive');
 		await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
-		const env = {...process.env, NUXT_ENV_STATIC: 'true', CTFD_URL: `http://127.0.0.1:${server.address().port}`};
+		const env = {
+			...process.env,
+			NUXT_ENV_STATIC: 'true',
+			NUXT_ENV_PRE_CONTEST: String(preContest),
+			NUXT_ENV_PRE_CONTEST_SRC: source,
+			CTFD_URL: `http://127.0.0.1:${server.address().port}`,
+		};
 		delete env.SESSION;
 		const status = await new Promise((resolve, reject) => {
 			const child = spawn(process.execPath, [require.resolve('nuxt/bin/nuxt.js'), 'generate', '--fail-on-error'], {cwd: root, env, stdio: 'inherit'});
@@ -51,7 +67,9 @@ async function main() {
 			await fs.copy(archive.directory, path.join(root, 'dist/files'));
 		}
 	} finally {
-		await new Promise((resolve) => server.close(resolve));
+		if (server.listening) {
+			await new Promise((resolve) => server.close(resolve));
+		}
 		await fs.remove(temporary);
 	}
 }

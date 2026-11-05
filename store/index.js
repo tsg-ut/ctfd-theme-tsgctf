@@ -9,6 +9,7 @@ export const state = () => ({
 	isEnded: false,
 	isVerified: true,
 	isStatic: null,
+	isPreContest: false,
 	user: {},
 	team: {},
 	rules: '',

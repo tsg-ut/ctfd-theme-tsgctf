@@ -8,7 +8,7 @@
 			</h1>
 			<p class="subtitle">Pwn, Web, Crypto, Rev, etc...</p>
 			<div class="timer">{{ timer }}</div>
-			<div v-if="!isLoggedIn" class="buttons">
+			<div v-if="!isLoggedIn && !isPreContest" class="buttons">
 				<iso-link to="/login" class="button login">Login</iso-link>
 				<iso-link to="/register" class="button register">Register</iso-link>
 			</div>
@@ -27,7 +27,7 @@ export default {
 	components: { IsoLink },
 	data() {
 		return {
-			remainingTime: this.getRemaining(),
+			remainingTime: null,
 		}
 	},
 	head() {
@@ -37,6 +37,9 @@ export default {
 	},
 	computed: {
 		timer() {
+			if (this.remainingTime === null) {
+				return '--:--:--:--'
+			}
 			const days = Math.floor(this.remainingTime / 1000 / 60 / 60 / 24)
 				.toString()
 				.padStart(2, '0')
@@ -51,9 +54,10 @@ export default {
 				.padStart(2, '0')
 			return `${days}:${hours}:${minutes}:${seconds}`
 		},
-		...mapState(['isLoggedIn']),
+		...mapState(['isLoggedIn', 'isPreContest']),
 	},
 	mounted() {
+		this.remainingTime = this.getRemaining()
 		this.interval = setInterval(() => {
 			this.remainingTime = this.getRemaining()
 		}, 1000)
