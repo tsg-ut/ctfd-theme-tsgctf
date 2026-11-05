@@ -29,7 +29,7 @@ $ npm run dev
 $ npm run build
 
 # build static website
-$ SESSION=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx npm run generate
+$ CTFD_URL=https://score.live-ctf.tsg.ne.jp SESSION=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx npm run generate
 ```
 
 Following patch is required during development (don't do this in production):

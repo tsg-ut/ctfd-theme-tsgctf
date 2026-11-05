@@ -76,7 +76,7 @@
 							v-for="file in challenge.details.files"
 							:key="file"
 							class="attachment"
-							:href="getFileLink(file)"
+							:href="file"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -182,16 +182,6 @@ export default {
 		getFileName(path) {
 			const components = new URL(path, location.href).pathname.split('/');
 			return components[components.length - 1];
-		},
-		getFileLink(path) {
-			if (!this.isStatic) {
-				return path;
-			}
-
-			const components = new URL(path, location.href).pathname.split('/');
-			const fileName = components[components.length - 1];
-			const challengeId = components[components.length - 2];
-			return `https://tsgctf-ctfd-storage.storage.googleapis.com/tsgctf-ctfd-storage/${challengeId}/${fileName}`;
 		},
 		getSolvesText(solves) {
 			return `${solves} ${solves === 1 ? 'solve' : 'solves'}`;

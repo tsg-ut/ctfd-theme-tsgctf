@@ -13,6 +13,7 @@ const staticBase =
 		: "/themes/tsgctf/static";
 
 const siteUrl = "https://score.live-ctf.tsg.ne.jp";
+const apiBaseURL = process.env.CTFD_URL || siteUrl;
 const ogImageUrl = `${siteUrl}${staticBase}/ogimage.jpg`;
 const ogImageAlt = "TSG LIVE! CTF - 2026/11/21 (Sat) 15:00-17:30 (JST)";
 
@@ -94,7 +95,7 @@ export default {
 			let page = 1;
 			while (true) {
 				const { data } = await axios.get(
-					"https://score.live-ctf.tsg.ne.jp/api/v1/teams",
+					`${apiBaseURL.replace(/\/$/, "")}/api/v1/teams`,
 					{ params: { page } },
 				);
 				teams.push(...data.data);
@@ -111,7 +112,7 @@ export default {
 	},
 
 	axios: {
-		baseURL: "https://score.live-ctf.tsg.ne.jp/",
+		baseURL: apiBaseURL,
 		browserBaseURL: "/",
 	},
 
@@ -170,10 +171,6 @@ export default {
 				]
 			: []),
 	],
-
-	env: {
-		session: process.env.SESSION || "",
-	},
 
 	pwa: {
 		icon: {
