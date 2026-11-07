@@ -5,7 +5,7 @@
 		<p class="period">
 			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20261121T1500&p1=248" target="_blank" rel="noopener noreferrer">11/21 15:00</a>
 			-
-			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20261121T1730&p1=248" target="_blank" rel="noopener noreferrer">11/21 17:30</a>
+			<a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20261121T1700&p1=248" target="_blank" rel="noopener noreferrer">11/21 17:00</a>
 		</p>
 		<p :style="{textAlign: 'center'}">(JST)</p>
 		<h3>Staffs</h3>

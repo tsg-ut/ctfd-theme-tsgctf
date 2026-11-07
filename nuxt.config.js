@@ -16,7 +16,7 @@ const staticBase =
 const siteUrl = "https://score.live-ctf.tsg.ne.jp";
 const apiBaseURL = process.env.CTFD_URL || siteUrl;
 const ogImageUrl = `${siteUrl}${staticBase}/ogimage.jpg`;
-const ogImageAlt = "TSG LIVE! CTF - 2026/11/21 (Sat) 15:00-17:30 (JST)";
+const ogImageAlt = "TSG LIVE! CTF - 2026/11/21 (Sat) 15:00-17:00 (JST)";
 
 export default {
 	srcDir: isPreContest ? process.env.NUXT_ENV_PRE_CONTEST_SRC : ".",
