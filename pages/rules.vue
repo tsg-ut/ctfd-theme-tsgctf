@@ -31,7 +31,7 @@ export default {
 <style lang="postcss">
 .Rules {
 	h1, h2, h3 {
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 		text-align: center;
 		text-transform: uppercase;

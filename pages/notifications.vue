@@ -88,7 +88,7 @@ export default {
 		border-radius: 3px;
 
 		.title {
-			font-family: 'Fredoka One', cursive;
+			font-family: 'Fredoka One', sans-serif;
 			font-weight: 300;
 			font-size: 2rem;
 			text-align: center;
@@ -116,7 +116,7 @@ export default {
 	.no-notification {
 		text-align: center;
 		font-size: 2.5rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 		padding: 0;
 		line-height: 2rem;

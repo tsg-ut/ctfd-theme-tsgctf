@@ -268,7 +268,7 @@ button[type='submit'], .button-style {
 	height: 2.5rem;
 	border-radius: 9999px;
 	font-size: 1.5rem;
-	font-family: 'Fredoka One', cursive;
+	font-family: 'Fredoka One', sans-serif;
 	font-weight: 300;
 	background: linear-gradient(90deg, #ffd600 0%, #ff8a00 100%);
 	color: #120d00;
@@ -328,7 +328,7 @@ hr {
 	z-index: 1;
 
 	.title {
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 		font-size: 2rem;
 		display: block;
@@ -386,7 +386,7 @@ hr {
 	}
 
 	.team-score {
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 	}
 
@@ -427,7 +427,7 @@ hr {
 
 section > h2.title {
 	font-size: 4rem;
-	font-family: 'Fredoka One', cursive;
+	font-family: 'Fredoka One', sans-serif;
 	font-weight: 300;
 	text-align: center;
 	text-transform: uppercase;

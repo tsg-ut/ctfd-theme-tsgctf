@@ -75,7 +75,7 @@ export default {
 		line-height: 3rem;
 		border-radius: 9999px;
 		font-size: 1.5rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 
 		&.join {

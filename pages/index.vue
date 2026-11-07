@@ -112,7 +112,7 @@ export default {
 	}
 
 	.ctf-logo {
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-size: 8rem;
 		font-weight: 300;
 		color: #ffd600;
@@ -164,7 +164,7 @@ export default {
 		line-height: 2.6rem;
 		border-radius: 9999px;
 		font-size: 1.5rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 
 		&.login {

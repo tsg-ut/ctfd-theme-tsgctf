@@ -61,7 +61,7 @@ export default {
 
 .error-code {
 	margin: 0.5rem 0;
-	font-family: 'Fredoka One', cursive;
+	font-family: 'Fredoka One', sans-serif;
 	font-size: clamp(7rem, 25vw, 13rem);
 	line-height: 1.1;
 	letter-spacing: 0.03em;
@@ -75,7 +75,7 @@ export default {
 
 #error-title {
 	margin: 1rem 0;
-	font-family: 'Fredoka One', cursive;
+	font-family: 'Fredoka One', sans-serif;
 	font-size: clamp(1.7rem, 6vw, 2.5rem);
 	font-weight: 400;
 	color: #fff8e7;
@@ -99,7 +99,7 @@ export default {
 	padding: 0.85rem 1.6rem;
 	border: 1px solid #ffb000;
 	border-radius: 9999px;
-	font-family: 'Fredoka One', cursive;
+	font-family: 'Fredoka One', sans-serif;
 	font-size: 1.15rem;
 	color: #120d00;
 	background: linear-gradient(90deg, #ffd600, #ff8a00);

@@ -159,7 +159,7 @@ export default {
 
 	.ended {
 		font-size: 2rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 		text-align: center;
 		text-transform: uppercase;
@@ -205,7 +205,7 @@ export default {
 	.not-started {
 		text-align: center;
 		font-size: 2.5rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 		padding: 0;
 		margin-top: 6rem;

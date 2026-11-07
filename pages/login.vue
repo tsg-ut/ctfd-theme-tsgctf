@@ -120,7 +120,7 @@ export default {
 
 	.error {
 		font-size: 1.5rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 
 		color: #f09a98;

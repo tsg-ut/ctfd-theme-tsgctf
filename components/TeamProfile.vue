@@ -168,7 +168,7 @@ export default {
 	}
 
 	.bracket {
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-size: 1.5rem;
 		font-weight: 300;
 		text-align: center;

@@ -297,7 +297,7 @@ export default {
 
 	.title {
 		font-size: 2.5rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 		display: inline-block;
 		letter-spacing: 1px;
@@ -591,7 +591,7 @@ export default {
 			animation: Gradient 3s ease-out 1 both;
 			color: white;
 			font-size: 2rem;
-			font-family: 'Fredoka One', cursive;
+			font-family: 'Fredoka One', sans-serif;
 			font-weight: 300;
 
 			@keyframes Gradient {

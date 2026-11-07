@@ -126,7 +126,7 @@ export default {
 
 	.bracket {
 		display: inline-block;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-size: 1.2rem;
 		font-weight: 200;
 		color: #ead2a2;

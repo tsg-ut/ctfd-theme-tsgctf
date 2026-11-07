@@ -53,7 +53,7 @@ export default {
 .About {
 	h3 {
 		font-size: 2rem;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Fredoka One', sans-serif;
 		font-weight: 300;
 		text-align: center;
 		text-transform: uppercase;
